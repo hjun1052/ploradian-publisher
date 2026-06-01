@@ -1,0 +1,60 @@
+---
+import "@fontsource/newsreader/400.css";
+import "@fontsource/newsreader/500.css";
+import "@fontsource/newsreader/600.css";
+import "@fontsource/newsreader/700.css";
+import "@fontsource/noto-serif-kr/korean-400.css";
+import "@fontsource/noto-serif-kr/korean-500.css";
+import "@fontsource/noto-serif-kr/korean-700.css";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/700.css";
+import "@fontsource/noto-sans-kr/korean-400.css";
+import "@fontsource/noto-sans-kr/korean-500.css";
+import "@fontsource/noto-sans-kr/korean-700.css";
+import "../styles/global.css";
+import SiteHeader from "../components/SiteHeader.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+  showHeader?: boolean;
+}
+
+const {
+  title = "The Ploradian",
+  description = "A static satirical technology, business, and economy newspaper.",
+  showHeader = true
+} = Astro.props;
+
+const pageTitle = title === "The Ploradian" ? title : `${title} - The Ploradian`;
+---
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="/ploradian-mark.svg" />
+    <link rel="alternate" type="application/rss+xml" title="The Ploradian RSS" href="/feed.xml" />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    {showHeader && <SiteHeader />}
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="site-shell footer-grid">
+        <p>The Ploradian publishes satirical technology and business coverage from automated Markdown workflows.</p>
+        <p>본 사이트의 기사는 실제 보도를 바탕으로 재구성한 풍자 콘텐츠입니다.</p>
+        <p><a href="/feed.xml">RSS</a> · <a href="/sitemap.xml">Sitemap</a></p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+---
+import { formatIssueDate } from "../lib/articles";
+
+const issueDate = formatIssueDate();
+---
+
+<header class="site-header">
+  <div class="site-shell">
+    <div class="edition-line">
+      <span>VOL. I</span>
+      <span>{issueDate}</span>
+      <span>PRICE: ONE MOMENT OF ATTENTION</span>
+    </div>
+    <div class="masthead">
+      <a class="masthead-mark" href="/" aria-label="The Ploradian home">
+        <img src="/ploradian-mark.svg" alt="" width="56" height="56" />
+      </a>
+      <a class="masthead-title" href="/">The Ploradian</a>
+    </div>
+    <nav class="primary-nav" aria-label="Primary navigation">
+      <a href="/">Latest</a>
+      <a href="/about/">About</a>
+      <a href="/feed.xml">RSS</a>
+    </nav>
+  </div>
+</header>

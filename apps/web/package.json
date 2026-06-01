@@ -1,0 +1,26 @@
+{
+  "name": "@ploradian/web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev --host 127.0.0.1",
+    "build": "astro build",
+    "preview": "astro preview --host 127.0.0.1",
+    "typecheck": "astro sync && tsc --noEmit --project tsconfig.json"
+  },
+  "dependencies": {
+    "@astrojs/rss": "^4.0.12",
+    "@fontsource/inter": "^5.2.8",
+    "@fontsource/newsreader": "^5.2.8",
+    "@fontsource/noto-sans-kr": "^5.2.9",
+    "@fontsource/noto-serif-kr": "^5.2.9",
+    "astro": "^6.4.2",
+    "gray-matter": "^4.0.3",
+    "marked": "^15.0.12"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.30",
+    "typescript": "^5.8.3"
+  }
+}

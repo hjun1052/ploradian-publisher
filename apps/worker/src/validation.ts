@@ -1,0 +1,131 @@
+import type { FactSummary, GeneratedArticleJson, SourceItem } from "./types";
+
+const BANNED_HYPE_WORDS = [
+  "충격",
+  "경악",
+  "대박",
+  "폭소",
+  "미쳤다",
+  "난리났다",
+  "네티즌 폭발",
+  "ㅋㅋㅋ"
+];
+
+const BANNED_SECTION_HEADERS = [
+  "현실 체념",
+  "자기합리화",
+  "회사식 화법",
+  "짧은 인터뷰",
+  "연관 개소리"
+];
+
+const CRIMINAL_TERMS = ["범죄", "사기", "횡령", "불법", "조작", "기소", "체포", "수사"];
+
+export interface ValidationResult {
+  ok: boolean;
+  reasons: string[];
+}
+
+export function validateGeneratedArticle(
+  article: GeneratedArticleJson,
+  source: SourceItem,
+  facts: FactSummary,
+  sourceText: string
+): ValidationResult {
+  const reasons: string[] = [];
+  const title = article.title.trim();
+  const body = article.body.trim();
+
+  if (!title) {
+    reasons.push("title is empty");
+  }
+
+  if (!body) {
+    reasons.push("body is empty");
+  }
+
+  if (body.length < 520) {
+    reasons.push("body is too short");
+  }
+
+  if (body.length > 5200) {
+    reasons.push("body is too long");
+  }
+
+  for (const word of BANNED_HYPE_WORDS) {
+    if (title.includes(word) || body.includes(word)) {
+      reasons.push(`contains banned cheap-hype word: ${word}`);
+    }
+  }
+
+  for (const header of BANNED_SECTION_HEADERS) {
+    if (body.includes(header)) {
+      reasons.push(`contains prompt checklist header: ${header}`);
+    }
+  }
+
+  if (!article.source_name.trim() || !article.source_url.trim() || !article.original_title.trim()) {
+    reasons.push("source attribution fields are incomplete");
+  }
+
+  if (!isProbablyUrl(article.source_url)) {
+    reasons.push("source_url is not a valid URL");
+  }
+
+  const sharedPhrase = findLongSharedPhrase(body, sourceText);
+  if (sharedPhrase) {
+    reasons.push(`appears to copy source phrase: ${sharedPhrase}`);
+  }
+
+  const factualBasis = normalizeForSearch(
+    [
+      source.title,
+      source.summary,
+      facts.conflict_or_controversy,
+      facts.money_stock_market_angle,
+      facts.reader_relevance,
+      ...facts.facts
+    ].join(" ")
+  );
+  const generated = normalizeForSearch(`${title} ${body}`);
+  for (const term of CRIMINAL_TERMS) {
+    if (generated.includes(term) && !factualBasis.includes(term)) {
+      reasons.push(`adds unsupported criminal/legal accusation term: ${term}`);
+    }
+  }
+
+  return {
+    ok: reasons.length === 0,
+    reasons
+  };
+}
+
+function findLongSharedPhrase(body: string, sourceText: string): string | null {
+  const normalizedBody = normalizeForSearch(body).replace(/\s/g, "");
+  const normalizedSource = normalizeForSearch(sourceText).replace(/\s/g, "");
+  if (normalizedSource.length < 36 || normalizedBody.length < 36) {
+    return null;
+  }
+
+  for (let index = 0; index <= normalizedSource.length - 34; index += 7) {
+    const phrase = normalizedSource.slice(index, index + 34);
+    if (phrase.length >= 34 && normalizedBody.includes(phrase)) {
+      return `${phrase.slice(0, 28)}...`;
+    }
+  }
+
+  return null;
+}
+
+function normalizeForSearch(value: string): string {
+  return value.toLowerCase().replace(/\s+/g, " ").trim();
+}
+
+function isProbablyUrl(value: string): boolean {
+  try {
+    const url = new URL(value);
+    return url.protocol === "http:" || url.protocol === "https:";
+  } catch {
+    return false;
+  }
+}

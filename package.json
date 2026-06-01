@@ -1,0 +1,30 @@
+{
+  "name": "the-ploradian",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Static satirical technology and business newspaper with automated Cloudflare Worker publishing.",
+  "workspaces": [
+    "apps/web",
+    "apps/worker"
+  ],
+  "scripts": {
+    "build": "npm run sync:prompt && npm run build --workspace @ploradian/web && npm run build --workspace @ploradian/worker",
+    "dev:web": "npm run dev --workspace @ploradian/web",
+    "dev:worker": "npm run dev --workspace @ploradian/worker",
+    "deploy:web": "npm run build --workspace @ploradian/web && npx wrangler pages deploy apps/web/dist --project-name the-ploradian",
+    "deploy:worker": "npm run deploy --workspace @ploradian/worker",
+    "predeploy": "npm run build && node scripts/predeploy-check.mjs",
+    "predeploy:strict": "npm run build && node scripts/predeploy-check.mjs --strict",
+    "sync:prompt": "node scripts/sync-prompt.mjs",
+    "typecheck": "npm run typecheck --workspace @ploradian/web && npm run typecheck --workspace @ploradian/worker"
+  },
+  "overrides": {
+    "yaml": "^2.9.0",
+    "yaml-language-server": {
+      "yaml": "^2.9.0"
+    }
+  },
+  "engines": {
+    "node": ">=20.11"
+  }
+}

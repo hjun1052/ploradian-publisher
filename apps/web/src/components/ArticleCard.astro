@@ -1,0 +1,26 @@
+---
+import type { Article } from "../lib/articles";
+import { formatDisplayDate } from "../lib/articles";
+
+interface Props {
+  article: Article;
+  variant?: "lead" | "standard" | "brief";
+}
+
+const { article, variant = "standard" } = Astro.props;
+const href = `/article/${article.slug}/`;
+---
+
+<article class:list={["article-card", `article-card-${variant}`]}>
+  <p class="kicker">{article.category}</p>
+  <h2>
+    <a href={href}>{article.title}</a>
+  </h2>
+  {variant !== "brief" && <p class="deck">{article.subtitle}</p>}
+  {variant === "lead" && <p class="excerpt">{article.excerpt}</p>}
+  <p class="article-meta">
+    <time datetime={article.date}>{formatDisplayDate(article.date)}</time>
+    <span aria-hidden="true">/</span>
+    <span>{article.source_name}</span>
+  </p>
+</article>

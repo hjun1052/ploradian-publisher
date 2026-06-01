@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.astro/
+.wrangler/
+.dev.vars
+.DS_Store
+apps/web/dist/
+apps/web/.astro/
+apps/worker/.wrangler/
+apps/worker/worker-configuration.d.ts

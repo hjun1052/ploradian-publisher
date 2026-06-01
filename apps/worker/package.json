@@ -1,0 +1,20 @@
+{
+  "name": "@ploradian/worker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "npm run typecheck",
+    "dev": "wrangler dev --config wrangler.toml",
+    "deploy": "npm run build && wrangler deploy --config wrangler.toml",
+    "typecheck": "wrangler types --config wrangler.toml && tsc --noEmit"
+  },
+  "dependencies": {
+    "fast-xml-parser": "^5.2.3"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260601.1",
+    "typescript": "^5.8.3",
+    "wrangler": "^4.19.1"
+  }
+}

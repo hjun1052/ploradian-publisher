@@ -1,0 +1,17 @@
+# Copy this file to apps/worker/.dev.vars for local Worker testing.
+# Do not commit apps/worker/.dev.vars with real secrets.
+
+AI_PROVIDER=openai
+OPENAI_MODEL=gpt-5.5
+OPENAI_API_KEY=sk-your-openai-api-key
+
+# Local-only token used by POST /run.
+CRON_SECRET=local-dev-secret
+
+# Keep true for local generation tests that should not commit to GitHub.
+DRY_RUN=true
+
+# Required only when testing real GitHub commits locally.
+# GITHUB_TOKEN=github_pat_your_token
+# GITHUB_REPO=owner/repo
+# GITHUB_BRANCH=main

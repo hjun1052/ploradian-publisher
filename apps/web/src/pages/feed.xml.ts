@@ -1,0 +1,30 @@
+import rss from "@astrojs/rss";
+import type { APIContext } from "astro";
+import { getPublishedArticles } from "../lib/articles";
+
+export async function GET(context: APIContext) {
+  const articles = await getPublishedArticles();
+  const site = context.site?.toString() ?? "https://ploradian.com/";
+
+  return rss({
+    title: "The Ploradian",
+    description: "Satirical technology, business, and economy articles.",
+    site,
+    items: articles.map((article) => ({
+      title: article.title,
+      description: article.subtitle,
+      pubDate: new Date(article.date),
+      link: `/article/${article.slug}/`,
+      categories: [article.category],
+      customData: `<source>${escapeXml(article.source_name)}</source>`
+    }))
+  });
+}
+
+function escapeXml(value: string): string {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;");
+}

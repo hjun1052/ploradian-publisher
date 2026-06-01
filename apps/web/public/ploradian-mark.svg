@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="The Ploradian mark">
+  <rect width="96" height="96" rx="48" fill="#171513"/>
+  <circle cx="48" cy="48" r="39" fill="none" stroke="#f7f1e6" stroke-width="3"/>
+  <path d="M30 69V27h20c10 0 17 6 17 15 0 10-7 16-18 16h-8v11H30Zm11-21h8c4 0 7-2 7-6 0-3-3-5-7-5h-8v11Z" fill="#f7f1e6"/>
+  <path d="M62 66c-3 3-7 5-13 5-13 0-23-10-23-23s10-23 23-23c5 0 10 2 13 5l-5 8c-2-2-5-3-8-3-7 0-12 6-12 13s5 13 12 13c4 0 7-1 9-4l4 9Z" fill="#7c1f2c"/>
+</svg>
