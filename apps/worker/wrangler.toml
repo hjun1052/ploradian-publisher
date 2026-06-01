@@ -3,6 +3,15 @@ main = "src/index.ts"
 compatibility_date = "2026-06-01"
 compatibility_flags = ["nodejs_compat"]
 workers_dev = true
+routes = [
+  { pattern = "news.ploradian.com", custom_domain = true }
+]
+
+[assets]
+directory = "../web/dist"
+binding = "ASSETS"
+html_handling = "auto-trailing-slash"
+not_found_handling = "404-page"
 
 [observability]
 enabled = true

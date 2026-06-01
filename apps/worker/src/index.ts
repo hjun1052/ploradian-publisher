@@ -27,7 +27,7 @@ export default {
     }
 
     if (url.pathname !== "/run") {
-      return json({ ok: false, error: "Not found" }, 404);
+      return env.ASSETS.fetch(request);
     }
 
     if (request.method !== "POST") {

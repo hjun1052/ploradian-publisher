@@ -137,4 +137,10 @@ npm run deploy:web
 npm run deploy:worker
 ```
 
+The Worker also serves the static web build on the custom domain `news.ploradian.com`.
+API endpoints stay on the same Worker:
+
+- `GET /health`
+- `POST /run`
+
 Generated articles are committed through the GitHub REST API. The Worker never commits raw copied article bodies; it commits only generated Markdown plus `content/sources/seen.json`.

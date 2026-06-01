@@ -12,7 +12,7 @@
     "dev:web": "npm run dev --workspace @ploradian/web",
     "dev:worker": "npm run dev --workspace @ploradian/worker",
     "deploy:web": "npm run build --workspace @ploradian/web && npx wrangler pages deploy apps/web/dist --project-name the-ploradian",
-    "deploy:worker": "npm run deploy --workspace @ploradian/worker",
+    "deploy:worker": "npm run build --workspace @ploradian/web && npm run deploy --workspace @ploradian/worker",
     "predeploy": "npm run build && node scripts/predeploy-check.mjs",
     "predeploy:strict": "npm run build && node scripts/predeploy-check.mjs --strict",
     "sync:prompt": "node scripts/sync-prompt.mjs",
