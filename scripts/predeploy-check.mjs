@@ -30,6 +30,35 @@ function gitRemote() {
   }
 }
 
+function workerSecrets() {
+  try {
+    const raw = execFileSync(
+      "npx",
+      ["wrangler", "secret", "list", "--config", "apps/worker/wrangler.toml"],
+      {
+        cwd: root,
+        encoding: "utf8",
+        stdio: ["ignore", "pipe", "ignore"]
+      }
+    );
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) {
+      return null;
+    }
+    return new Set(parsed.map((item) => (item && typeof item.name === "string" ? item.name : "")).filter(Boolean));
+  } catch {
+    return null;
+  }
+}
+
+function requireSecret(secrets, name) {
+  if (secrets?.has(name)) {
+    ok.push(`Cloudflare secret exists: ${name}`);
+  } else {
+    pending.push(`Set Cloudflare secret ${name}.`);
+  }
+}
+
 function githubRepoFromRemote(remote) {
   if (!remote) {
     return "";
@@ -71,10 +100,15 @@ if (!exists("apps/worker/wrangler.toml")) {
   const githubBranch = tomlValue(wrangler, "GITHUB_BRANCH");
   const dryRun = tomlValue(wrangler, "DRY_RUN");
   const remoteRepo = githubRepoFromRemote(gitRemote());
+  const secrets = workerSecrets();
+
+  if (!secrets) {
+    warnings.push("Could not verify Cloudflare Worker secrets with Wrangler.");
+  }
 
   if (provider === "openai") {
     ok.push("AI provider is OpenAI.");
-    pending.push("Set Cloudflare secret OPENAI_API_KEY.");
+    requireSecret(secrets, "OPENAI_API_KEY");
   } else if (provider === "workers-ai") {
     warnings.push("AI_PROVIDER is workers-ai; add an [ai] binding before deploying this mode.");
   } else {
@@ -107,18 +141,18 @@ if (!exists("apps/worker/wrangler.toml")) {
   }
 
   if (dryRun === "false") {
-    pending.push("Set Cloudflare secret GITHUB_TOKEN before real publishing.");
+    requireSecret(secrets, "GITHUB_TOKEN");
   } else {
     warnings.push("DRY_RUN is not false; scheduled runs will not commit generated articles.");
   }
 
-  pending.push("Set Cloudflare secret CRON_SECRET for manual /run requests.");
+  requireSecret(secrets, "CRON_SECRET");
 }
 
 if (exists("apps/worker/.dev.vars")) {
   ok.push("Local Worker secret file exists: apps/worker/.dev.vars");
 } else {
-  pending.push("For local Worker dry runs, copy apps/worker/.dev.vars.example to apps/worker/.dev.vars and fill local values.");
+  warnings.push("Optional local dry runs need apps/worker/.dev.vars copied from apps/worker/.dev.vars.example.");
 }
 
 if (!exists("apps/worker/.dev.vars.example")) {
