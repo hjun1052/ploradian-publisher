@@ -129,51 +129,10 @@ export function validateGeneratedArticle(
     reasons.push("body is too long");
   }
 
-  if (body.length > 900 && countSatireSignals(`${title} ${article.subtitle} ${body}`) < 3) {
-    reasons.push("satire is too polite; add sharper grounded ridicule, analogy, or irony");
-  }
-
-  if (body.length > 900 && countJokeCarriers(`${title} ${article.subtitle} ${body}`) < 5) {
-    reasons.push("article reads like serious criticism; add more visible jokes, ridicule carriers, and absurd analogies");
-  }
-
-  if (body.length > 900 && countDeadpanDefense(`${title} ${article.subtitle} ${body}`) < 4) {
-    reasons.push("article lacks deadpan corporate-defense satire; calmly defend the absurd logic until it becomes the joke");
-  }
-
-  if (body.length > 900 && countSeriousCritiqueTerms(body) > 5) {
-    reasons.push("too many serious critique terms; reduce policy-column cadence and increase mockery");
-  }
-
-  if (!source.synthetic && article.category !== "헛소리" && body.length > 900 && concreteWeakPointHits(body, facts) < 1) {
-    reasons.push("does not visibly attack any extracted weak point or mockable detail");
-  }
-
-  if (article.satire_brief.straight_faced_defense.length < 3) {
-    reasons.push("satire_brief must include at least three straight-faced defense lines");
-  }
-
-  if (article.satire_brief.must_include_jabs.length < 4) {
-    reasons.push("satire_brief must include at least four concrete jabs");
-  }
-
-  if (article.satire_brief.analogies.length < 3) {
-    reasons.push("satire_brief must include at least three analogies");
-  }
-
-  if (
-    article.satire_brief.straight_faced_defense.length >= 3 &&
-    briefCoverage(body, article.satire_brief.straight_faced_defense) < 2
-  ) {
-    reasons.push("body does not use enough straight-faced defense lines");
-  }
-
-  if (article.satire_brief.must_include_jabs.length >= 4 && briefCoverage(body, article.satire_brief.must_include_jabs) < 2) {
-    reasons.push("body does not use enough satire_brief jabs");
-  }
-
-  if (article.satire_brief.analogies.length >= 3 && briefCoverage(body, article.satire_brief.analogies) < 1) {
-    reasons.push("body does not use enough satire_brief analogies");
+  if (article.category === "헛소리" || source.synthetic) {
+    validateNonsenseArticle(body, reasons);
+  } else {
+    validateSatireArticle(article, source, facts, title, body, reasons);
   }
 
   for (const word of BANNED_HYPE_WORDS) {
@@ -228,6 +187,79 @@ export function validateGeneratedArticle(
     ok: reasons.length === 0,
     reasons
   };
+}
+
+function validateNonsenseArticle(body: string, reasons: string[]): void {
+  if (body.length > 3200) {
+    reasons.push("헛소리 body is too long; keep anti-news short enough to stay pointless");
+  }
+
+  if (countSeriousCritiqueTerms(body) > 2) {
+    reasons.push("헛소리 contains too many serious critique terms");
+  }
+
+  const usefulTerms = ["업계", "시장", "소비자", "전략", "기술", "플랫폼", "정책", "투명성", "리스크", "교훈", "시사점"];
+  for (const term of usefulTerms) {
+    if (body.includes(term)) {
+      reasons.push(`헛소리 should not become useful commentary: ${term}`);
+    }
+  }
+}
+
+function validateSatireArticle(
+  article: GeneratedArticleJson,
+  source: SourceItem,
+  facts: FactSummary,
+  title: string,
+  body: string,
+  reasons: string[]
+): void {
+  if (body.length > 900 && countSatireSignals(`${title} ${article.subtitle} ${body}`) < 3) {
+    reasons.push("satire is too polite; add sharper grounded ridicule, analogy, or irony");
+  }
+
+  if (body.length > 900 && countJokeCarriers(`${title} ${article.subtitle} ${body}`) < 5) {
+    reasons.push("article reads like serious criticism; add more visible jokes, ridicule carriers, and absurd analogies");
+  }
+
+  if (body.length > 900 && countDeadpanDefense(`${title} ${article.subtitle} ${body}`) < 4) {
+    reasons.push("article lacks deadpan corporate-defense satire; calmly defend the absurd logic until it becomes the joke");
+  }
+
+  if (body.length > 900 && countSeriousCritiqueTerms(body) > 5) {
+    reasons.push("too many serious critique terms; reduce policy-column cadence and increase mockery");
+  }
+
+  if (!source.synthetic && body.length > 900 && concreteWeakPointHits(body, facts) < 1) {
+    reasons.push("does not visibly attack any extracted weak point or mockable detail");
+  }
+
+  if (article.satire_brief.straight_faced_defense.length < 3) {
+    reasons.push("satire_brief must include at least three straight-faced defense lines");
+  }
+
+  if (article.satire_brief.must_include_jabs.length < 4) {
+    reasons.push("satire_brief must include at least four concrete jabs");
+  }
+
+  if (article.satire_brief.analogies.length < 3) {
+    reasons.push("satire_brief must include at least three analogies");
+  }
+
+  if (
+    article.satire_brief.straight_faced_defense.length >= 3 &&
+    briefCoverage(body, article.satire_brief.straight_faced_defense) < 2
+  ) {
+    reasons.push("body does not use enough straight-faced defense lines");
+  }
+
+  if (article.satire_brief.must_include_jabs.length >= 4 && briefCoverage(body, article.satire_brief.must_include_jabs) < 2) {
+    reasons.push("body does not use enough satire_brief jabs");
+  }
+
+  if (article.satire_brief.analogies.length >= 3 && briefCoverage(body, article.satire_brief.analogies) < 1) {
+    reasons.push("body does not use enough satire_brief analogies");
+  }
 }
 
 function countSatireSignals(value: string): number {

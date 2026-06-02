@@ -1,4 +1,4 @@
-import { SATIRE_ENGINE_PROMPT } from "./generated/satire-engine";
+import { NONSENSE_ENGINE_PROMPT, SATIRE_ENGINE_PROMPT } from "./generated/satire-engine";
 import { fetchTextWithRetry } from "./http";
 import type { FactSummary, GeneratedArticleJson, RuntimeConfig, SourceItem } from "./types";
 
@@ -135,6 +135,7 @@ export async function generateSatireArticle(
   facts: FactSummary,
   correction?: string
 ): Promise<GeneratedArticleJson> {
+  const prompt = articlePromptFor(source);
   const article = await callModelJson<GeneratedArticleJson>(
     config,
     "ploradian_satire_article",
@@ -142,7 +143,7 @@ export async function generateSatireArticle(
     [
       {
         role: "system",
-        content: `${SATIRE_ENGINE_PROMPT}\n\nOutput strict JSON matching the requested schema.`
+        content: `${prompt}\n\nOutput strict JSON matching the requested schema.`
       },
       {
         role: "user",
@@ -181,6 +182,8 @@ export async function intensifySatireArticle(
   draft: GeneratedArticleJson,
   correction?: string
 ): Promise<GeneratedArticleJson> {
+  const isNonsense = source.synthetic && source.category === "헛소리";
+  const prompt = articlePromptFor(source);
   const article = await callModelJson<GeneratedArticleJson>(
     config,
     "ploradian_satire_article",
@@ -188,7 +191,14 @@ export async function intensifySatireArticle(
     [
       {
         role: "system",
-        content: `${SATIRE_ENGINE_PROMPT}
+        content: isNonsense
+          ? `${prompt}
+
+You are now the final nonsense desk. Preserve the anti-news premise.
+Make it emptier, more contextless, and more serenely pointless.
+Do not turn it into tech/business satire, corporate critique, or a useful essay.
+Keep the newspaper form. Output strict JSON matching the requested schema.`
+          : `${prompt}
 
 You are now the final rewrite desk. The draft is fact-safe but too polite by default.
 Rewrite it into a visibly funnier, meaner final article while preserving every factual boundary.
@@ -213,7 +223,9 @@ Keep the newspaper form. Do not add unsupported facts. Output strict JSON matchi
             existing_draft: draft,
             correction:
               correction ??
-              "The draft passed basic safety but lacks enough deadpan corporate-defense satire. Make the article sound like it is politely defending absurd business logic until the defense itself becomes the insult. Include at least three straight_faced_defense lines in the body. Avoid serious policy-critique cadence."
+              (isNonsense
+                ? "The draft must remain pure 헛소리: contextless, useless, and strangely formal. Remove any useful interpretation, business logic, or normal critique. Keep it shorter and more pointless."
+                : "The draft passed basic safety but lacks enough deadpan corporate-defense satire. Make the article sound like it is politely defending absurd business logic until the defense itself becomes the insult. Include at least three straight_faced_defense lines in the body. Avoid serious policy-critique cadence.")
           },
           null,
           2
@@ -230,6 +242,10 @@ Keep the newspaper form. Do not add unsupported facts. Output strict JSON matchi
     original_title: source.title,
     category: normalizeCategory(article.category || source.category)
   };
+}
+
+function articlePromptFor(source: SourceItem): string {
+  return source.synthetic && source.category === "헛소리" ? NONSENSE_ENGINE_PROMPT : SATIRE_ENGINE_PROMPT;
 }
 
 function normalizeCategory(value: string): string {
