@@ -272,6 +272,40 @@ code {
   font-weight: 500;
 }
 
+.copy-link-button {
+  appearance: none;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  padding: 0;
+  background: transparent;
+  color: var(--color-accent);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+
+.copy-link-button:hover {
+  color: var(--color-ink);
+}
+
+.copy-link-button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.copy-link-status {
+  color: var(--color-ink-soft);
+}
+
+.copy-link-manual {
+  width: min(100%, 320px);
+  border: 1px solid var(--color-rule-strong);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font: inherit;
+  font-size: 0.75rem;
+}
+
 .column-heading {
   margin: 0;
   padding-bottom: var(--space-2);
@@ -526,6 +560,59 @@ code {
   margin: 0 0 var(--space-2);
 }
 
+.article-followups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-6);
+  margin-top: var(--space-8);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-rule-strong);
+}
+
+.article-followups h2 {
+  margin: 0;
+  padding-bottom: var(--space-2);
+  border-bottom: 2px solid var(--color-accent);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.article-followup-list {
+  display: grid;
+  gap: var(--space-4);
+  margin: var(--space-4) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.article-followup-list li {
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.article-followup-list a {
+  font-size: 1.15rem;
+  line-height: 1.08;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.article-followup-list a:hover {
+  text-decoration: underline;
+}
+
+.article-followup-list p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: var(--space-2) 0 0;
+  color: var(--color-ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+}
+
 .site-footer {
   border-top: 1px solid var(--color-rule-strong);
   background: var(--color-paper-muted);
@@ -663,5 +750,10 @@ code {
   .article-prose {
     font-size: 1.12rem;
     line-height: 1.62;
+  }
+
+  .article-followups {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
   }
 }
