@@ -42,7 +42,7 @@ export async function runPublishingPipeline(
       : await scheduledMarketCandidate(new Date(startedAt), config.siteTimezone);
     const nonsense = scheduledNonsenseCandidate(new Date(startedAt), config.siteTimezone);
     const scheduledItems = [market, nonsense].filter((item): item is SourceItem => item !== null);
-    const sourceItems = [...scheduledItems, ...feedItems];
+    const sourceItems = prioritizeSourceItems([...scheduledItems, ...feedItems]);
     const candidates = await unseenCandidates(filterSourceCandidates(sourceItems, skipped), seen);
     if (candidates.length === 0) {
       skipped.push("no unseen source candidates after filtering and seen-store dedupe");
@@ -182,6 +182,53 @@ function filterSourceCandidates(items: SourceItem[], skipped: string[]): SourceI
     skipped.push(`source skipped (${reason}): ${item.title}`);
     return false;
   });
+}
+
+function prioritizeSourceItems(items: SourceItem[]): SourceItem[] {
+  return [...items].sort((left, right) => {
+    const priorityDiff = sourcePriority(left) - sourcePriority(right);
+    if (priorityDiff !== 0) {
+      return priorityDiff;
+    }
+
+    const leftTime = left.publishedAt ? new Date(left.publishedAt).getTime() : 0;
+    const rightTime = right.publishedAt ? new Date(right.publishedAt).getTime() : 0;
+    return rightTime - leftTime;
+  });
+}
+
+function sourcePriority(source: SourceItem): number {
+  if (source.synthetic) {
+    return 0;
+  }
+
+  const feedName = source.feedName.toLowerCase();
+  const text = `${source.feedName} ${source.title} ${source.summary}`.toLowerCase();
+  if (feedName.includes("채권/외환") || /(irs|fx스와프|국채선물|채권-|외환-|달러-원)/i.test(text)) {
+    return 80;
+  }
+
+  if (feedName.includes("the verge") || feedName.includes("ars technica")) {
+    return 10;
+  }
+
+  if (feedName.includes("ib/기업") || feedName.includes("해외주식") || feedName.includes("증권")) {
+    return 15;
+  }
+
+  if (source.category === "비즈니스") {
+    return 20;
+  }
+
+  if (source.category === "기술") {
+    return 25;
+  }
+
+  if (source.category === "시장") {
+    return 35;
+  }
+
+  return 50;
 }
 
 async function extractFactsWithFallback(
