@@ -4,7 +4,7 @@ import { getPublishedArticles } from "../lib/articles";
 
 export async function GET(context: APIContext) {
   const articles = await getPublishedArticles();
-  const site = context.site?.toString() ?? "https://ploradian.com/";
+  const site = context.site?.toString() ?? "https://news.ploradian.com/";
 
   return rss({
     title: "The Ploradian",

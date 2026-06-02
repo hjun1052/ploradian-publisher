@@ -55,7 +55,7 @@ export async function fetchSourcePageText(source: SourceItem): Promise<string> {
     {
       headers: {
         accept: "text/html,application/xhtml+xml,text/plain;q=0.8,*/*;q=0.5",
-        "user-agent": "The Ploradian bot/0.1 (+https://ploradian.com/about/)"
+        "user-agent": "The Ploradian bot/0.1 (+https://news.ploradian.com/about/)"
       }
     },
     {
@@ -86,7 +86,7 @@ async function fetchOneFeed(feed: FeedSource): Promise<SourceItem[]> {
     {
       headers: {
         accept: "application/rss+xml,application/atom+xml,application/xml,text/xml;q=0.9,*/*;q=0.5",
-        "user-agent": "The Ploradian bot/0.1 (+https://ploradian.com/about/)"
+        "user-agent": "The Ploradian bot/0.1 (+https://news.ploradian.com/about/)"
       }
     },
     {

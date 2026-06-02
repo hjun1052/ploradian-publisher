@@ -2,7 +2,7 @@ import type { APIContext } from "astro";
 import { getPublishedArticles } from "../lib/articles";
 
 export async function GET(context: APIContext) {
-  const site = context.site?.toString().replace(/\/$/, "") ?? "https://ploradian.com";
+  const site = context.site?.toString().replace(/\/$/, "") ?? "https://news.ploradian.com";
   const articles = await getPublishedArticles();
   const urls = [
     { loc: `${site}/`, lastmod: latestDate(articles) },

@@ -75,7 +75,7 @@ Non-secret defaults live in `apps/worker/wrangler.toml`:
 ## Cron timing
 
 Cloudflare Cron schedules are UTC. The default schedule is `0 * * * *`, which runs once per hour on the hour.
-Each run publishes up to `MAX_ARTICLES_PER_RUN` articles and rechecks `content/sources/seen.json` immediately before committing so overlapping runs do not publish the same source twice.
+Each run publishes up to `MAX_ARTICLES_PER_RUN` articles. This deployment defaults to one article per hour and rechecks `content/sources/seen.json` immediately before committing so overlapping runs do not publish the same source twice.
 
 ## Manual run
 
@@ -139,6 +139,8 @@ npm run deploy:worker
 ```
 
 The Worker also serves the static web build on the custom domain `news.ploradian.com`.
+
+Generated article commits need a static asset rebuild before they appear on the live site. The repository includes a GitHub Actions workflow that runs `npm run deploy:worker` on every push to `main`. Add a repository secret named `CLOUDFLARE_API_TOKEN` with Workers deploy permission to enable automatic redeploys after Cron commits.
 API endpoints stay on the same Worker:
 
 - `GET /health`

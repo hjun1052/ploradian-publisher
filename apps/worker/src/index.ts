@@ -4,7 +4,7 @@ import { runPublishingPipeline } from "./pipeline";
 export default {
   async scheduled(_controller, env, ctx): Promise<void> {
     ctx.waitUntil(
-      runScheduledPipeline(env)
+      runPublishingPipeline(env, { trigger: "scheduled" })
         .then((result) => {
           console.log(JSON.stringify({ event: "scheduled_run_complete", result }));
         })
@@ -54,34 +54,6 @@ export default {
   }
 } satisfies ExportedHandler<Env>;
 
-async function runScheduledPipeline(env: Env): Promise<unknown> {
-  const values = env as unknown as Record<string, string | undefined>;
-  const configuredUrl = values.SCHEDULED_RUN_URL?.trim();
-  const secret = values.CRON_SECRET?.trim();
-
-  if (configuredUrl && secret) {
-    const url = new URL(configuredUrl);
-    url.searchParams.set("trigger", "scheduled");
-
-    const response = await fetch(url.toString(), {
-      method: "POST",
-      headers: {
-        authorization: `Bearer ${secret}`,
-        "x-ploradian-scheduled": "1"
-      }
-    });
-    const body = await response.text();
-
-    if (!response.ok) {
-      throw new Error(`Scheduled /run failed with HTTP ${response.status}: ${body.slice(0, 500)}`);
-    }
-
-    return parseJsonBody(body);
-  }
-
-  return runPublishingPipeline(env, { trigger: "scheduled" });
-}
-
 async function isAuthorized(request: Request, env: Env): Promise<boolean> {
   const values = env as unknown as Record<string, string | undefined>;
   const secret = values.CRON_SECRET?.trim();
@@ -106,12 +78,4 @@ function json(body: unknown, status: number, headers: Record<string, string> = {
       ...headers
     }
   });
-}
-
-function parseJsonBody(body: string): unknown {
-  try {
-    return JSON.parse(body);
-  } catch {
-    return body;
-  }
 }
