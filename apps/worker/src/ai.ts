@@ -169,7 +169,7 @@ export async function extractFacts(
       {
         role: "system",
         content:
-          "Extract only factual, non-copyrighted bullet points from source metadata. Output strict JSON. Do not copy source prose. Also identify concrete satire targets: awkward claims, mockable details, weak points, and corporate euphemisms. These must be grounded in the source, not invented."
+          "Extract grounded facts only. No source prose copying or invented claims. Include satire targets, mockable details, weak points, and euphemisms. Strict JSON."
       },
       {
         role: "user",
@@ -209,12 +209,7 @@ export async function generateSatireArticle(
         content: isRegularSatire
           ? `${prompt}
 
-You are writing the final article in one pass. Do not produce a polite first draft.
-Use the final rewrite desk behavior immediately: sharper, funnier, meaner, and more rhythmically controlled.
-Build a short chain: fact -> weak point -> fake defense -> final quiet insult.
-Do not repeat one joke with different props. Each paragraph must open a new attack angle.
-Keep it to 4-6 tight body paragraphs. If a paragraph only extends an existing joke, cut it.
-Output strict JSON matching the requested schema.`
+Final article now: sharp, funny, mean, rhythmic. Chain: fact -> weak point -> fake defense -> quiet insult. 4-6 tight paragraphs, no repeated joke. Strict JSON.`
           : `${prompt}\n\nOutput strict JSON matching the requested schema.`
       },
       {
@@ -261,21 +256,9 @@ export async function evaluateSeriousCandidate(
     [
       {
         role: "system",
-        content: `You are The Ploradian 정색 editorial desk.
-Score whether this Korean society/economy/company/labor/policy item deserves a serious critical column.
-Do not write the article. Return strict JSON only.
-
-Scoring criteria:
-- hidden transfer of cost, risk, inconvenience, responsibility, or bargaining power
-- clear who benefits and who pays
-- Korean reader relevance
-- concrete source basis
-- a missing question normal coverage would avoid
-- not just routine promotion, personnel, ceremony, or bland policy notice
-
-Use raw_score from 0 to 100.
-publish_decision should be publish only when the angle is concrete and grounded.
-final_score should initially equal raw_score; downstream editor may adjust for diversity.`
+        content: `Score if this Korean society/economy/company/labor/policy item deserves a 정색 column. Strict JSON; do not write article.
+Criteria: hidden cost/risk/responsibility/bargaining-power transfer; clear beneficiary/payer; Korean relevance; concrete source basis; missing question normal coverage avoids; not routine promo/personnel/ceremony/bland notice.
+raw_score 0-100. publish only for concrete grounded angles. final_score initially equals raw_score.`
       },
       {
         role: "user",
@@ -326,10 +309,7 @@ export async function generateSeriousArticle(
         role: "system",
         content: `${SERIOUS_ENGINE_PROMPT}
 
-Output strict JSON matching the requested schema.
-Do not reveal internal editorial scoring as a separate section.
-Use the editorial judgment as the article's structure, not as metadata decoration.
-Keep the body to 4-6 tight paragraphs. Cut background, repetition, and soft recap.`
+Strict JSON. Use editorial judgment as structure, not metadata. Hide scoring. 4-6 tight paragraphs; cut background, repetition, soft recap.`
       },
       {
         role: "user",
@@ -385,28 +365,14 @@ export async function intensifySatireArticle(
         content: isNonsense
           ? `${prompt}
 
-You are now the final nonsense desk. Preserve the anti-news premise.
-Make it emptier, more contextless, and more serenely pointless.
-Do not turn it into tech/business satire, corporate critique, or a useful essay.
-Keep the newspaper form. Output strict JSON matching the requested schema.`
+Final 헛소리 pass: preserve anti-news, make it emptier/contextless/pointless. No useful essay or tech/business critique. Strict JSON.`
           : isMarketNonsense
             ? `${prompt}
 
-You are now the final market excuse desk. Preserve all supplied numbers exactly.
-Make the explanations more absurd, more name-based, and less financial.
-Remove normal market recap logic. Keep the newspaper form.
-Output strict JSON matching the requested schema.`
+Final 시장 pass: preserve numbers exactly. Make reasons more absurd/name-based and less financial. No normal recap logic. Strict JSON.`
           : `${prompt}
 
-You are now the final rewrite desk. The draft is fact-safe but too polite by default.
-Rewrite it into a visibly funnier, meaner final article while preserving every factual boundary.
-Increase ridicule, indirect contempt, and dry bite. This must read like satire, not a serious critique column.
-Replace neutral explanation with specific mockery grounded in the provided weak points.
-The satire_brief is not metadata decoration: every must_include_jabs item must be substantially reflected in the body.
-The straight_faced_defense lines are the core style: calmly defend the target's absurd logic as if it were reasonable, until the defense becomes the joke.
-Use analogies from satire_brief in the body or rewrite better ones before output.
-Fix rhythm and repetition. Do not let several paragraphs make the same joke with different props. Build a chain: fact -> weak point -> fake defense -> worse implication -> final quiet insult.
-Keep the newspaper form, but shorten aggressively to 4-6 paragraphs. Do not add unsupported facts. Output strict JSON matching the requested schema.`
+Final rewrite: keep facts, make it funnier/meaner/drier. Ground mockery in weak points. Use brief jabs/defenses/analogies in body. No repeated joke. 4-6 paragraphs. Strict JSON.`
       },
       {
         role: "user",
@@ -423,10 +389,10 @@ Keep the newspaper form, but shorten aggressively to 4-6 paragraphs. Do not add 
             correction:
               correction ??
               (isNonsense
-                ? "The draft must remain pure 헛소리: contextless, useless, and strangely formal. Remove any useful interpretation, business logic, or normal critique. Keep it shorter and more pointless."
+                ? "Keep pure 헛소리: contextless, useless, formal, shorter. Remove usefulness/business/critique."
                 : isMarketNonsense
-                  ? "The draft must preserve every percentage exactly, but the explanations should be absurd and financially useless. Use ticker/company/index wordplay and impossible daily-life causes. Remove macro explanations."
-                  : "The draft passed basic safety but lacks enough deadpan corporate-defense satire. Make the article sound like it is politely defending absurd business logic until the defense itself becomes the insult. Include at least three straight_faced_defense lines in the body. Avoid serious policy-critique cadence.")
+                  ? "Preserve percentages exactly. Reasons absurd, financially useless, name-based. Remove macro logic."
+                  : "More deadpan corporate-defense satire; polite defense becomes insult. Use at least 3 defense beats. Avoid policy-column cadence.")
           },
           null,
           2
