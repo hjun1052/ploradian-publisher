@@ -1,4 +1,4 @@
-import { NONSENSE_ENGINE_PROMPT, SATIRE_ENGINE_PROMPT } from "./generated/satire-engine";
+import { MARKET_NONSENSE_ENGINE_PROMPT, NONSENSE_ENGINE_PROMPT, SATIRE_ENGINE_PROMPT } from "./generated/satire-engine";
 import { fetchTextWithRetry } from "./http";
 import type { FactSummary, GeneratedArticleJson, RuntimeConfig, SourceItem } from "./types";
 
@@ -100,6 +100,22 @@ export async function extractFacts(
     };
   }
 
+  if (source.synthetic && source.category === "시장") {
+    return {
+      entities: ["The Ploradian 시장 억지해석 데스크"],
+      numbers: extractNumbers(source.summary),
+      dates: source.publishedAt ? [source.publishedAt] : [],
+      conflict_or_controversy: "실제 숫자와 말이 안 되는 해석이 의도적으로 충돌한다.",
+      money_stock_market_angle: "공급된 등락률과 가격 숫자는 그대로 보존한다.",
+      reader_relevance: "투자 정보가 아니라 숫자에 되도 않는 이유를 붙이는 시장 아무말 브리핑이다.",
+      satire_targets: ["시장 마감 해석", "등락 이유를 사후에 붙이는 습관", "종목명 말장난"],
+      mockable_details: source.summary.split("\n").filter((line) => line.startsWith("- ")),
+      weak_points: ["숫자는 실제지만 이유는 고의로 무의미하다", "금융적 설명을 금지한다"],
+      corporate_euphemisms: [],
+      facts: source.summary.split("\n").filter(Boolean)
+    };
+  }
+
   return callModelJson<FactSummary>(
     config,
     "ploradian_fact_summary",
@@ -171,7 +187,7 @@ export async function generateSatireArticle(
     source_name: source.feedName,
     source_url: source.url,
     original_title: source.title,
-    category: normalizeCategory(article.category || source.category)
+    category: source.synthetic ? source.category : normalizeCategory(article.category || source.category)
   };
 }
 
@@ -183,6 +199,7 @@ export async function intensifySatireArticle(
   correction?: string
 ): Promise<GeneratedArticleJson> {
   const isNonsense = source.synthetic && source.category === "헛소리";
+  const isMarketNonsense = source.synthetic && source.category === "시장";
   const prompt = articlePromptFor(source);
   const article = await callModelJson<GeneratedArticleJson>(
     config,
@@ -198,6 +215,13 @@ You are now the final nonsense desk. Preserve the anti-news premise.
 Make it emptier, more contextless, and more serenely pointless.
 Do not turn it into tech/business satire, corporate critique, or a useful essay.
 Keep the newspaper form. Output strict JSON matching the requested schema.`
+          : isMarketNonsense
+            ? `${prompt}
+
+You are now the final market excuse desk. Preserve all supplied numbers exactly.
+Make the explanations more absurd, more name-based, and less financial.
+Remove normal market recap logic. Keep the newspaper form.
+Output strict JSON matching the requested schema.`
           : `${prompt}
 
 You are now the final rewrite desk. The draft is fact-safe but too polite by default.
@@ -225,7 +249,9 @@ Keep the newspaper form. Do not add unsupported facts. Output strict JSON matchi
               correction ??
               (isNonsense
                 ? "The draft must remain pure 헛소리: contextless, useless, and strangely formal. Remove any useful interpretation, business logic, or normal critique. Keep it shorter and more pointless."
-                : "The draft passed basic safety but lacks enough deadpan corporate-defense satire. Make the article sound like it is politely defending absurd business logic until the defense itself becomes the insult. Include at least three straight_faced_defense lines in the body. Avoid serious policy-critique cadence.")
+                : isMarketNonsense
+                  ? "The draft must preserve every percentage exactly, but the explanations should be absurd and financially useless. Use ticker/company/index wordplay and impossible daily-life causes. Remove macro explanations."
+                  : "The draft passed basic safety but lacks enough deadpan corporate-defense satire. Make the article sound like it is politely defending absurd business logic until the defense itself becomes the insult. Include at least three straight_faced_defense lines in the body. Avoid serious policy-critique cadence.")
           },
           null,
           2
@@ -240,12 +266,24 @@ Keep the newspaper form. Do not add unsupported facts. Output strict JSON matchi
     source_name: source.feedName,
     source_url: source.url,
     original_title: source.title,
-    category: normalizeCategory(article.category || source.category)
+    category: source.synthetic ? source.category : normalizeCategory(article.category || source.category)
   };
 }
 
 function articlePromptFor(source: SourceItem): string {
-  return source.synthetic && source.category === "헛소리" ? NONSENSE_ENGINE_PROMPT : SATIRE_ENGINE_PROMPT;
+  if (source.synthetic && source.category === "헛소리") {
+    return NONSENSE_ENGINE_PROMPT;
+  }
+
+  if (source.synthetic && source.category === "시장") {
+    return MARKET_NONSENSE_ENGINE_PROMPT;
+  }
+
+  return SATIRE_ENGINE_PROMPT;
+}
+
+function extractNumbers(value: string): string[] {
+  return value.match(/[+-]?\d+(?:,\d{3})*(?:\.\d+)?%?/g) ?? [];
 }
 
 function normalizeCategory(value: string): string {

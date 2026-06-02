@@ -9,6 +9,7 @@ import {
 import { prepareMarkdownArticle } from "./markdown";
 import { findArticleImage } from "./images";
 import { candidateSkipReason } from "./candidates";
+import { scheduledMarketCandidate } from "./market";
 import { scheduledNonsenseCandidate } from "./nonsense";
 import { extractFacts, generateSatireArticle, intensifySatireArticle } from "./ai";
 import { fetchFeedItems, fetchSourcePageText, sourceHash } from "./rss";
@@ -31,8 +32,10 @@ export async function runPublishingPipeline(
     const githubTarget = dryRun ? null : requireGitHubTarget(config);
     const seen = githubTarget ? await readSeenStore(githubTarget) : emptySeenStore();
     const feedItems = await fetchFeedItems(config.rssFeeds);
+    const market = await scheduledMarketCandidate(new Date(startedAt), config.siteTimezone);
     const nonsense = scheduledNonsenseCandidate(new Date(startedAt), config.siteTimezone);
-    const sourceItems = nonsense ? [nonsense, ...feedItems] : feedItems;
+    const scheduledItems = [market, nonsense].filter((item): item is SourceItem => item !== null);
+    const sourceItems = [...scheduledItems, ...feedItems];
     const candidates = await unseenCandidates(filterSourceCandidates(sourceItems, skipped), seen);
 
     for (const candidate of candidates.slice(0, Math.max(config.maxArticlesPerRun * 4, 4))) {

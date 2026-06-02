@@ -130,7 +130,11 @@ export function validateGeneratedArticle(
   }
 
   if (article.category === "헛소리" || source.synthetic) {
-    validateNonsenseArticle(body, reasons);
+    if (article.category === "시장") {
+      validateMarketNonsenseArticle(source, body, reasons);
+    } else {
+      validateNonsenseArticle(body, reasons);
+    }
   } else {
     validateSatireArticle(article, source, facts, title, body, reasons);
   }
@@ -202,6 +206,42 @@ function validateNonsenseArticle(body: string, reasons: string[]): void {
   for (const term of usefulTerms) {
     if (body.includes(term)) {
       reasons.push(`헛소리 should not become useful commentary: ${term}`);
+    }
+  }
+}
+
+function validateMarketNonsenseArticle(source: SourceItem, body: string, reasons: string[]): void {
+  if (body.length > 4200) {
+    reasons.push("market nonsense body is too long; keep the fake recap punchy");
+  }
+
+  const percentages = source.summary.match(/[+-]\d+(?:\.\d+)?%/g) ?? [];
+  const missing = [...new Set(percentages)].filter((percent) => !body.includes(percent));
+  if (missing.length > 0) {
+    reasons.push(`market nonsense must preserve supplied percentages: ${missing.join(", ")}`);
+  }
+
+  const normalMarketTerms = [
+    "금리",
+    "실적",
+    "업황",
+    "외국인 순매수",
+    "외국인 순매도",
+    "기관 순매수",
+    "기관 순매도",
+    "투자심리",
+    "밸류에이션",
+    "가이던스",
+    "인플레이션",
+    "물가",
+    "경기침체",
+    "섹터 로테이션",
+    "차익실현",
+    "수급"
+  ];
+  for (const term of normalMarketTerms) {
+    if (body.includes(term)) {
+      reasons.push(`market nonsense used normal market explanation: ${term}`);
     }
   }
 }
