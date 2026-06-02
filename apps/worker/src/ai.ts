@@ -205,7 +205,7 @@ export async function generateSatireArticle(
         content: isRegularSatire
           ? `${prompt}
 
-Final article now: sharp, funny, mean, rhythmic. First identify the exact target. Use concrete source details before metaphors. Mix direct ridicule with occasional fake defense; do not make every jab positive-sounding. 4-6 tight paragraphs, no repeated joke, no generic industry essay. Strict JSON.`
+Final article now: sharp, funny, mean, rhythmic. Paragraph 1 plainly summarizes the source event and target before the jokes. Use concrete source details before metaphors. Mix direct ridicule with occasional fake defense; do not make every jab positive-sounding. 5-7 tight paragraphs, no repeated joke, no generic industry essay. Strict JSON.`
           : `${prompt}\n\nOutput strict JSON matching the requested schema.`
       },
       {
@@ -222,7 +222,7 @@ Final article now: sharp, funny, mean, rhythmic. First identify the exact target
         })
       }
     ],
-    isRegularSatire ? 2300 : 1500,
+    isRegularSatire ? 2700 : 1500,
     isRegularSatire ? config.openaiArticleModel : config.openaiLightArticleModel
   );
 
@@ -297,7 +297,7 @@ export async function generateSeriousArticle(
         role: "system",
         content: `${SERIOUS_ENGINE_PROMPT}
 
-Strict JSON. Use editorial judgment as structure, not metadata. Hide scoring. 4-6 tight paragraphs; cut background, repetition, soft recap.`
+Strict JSON. Use editorial judgment as structure, not metadata. Hide scoring. 5-7 tight paragraphs; paragraph 1 summarizes the source event and why it matters; cut repetition and soft recap.`
       },
       {
         role: "user",
@@ -316,7 +316,7 @@ Strict JSON. Use editorial judgment as structure, not metadata. Hide scoring. 4-
         })
       }
     ],
-    2200,
+    2600,
     config.openaiArticleModel
   );
 
@@ -356,7 +356,7 @@ Final 헛소리 pass: preserve anti-news, make it emptier/contextless/pointless.
 Final 시장 pass: preserve numbers exactly. Make reasons more absurd/name-based and less financial. No normal recap logic. Strict JSON.`
           : `${prompt}
 
-Final rewrite: keep facts, make it funnier/meaner/drier. Replace broad analogies with attacks on named source details. Add blunt ridicule and satisfying bite; fake praise is optional, not the main engine. The target must be obvious in paragraph 1. No repeated joke. 4-6 paragraphs. Strict JSON.`
+Final rewrite: keep facts, make it funnier/meaner/drier. Paragraph 1 must summarize the source event and target. Replace broad analogies with attacks on named source details. Add blunt ridicule and satisfying bite; fake praise is optional, not the main engine. No repeated joke. 5-7 paragraphs. Strict JSON.`
       },
       {
         role: "user",
@@ -379,7 +379,7 @@ Final rewrite: keep facts, make it funnier/meaner/drier. Replace broad analogies
         })
       }
     ],
-    1900,
+    2300,
     source.synthetic ? config.openaiLightArticleModel : config.openaiArticleModel
   );
 

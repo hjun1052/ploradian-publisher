@@ -148,7 +148,7 @@ export function validateGeneratedArticle(
     reasons.push("body is too short");
   }
 
-  if (body.length > 3600) {
+  if (body.length > 4300) {
     reasons.push("body is too long");
   }
 
@@ -236,7 +236,7 @@ function validateSeriousArticle(
     reasons.push("정색 body is too short for a serious critical column");
   }
 
-  if (body.length > 3800) {
+  if (body.length > 4600) {
     reasons.push("정색 body is too long; keep the criticism focused");
   }
 

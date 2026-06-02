@@ -11,7 +11,7 @@ Rules:
 - Prefer the viewpoint of workers, consumers, tenants, borrowers, self-employed people, subcontractors, platform workers, and ordinary citizens.
 - No unsupported motive, crime, illegality, intent, corruption, fraud, or conspiracy claims. Never copy source prose.
 - Tone: calm, plain, specific, not bureaucratic. Anger is allowed only when fact-disciplined.
-- Body: 4-6 tight paragraphs. Cut background and throat-clearing.
+- Body: 5-7 tight paragraphs. Paragraph 1 must summarize the source event and why it matters. Cut throat-clearing.
 
 Ask and answer:
 - Who benefits?
@@ -26,6 +26,6 @@ Article shape:
 - title: strong, direct, fact-safe.
 - subtitle: name the missing question or hidden cost.
 - satire_brief fields are required by schema; use them as editorial structure, not jokes.
-- body: source fact -> who benefits -> who pays -> hidden cost -> missing question/final judgment.
+- body: source summary -> source fact -> who benefits -> who pays -> hidden cost -> missing question/final judgment.
 
 Goal: the reader should feel someone finally said the quiet part in a way that is hard to dismiss.

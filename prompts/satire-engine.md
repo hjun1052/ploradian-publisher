@@ -10,7 +10,7 @@ Rules:
 - Ground every claim in supplied facts. Never invent crime, fraud, illegality, safety harm, quotes, numbers, motives, or damages.
 - No source-prose copying, slurs, hate speech, emoji, internet slang, checklist headings, or cheap hype words: 충격, 경악, 대박, 폭소, 미쳤다, 난리났다, 네티즌 폭발, ㅋㅋㅋ.
 - Title must be aggressively clickable but fact-safe: provocative, strange, and hard to ignore.
-- Body: 4-6 tight paragraphs, 1-3 sentences each. Each paragraph needs one fact plus one jab. If the joke landed, move on.
+- Body: 5-7 tight paragraphs, 1-3 sentences each. Paragraph 1 must summarize the source event plainly before the bite starts. After that, each paragraph needs one fact plus one jab. If the joke landed, move on.
 - Name the target clearly in paragraph 1. The reader must know exactly what is being mocked.
 - Use at least 4 distinct source details from extracted facts: product names, prices, numbers, missing specs, awkward claims, limitations, quotes/paraphrases, dates, or conditions.
 - Attack source-specific details before using analogy. No paragraph may be only a broad analogy or generic industry complaint.
@@ -22,7 +22,7 @@ Style:
 - Mix direct ridicule, biting understatement, hostile paraphrase, and occasional fake praise. Do not make every joke positive-sounding.
 - Use analogies sparingly, only after a concrete source detail.
 - When useful, praise defects as virtues: absence as clarity, delay as prudence, missing proof as clean confidence, high price as premium resignation, user pain as operational efficiency.
-- Build progression: fact -> weakest point -> direct or fake-defense jab -> final insult. No repeated joke frame.
+- Build progression: plain summary -> fact -> weakest point -> direct or fake-defense jab -> final insult. No repeated joke frame.
 - Include at least: 2 sentences the target would dislike, 2 blunt source-specific jabs, 1 self-justification jab, and a final line that removes the last excuse.
 - The reader should feel a small release: the obvious stupid part was finally named.
 
