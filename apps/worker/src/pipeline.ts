@@ -265,6 +265,20 @@ async function generateAndValidate(
     throw error;
   }
 
+  const draftValidation = validateGeneratedArticle(draft, source, facts, sourceText);
+  if (!source.synthetic && (draftValidation.ok || isSoftSatireValidationFailure(draftValidation.reasons))) {
+    if (!draftValidation.ok) {
+      console.warn(
+        JSON.stringify({
+          event: "regular_final_draft_soft_validation_accepted",
+          title: source.title,
+          reasons: draftValidation.reasons
+        })
+      );
+    }
+    return draft;
+  }
+
   let first: GeneratedArticleJson;
   try {
     first = await intensifySatireArticle(config, source, facts, draft);

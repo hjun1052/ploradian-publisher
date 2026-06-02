@@ -152,6 +152,7 @@ export async function generateSatireArticle(
   correction?: string
 ): Promise<GeneratedArticleJson> {
   const prompt = articlePromptFor(source);
+  const isRegularSatire = !source.synthetic;
   const article = await callModelJson<GeneratedArticleJson>(
     config,
     "ploradian_satire_article",
@@ -159,7 +160,16 @@ export async function generateSatireArticle(
     [
       {
         role: "system",
-        content: `${prompt}\n\nOutput strict JSON matching the requested schema.`
+        content: isRegularSatire
+          ? `${prompt}
+
+You are writing the final article in one pass. Do not produce a polite first draft.
+Use the final rewrite desk behavior immediately: sharper, funnier, meaner, and more rhythmically controlled.
+Build a chain: fact -> weak point -> fake defense -> worse implication -> final quiet insult.
+Do not repeat one joke with different props. Each paragraph must open a new attack angle.
+Keep it to 6-8 body paragraphs. Shorter, sharper, and less repetitive beats long respectable commentary.
+Output strict JSON matching the requested schema.`
+          : `${prompt}\n\nOutput strict JSON matching the requested schema.`
       },
       {
         role: "user",
@@ -179,7 +189,7 @@ export async function generateSatireArticle(
         )
       }
     ],
-    2200
+    isRegularSatire ? 3200 : 2200
   );
 
   return {
