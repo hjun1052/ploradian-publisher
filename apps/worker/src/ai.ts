@@ -387,9 +387,9 @@ async function callOpenAIJson<T>(
     },
     {
       label: `OpenAI ${schemaName}`,
-      timeoutMs: 45000,
+      timeoutMs: 30000,
       maxBytes: 98304,
-      retries: 1
+      retries: 0
     }
   );
 

@@ -38,9 +38,18 @@ export async function runPublishingPipeline(
     const sourceItems = [...scheduledItems, ...feedItems];
     const candidates = await unseenCandidates(filterSourceCandidates(sourceItems, skipped), seen);
     const maxArticlesThisRun = config.maxArticlesPerRun + Math.max(scheduledItems.length - 1, 0);
+    const candidateAttemptLimit = scheduledItems.length > 0
+      ? Math.max(maxArticlesThisRun * 3, scheduledItems.length)
+      : Math.max(config.maxArticlesPerRun * 2, 2);
+    const runDeadlineMs = Date.now() + 115_000;
 
-    for (const candidate of candidates.slice(0, Math.max(maxArticlesThisRun * 4, 4))) {
+    for (const candidate of candidates.slice(0, candidateAttemptLimit)) {
       if (prepared.length >= maxArticlesThisRun) {
+        break;
+      }
+
+      if (Date.now() > runDeadlineMs) {
+        skipped.push("run time budget reached before the next candidate");
         break;
       }
 
@@ -180,6 +189,21 @@ async function generateAndValidate(
     return first;
   }
 
+  if (!source.synthetic && isSoftSatireValidationFailure(firstValidation.reasons)) {
+    console.warn(
+      JSON.stringify({
+        event: "soft_satire_validation_accepted",
+        title: source.title,
+        reasons: firstValidation.reasons
+      })
+    );
+    return first;
+  }
+
+  if (!source.synthetic) {
+    throw new Error(`validation failed: ${firstValidation.reasons.join("; ")}`);
+  }
+
   const retryDraft = await generateSatireArticle(
     config,
     source,
@@ -200,6 +224,20 @@ async function generateAndValidate(
   }
 
   return retry;
+}
+
+function isSoftSatireValidationFailure(reasons: string[]): boolean {
+  return reasons.length > 0 && reasons.every((reason) => {
+    return (
+      reason.startsWith("satire is too polite") ||
+      reason.startsWith("article reads like serious criticism") ||
+      reason.startsWith("article lacks deadpan corporate-defense satire") ||
+      reason.startsWith("too many serious critique terms") ||
+      reason.startsWith("does not visibly attack any extracted weak point") ||
+      reason.startsWith("satire_brief must include") ||
+      reason.startsWith("body does not use enough")
+    );
+  });
 }
 
 async function unseenCandidates(items: SourceItem[], seen: SeenStore): Promise<SourceItem[]> {
