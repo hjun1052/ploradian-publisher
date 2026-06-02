@@ -13,6 +13,10 @@ const factSchema = {
     conflict_or_controversy: { type: "string" },
     money_stock_market_angle: { type: "string" },
     reader_relevance: { type: "string" },
+    satire_targets: { type: "array", items: { type: "string" } },
+    mockable_details: { type: "array", items: { type: "string" } },
+    weak_points: { type: "array", items: { type: "string" } },
+    corporate_euphemisms: { type: "array", items: { type: "string" } },
     facts: { type: "array", items: { type: "string" } }
   },
   required: [
@@ -22,6 +26,10 @@ const factSchema = {
     "conflict_or_controversy",
     "money_stock_market_angle",
     "reader_relevance",
+    "satire_targets",
+    "mockable_details",
+    "weak_points",
+    "corporate_euphemisms",
     "facts"
   ],
   additionalProperties: false
@@ -65,6 +73,10 @@ export async function extractFacts(
       conflict_or_controversy: "갈등도 논란도 거의 없으며, 바로 그 무의미함이 소재다.",
       money_stock_market_angle: "금융, 가격, 투자, 시장 영향은 없다.",
       reader_relevance: "독자가 얻을 실용 정보는 없고, 맥락 없는 기사 형식 자체가 목적이다.",
+      satire_targets: ["신문 형식 자체", "무의미한 보도 태도", "과도하게 진지한 문장"],
+      mockable_details: [source.title, source.summary].filter(Boolean),
+      weak_points: ["읽을 이유가 없다는 점", "맥락이 회수되지 않는다는 점"],
+      corporate_euphemisms: [],
       facts: [
         source.title,
         source.summary,
@@ -83,7 +95,7 @@ export async function extractFacts(
       {
         role: "system",
         content:
-          "Extract only factual, non-copyrighted bullet points from source metadata. Output strict JSON. Do not copy source prose."
+          "Extract only factual, non-copyrighted bullet points from source metadata. Output strict JSON. Do not copy source prose. Also identify concrete satire targets: awkward claims, mockable details, weak points, and corporate euphemisms. These must be grounded in the source, not invented."
       },
       {
         role: "user",
@@ -138,6 +150,61 @@ export async function generateSatireArticle(
       }
     ],
     2200
+  );
+
+  return {
+    ...article,
+    source_name: source.feedName,
+    source_url: source.url,
+    original_title: source.title,
+    category: normalizeCategory(article.category || source.category)
+  };
+}
+
+export async function intensifySatireArticle(
+  config: RuntimeConfig,
+  source: SourceItem,
+  facts: FactSummary,
+  draft: GeneratedArticleJson,
+  correction?: string
+): Promise<GeneratedArticleJson> {
+  const article = await callModelJson<GeneratedArticleJson>(
+    config,
+    "ploradian_satire_article",
+    articleSchema,
+    [
+      {
+        role: "system",
+        content: `${SATIRE_ENGINE_PROMPT}
+
+You are now the final rewrite desk. The draft is fact-safe but too polite by default.
+Rewrite it into a sharper final article while preserving every factual boundary.
+Increase ridicule, indirect contempt, and dry bite.
+Replace neutral explanation with specific mockery grounded in the provided weak points.
+Keep the newspaper form. Do not add unsupported facts. Output strict JSON matching the requested schema.`
+      },
+      {
+        role: "user",
+        content: JSON.stringify(
+          {
+            source_metadata: {
+              source_name: source.feedName,
+              source_url: source.url,
+              original_title: source.title,
+              category: source.category
+            },
+            extracted_facts: facts,
+            existing_draft: draft,
+            correction:
+              correction ??
+              "The draft passed basic safety but lacks enough 조롱, 돌려까기, 비아냥. Make the title more unavoidable and make at least four body sentences visibly sharper without inventing facts."
+          },
+          null,
+          2
+        )
+      }
+    ],
+    2600
   );
 
   return {

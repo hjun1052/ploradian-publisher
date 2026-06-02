@@ -21,6 +21,24 @@ const BANNED_SECTION_HEADERS = [
 
 const CRIMINAL_TERMS = ["범죄", "사기", "횡령", "불법", "조작", "기소", "체포", "수사"];
 const ALLOWED_CATEGORIES = new Set(["기술", "비즈니스", "시장", "헛소리"]);
+const SATIRE_SIGNAL_TERMS = [
+  "마치",
+  "같다",
+  "격이다",
+  "셈이다",
+  "꼴이다",
+  "덕분에",
+  "훌륭",
+  "친절",
+  "놀랍",
+  "대단",
+  "정중",
+  "우아",
+  "민망",
+  "체면",
+  "변명",
+  "합리화"
+];
 
 export interface ValidationResult {
   ok: boolean;
@@ -51,6 +69,14 @@ export function validateGeneratedArticle(
 
   if (body.length > 5200) {
     reasons.push("body is too long");
+  }
+
+  if (body.length > 900 && countSatireSignals(`${title} ${article.subtitle} ${body}`) < 3) {
+    reasons.push("satire is too polite; add sharper grounded ridicule, analogy, or irony");
+  }
+
+  if (!source.synthetic && article.category !== "헛소리" && body.length > 900 && concreteWeakPointHits(body, facts) < 1) {
+    reasons.push("does not visibly attack any extracted weak point or mockable detail");
   }
 
   for (const word of BANNED_HYPE_WORDS) {
@@ -105,6 +131,35 @@ export function validateGeneratedArticle(
     ok: reasons.length === 0,
     reasons
   };
+}
+
+function countSatireSignals(value: string): number {
+  return SATIRE_SIGNAL_TERMS.reduce((count, term) => count + (value.includes(term) ? 1 : 0), 0);
+}
+
+function concreteWeakPointHits(body: string, facts: FactSummary): number {
+  const needles = [...facts.weak_points, ...facts.mockable_details, ...facts.corporate_euphemisms]
+    .map((value) => value.trim())
+    .filter((value) => value.length >= 4)
+    .flatMap((value) => keywordFragments(value));
+
+  const unique = new Set(needles);
+  let hits = 0;
+  for (const needle of unique) {
+    if (body.includes(needle)) {
+      hits += 1;
+    }
+  }
+  return hits;
+}
+
+function keywordFragments(value: string): string[] {
+  return value
+    .replace(/[^\p{L}\p{N}\s.$%원달러-]/gu, " ")
+    .split(/\s+/)
+    .map((part) => part.trim())
+    .filter((part) => part.length >= 4)
+    .slice(0, 4);
 }
 
 function findLongSharedPhrase(body: string, sourceText: string): string | null {

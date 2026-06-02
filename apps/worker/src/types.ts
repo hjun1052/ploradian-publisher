@@ -52,6 +52,10 @@ export interface FactSummary {
   conflict_or_controversy: string;
   money_stock_market_angle: string;
   reader_relevance: string;
+  satire_targets: string[];
+  mockable_details: string[];
+  weak_points: string[];
+  corporate_euphemisms: string[];
   facts: string[];
 }
 

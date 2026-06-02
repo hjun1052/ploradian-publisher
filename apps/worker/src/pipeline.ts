@@ -10,7 +10,7 @@ import { prepareMarkdownArticle } from "./markdown";
 import { findArticleImage } from "./images";
 import { candidateSkipReason } from "./candidates";
 import { scheduledNonsenseCandidate } from "./nonsense";
-import { extractFacts, generateSatireArticle } from "./ai";
+import { extractFacts, generateSatireArticle, intensifySatireArticle } from "./ai";
 import { fetchFeedItems, fetchSourcePageText, sourceHash } from "./rss";
 import { validateGeneratedArticle } from "./validation";
 import type { PipelineResult, PreparedArticle, SeenStore, SourceItem } from "./types";
@@ -168,18 +168,26 @@ async function generateAndValidate(
   pageText: string
 ) {
   const sourceText = [source.title, source.summary, pageText].join("\n");
-  const first = await generateSatireArticle(config, source, facts);
+  const draft = await generateSatireArticle(config, source, facts);
+  const first = await intensifySatireArticle(config, source, facts, draft);
   const firstValidation = validateGeneratedArticle(first, source, facts, sourceText);
 
   if (firstValidation.ok) {
     return first;
   }
 
-  const retry = await generateSatireArticle(
+  const retryDraft = await generateSatireArticle(
     config,
     source,
     facts,
     `The previous draft failed validation for: ${firstValidation.reasons.join("; ")}. Rewrite the JSON article to fix these issues.`
+  );
+  const retry = await intensifySatireArticle(
+    config,
+    source,
+    facts,
+    retryDraft,
+    `The previous intensified draft failed validation for: ${firstValidation.reasons.join("; ")}. Preserve factual safety, but do not retreat into bland summary.`
   );
   const retryValidation = validateGeneratedArticle(retry, source, facts, sourceText);
 
