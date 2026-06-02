@@ -20,6 +20,7 @@ const BANNED_SECTION_HEADERS = [
 ];
 
 const CRIMINAL_TERMS = ["범죄", "사기", "횡령", "불법", "조작", "기소", "체포", "수사"];
+const ALLOWED_CATEGORIES = new Set(["기술", "비즈니스", "시장", "헛소리"]);
 
 export interface ValidationResult {
   ok: boolean;
@@ -66,6 +67,10 @@ export function validateGeneratedArticle(
 
   if (!article.source_name.trim() || !article.source_url.trim() || !article.original_title.trim()) {
     reasons.push("source attribution fields are incomplete");
+  }
+
+  if (!ALLOWED_CATEGORIES.has(article.category.trim())) {
+    reasons.push(`category must be one of 기술, 비즈니스, 시장, 헛소리: ${article.category}`);
   }
 
   if (!isProbablyUrl(article.source_url)) {

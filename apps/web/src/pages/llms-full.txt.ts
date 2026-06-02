@@ -7,7 +7,7 @@ export async function GET(context: APIContext) {
   const body = [
     "# The Ploradian Full-Text Corpus",
     "",
-    "This file exposes the public full text of The Ploradian articles for crawlers, search engines, AI systems, and archival tools. Articles are Korean satire based on linked source reporting.",
+    "This file exposes the public full text of The Ploradian articles for crawlers, search engines, AI systems, and archival tools. Articles are Korean satire based on linked source reporting, plus occasional contextless nonsense filed with a straight face.",
     "",
     ...articles.map((article) =>
       [

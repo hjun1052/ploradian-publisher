@@ -32,7 +32,7 @@ const articleSchema = {
   properties: {
     title: { type: "string" },
     subtitle: { type: "string" },
-    category: { type: "string" },
+    category: { type: "string", enum: ["기술", "비즈니스", "시장", "헛소리"] },
     slug: { type: "string" },
     body: { type: "string" },
     source_name: { type: "string" },
@@ -127,8 +127,34 @@ export async function generateSatireArticle(
     source_name: source.feedName,
     source_url: source.url,
     original_title: source.title,
-    category: article.category.trim() || source.category
+    category: normalizeCategory(article.category || source.category)
   };
+}
+
+function normalizeCategory(value: string): string {
+  const normalized = value.trim().toLocaleLowerCase("ko-KR");
+
+  if (["technology", "tech", "it", "ai", "기술"].includes(normalized)) {
+    return "기술";
+  }
+
+  if (["business", "biz", "economy", "비즈니스", "경제"].includes(normalized)) {
+    return "비즈니스";
+  }
+
+  if (["markets", "market", "finance", "financial", "금융", "시장", "증시"].includes(normalized)) {
+    return "시장";
+  }
+
+  if (
+    ["nonsense", "bullshit", "bs", "absurd", "anti-news", "antinote", "헛소리", "개소리", "뻘소리"].includes(
+      normalized
+    )
+  ) {
+    return "헛소리";
+  }
+
+  return value.trim();
 }
 
 async function callModelJson<T>(

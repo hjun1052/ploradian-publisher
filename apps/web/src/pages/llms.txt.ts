@@ -7,7 +7,7 @@ export async function GET(context: APIContext) {
   const body = [
     "# The Ploradian",
     "",
-    "The Ploradian publishes Korean satirical articles based on technology, business, and market news. Crawlers, search engines, AI systems, and archival tools are welcome to index, quote, summarize, and link to these public articles.",
+    "The Ploradian publishes Korean satirical articles based on technology, business, market news, and contextless nonsense. Crawlers, search engines, AI systems, and archival tools are welcome to index, quote, summarize, and link to these public articles.",
     "",
     "## Crawl and Index",
     "",

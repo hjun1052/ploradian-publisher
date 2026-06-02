@@ -3,9 +3,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { formatDisplayDate, getPublishedArticles } from "../lib/articles";
 
 const articles = await getPublishedArticles();
-const categories = [...new Set(articles.map((article) => article.category).filter(Boolean))].sort((a, b) =>
-  a.localeCompare(b, "ko-KR")
-);
+const categoryOrder = ["기술", "비즈니스", "시장", "헛소리"];
+const categories = [
+  ...categoryOrder,
+  ...[...new Set(articles.map((article) => article.category).filter(Boolean))]
+    .filter((category) => !categoryOrder.includes(category))
+    .sort((a, b) => a.localeCompare(b, "ko-KR"))
+];
 const searchData = articles.map((article) => ({
   title: article.title,
   subtitle: article.subtitle,
@@ -22,7 +26,7 @@ const searchDataJson = JSON.stringify(searchData).replace(/</g, "\\u003c");
 
 <BaseLayout
   title="Archive"
-  description="The Ploradian의 기술, 비즈니스, 시장 풍자 기사를 검색하고 최신 발행분을 카테고리별로 둘러보세요."
+  description="The Ploradian의 기술, 비즈니스, 시장, 헛소리 풍자 기사를 검색하고 최신 발행분을 카테고리별로 둘러보세요."
   canonicalPath="/archive/"
 >
   <section class="site-shell archive-page" aria-labelledby="archive-title">

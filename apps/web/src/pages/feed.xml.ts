@@ -8,7 +8,7 @@ export async function GET(context: APIContext) {
 
   return rss({
     title: "The Ploradian",
-    description: "한국어 기술, 비즈니스, 시장 풍자 기사.",
+    description: "한국어 기술, 비즈니스, 시장, 헛소리 풍자 기사.",
     site,
     customData: "<language>ko-KR</language>",
     items: articles.map((article) => ({

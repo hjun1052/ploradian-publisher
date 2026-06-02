@@ -142,6 +142,10 @@ function normalizeCategory(value: string): string {
     return "시장";
   }
 
+  if (["nonsense", "bullshit", "bs", "absurd", "anti-news", "antinote", "헛소리", "개소리", "뻘소리"].includes(normalized)) {
+    return "헛소리";
+  }
+
   return value.trim();
 }
 
