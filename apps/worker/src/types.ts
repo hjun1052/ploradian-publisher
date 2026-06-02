@@ -74,6 +74,7 @@ export interface GeneratedArticleJson {
 export interface SatireBrief {
   target: string;
   ridiculous_core: string;
+  straight_faced_defense: string[];
   must_include_jabs: string[];
   analogies: string[];
 }

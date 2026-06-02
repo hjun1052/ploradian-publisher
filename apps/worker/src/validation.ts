@@ -77,6 +77,26 @@ const JOKE_CARRIER_TERMS = [
   "손잡이",
   "간판"
 ];
+const DEADPAN_DEFENSE_TERMS = [
+  "오히려",
+  "덕분에",
+  "합리적",
+  "효율",
+  "배려",
+  "친절",
+  "깔끔",
+  "완성도",
+  "장점",
+  "성과",
+  "전략",
+  "품격",
+  "훌륭",
+  "정중",
+  "선명",
+  "안정적",
+  "깨끗한 상태",
+  "공식적으로"
+];
 
 export interface ValidationResult {
   ok: boolean;
@@ -117,6 +137,10 @@ export function validateGeneratedArticle(
     reasons.push("article reads like serious criticism; add more visible jokes, ridicule carriers, and absurd analogies");
   }
 
+  if (body.length > 900 && countDeadpanDefense(`${title} ${article.subtitle} ${body}`) < 4) {
+    reasons.push("article lacks deadpan corporate-defense satire; calmly defend the absurd logic until it becomes the joke");
+  }
+
   if (body.length > 900 && countSeriousCritiqueTerms(body) > 5) {
     reasons.push("too many serious critique terms; reduce policy-column cadence and increase mockery");
   }
@@ -125,12 +149,23 @@ export function validateGeneratedArticle(
     reasons.push("does not visibly attack any extracted weak point or mockable detail");
   }
 
+  if (article.satire_brief.straight_faced_defense.length < 3) {
+    reasons.push("satire_brief must include at least three straight-faced defense lines");
+  }
+
   if (article.satire_brief.must_include_jabs.length < 4) {
     reasons.push("satire_brief must include at least four concrete jabs");
   }
 
   if (article.satire_brief.analogies.length < 3) {
     reasons.push("satire_brief must include at least three analogies");
+  }
+
+  if (
+    article.satire_brief.straight_faced_defense.length >= 3 &&
+    briefCoverage(body, article.satire_brief.straight_faced_defense) < 2
+  ) {
+    reasons.push("body does not use enough straight-faced defense lines");
   }
 
   if (article.satire_brief.must_include_jabs.length >= 4 && briefCoverage(body, article.satire_brief.must_include_jabs) < 2) {
@@ -201,6 +236,10 @@ function countSatireSignals(value: string): number {
 
 function countJokeCarriers(value: string): number {
   return JOKE_CARRIER_TERMS.reduce((count, term) => count + (value.includes(term) ? 1 : 0), 0);
+}
+
+function countDeadpanDefense(value: string): number {
+  return DEADPAN_DEFENSE_TERMS.reduce((count, term) => count + (value.includes(term) ? 1 : 0), 0);
 }
 
 function countSeriousCritiqueTerms(value: string): number {
