@@ -222,10 +222,6 @@ async function generateAndValidate(
     if (fallback) {
       return fallback;
     }
-    const regularFallback = fallbackRegularArticle(source, facts, error);
-    if (regularFallback) {
-      return regularFallback;
-    }
     throw error;
   }
 
@@ -248,10 +244,6 @@ async function generateAndValidate(
         })
       );
       return draft;
-    }
-    const regularFallback = fallbackRegularArticle(source, facts, error);
-    if (regularFallback) {
-      return regularFallback;
     }
     throw error;
   }
@@ -297,10 +289,6 @@ async function generateAndValidate(
     if (fallback) {
       return fallback;
     }
-    const regularFallback = fallbackRegularArticle(source, facts, error);
-    if (regularFallback) {
-      return regularFallback;
-    }
     throw error;
   }
 
@@ -322,138 +310,6 @@ function fallbackFacts(source: SourceItem, pageText: string): FactSummary {
     corporate_euphemisms: [],
     facts: [source.title, source.summary, summary.slice(0, 600)].filter(Boolean)
   };
-}
-
-function fallbackRegularArticle(
-  source: SourceItem,
-  facts: FactSummary,
-  error: unknown
-): GeneratedArticleJson | null {
-  if (source.synthetic) {
-    return null;
-  }
-
-  console.warn(
-    JSON.stringify({
-      event: "regular_fallback_article",
-      title: source.title,
-      error: errorMessage(error)
-    })
-  );
-
-  const category = normalizeFallbackCategory(source.category);
-  const topic = fallbackTopic(source, facts);
-  const sourceName = `${source.feedName}${topicParticle(source.feedName)}`;
-  const detail = topic.detail ?? cleanFallbackSentence(source.summary || facts.facts[0] || source.title);
-  const title = `${topic.label}, 설명보다 먼저 체면을 잃었다`;
-  const subtitle = "원문은 짧았고, 포장지는 그 짧음을 숨기기엔 너무 얇았다";
-  const body = [
-    `${sourceName} ${source.title}라는 소식을 전했다. 제목만 보면 대단히 복잡한 문제처럼 보이지만, 실제로는 ${topic.object} 앞에서 사람들이 다시 한 번 설명서를 접고 영수증을 펼친 장면에 가깝다. 기술 산업은 이런 순간마다 어려운 단어를 꺼내 들지만, 그 단어들이 하는 일은 대개 민망함을 정장처럼 입히는 것이다.`,
-    `핵심은 길지 않다. ${detail} 짧은 사실은 원래 짧게 끝나야 한다. 그러나 회사와 플랫폼은 짧은 사실을 그대로 두면 너무 솔직해 보일까 봐, 주변에 의미와 전략과 사용자 경험이라는 포장재를 열심히 두른다. 포장재가 많을수록 내용물이 작다는 사실은 다행히 아직 법적으로 공시하지 않아도 된다.`,
-    `${topic.label}의 장점은 분명하다. 일이 복잡해 보이면 누구도 곧장 계산기를 들이대지 않는다는 점이다. 누군가 가격을 올리거나 조건을 바꾸거나 불편을 새 이름으로 부를 때, 업계는 그것을 변화라고 부른다. 변화라는 단어는 참 친절해서, 웬만한 불편도 회의실 조명 아래에서는 혁신처럼 앉아 있을 수 있다.`,
-    `독자 입장에서는 아주 간단하다. 실제로 달라진 것은 숫자, 조건, 사용 방식, 혹은 그 주변의 체감 비용이다. 달라지지 않은 것은 이것을 설명하는 쪽의 자신감이다. 자신감은 제품보다 먼저 출시되고, 해명보다 오래 팔리며, 가끔은 서비스 약관보다 작은 글씨로 책임을 숨긴다.`,
-    `결국 이번 소식은 ${topic.object}${topicParticle(topic.object)} 얼마나 멀리 왔는지가 아니라, 얼마나 자연스럽게 불편을 새 기능처럼 소개할 수 있는지를 보여준다. 그 점에서 발표는 꽤 성공적이다. 독자가 고개를 끄덕이기 전에 이미 납득한 사람처럼 서 있게 만들었으니 말이다. 남은 문제는 하나다. 그렇게 세운 사람에게 또 계산서를 건넨다는 점이다.`
-  ].join("\n\n");
-
-  return {
-    title,
-    subtitle,
-    category,
-    slug: `${category}-fallback-${simpleSlug(source.title)}`,
-    satire_brief: {
-      target: source.title,
-      ridiculous_core: "짧은 사실을 큰 포장으로 감싸는 순간 자체가 우스꽝스럽다.",
-      straight_faced_defense: [
-        "포장재가 많을수록 내용물은 더 안전하게 작아 보인다.",
-        "변화라는 단어는 웬만한 불편을 회의실에서 혁신처럼 앉힌다.",
-        "자신감은 제품보다 먼저 출시되고 해명보다 오래 팔린다."
-      ],
-      must_include_jabs: [
-        "민망함을 정장처럼 입힌다.",
-        "포장재가 많을수록 내용물이 작다.",
-        "불편도 회의실 조명 아래에서는 혁신처럼 앉아 있을 수 있다.",
-        "납득한 사람처럼 세워놓고 계산서를 건넨다."
-      ],
-      analogies: ["민망함의 정장", "회의실 조명", "계산서"]
-    },
-    body,
-    source_name: source.feedName,
-    source_url: source.url,
-    original_title: source.title
-  };
-}
-
-function fallbackTopic(source: SourceItem, facts: FactSummary): { label: string; object: string; detail?: string } {
-  const haystack = `${source.title} ${source.summary} ${facts.facts.join(" ")}`.toLowerCase();
-  if (haystack.includes("red hat") || haystack.includes("npm") || haystack.includes("backdoor")) {
-    return {
-      label: "레드햇 NPM 패키지",
-      object: "공식 배포 통로",
-      detail: "공식 NPM 채널을 통해 받은 레드햇 패키지 일부에 백도어 문제가 보고됐고, 영향을 받은 사용자는 즉시 확인해야 한다."
-    };
-  }
-  if (haystack.includes("github") || haystack.includes("copilot")) {
-    return { label: "깃허브 코파일럿 요금표", object: "AI 계산서" };
-  }
-  if (/\bmeta\b/.test(haystack) || haystack.includes("instagram")) {
-    return { label: "메타의 고객지원", object: "계정 복구 창구" };
-  }
-  if (haystack.includes("google") || haystack.includes("gemini")) {
-    return { label: "구글의 AI 대리인", object: "시연용 자신감" };
-  }
-  if (haystack.includes("microsoft") || haystack.includes("surface") || haystack.includes("windows")) {
-    return { label: "마이크로소프트의 새 장비", object: "비교표" };
-  }
-  if (haystack.includes("nvidia") || haystack.includes("rtx")) {
-    return { label: "엔비디아의 새 약속", object: "성능표" };
-  }
-  if (haystack.includes("ai")) {
-    return { label: "AI 업계의 새 설명", object: "자동화된 계산서" };
-  }
-  if (source.category === "비즈니스") {
-    return { label: "비즈니스 소식", object: "전략 문장" };
-  }
-  if (source.category === "시장") {
-    return { label: "시장 소식", object: "숫자판" };
-  }
-  return { label: "기술 업계의 새 소식", object: "제품 설명서" };
-}
-
-function normalizeFallbackCategory(value: string): string {
-  const normalized = value.trim().toLocaleLowerCase("ko-KR");
-  if (["technology", "tech", "it", "ai", "기술"].includes(normalized)) {
-    return "기술";
-  }
-  if (["business", "biz", "economy", "비즈니스", "경제"].includes(normalized)) {
-    return "비즈니스";
-  }
-  if (["markets", "market", "finance", "financial", "금융", "시장", "증시"].includes(normalized)) {
-    return "시장";
-  }
-  return "기술";
-}
-
-function cleanFallbackSentence(value: string): string {
-  const cleaned = value
-    .replace(/\s+/g, " ")
-    .replace(/[<>]/g, "")
-    .trim();
-  if (!cleaned) {
-    return "출처는 짧은 소식 하나를 남겼고, 자동 데스크는 그 짧음을 기사 형식으로 접었다.";
-  }
-  return cleaned.endsWith(".") || cleaned.endsWith("다.") ? cleaned : `${cleaned}.`;
-}
-
-function simpleSlug(value: string): string {
-  return value
-    .normalize("NFKD")
-    .replace(/[^\w\s-]/g, " ")
-    .toLowerCase()
-    .split(/\s+/)
-    .filter(Boolean)
-    .slice(0, 6)
-    .join("-")
-    .slice(0, 56) || "rss-source";
 }
 
 function keywordFragmentsForFallback(value: string): string[] {
