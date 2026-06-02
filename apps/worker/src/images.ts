@@ -5,9 +5,9 @@ const UNSPLASH_SEARCH_URL = "https://api.unsplash.com/search/photos";
 const UTM = "?utm_source=the_ploradian&utm_medium=referral";
 
 const CATEGORY_QUERIES: Record<string, string> = {
-  "기술": "abstract technology office",
-  "비즈니스": "business office meeting",
-  "시장": "stock market finance",
+  "기술": "technology hardware workspace",
+  "비즈니스": "business documents workspace",
+  "시장": "stock exchange trading screen",
   "헛소리": "empty office desk"
 };
 
@@ -20,6 +20,16 @@ const BLOCKED_QUERY_TERMS = [
   "face",
   "celebrity",
   "politician"
+];
+
+const GENERIC_ARCHITECTURE_TERMS = [
+  "architecture",
+  "architectural",
+  "building",
+  "glass building",
+  "blue glass",
+  "facade",
+  "skyscraper"
 ];
 
 export async function findArticleImage(
@@ -41,7 +51,7 @@ export async function findArticleImage(
     const url = new URL(UNSPLASH_SEARCH_URL);
     url.searchParams.set("query", query);
     url.searchParams.set("orientation", "landscape");
-    url.searchParams.set("per_page", "8");
+    url.searchParams.set("per_page", "20");
     url.searchParams.set("content_filter", "high");
 
     const { response, text } = await fetchTextWithRetry(
@@ -65,7 +75,7 @@ export async function findArticleImage(
       return null;
     }
 
-    const photo = firstUsablePhoto(parseJson<UnsplashSearchResponse>(text));
+    const photo = selectUsablePhoto(parseJson<UnsplashSearchResponse>(text), imageSeed(source));
     if (!photo) {
       return null;
     }
@@ -92,21 +102,71 @@ function imageQuery(source: SourceItem, article: GeneratedArticleJson, facts: Fa
     return CATEGORY_QUERIES["헛소리"] ?? "empty office desk";
   }
 
-  const base = CATEGORY_QUERIES[article.category] ?? CATEGORY_QUERIES[source.category] ?? "newspaper office";
+  const topic = topicImageQuery(source, article, facts);
+  if (topic) {
+    return topic;
+  }
+
+  const base = CATEGORY_QUERIES[article.category] ?? CATEGORY_QUERIES[source.category] ?? "newspaper desk";
   const entities = facts.entities
-    .filter((entity) => !looksRisky(entity))
-    .slice(0, 1)
+    .filter((entity) => !looksRisky(entity) && !looksLikeSourceName(entity, source))
+    .slice(0, 2)
     .join(" ");
 
   return [entities, base].filter(Boolean).join(" ").trim();
 }
 
-function firstUsablePhoto(data: UnsplashSearchResponse): UnsplashPhoto | null {
+function topicImageQuery(source: SourceItem, article: GeneratedArticleJson, facts: FactSummary): string | null {
+  const text = `${source.title} ${source.summary} ${article.title} ${article.subtitle} ${facts.facts.join(" ")}`.toLowerCase();
+
+  if (/(vaccine|백신|doctor|medical|medicine|health|과학적|의사|덴마크)/i.test(text)) {
+    return "vaccine laboratory research";
+  }
+
+  if (/(hack|hacker|hijack|backdoor|security|cyber|npm|계정 탈취|해커|보안)/i.test(text)) {
+    return "cybersecurity code laptop";
+  }
+
+  if (/(ai|chatbot|agent|openai|gemini|copilot|artificial intelligence|챗봇|인공지능)/i.test(text)) {
+    return "artificial intelligence server lights";
+  }
+
+  if (/(chip|gpu|rtx|laptop|hardware|surface|processor|semiconductor|반도체|노트북|칩)/i.test(text)) {
+    return "computer hardware circuit board";
+  }
+
+  if (/(stock|market|finance|kospi|nasdaq|주가|증시|시장|금융|환율|채권)/i.test(text)) {
+    return "stock exchange trading screen";
+  }
+
+  if (/(car|gm|vehicle|automotive|자동차|차량)/i.test(text)) {
+    return "automotive engineering workshop";
+  }
+
+  if (/(conference|keynote|developer|build|wwdc|개발자|콘퍼런스)/i.test(text)) {
+    return "developer conference stage";
+  }
+
+  return null;
+}
+
+function selectUsablePhoto(data: UnsplashSearchResponse, seed: number): UnsplashPhoto | null {
   const photos = Array.isArray(data.results) ? data.results : [];
-  return photos.find((photo) => {
+  const usable = photos.filter((photo) => {
     const alt = `${photo.alt_description ?? ""} ${photo.description ?? ""}`.toLowerCase();
-    return photo.urls && photo.user?.links?.html && !BLOCKED_QUERY_TERMS.some((term) => alt.includes(term));
-  }) ?? null;
+    return (
+      photo.urls &&
+      photo.user?.links?.html &&
+      !BLOCKED_QUERY_TERMS.some((term) => alt.includes(term)) &&
+      !GENERIC_ARCHITECTURE_TERMS.some((term) => alt.includes(term))
+    );
+  });
+
+  if (usable.length === 0) {
+    return null;
+  }
+
+  return usable[seed % usable.length] ?? null;
 }
 
 function sizedImageUrl(raw: string): string {
@@ -126,6 +186,27 @@ function appendUtm(raw: string): string {
 function looksRisky(value: string): boolean {
   const normalized = value.toLowerCase();
   return BLOCKED_QUERY_TERMS.some((term) => normalized.includes(term)) || normalized.length > 36;
+}
+
+function looksLikeSourceName(value: string, source: SourceItem): boolean {
+  const normalized = value.toLowerCase();
+  return (
+    normalized === source.feedName.toLowerCase() ||
+    normalized.includes("ars technica") ||
+    normalized.includes("the verge") ||
+    normalized.includes("npr") ||
+    normalized.includes("연합인포맥스") ||
+    normalized.includes("ploradian")
+  );
+}
+
+function imageSeed(source: SourceItem): number {
+  const value = source.canonicalUrl || source.url || source.title;
+  let hash = 0;
+  for (let index = 0; index < value.length; index += 1) {
+    hash = (hash * 31 + value.charCodeAt(index)) >>> 0;
+  }
+  return hash;
 }
 
 function parseJson<T>(text: string): T {
