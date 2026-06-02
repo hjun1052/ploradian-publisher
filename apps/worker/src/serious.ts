@@ -12,6 +12,7 @@ import type {
 const MAX_SERIOUS_CANDIDATES_TO_SCORE = 6;
 const MAX_CANDIDATES_PER_INSTITUTION = 2;
 const MAX_CANDIDATES_PER_AXIS = 3;
+const MAX_SERIOUS_SOURCE_AGE_DAYS = 21;
 const RECENT_AXIS_DAYS = 3;
 const RECENT_INSTITUTION_DAYS = 7;
 const RECENT_ANGLE_COUNT = 5;
@@ -222,6 +223,10 @@ async function fetchSeriousCandidates(sources: SeriousSource[], seen: SeenStore)
       continue;
     }
 
+    if (isTooOld(enriched, MAX_SERIOUS_SOURCE_AGE_DAYS)) {
+      continue;
+    }
+
     const hash = await sourceHash(enriched);
     if (seen.items[hash]) {
       continue;
@@ -235,6 +240,19 @@ async function fetchSeriousCandidates(sources: SeriousSource[], seen: SeenStore)
     const rightTime = right.publishedAt ? new Date(right.publishedAt).getTime() : 0;
     return rightTime - leftTime;
   });
+}
+
+function isTooOld(source: SourceItem, maxAgeDays: number): boolean {
+  if (!source.publishedAt) {
+    return false;
+  }
+
+  const publishedAt = new Date(source.publishedAt).getTime();
+  if (!Number.isFinite(publishedAt)) {
+    return false;
+  }
+
+  return Date.now() - publishedAt > maxAgeDays * 86400000;
 }
 
 function applyDiversityAdjustment(
