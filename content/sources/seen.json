@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-02T12:01:13.524Z",
+  "updated_at": "2026-06-02T13:01:37.495Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -113,6 +113,14 @@
       "title": "Casey Neistat’s guide to posting every day",
       "article_path": "content/articles/published/2026-06-02-4f86ff7e-the-vergecast-daily-podcast-casey-neistat-posting-every-day.md",
       "seen_at": "2026-06-02T12:01:13.524Z"
+    },
+    "c2f0ec1a89c8144ac51a62192b35af8a6506a43b54461019d713ad06e5070528": {
+      "url": "https://arstechnica.com/tech-policy/2026/06/florida-sues-openai-sam-altman-after-multiple-chatgpt-linked-murders/",
+      "canonical_url": "https://arstechnica.com/tech-policy/2026/06/florida-sues-openai-sam-altman-after-multiple-chatgpt-linked-murders/",
+      "source_name": "Ars Technica",
+      "title": "Florida sues OpenAI, Sam Altman after multiple ChatGPT-linked murders",
+      "article_path": "content/articles/published/2026-06-02-c2f0ec1a-florida-openai-altman-lawsuit-chatgpt-linked-murders.md",
+      "seen_at": "2026-06-02T13:01:37.495Z"
     }
   }
 }
