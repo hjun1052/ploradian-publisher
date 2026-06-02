@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-02T14:01:07.412Z",
+  "updated_at": "2026-06-02T15:01:16.965Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -129,6 +129,14 @@
       "title": "Trump's DOE restarts energy rebate program with dumb conditions",
       "article_path": "content/articles/published/2026-06-02-1ed2d8c4-trump-doe-energy-rebate-restart-electric-heating-excluded.md",
       "seen_at": "2026-06-02T14:01:07.412Z"
+    },
+    "abe39f8edb86ad1addc5fbce688893140d8ee1c761e717c0fd91fb1243504c90": {
+      "url": "https://www.theverge.com/tech/941146/liv-2-dot-0-smart-mosquito-repellent-system-thermacell",
+      "canonical_url": "https://www.theverge.com/tech/941146/liv-2-dot-0-smart-mosquito-repellent-system-thermacell",
+      "source_name": "The Verge",
+      "title": "Thermacell&#8217;s latest smart mosquito system is bigger and more expensive",
+      "article_path": "content/articles/published/2026-06-03-abe39f8e-thermacell-liv-2-0-bigger-pricier-pro-install-mosquito-system.md",
+      "seen_at": "2026-06-02T15:01:16.965Z"
     }
   }
 }
