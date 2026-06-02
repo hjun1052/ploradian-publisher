@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-02T22:00:53.489Z",
+  "updated_at": "2026-06-02T23:01:04.694Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -193,6 +193,14 @@
       "title": "2026-06-03 미장 마감 억지해석",
       "article_path": "content/articles/published/2026-06-03-387d0082-2026-06-03-us-close-absurd-interpretation.md",
       "seen_at": "2026-06-02T22:00:53.489Z"
+    },
+    "e36b07057d7579b5c0ee6bd91913306720504f849aa943f07d1791b92267013f": {
+      "url": "https://news.ploradian.com/nonsense/2026-06-03-08/",
+      "canonical_url": "https://news.ploradian.com/nonsense/2026-06-03-08/",
+      "source_name": "The Ploradian 헛소리 데스크",
+      "title": "공용 서랍 두 번째 칸에서 클립 세 개가 가까운 사물에게 특별한 신호를 보내지 않았다",
+      "article_path": "content/articles/published/2026-06-03-e36b0705-gongyong-seorap-dubeonjjae-khan-byeoldareun-sinho-eopsi-joyonghi-yuji.md",
+      "seen_at": "2026-06-02T23:01:04.694Z"
     }
   }
 }
