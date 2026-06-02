@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-02T09:16:42.740Z",
+  "updated_at": "2026-06-02T09:37:25.029Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -89,6 +89,14 @@
       "title": "2026-06-02 국장 마감 억지해석",
       "article_path": "content/articles/published/2026-06-02-c22f6273-2026-06-02-korea-market-close-nonsense.md",
       "seen_at": "2026-06-02T09:16:42.740Z"
+    },
+    "375bf89e31de218ccaa7cd6ae3157a432cb8a87aed4ec1f233df7c0b9e458b84": {
+      "url": "https://arstechnica.com/security/2026/06/dozens-of-red-hat-packages-backdoored-through-its-offical-npm-channel/",
+      "canonical_url": "https://arstechnica.com/security/2026/06/dozens-of-red-hat-packages-backdoored-through-its-offical-npm-channel/",
+      "source_name": "Ars Technica",
+      "title": "Dozens of Red Hat packages backdoored through its official NPM channel",
+      "article_path": "content/articles/published/2026-06-02-375bf89e--fallback-dozens-of-red-hat-packages-backdoored.md",
+      "seen_at": "2026-06-02T09:37:25.029Z"
     }
   }
 }
