@@ -74,7 +74,8 @@ Non-secret defaults live in `apps/worker/wrangler.toml`:
 
 ## Cron timing
 
-Cloudflare Cron schedules are UTC. The default schedule is `0 0 * * *`, which runs at 09:00 in Korea Standard Time.
+Cloudflare Cron schedules are UTC. The default schedule is `0 * * * *`, which runs once per hour on the hour.
+Each run publishes up to `MAX_ARTICLES_PER_RUN` articles and rechecks `content/sources/seen.json` immediately before committing so overlapping runs do not publish the same source twice.
 
 ## Manual run
 

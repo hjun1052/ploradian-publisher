@@ -88,20 +88,37 @@ export async function runPublishingPipeline(
     }
 
     const target = requireGitHubTarget(config);
-    const nextSeen = addSeenItems(seen, prepared);
-    const commitSha = await commitGeneratedArticles(target, prepared, nextSeen);
-    console.log(JSON.stringify({ event: "github_commit_created", commitSha, count: prepared.length }));
+    const latestSeen = await readSeenStore(target);
+    const publishable = await filterPublishableArticles(target, prepared, latestSeen, skipped);
+
+    if (publishable.length === 0) {
+      return finish({
+        ok: true,
+        trigger: options.trigger,
+        dryRun,
+        startedAt,
+        generated: 0,
+        committed: false,
+        skipped,
+        errors,
+        articles: []
+      });
+    }
+
+    const nextSeen = addSeenItems(latestSeen, publishable);
+    const commitSha = await commitGeneratedArticles(target, publishable, nextSeen);
+    console.log(JSON.stringify({ event: "github_commit_created", commitSha, count: publishable.length }));
 
     return finish({
       ok: true,
       trigger: options.trigger,
       dryRun,
       startedAt,
-      generated: prepared.length,
+      generated: publishable.length,
       committed: true,
       skipped,
       errors,
-      articles: prepared.map((article) => ({
+      articles: publishable.map((article) => ({
         path: article.path,
         title: article.title
       }))
@@ -166,6 +183,45 @@ async function unseenCandidates(items: SourceItem[], seen: SeenStore): Promise<S
     }
     runSeen.add(hash);
     output.push(item);
+  }
+
+  return output;
+}
+
+async function filterPublishableArticles(
+  target: ReturnType<typeof requireGitHubTarget>,
+  articles: PreparedArticle[],
+  seen: SeenStore,
+  skipped: string[]
+): Promise<PreparedArticle[]> {
+  const output: PreparedArticle[] = [];
+  const runHashes = new Set<string>();
+  const runPaths = new Set<string>();
+
+  for (const article of articles) {
+    if (seen.items[article.sourceHash]) {
+      skipped.push(`source already seen before commit: ${article.original_title}`);
+      continue;
+    }
+
+    if (runHashes.has(article.sourceHash)) {
+      skipped.push(`duplicate source in current commit: ${article.original_title}`);
+      continue;
+    }
+
+    if (runPaths.has(article.path)) {
+      skipped.push(`duplicate article path in current commit: ${article.path}`);
+      continue;
+    }
+
+    if (await githubPathExists(target, article.path)) {
+      skipped.push(`article path already exists before commit: ${article.path}`);
+      continue;
+    }
+
+    runHashes.add(article.sourceHash);
+    runPaths.add(article.path);
+    output.push(article);
   }
 
   return output;
