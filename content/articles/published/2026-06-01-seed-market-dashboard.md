@@ -3,7 +3,7 @@ title: "증권사가 새 대시보드를 공개하자 투자자들이 숫자가 
 subtitle: "실시간 지표의 핵심 가치는 방향성보다 움직임 그 자체라는 분석이 나왔다."
 slug: "2026-06-01-seed-market-dashboard"
 date: "2026-06-01T09:15:00+09:00"
-category: "Markets"
+category: "시장"
 source_name: "Sample Market Wire"
 source_url: "https://example.com/markets"
 original_title: "Brokerage launches real-time investor dashboard"

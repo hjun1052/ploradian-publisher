@@ -3,7 +3,7 @@ title: "이사회가 AI 도입을 승인하며 먼저 회의록 요약부터 맡
 subtitle: "가장 시급한 혁신 과제가 혁신 회의의 길이를 줄이는 일로 확정됐다."
 slug: "2026-06-01-seed-boardroom-ai"
 date: "2026-06-01T10:30:00+09:00"
-category: "Business"
+category: "비즈니스"
 source_name: "Sample Business Feed"
 source_url: "https://example.com/business"
 original_title: "Company reviews internal AI productivity tools"

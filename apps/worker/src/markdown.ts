@@ -12,13 +12,14 @@ export function prepareMarkdownArticle(
   const topic = topicSlug(generated.slug || generated.title || source.title, source.category, sourceHash);
   const slug = `${day}-${sourceHash.slice(0, 8)}-${topic}`;
   const path = `content/articles/published/${slug}.md`;
+  const category = normalizeCategory(generated.category || source.category);
 
   const article: Omit<PreparedArticle, "markdown" | "path" | "sourceHash" | "topic"> = {
     title: generated.title.trim(),
     subtitle: generated.subtitle.trim(),
     slug,
     date,
-    category: (generated.category || source.category).trim(),
+    category,
     source_name: source.feedName,
     source_url: source.url,
     original_title: source.title,
@@ -44,6 +45,24 @@ function renderMarkdown(article: Omit<PreparedArticle, "markdown" | "path" | "so
 
 function yamlString(value: string): string {
   return JSON.stringify(value);
+}
+
+function normalizeCategory(value: string): string {
+  const normalized = value.trim().toLocaleLowerCase("ko-KR");
+
+  if (["technology", "tech", "it", "ai", "기술"].includes(normalized)) {
+    return "기술";
+  }
+
+  if (["business", "biz", "economy", "비즈니스", "경제"].includes(normalized)) {
+    return "비즈니스";
+  }
+
+  if (["markets", "market", "finance", "financial", "금융", "시장", "증시"].includes(normalized)) {
+    return "시장";
+  }
+
+  return value.trim();
 }
 
 function topicSlug(value: string, category: string, hash: string): string {

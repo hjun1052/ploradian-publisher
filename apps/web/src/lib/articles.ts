@@ -119,7 +119,30 @@ function normalizeFrontmatter(
     }
   }
 
-  return data as ArticleFrontmatter;
+  const frontmatter = data as ArticleFrontmatter;
+
+  return {
+    ...frontmatter,
+    category: normalizeCategory(frontmatter.category)
+  };
+}
+
+function normalizeCategory(value: string): string {
+  const normalized = value.trim().toLocaleLowerCase("ko-KR");
+
+  if (["technology", "tech", "it", "ai", "기술"].includes(normalized)) {
+    return "기술";
+  }
+
+  if (["business", "biz", "economy", "비즈니스", "경제"].includes(normalized)) {
+    return "비즈니스";
+  }
+
+  if (["markets", "market", "finance", "financial", "금융", "시장", "증시"].includes(normalized)) {
+    return "시장";
+  }
+
+  return value.trim();
 }
 
 function makeExcerpt(body: string): string {

@@ -3,7 +3,7 @@ title: "자동화가 편집국에 입사하자 회의 시간이 드디어 보존
 subtitle: "RSS와 크론, 그리고 약간의 체념으로 굴러가는 신문사가 비용 구조를 설명했다."
 slug: "2026-06-01-seed-automated-newspaper"
 date: "2026-06-01T12:00:00+09:00"
-category: "Technology"
+category: "기술"
 source_name: "Sample RSS"
 source_url: "https://example.com/"
 original_title: "Automated publishing pipeline test item"

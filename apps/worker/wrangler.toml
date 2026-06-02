@@ -37,17 +37,17 @@ RSS_FEEDS_JSON = """
   {
     "name": "The Verge",
     "url": "https://www.theverge.com/rss/index.xml",
-    "category": "Technology"
+    "category": "기술"
   },
   {
     "name": "Ars Technica",
     "url": "https://feeds.arstechnica.com/arstechnica/index",
-    "category": "Technology"
+    "category": "기술"
   },
   {
     "name": "NPR Business",
     "url": "https://feeds.npr.org/1006/rss.xml",
-    "category": "Business"
+    "category": "비즈니스"
   }
 ]
 """
