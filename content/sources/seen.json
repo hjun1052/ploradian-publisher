@@ -1,5 +1,22 @@
 {
   "version": 1,
-  "updated_at": null,
-  "items": {}
+  "updated_at": "2026-06-02T01:11:18.028Z",
+  "items": {
+    "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
+      "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
+      "canonical_url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
+      "source_name": "Ars Technica",
+      "title": "AI costs how much? GitHub Copilot users react to new usage-based pricing system.",
+      "article_path": "content/articles/published/2026-06-02-f344eb66-github-copilot-usage-based-pricing-ai-credit-satire.md",
+      "seen_at": "2026-06-02T01:11:18.028Z"
+    },
+    "9c753e24f6c74871c138c3661a96a79f786fac0d3b48d09b0187f4b785e0585f": {
+      "url": "https://www.theverge.com/tech/941293/google-pixel-watch-5-randy-pitchford-borderlands",
+      "canonical_url": "https://www.theverge.com/tech/941293/google-pixel-watch-5-randy-pitchford-borderlands",
+      "source_name": "The Verge",
+      "title": "The Google Pixel Watch 5 may have been spoiled by… the creator of Borderlands",
+      "article_path": "content/articles/published/2026-06-02-9c753e24-google-pixel-watch-5-randy-pitchford-underwater-leak-satire.md",
+      "seen_at": "2026-06-02T01:11:18.028Z"
+    }
+  }
 }
