@@ -57,6 +57,24 @@ export async function extractFacts(
   source: SourceItem,
   pageText: string
 ): Promise<FactSummary> {
+  if (source.synthetic && source.category === "헛소리") {
+    return {
+      entities: ["The Ploradian 헛소리 데스크"],
+      numbers: [],
+      dates: source.publishedAt ? [source.publishedAt] : [],
+      conflict_or_controversy: "갈등도 논란도 거의 없으며, 바로 그 무의미함이 소재다.",
+      money_stock_market_angle: "금융, 가격, 투자, 시장 영향은 없다.",
+      reader_relevance: "독자가 얻을 실용 정보는 없고, 맥락 없는 기사 형식 자체가 목적이다.",
+      facts: [
+        source.title,
+        source.summary,
+        pageText,
+        "이 기사는 기술, 비즈니스, 시장 정보로 분류하지 않는다.",
+        "헛소리 카테고리로 작성하되 진지한 신문 문체를 유지한다."
+      ].filter(Boolean)
+    };
+  }
+
   return callModelJson<FactSummary>(
     config,
     "ploradian_fact_summary",

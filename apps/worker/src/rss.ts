@@ -50,6 +50,10 @@ export async function sourceHash(source: SourceItem): Promise<string> {
 }
 
 export async function fetchSourcePageText(source: SourceItem): Promise<string> {
+  if (source.synthetic) {
+    return source.summary;
+  }
+
   const { response, text } = await fetchTextWithRetry(
     source.url,
     {

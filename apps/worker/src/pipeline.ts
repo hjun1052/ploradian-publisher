@@ -7,6 +7,7 @@ import {
   readSeenStore
 } from "./github";
 import { prepareMarkdownArticle } from "./markdown";
+import { scheduledNonsenseCandidate } from "./nonsense";
 import { extractFacts, generateSatireArticle } from "./ai";
 import { fetchFeedItems, fetchSourcePageText, sourceHash } from "./rss";
 import { validateGeneratedArticle } from "./validation";
@@ -28,7 +29,9 @@ export async function runPublishingPipeline(
     const githubTarget = dryRun ? null : requireGitHubTarget(config);
     const seen = githubTarget ? await readSeenStore(githubTarget) : emptySeenStore();
     const feedItems = await fetchFeedItems(config.rssFeeds);
-    const candidates = await unseenCandidates(feedItems, seen);
+    const nonsense = scheduledNonsenseCandidate(new Date(startedAt), config.siteTimezone);
+    const sourceItems = nonsense ? [nonsense, ...feedItems] : feedItems;
+    const candidates = await unseenCandidates(sourceItems, seen);
 
     for (const candidate of candidates.slice(0, Math.max(config.maxArticlesPerRun * 4, 4))) {
       if (prepared.length >= config.maxArticlesPerRun) {

@@ -41,6 +41,7 @@ export interface SourceItem {
   canonicalUrl: string;
   summary: string;
   publishedAt?: string;
+  synthetic?: boolean;
 }
 
 export interface FactSummary {

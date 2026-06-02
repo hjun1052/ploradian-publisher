@@ -77,9 +77,11 @@ export function validateGeneratedArticle(
     reasons.push("source_url is not a valid URL");
   }
 
-  const sharedPhrase = findLongSharedPhrase(body, sourceText);
-  if (sharedPhrase) {
-    reasons.push(`appears to copy source phrase: ${sharedPhrase}`);
+  if (!source.synthetic) {
+    const sharedPhrase = findLongSharedPhrase(body, sourceText);
+    if (sharedPhrase) {
+      reasons.push(`appears to copy source phrase: ${sharedPhrase}`);
+    }
   }
 
   const factualBasis = normalizeForSearch(
