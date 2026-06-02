@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-02T13:01:37.495Z",
+  "updated_at": "2026-06-02T14:01:07.412Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -121,6 +121,14 @@
       "title": "Florida sues OpenAI, Sam Altman after multiple ChatGPT-linked murders",
       "article_path": "content/articles/published/2026-06-02-c2f0ec1a-florida-openai-altman-lawsuit-chatgpt-linked-murders.md",
       "seen_at": "2026-06-02T13:01:37.495Z"
+    },
+    "1ed2d8c4723292ad9d954e1971c1ccb65643e37ac79cf18c8d439ac36caced44": {
+      "url": "https://arstechnica.com/tech-policy/2026/06/trumps-doe-restarts-energy-rebate-program-with-dumb-conditions/",
+      "canonical_url": "https://arstechnica.com/tech-policy/2026/06/trumps-doe-restarts-energy-rebate-program-with-dumb-conditions/",
+      "source_name": "Ars Technica",
+      "title": "Trump's DOE restarts energy rebate program with dumb conditions",
+      "article_path": "content/articles/published/2026-06-02-1ed2d8c4-trump-doe-energy-rebate-restart-electric-heating-excluded.md",
+      "seen_at": "2026-06-02T14:01:07.412Z"
     }
   }
 }
