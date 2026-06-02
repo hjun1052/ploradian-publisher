@@ -231,6 +231,7 @@ Replace neutral explanation with specific mockery grounded in the provided weak 
 The satire_brief is not metadata decoration: every must_include_jabs item must be substantially reflected in the body.
 The straight_faced_defense lines are the core style: calmly defend the target's absurd logic as if it were reasonable, until the defense becomes the joke.
 Use analogies from satire_brief in the body or rewrite better ones before output.
+Fix rhythm and repetition. Do not let several paragraphs make the same joke with different props. Build a chain: fact -> weak point -> fake defense -> worse implication -> final quiet insult.
 Keep the newspaper form. Do not add unsupported facts. Output strict JSON matching the requested schema.`
       },
       {
