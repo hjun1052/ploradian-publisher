@@ -48,6 +48,31 @@ RSS_FEEDS_JSON = """
     "name": "NPR Business",
     "url": "https://feeds.npr.org/1006/rss.xml",
     "category": "비즈니스"
+  },
+  {
+    "name": "연합인포맥스 증권",
+    "url": "https://news.einfomax.co.kr/rss/S1N2.xml",
+    "category": "시장"
+  },
+  {
+    "name": "연합인포맥스 IB/기업",
+    "url": "https://news.einfomax.co.kr/rss/S1N7.xml",
+    "category": "비즈니스"
+  },
+  {
+    "name": "연합인포맥스 채권/외환",
+    "url": "https://news.einfomax.co.kr/rss/S1N16.xml",
+    "category": "시장"
+  },
+  {
+    "name": "연합인포맥스 해외주식",
+    "url": "https://news.einfomax.co.kr/rss/S1N21.xml",
+    "category": "시장"
+  },
+  {
+    "name": "연합인포맥스 국제뉴스",
+    "url": "https://news.einfomax.co.kr/rss/S1N23.xml",
+    "category": "시장"
   }
 ]
 """

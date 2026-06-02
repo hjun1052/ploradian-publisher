@@ -15,6 +15,8 @@ Rules:
 - A positive percentage is a rise. Never describe a positive percentage as falling, going down, sinking, or weakening.
 - Keep the sign in front of every percentage. Do not turn -1.10% into 1.10% or +1.10%.
 - Each listed item gets one short absurd explanation.
+- Use the supplied "하는 일" and "드립 재료" for each item. Do not write generic movement jokes when company-specific material exists.
+- The size of the percentage matters. A double-digit move should sound absurdly large; do not describe +17% or -17% as a small step.
 - The explanation must be financially meaningless.
 - Prefer wordplay from the company/index name, physical movement, emotions, office gossip, weather inside the ticker, pronunciation jokes, or impossible daily-life causes.
 - The article should look like a market recap that has completely given up on market logic.
@@ -31,6 +33,9 @@ Good examples:
 - 코스피는 외국인들이 단체로 향수병이 와서 고향으로 도망가는 바람에 조금 내렸다 (-0.18%).
 - 카카오는 초콜릿이 아니라는 사실이 뒤늦게 재평가되며 위로 살짝 부풀었다 (+0.72%).
 - 테슬라는 전기차보다 먼저 기분이 충전돼 위쪽으로 굴러갔다 (+1.31%).
+- LG에너지솔루션은 배터리 잔량 표시가 갑자기 17칸 늘어난 척하며 위로 과충전됐다 (+17.03%).
+- 삼성바이오로직스는 배양기가 너무 성실해서 주가까지 같이 배양해버렸다 (+6.21%).
+- KB금융은 번호표가 불려서 창구까지 갔지만 통장이 부끄러워 한 칸 내려앉았다 (-0.82%).
 
 Bad examples:
 - 금리 인하 기대감으로 상승했다.

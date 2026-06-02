@@ -375,31 +375,54 @@ function fallbackMarketArticle(source: SourceItem, error: unknown): GeneratedArt
   };
 }
 
-function parseMarketRows(summary: string): Array<{ name: string; symbol: string; price: string; change: string }> {
+interface MarketRow {
+  name: string;
+  symbol: string;
+  price: string;
+  change: string;
+  business: string;
+  jokeSeed: string;
+}
+
+function parseMarketRows(summary: string): MarketRow[] {
   return summary
     .split("\n")
-    .map((line) => /^-\s+(.+?)\s+\((.+?)\):\s+(.+?),\s+([+-]\d+(?:\.\d+)?%)$/.exec(line.trim()))
+    .map((line) => {
+      const match = /^-\s+(.+?)\s+\((.+?)\):\s+(.+?),\s+([+-]\d+(?:\.\d+)?%)(?:\s+\|\s+하는 일:\s+(.+?))?(?:\s+\|\s+드립 재료:\s+(.+))?$/.exec(line.trim());
+      return match;
+    })
     .filter((match): match is RegExpExecArray => Boolean(match))
     .map((match) => ({
       name: match[1] ?? "",
       symbol: match[2] ?? "",
       price: match[3] ?? "",
-      change: match[4] ?? ""
+      change: match[4] ?? "",
+      business: match[5] ?? "업종 단서 없음",
+      jokeSeed: match[6] ?? match[1] ?? ""
     }))
     .filter((row) => {
       return Boolean(row.name && row.symbol && row.price && row.change);
     });
 }
 
-function marketSentence(row: { name: string; symbol: string; price: string; change: string }, index: number): string {
+function marketSentence(row: MarketRow, index: number): string {
   const name = `${row.name}${topicParticle(row.name)}`;
   const direction = row.change.startsWith("-") ? "내렸다" : row.change.startsWith("+") ? "올랐다" : "가만히 있었다";
+  const amount = Number(row.change.replace(/[+%]/g, ""));
+  const absolute = Math.abs(amount);
+  const scale = absolute >= 10
+    ? "이 정도면 계단이 아니라 건물 엘리베이터가 층수 버튼을 전부 누른 수준"
+    : absolute >= 5
+      ? "한 칸 움직였다고 우기기엔 표정이 너무 큰 수준"
+      : absolute >= 1
+        ? "마감판이 못 본 척하기엔 살짝 티 나는 수준"
+        : "돋보기 없이는 핑계도 작아지는 수준";
   const excuses = [
-    `${name} 자기 이름을 너무 오래 들여다보다가 ${direction}. 가격표는 ${row.price}, 등락률은 ${row.change}였다. 설명은 단순하다. 이름이 하루 종일 이름값을 하느라 차트까지 끌고 갔다.`,
-    `${name} 마감 직전 책상 위 물컵 위치가 마음에 들지 않았는지 ${direction}. 숫자는 ${row.change}로 남았고, ${row.symbol}이라는 표기는 아무 일도 모른다는 듯 옆에 앉아 있었다.`,
-    `${name} 오늘 ${direction}. 이유는 거창하지 않다. 종목명이 스스로를 발음해본 뒤 약간 민망해졌고, 그 민망함이 ${row.change}만큼 가격에 반영됐다.`,
-    `${row.name}의 ${row.change}는 대체로 계단과 관련이 있는 것으로 보인다. 올라간 종목은 위층 버튼을 눌렀고, 내려간 종목은 잠깐 지하 매점에 다녀온 셈이다.`,
-    `${name} ${row.price}라는 숫자를 앞에 세워놓고 ${direction}. 이 정도면 설명이 아니라 출석 확인에 가깝지만, 마감판은 원래 그런 표정으로 버티는 직업이다.`
+    `${name} ${row.business} 회사답게 ${row.jokeSeed} 중 하나를 잘못 만진 듯 ${direction}. 가격표는 ${row.price}, 등락률은 ${row.change}였다. ${scale}이다.`,
+    `${name} 오늘 ${direction}. ${row.jokeSeed}가 회의실에서 혼자 너무 진지해진 탓으로 보인다. 숫자는 ${row.change}, 종목코드 ${row.symbol}은 옆에서 아무것도 모른다는 표정을 유지했다.`,
+    `${row.name}의 ${row.change}는 ${row.business}가 아니라 ${row.jokeSeed}의 컨디션 문제로 해석된다. 마감판은 이 설명을 믿지 않았지만, 대체 설명도 딱히 준비하지 못해 조용히 받아 적었다.`,
+    `${name} ${row.price}라는 숫자를 앞에 세워놓고 ${direction}. ${row.business}라는 그럴듯한 명함을 달고도 결국 오늘의 원인은 ${row.jokeSeed} 근처에서 길을 잃은 것으로 처리됐다.`,
+    `${row.name}은 장중 내내 ${row.jokeSeed}를 들고 자기소개를 하다가 ${direction}. 등락률 ${row.change}는 ${scale}이라, 데스크가 모른 척하기에도 약간 민망했다.`
   ];
 
   return excuses[index % excuses.length] ?? excuses[0] ?? `${row.name}은 ${row.change}만큼 움직였다. 이유는 끝내 사무실에 도착하지 않았다.`;
