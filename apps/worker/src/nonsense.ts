@@ -1,6 +1,6 @@
 import type { SourceItem } from "./types";
 
-const NONSENSE_HOURS = new Set([0, 8, 20]);
+const NONSENSE_HOURS = new Set([0, 8, 16]);
 
 interface NonsenseObject {
   subject: string;

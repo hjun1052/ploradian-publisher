@@ -37,9 +37,10 @@ export async function runPublishingPipeline(
     const scheduledItems = [market, nonsense].filter((item): item is SourceItem => item !== null);
     const sourceItems = [...scheduledItems, ...feedItems];
     const candidates = await unseenCandidates(filterSourceCandidates(sourceItems, skipped), seen);
+    const maxArticlesThisRun = config.maxArticlesPerRun + Math.max(scheduledItems.length - 1, 0);
 
-    for (const candidate of candidates.slice(0, Math.max(config.maxArticlesPerRun * 4, 4))) {
-      if (prepared.length >= config.maxArticlesPerRun) {
+    for (const candidate of candidates.slice(0, Math.max(maxArticlesThisRun * 4, 4))) {
+      if (prepared.length >= maxArticlesThisRun) {
         break;
       }
 
