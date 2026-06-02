@@ -6,6 +6,7 @@ export async function GET(context: APIContext) {
   const articles = await getPublishedArticles();
   const urls = [
     { loc: `${site}/`, lastmod: latestDate(articles) },
+    { loc: `${site}/archive/`, lastmod: latestDate(articles) },
     { loc: `${site}/about/`, lastmod: latestDate(articles) },
     ...articles.map((article) => ({
       loc: `${site}/article/${article.slug}/`,

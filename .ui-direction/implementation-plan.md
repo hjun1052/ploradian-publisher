@@ -10,6 +10,7 @@ Rejected hero options:
 Section choreography:
 - Header masthead and issue metadata.
 - Homepage front-page grid with lead, secondary stories, and latest briefs.
+- Archive page with a compact search desk and list-first browsing mode.
 - Article detail page with title deck, source attribution, prose, and disclaimer.
 - About page explaining the satirical publication plainly.
 - Footer disclaimer and feed links.
@@ -17,6 +18,7 @@ Section choreography:
 Component mapping:
 - Header/navigation: `SiteHeader`.
 - Homepage story modules: `ArticleCard`.
+- Archive/search: static article data plus small progressive-enhancement script.
 - Article body shell: `BaseLayout` plus page-specific prose.
 - RSS/sitemap: static Astro endpoints.
 
@@ -26,6 +28,7 @@ Validation plan:
 - Typecheck Worker after generating Wrangler types.
 - Run Worker TypeScript checks.
 - Smoke-test homepage/article/about/feed/sitemap locally.
+- Smoke-test archive search by Korean title, source/category filters, empty state, and mobile stacking.
 
 Screenshot pass plan:
 - Start Astro dev server.

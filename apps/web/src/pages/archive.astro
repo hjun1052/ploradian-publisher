@@ -1,0 +1,167 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { formatDisplayDate, getPublishedArticles } from "../lib/articles";
+
+const articles = await getPublishedArticles();
+const categories = [...new Set(articles.map((article) => article.category).filter(Boolean))].sort((a, b) =>
+  a.localeCompare(b, "ko-KR")
+);
+const searchData = articles.map((article) => ({
+  title: article.title,
+  subtitle: article.subtitle,
+  excerpt: article.excerpt,
+  category: article.category,
+  source_name: article.source_name,
+  original_title: article.original_title,
+  date: article.date,
+  displayDate: formatDisplayDate(article.date),
+  href: `/article/${article.slug}/`
+}));
+const searchDataJson = JSON.stringify(searchData).replace(/</g, "\\u003c");
+---
+
+<BaseLayout
+  title="Archive"
+  description="Search and browse The Ploradian's published satirical technology and business articles."
+>
+  <section class="site-shell archive-page" aria-labelledby="archive-title">
+    <div class="archive-heading">
+      <div>
+        <p class="section-label">Archive Desk</p>
+        <h1 id="archive-title">All published stories, filed for later suspicion.</h1>
+      </div>
+      <p class="archive-summary">
+        검색어, 카테고리, 날짜순으로 자동 발행된 기사를 훑어보세요. 원문 제목과 출처도 함께 검색됩니다.
+      </p>
+    </div>
+
+    <form class="archive-controls" role="search" aria-label="Article archive search">
+      <label class="archive-field archive-field-query" for="archive-query">
+        <span>Search</span>
+        <input
+          id="archive-query"
+          type="search"
+          name="q"
+          autocomplete="off"
+          placeholder="제목, 본문 요약, 출처, 원문 제목"
+        />
+      </label>
+      <label class="archive-field" for="archive-category">
+        <span>Category</span>
+        <select id="archive-category" name="category">
+          <option value="">All sections</option>
+          {categories.map((category) => <option value={category}>{category}</option>)}
+        </select>
+      </label>
+      <label class="archive-field" for="archive-sort">
+        <span>Order</span>
+        <select id="archive-sort" name="sort">
+          <option value="newest">Newest first</option>
+          <option value="oldest">Oldest first</option>
+        </select>
+      </label>
+    </form>
+
+    <div class="archive-status" aria-live="polite">
+      <span id="archive-count">{articles.length}</span>
+      <span>stories filed</span>
+    </div>
+
+    <ol class="archive-list" id="archive-list">
+      {articles.map((article) => (
+        <li class="archive-row">
+          <article>
+            <div class="archive-row-meta">
+              <span class="kicker">{article.category}</span>
+              <time datetime={article.date}>{formatDisplayDate(article.date)}</time>
+              <span>{article.source_name}</span>
+            </div>
+            <h2><a href={`/article/${article.slug}/`}>{article.title}</a></h2>
+            <p class="archive-row-deck">{article.subtitle}</p>
+            <p class="archive-row-source">원문: {article.original_title}</p>
+          </article>
+        </li>
+      ))}
+    </ol>
+
+    <p class="archive-empty" id="archive-empty" hidden>해당 조건에 맞는 기사가 없습니다.</p>
+  </section>
+
+  <script type="application/json" id="archive-data" set:html={searchDataJson} />
+  <script>
+    const dataElement = document.getElementById("archive-data");
+    const articles = dataElement ? JSON.parse(dataElement.textContent || "[]") : [];
+    const queryInput = document.getElementById("archive-query");
+    const categorySelect = document.getElementById("archive-category");
+    const sortSelect = document.getElementById("archive-sort");
+    const list = document.getElementById("archive-list");
+    const count = document.getElementById("archive-count");
+    const empty = document.getElementById("archive-empty");
+
+    const normalize = (value) => value.toLocaleLowerCase("ko-KR").replace(/\s+/g, " ").trim();
+
+    function render() {
+      if (!list || !count || !empty) return;
+
+      const query = normalize(queryInput?.value || "");
+      const category = categorySelect?.value || "";
+      const sort = sortSelect?.value || "newest";
+      const terms = query.split(" ").filter(Boolean);
+
+      const filtered = articles
+        .filter((article) => {
+          if (category && article.category !== category) return false;
+          if (terms.length === 0) return true;
+          const haystack = normalize(
+            [
+              article.title,
+              article.subtitle,
+              article.excerpt,
+              article.category,
+              article.source_name,
+              article.original_title
+            ].join(" ")
+          );
+          return terms.every((term) => haystack.includes(term));
+        })
+        .sort((left, right) => {
+          const direction = sort === "oldest" ? 1 : -1;
+          return direction * (new Date(left.date).getTime() - new Date(right.date).getTime());
+        });
+
+      count.textContent = String(filtered.length);
+      empty.hidden = filtered.length > 0;
+      list.innerHTML = filtered
+        .map(
+          (article) => `
+            <li class="archive-row">
+              <article>
+                <div class="archive-row-meta">
+                  <span class="kicker">${escapeHtml(article.category)}</span>
+                  <time datetime="${escapeHtml(article.date)}">${escapeHtml(article.displayDate)}</time>
+                  <span>${escapeHtml(article.source_name)}</span>
+                </div>
+                <h2><a href="${escapeHtml(article.href)}">${escapeHtml(article.title)}</a></h2>
+                <p class="archive-row-deck">${escapeHtml(article.subtitle)}</p>
+                <p class="archive-row-source">원문: ${escapeHtml(article.original_title)}</p>
+              </article>
+            </li>
+          `
+        )
+        .join("");
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#39;");
+    }
+
+    queryInput?.addEventListener("input", render);
+    categorySelect?.addEventListener("change", render);
+    sortSelect?.addEventListener("change", render);
+  </script>
+</BaseLayout>

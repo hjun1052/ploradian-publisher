@@ -8,6 +8,8 @@ Product core behavior: Static article archive generated from RSS sources by a sc
 
 Primary action: Scan the latest lead story, then open article detail pages.
 
+Secondary action: Search the archive by keyword or category and browse a denser list of published stories.
+
 Emotional target: "This looks like a sober newspaper that has made one very dry joke and refused to explain it."
 
 Visual thesis: A warm broadsheet web edition with serious typographic rhythm, compact metadata, and minimal ornament.
@@ -20,4 +22,5 @@ Screenshot success criteria:
 - First viewport clearly signals The Ploradian as a serious publication.
 - Lead story dominates without becoming a landing-page hero.
 - Secondary stories remain scannable on desktop and mobile.
+- Archive search feels like a newspaper index, not a SaaS filter panel.
 - No decorative filler or meme-coded satire cues.
