@@ -122,11 +122,11 @@ export function validateGeneratedArticle(
     reasons.push("body is empty");
   }
 
-  if (body.length < 520) {
+  if (body.length < 420) {
     reasons.push("body is too short");
   }
 
-  if (body.length > 5200) {
+  if (body.length > 3600) {
     reasons.push("body is too long");
   }
 
@@ -210,11 +210,11 @@ function validateSeriousArticle(
   body: string,
   reasons: string[]
 ): void {
-  if (body.length < 1200) {
+  if (body.length < 900) {
     reasons.push("정색 body is too short for a serious critical column");
   }
 
-  if (body.length > 5600) {
+  if (body.length > 3800) {
     reasons.push("정색 body is too long; keep the criticism focused");
   }
 
@@ -262,7 +262,7 @@ function validateSeriousArticle(
 }
 
 function validateNonsenseArticle(body: string, reasons: string[]): void {
-  if (body.length > 3200) {
+  if (body.length > 2200) {
     reasons.push("헛소리 body is too long; keep anti-news short enough to stay pointless");
   }
 
@@ -279,7 +279,7 @@ function validateNonsenseArticle(body: string, reasons: string[]): void {
 }
 
 function validateMarketNonsenseArticle(source: SourceItem, fullText: string, body: string, reasons: string[]): void {
-  if (body.length > 4200) {
+  if (body.length > 2800) {
     reasons.push("market nonsense body is too long; keep the fake recap punchy");
   }
 
@@ -383,23 +383,23 @@ function validateSatireArticle(
   body: string,
   reasons: string[]
 ): void {
-  if (body.length > 900 && countSatireSignals(`${title} ${article.subtitle} ${body}`) < 3) {
+  if (body.length > 700 && countSatireSignals(`${title} ${article.subtitle} ${body}`) < 3) {
     reasons.push("satire is too polite; add sharper grounded ridicule, analogy, or irony");
   }
 
-  if (body.length > 900 && countJokeCarriers(`${title} ${article.subtitle} ${body}`) < 5) {
+  if (body.length > 700 && countJokeCarriers(`${title} ${article.subtitle} ${body}`) < 4) {
     reasons.push("article reads like serious criticism; add more visible jokes, ridicule carriers, and absurd analogies");
   }
 
-  if (body.length > 900 && countDeadpanDefense(`${title} ${article.subtitle} ${body}`) < 4) {
+  if (body.length > 700 && countDeadpanDefense(`${title} ${article.subtitle} ${body}`) < 3) {
     reasons.push("article lacks deadpan corporate-defense satire; calmly defend the absurd logic until it becomes the joke");
   }
 
-  if (body.length > 900 && countSeriousCritiqueTerms(body) > 5) {
+  if (body.length > 700 && countSeriousCritiqueTerms(body) > 5) {
     reasons.push("too many serious critique terms; reduce policy-column cadence and increase mockery");
   }
 
-  if (!source.synthetic && body.length > 900 && concreteWeakPointHits(body, facts) < 1) {
+  if (!source.synthetic && body.length > 700 && concreteWeakPointHits(body, facts) < 1) {
     reasons.push("does not visibly attack any extracted weak point or mockable detail");
   }
 
@@ -407,12 +407,12 @@ function validateSatireArticle(
     reasons.push("satire_brief must include at least three straight-faced defense lines");
   }
 
-  if (article.satire_brief.must_include_jabs.length < 4) {
-    reasons.push("satire_brief must include at least four concrete jabs");
+  if (article.satire_brief.must_include_jabs.length < 3) {
+    reasons.push("satire_brief must include at least three concrete jabs");
   }
 
-  if (article.satire_brief.analogies.length < 3) {
-    reasons.push("satire_brief must include at least three analogies");
+  if (article.satire_brief.analogies.length < 2) {
+    reasons.push("satire_brief must include at least two analogies");
   }
 
   if (
@@ -422,11 +422,11 @@ function validateSatireArticle(
     reasons.push("body does not use enough straight-faced defense lines");
   }
 
-  if (article.satire_brief.must_include_jabs.length >= 4 && briefCoverage(body, article.satire_brief.must_include_jabs) < 2) {
+  if (article.satire_brief.must_include_jabs.length >= 3 && briefCoverage(body, article.satire_brief.must_include_jabs) < 2) {
     reasons.push("body does not use enough satire_brief jabs");
   }
 
-  if (article.satire_brief.analogies.length >= 3 && briefCoverage(body, article.satire_brief.analogies) < 1) {
+  if (article.satire_brief.analogies.length >= 2 && briefCoverage(body, article.satire_brief.analogies) < 1) {
     reasons.push("body does not use enough satire_brief analogies");
   }
 }

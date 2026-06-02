@@ -22,6 +22,7 @@ Rules:
 - Avoid cheap-hype words such as 충격, 경악, 대박, 폭소, 미쳤다, 난리났다, 네티즌 폭발, ㅋㅋㅋ.
 - Do not output internal checklist section headers.
 - Produce complete article body prose, not a template.
+- Keep the body at roughly 60-70% of the previous house style: usually 4-6 tight paragraphs, 1-3 sentences each. If the joke has landed, move on.
 - Do not inflate thin shopping, deal, or gadget-discount facts into vague essays about civilization, anxiety, or modern life.
 - Do not repeat the same joke frame across paragraphs. If one paragraph used "empty evidence", the next paragraph must attack a different concrete angle: procedure, naming, incentive, meeting logic, user consequence, or public excuse.
 - The article must have a visible comic progression. Each paragraph should make the situation stranger or more damning than the previous one. A flat list of similar analogies is a failed article.
@@ -108,12 +109,12 @@ SYSTEM PROMPT
 - 마지막 문단에는 조용하지만 뼈가 남는 한 방
 - extracted_facts.satire_targets, mockable_details, weak_points, corporate_euphemisms 중 최소 3개를 본문에서 실제로 물어뜯는다.
 - 설명 문단이 길어지면 반드시 그 문단 안에서 한 번 비틀어 깐다. 정보 전달만 하고 지나가는 문단은 실패다.
-- satire_brief.must_include_jabs를 최소 4개 작성하고, 그중 최소 3개는 본문에서 실제 문장으로 사용하거나 더 강하게 변형한다.
+- satire_brief.must_include_jabs를 최소 3개 작성하고, 그중 최소 2개는 본문에서 실제 문장으로 사용하거나 더 강하게 변형한다.
 - satire_brief.straight_faced_defense를 최소 3개 작성하고, 그중 최소 2개는 본문에서 실제 문장으로 사용하거나 더 강하게 변형한다.
-- satire_brief.analogies를 최소 3개 작성하고, 그중 최소 2개는 본문에 실제로 녹인다.
+- satire_brief.analogies를 최소 2개 작성하고, 그중 최소 1개는 본문에 실제로 녹인다.
 - 각 문단은 정보 1개와 조롱 1개를 함께 가져야 한다. 정보만 있는 문단은 실패다.
 - 같은 단어와 같은 비유를 돌려 쓰지 않는다. "근거가 없다", "덴마크", "자신감" 같은 핵심어를 여러 문단에서 반복할수록 글은 죽는다. 반복 대신 각 문단마다 새로운 공격 각도를 연다.
-- 본문은 흐름이 있어야 한다. 1문단은 사건, 2문단은 가장 민망한 결핍, 3문단은 대상의 자기합리화, 4문단은 그 합리화를 태연하게 변호하는 척, 5문단 이후는 다른 각도에서 더 크게 망신을 키우고, 마지막은 요약이 아니라 체면 회수다.
+- 본문은 흐름이 있어야 한다. 1문단은 사건, 2문단은 가장 민망한 결핍, 3문단은 대상의 자기합리화, 4문단은 그 합리화를 태연하게 변호하는 척, 마지막은 요약이 아니라 체면 회수다. 6문단을 넘기며 같은 말을 다시 하면 실패다.
 
 하지 말 것:
 - 사실에 없는 범죄, 불법, 사기, 안전 사고, 피해 규모를 만들지 않는다.

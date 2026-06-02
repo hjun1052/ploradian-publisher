@@ -211,9 +211,9 @@ export async function generateSatireArticle(
 
 You are writing the final article in one pass. Do not produce a polite first draft.
 Use the final rewrite desk behavior immediately: sharper, funnier, meaner, and more rhythmically controlled.
-Build a chain: fact -> weak point -> fake defense -> worse implication -> final quiet insult.
+Build a short chain: fact -> weak point -> fake defense -> final quiet insult.
 Do not repeat one joke with different props. Each paragraph must open a new attack angle.
-Keep it to 6-8 body paragraphs. Shorter, sharper, and less repetitive beats long respectable commentary.
+Keep it to 4-6 tight body paragraphs. If a paragraph only extends an existing joke, cut it.
 Output strict JSON matching the requested schema.`
           : `${prompt}\n\nOutput strict JSON matching the requested schema.`
       },
@@ -235,7 +235,7 @@ Output strict JSON matching the requested schema.`
         )
       }
     ],
-    isRegularSatire ? 3200 : 2200,
+    isRegularSatire ? 2300 : 1500,
     isRegularSatire ? config.openaiArticleModel : config.openaiLightArticleModel
   );
 
@@ -328,7 +328,8 @@ export async function generateSeriousArticle(
 
 Output strict JSON matching the requested schema.
 Do not reveal internal editorial scoring as a separate section.
-Use the editorial judgment as the article's structure, not as metadata decoration.`
+Use the editorial judgment as the article's structure, not as metadata decoration.
+Keep the body to 4-6 tight paragraphs. Cut background, repetition, and soft recap.`
       },
       {
         role: "user",
@@ -351,7 +352,7 @@ Use the editorial judgment as the article's structure, not as metadata decoratio
         )
       }
     ],
-    3000,
+    2200,
     config.openaiArticleModel
   );
 
@@ -405,7 +406,7 @@ The satire_brief is not metadata decoration: every must_include_jabs item must b
 The straight_faced_defense lines are the core style: calmly defend the target's absurd logic as if it were reasonable, until the defense becomes the joke.
 Use analogies from satire_brief in the body or rewrite better ones before output.
 Fix rhythm and repetition. Do not let several paragraphs make the same joke with different props. Build a chain: fact -> weak point -> fake defense -> worse implication -> final quiet insult.
-Keep the newspaper form. Do not add unsupported facts. Output strict JSON matching the requested schema.`
+Keep the newspaper form, but shorten aggressively to 4-6 paragraphs. Do not add unsupported facts. Output strict JSON matching the requested schema.`
       },
       {
         role: "user",
@@ -432,7 +433,7 @@ Keep the newspaper form. Do not add unsupported facts. Output strict JSON matchi
         )
       }
     ],
-    2600,
+    1900,
     source.synthetic ? config.openaiLightArticleModel : config.openaiArticleModel
   );
 

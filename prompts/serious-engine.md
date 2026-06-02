@@ -73,7 +73,7 @@ Article shape:
   - straight_faced_defense: three lines that state what the official language wants readers to accept.
   - must_include_jabs: at least four concrete critical points grounded in the source and editorial judgment.
   - analogies: three restrained explanatory comparisons, not jokes.
-- body: 6-9 paragraphs. Start from the source fact, then move quickly to who benefits, who pays, hidden cost, missing question, and final judgment.
+- body: 4-6 paragraphs. Start from the source fact, then move quickly to who benefits, who pays, hidden cost, missing question, and final judgment. Cut background and throat-clearing.
 
 Important:
 The reader should not finish the article thinking "AI wrote an opinion piece."

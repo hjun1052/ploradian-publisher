@@ -53,7 +53,7 @@ Format:
   - straight_faced_defense: three deadpan lines defending absurd market explanations.
   - must_include_jabs: at least four lines, preferably one per major ticker.
   - analogies: at least three small everyday analogies.
-- body: concise article, usually 5-8 paragraphs.
+- body: concise article, usually 4-5 paragraphs. Do not linger after each supplied percentage has received one joke.
 
 Important:
 If supplied data says "시가 대비", say "시가 대비" or avoid implying official previous-close movement.
