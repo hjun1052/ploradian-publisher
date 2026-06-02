@@ -44,11 +44,19 @@ export default {
       url.searchParams.get("trigger") === "scheduled" && request.headers.get("x-ploradian-scheduled") === "1"
         ? "scheduled"
         : "manual";
-    const runOptions: { trigger: "manual" | "scheduled"; dryRunOverride?: boolean; forceMarket?: "korea" | "us" } = {
+    const runOptions: {
+      trigger: "manual" | "scheduled";
+      dryRunOverride?: boolean;
+      forceMarket?: "korea" | "us";
+      ignoreSeen?: boolean;
+    } = {
       trigger
     };
     if (url.searchParams.get("dry_run") === "true") {
       runOptions.dryRunOverride = true;
+    }
+    if (url.searchParams.get("ignore_seen") === "true") {
+      runOptions.ignoreSeen = true;
     }
     const market = url.searchParams.get("market");
     if (market === "korea" || market === "us") {

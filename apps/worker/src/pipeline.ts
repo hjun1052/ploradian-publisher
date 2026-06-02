@@ -18,7 +18,12 @@ import type { FactSummary, GeneratedArticleJson, PipelineResult, PreparedArticle
 
 export async function runPublishingPipeline(
   env: Env,
-  options: { trigger: "manual" | "scheduled"; dryRunOverride?: boolean; forceMarket?: "korea" | "us" }
+  options: {
+    trigger: "manual" | "scheduled";
+    dryRunOverride?: boolean;
+    forceMarket?: "korea" | "us";
+    ignoreSeen?: boolean;
+  }
 ): Promise<PipelineResult> {
   const startedAt = new Date().toISOString();
   const skipped: string[] = [];
@@ -29,8 +34,8 @@ export async function runPublishingPipeline(
   try {
     const config = loadConfig(env);
     dryRun = options.dryRunOverride ?? config.dryRun;
-    const githubTarget = dryRun ? null : requireGitHubTarget(config);
-    const seen = githubTarget ? await readSeenStore(githubTarget) : emptySeenStore();
+    const githubTarget = dryRun && options.ignoreSeen ? null : requireGitHubTarget(config);
+    const seen = githubTarget && !options.ignoreSeen ? await readSeenStore(githubTarget) : emptySeenStore();
     const feedItems = await fetchFeedItems(config.rssFeeds);
     const market = options.forceMarket
       ? await forcedMarketCandidate(options.forceMarket, new Date(startedAt), config.siteTimezone)
@@ -39,6 +44,9 @@ export async function runPublishingPipeline(
     const scheduledItems = [market, nonsense].filter((item): item is SourceItem => item !== null);
     const sourceItems = [...scheduledItems, ...feedItems];
     const candidates = await unseenCandidates(filterSourceCandidates(sourceItems, skipped), seen);
+    if (candidates.length === 0) {
+      skipped.push("no unseen source candidates after filtering and seen-store dedupe");
+    }
     const maxArticlesThisRun = config.maxArticlesPerRun + Math.max(scheduledItems.length - 1, 0);
     const candidateAttemptLimit = scheduledItems.length > 0
       ? Math.max(maxArticlesThisRun * 3, scheduledItems.length)
@@ -334,16 +342,16 @@ function fallbackRegularArticle(
   );
 
   const category = normalizeFallbackCategory(source.category);
-  const target = source.feedName;
-  const detail = cleanFallbackSentence(facts.mockable_details[0] || facts.facts[0] || source.title);
-  const title = `${target}, 설명은 늦었고 기사는 먼저 도착했다`;
-  const subtitle = "자동 작성 데스크가 모델의 지각을 기다리다 결국 기사 형식부터 출고했다";
+  const topic = fallbackTopic(source, facts);
+  const detail = cleanFallbackSentence(source.summary || facts.facts[0] || source.title);
+  const title = `${topic.label}, 설명보다 먼저 체면을 잃었다`;
+  const subtitle = "원문은 짧았고, 포장지는 그 짧음을 숨기기엔 너무 얇았다";
   const body = [
-    `${target}이 전한 소식은 원래 조금 더 화려한 조롱을 받을 예정이었다. 그러나 작성 모델이 제시간에 문을 열지 못했고, 편집국은 기다림도 하나의 업무라는 낡은 농담을 더는 믿지 않기로 했다. 그래서 이 기사는 최소한의 사실과 최대한의 체면 손실만 들고 먼저 나왔다.`,
-    `소재의 핵심은 다음 한 줄로 충분하다. ${detail} 이 문장은 대단한 분석처럼 보이기에는 짧고, 그냥 지나치기에는 또 묘하게 성가시다. 회사와 플랫폼과 시장은 대개 이런 문장 하나를 키워 보도자료라는 온실에 넣지만, 오늘은 온실 유리가 먼저 퇴근했다.`,
-    `좋게 말하면 빠른 발행이다. 나쁘게 말하면 원래 있어야 할 윤기와 분노가 엘리베이터를 놓쳤다. 다만 독자에게 필요한 사실은 남아 있다. 무언가가 발표됐고, 움직였고, 누군가는 그것을 그럴듯하게 포장하려 했으며, 그 포장지는 생각보다 얇았다.`,
-    `The Ploradian은 이 상황을 매우 성실한 실패로 분류한다. 모델이 늦은 덕분에 대상은 잠시 조롱의 최고 강도를 피했지만, 완전히 무사하지는 못했다. 자동화된 신문에서 가장 민망한 순간은 기계가 인간처럼 늦는 순간이고, 오늘 이 기사는 그 민망함을 정시 발행이라는 이름으로 접수했다.`,
-    `결론은 단순하다. 원문은 출처에 남아 있고, 이 기사는 그 주변을 너무 오래 서성이지 않기로 했다. 더 날카로운 문장이 올 수도 있었지만 오지 않았다. 대신 남은 것은 제때 올라온 기사 한 편과, 지각한 모델보다 조금 더 성실했던 빈정거림이다.`
+    `${source.feedName}이 ${source.title}라는 소식을 전했다. 제목만 보면 대단히 복잡한 문제처럼 보이지만, 실제로는 ${topic.object} 앞에서 사람들이 다시 한 번 설명서를 접고 영수증을 펼친 장면에 가깝다. 기술 산업은 이런 순간마다 어려운 단어를 꺼내 들지만, 그 단어들이 하는 일은 대개 민망함을 정장처럼 입히는 것이다.`,
+    `핵심은 길지 않다. ${detail} 짧은 사실은 원래 짧게 끝나야 한다. 그러나 회사와 플랫폼은 짧은 사실을 그대로 두면 너무 솔직해 보일까 봐, 주변에 의미와 전략과 사용자 경험이라는 포장재를 열심히 두른다. 포장재가 많을수록 내용물이 작다는 사실은 다행히 아직 법적으로 공시하지 않아도 된다.`,
+    `${topic.label}의 장점은 분명하다. 일이 복잡해 보이면 누구도 곧장 계산기를 들이대지 않는다는 점이다. 누군가 가격을 올리거나 조건을 바꾸거나 불편을 새 이름으로 부를 때, 업계는 그것을 변화라고 부른다. 변화라는 단어는 참 친절해서, 웬만한 불편도 회의실 조명 아래에서는 혁신처럼 앉아 있을 수 있다.`,
+    `독자 입장에서는 아주 간단하다. 실제로 달라진 것은 숫자, 조건, 사용 방식, 혹은 그 주변의 체감 비용이다. 달라지지 않은 것은 이것을 설명하는 쪽의 자신감이다. 자신감은 제품보다 먼저 출시되고, 해명보다 오래 팔리며, 가끔은 서비스 약관보다 작은 글씨로 책임을 숨긴다.`,
+    `결국 이번 소식은 ${topic.object}이 얼마나 멀리 왔는지가 아니라, 얼마나 자연스럽게 불편을 새 기능처럼 소개할 수 있는지를 보여준다. 그 점에서 발표는 꽤 성공적이다. 독자가 고개를 끄덕이기 전에 이미 납득한 사람처럼 서 있게 만들었으니 말이다. 남은 문제는 하나다. 그렇게 세운 사람에게 또 계산서를 건넨다는 점이다.`
   ].join("\n\n");
 
   return {
@@ -353,25 +361,54 @@ function fallbackRegularArticle(
     slug: `${category}-fallback-${simpleSlug(source.title)}`,
     satire_brief: {
       target: source.title,
-      ridiculous_core: "모델 호출이 늦어도 자동 신문은 빈 시간대를 남기지 않는다.",
+      ridiculous_core: "짧은 사실을 큰 포장으로 감싸는 순간 자체가 우스꽝스럽다.",
       straight_faced_defense: [
-        "정시 발행은 때로 문장보다 먼저 도착하는 미덕이다.",
-        "모델이 늦은 덕분에 조롱은 오히려 절약됐다.",
-        "비어 있는 시간표보다는 덜 익은 빈정거림이 낫다."
+        "포장재가 많을수록 내용물은 더 안전하게 작아 보인다.",
+        "변화라는 단어는 웬만한 불편을 회의실에서 혁신처럼 앉힌다.",
+        "자신감은 제품보다 먼저 출시되고 해명보다 오래 팔린다."
       ],
       must_include_jabs: [
-        "작성 모델이 제시간에 문을 열지 못했다.",
-        "온실 유리가 먼저 퇴근했다.",
-        "자동화된 신문에서 기계가 인간처럼 늦었다.",
-        "지각한 모델보다 빈정거림이 더 성실했다."
+        "민망함을 정장처럼 입힌다.",
+        "포장재가 많을수록 내용물이 작다.",
+        "불편도 회의실 조명 아래에서는 혁신처럼 앉아 있을 수 있다.",
+        "납득한 사람처럼 세워놓고 계산서를 건넨다."
       ],
-      analogies: ["온실 유리", "엘리베이터를 놓친 분노", "정시 발행이라는 접수증"]
+      analogies: ["민망함의 정장", "회의실 조명", "계산서"]
     },
     body,
     source_name: source.feedName,
     source_url: source.url,
     original_title: source.title
   };
+}
+
+function fallbackTopic(source: SourceItem, facts: FactSummary): { label: string; object: string } {
+  const haystack = `${source.title} ${source.summary} ${facts.facts.join(" ")}`.toLowerCase();
+  if (haystack.includes("github") || haystack.includes("copilot")) {
+    return { label: "깃허브 코파일럿 요금표", object: "AI 계산서" };
+  }
+  if (haystack.includes("meta") || haystack.includes("instagram")) {
+    return { label: "메타의 고객지원", object: "계정 복구 창구" };
+  }
+  if (haystack.includes("google") || haystack.includes("gemini")) {
+    return { label: "구글의 AI 대리인", object: "시연용 자신감" };
+  }
+  if (haystack.includes("microsoft") || haystack.includes("surface") || haystack.includes("windows")) {
+    return { label: "마이크로소프트의 새 장비", object: "비교표" };
+  }
+  if (haystack.includes("nvidia") || haystack.includes("rtx")) {
+    return { label: "엔비디아의 새 약속", object: "성능표" };
+  }
+  if (haystack.includes("ai")) {
+    return { label: "AI 업계의 새 설명", object: "자동화된 계산서" };
+  }
+  if (source.category === "비즈니스") {
+    return { label: "비즈니스 소식", object: "전략 문장" };
+  }
+  if (source.category === "시장") {
+    return { label: "시장 소식", object: "숫자판" };
+  }
+  return { label: "기술 업계의 새 소식", object: "제품 설명서" };
 }
 
 function normalizeFallbackCategory(value: string): string {
