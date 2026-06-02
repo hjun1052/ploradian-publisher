@@ -114,6 +114,9 @@ const jsonLd = JSON.stringify({
     <meta name="twitter:image" content={imageUrl} />
     <link rel="icon" href="/ploradian-mark.svg" />
     <link rel="alternate" type="application/rss+xml" title="The Ploradian RSS" href="/feed.xml" />
+    <link rel="alternate" type="text/plain" title="The Ploradian LLM index" href="/llms.txt" />
+    <link rel="alternate" type="text/plain" title="The Ploradian full-text LLM corpus" href="/llms-full.txt" />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
     <script type="application/ld+json" set:html={jsonLd} />
     <title>{pageTitle}</title>
   </head>
@@ -126,7 +129,7 @@ const jsonLd = JSON.stringify({
       <div class="site-shell footer-grid">
         <p>The Ploradian publishes satirical technology and business coverage from automated Markdown workflows.</p>
         <p>본 사이트의 기사는 실제 보도를 바탕으로 재구성한 풍자 콘텐츠입니다.</p>
-        <p><a href="/feed.xml">RSS</a> · <a href="/sitemap.xml">Sitemap</a></p>
+        <p><a href="/feed.xml">RSS</a> · <a href="/sitemap.xml">Sitemap</a> · <a href="/llms.txt">LLMs</a></p>
       </div>
     </footer>
   </body>
