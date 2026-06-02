@@ -51,7 +51,7 @@ export async function findArticleImage(
     const url = new URL(UNSPLASH_SEARCH_URL);
     url.searchParams.set("query", query);
     url.searchParams.set("orientation", "landscape");
-    url.searchParams.set("per_page", "20");
+    url.searchParams.set("per_page", "10");
     url.searchParams.set("content_filter", "high");
 
     const { response, text } = await fetchTextWithRetry(
@@ -65,7 +65,7 @@ export async function findArticleImage(
       {
         label: "Unsplash image search",
         timeoutMs: 5000,
-        maxBytes: 65536,
+        maxBytes: 262144,
         retries: 0
       }
     );

@@ -20,8 +20,21 @@ const TRACKING_PARAMS = new Set([
   "gclid"
 ]);
 
-export async function fetchFeedItems(feeds: FeedSource[]): Promise<SourceItem[]> {
-  const settled = await Promise.allSettled(feeds.map((feed) => fetchOneFeed(feed)));
+export interface FeedFetchOptions {
+  timeoutMs?: number;
+  maxBytes?: number;
+  retries?: number;
+}
+
+const DEFAULT_FEED_FETCH_OPTIONS = {
+  timeoutMs: 10000,
+  maxBytes: 262144,
+  retries: 2
+} satisfies Required<FeedFetchOptions>;
+
+export async function fetchFeedItems(feeds: FeedSource[], options: FeedFetchOptions = {}): Promise<SourceItem[]> {
+  const fetchOptions = { ...DEFAULT_FEED_FETCH_OPTIONS, ...options };
+  const settled = await Promise.allSettled(feeds.map((feed) => fetchOneFeed(feed, fetchOptions)));
   const items: SourceItem[] = [];
 
   settled.forEach((result, index) => {
@@ -84,7 +97,7 @@ export async function fetchSourcePageText(source: SourceItem): Promise<string> {
   return htmlToText(text).slice(0, 4500);
 }
 
-async function fetchOneFeed(feed: FeedSource): Promise<SourceItem[]> {
+async function fetchOneFeed(feed: FeedSource, options: Required<FeedFetchOptions>): Promise<SourceItem[]> {
   const { response, text, truncated } = await fetchTextWithRetry(
     feed.url,
     {
@@ -95,9 +108,9 @@ async function fetchOneFeed(feed: FeedSource): Promise<SourceItem[]> {
     },
     {
       label: `RSS feed ${feed.name}`,
-      timeoutMs: 10000,
-      maxBytes: 262144,
-      retries: 2
+      timeoutMs: options.timeoutMs,
+      maxBytes: options.maxBytes,
+      retries: options.retries
     }
   );
 
@@ -138,7 +151,7 @@ function normalizeRssItem(item: unknown, feed: FeedSource): SourceItem | null {
   }
 
   const title = stringValue(record.title);
-  const url = stringValue(record.link) || stringValue(record.guid);
+  const url = absolutizeUrl(stringValue(record.link) || stringValue(record.guid), feed.url);
   if (!title || !url) {
     return null;
   }
@@ -168,7 +181,7 @@ function normalizeAtomEntry(entry: unknown, feed: FeedSource): SourceItem | null
   }
 
   const title = stringValue(record.title);
-  const url = atomLink(record.link) || stringValue(record.id);
+  const url = absolutizeUrl(atomLink(record.link) || stringValue(record.id), feed.url);
   if (!title || !url) {
     return null;
   }
@@ -203,6 +216,22 @@ function canonicalizeUrl(raw: string): string {
     }
     url.hostname = url.hostname.toLowerCase();
     return url.toString();
+  } catch {
+    return raw.trim();
+  }
+}
+
+function absolutizeUrl(raw: string, base: string): string {
+  if (!raw) {
+    return "";
+  }
+
+  try {
+    const baseUrl = new URL(base);
+    if (/^[\w.-]+\//.test(raw) && !raw.includes("://")) {
+      return new URL(`/${raw}`, baseUrl.origin).toString();
+    }
+    return new URL(raw, base).toString();
   } catch {
     return raw.trim();
   }

@@ -286,9 +286,9 @@ final_score should initially equal raw_score; downstream editor may adjust for d
               axis: source.seriousAxis,
               institution: source.seriousInstitution
             },
-            rss_summary: source.summary,
-            page_text_excerpt: pageText.slice(0, 4500),
-            recent_serious_history: history.recent.slice(0, 10)
+            rss_summary: usefulText(source.summary) ? source.summary : "",
+            page_text_excerpt: pageText.slice(0, 1200),
+            recent_serious_history: history.recent.slice(0, 6)
           },
           null,
           2
@@ -454,6 +454,15 @@ function articlePromptFor(source: SourceItem): string {
 
 function extractNumbers(value: string): string[] {
   return value.match(/[+-]?\d+(?:,\d{3})*(?:\.\d+)?%?/g) ?? [];
+}
+
+function usefulText(value: string | undefined): value is string {
+  if (!value) {
+    return false;
+  }
+
+  const normalized = value.trim().toLowerCase();
+  return Boolean(normalized && normalized !== "undefined" && normalized !== "null");
 }
 
 function normalizeCategory(value: string): string {

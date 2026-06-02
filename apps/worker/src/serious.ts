@@ -9,7 +9,7 @@ import type {
   SourceItem
 } from "./types";
 
-const MAX_SERIOUS_CANDIDATES_TO_SCORE = 6;
+const MAX_SERIOUS_CANDIDATES_TO_SCORE = 3;
 const MAX_CANDIDATES_PER_INSTITUTION = 2;
 const MAX_CANDIDATES_PER_AXIS = 3;
 const MAX_SERIOUS_SOURCE_AGE_DAYS = 21;
@@ -114,29 +114,37 @@ export async function scheduledSeriousSelection(
     };
   }
 
-  const scored: Array<{ source: SourceItem; evaluation: SeriousCandidateEvaluation }> = [];
-  for (const source of candidatesForScoring(candidates)) {
-    try {
-      const pageText = await fetchSourcePageText(source);
-      const rawEvaluation = await evaluateSeriousCandidate(config, source, pageText, history);
-      const evaluation = applyDiversityAdjustment(rawEvaluation, source, history, now, config.seriousMinScore);
-      scored.push({
-        source: {
-          ...source,
-          seriousEvaluation: evaluation
-        },
-        evaluation
-      });
-    } catch (error) {
-      console.warn(
-        JSON.stringify({
-          event: "serious_candidate_scoring_failed",
-          title: source.title,
-          error: error instanceof Error ? error.message : String(error)
-        })
-      );
+  const scoringCandidates = candidatesForScoring(candidates);
+  const scored = (
+    await Promise.allSettled(
+      scoringCandidates.map(async (source) => {
+        const pageText = await fetchSourcePageText(source);
+        const rawEvaluation = await evaluateSeriousCandidate(config, source, seriousSourceExcerpt(source, pageText), history);
+        const evaluation = applyDiversityAdjustment(rawEvaluation, source, history, now, config.seriousMinScore);
+        return {
+          source: {
+            ...source,
+            seriousEvaluation: evaluation
+          },
+          evaluation
+        };
+      })
+    )
+  ).flatMap((result, index) => {
+    if (result.status === "fulfilled") {
+      return [result.value];
     }
-  }
+
+    const source = scoringCandidates[index];
+    console.warn(
+      JSON.stringify({
+        event: "serious_candidate_scoring_failed",
+        title: source?.title ?? "unknown",
+        error: result.reason instanceof Error ? result.reason.message : String(result.reason)
+      })
+    );
+    return [];
+  });
 
   scored.sort((left, right) => right.evaluation.final_score - left.evaluation.final_score);
   const topCandidates = scored.map((item) => item.evaluation).slice(0, 5);
@@ -206,7 +214,11 @@ async function fetchSeriousCandidates(sources: SeriousSource[], seen: SeenStore)
       category: "정색"
     }));
   const sourceMeta = new Map(sources.map((source) => [source.url, source]));
-  const items = await fetchFeedItems(feeds);
+  const items = await fetchFeedItems(feeds, {
+    timeoutMs: 5000,
+    maxBytes: 1048576,
+    retries: 0
+  });
   const fresh: SourceItem[] = [];
 
   for (const item of items) {
@@ -240,6 +252,13 @@ async function fetchSeriousCandidates(sources: SeriousSource[], seen: SeenStore)
     const rightTime = right.publishedAt ? new Date(right.publishedAt).getTime() : 0;
     return rightTime - leftTime;
   });
+}
+
+export function seriousSourceExcerpt(source: SourceItem, pageText: string): string {
+  return focusedExcerpt(
+    cleanSourceText([source.title, source.summary, pageText].filter((value) => usefulText(value)).join(" ")),
+    keywordFragments(`${source.title} ${source.summary}`)
+  );
 }
 
 function isTooOld(source: SourceItem, maxAgeDays: number): boolean {
@@ -302,6 +321,49 @@ function candidateSkipReason(source: SourceItem): string | null {
   }
 
   return null;
+}
+
+function focusedExcerpt(text: string, keywords: string[]): string {
+  if (!text) {
+    return "";
+  }
+
+  const normalized = text.replace(/\s+/g, " ").trim();
+  const firstHit = keywords
+    .map((keyword) => normalized.indexOf(keyword))
+    .filter((index) => index >= 0)
+    .sort((left, right) => left - right)[0];
+  if (firstHit === undefined) {
+    return normalized.slice(0, 1200);
+  }
+
+  const start = Math.max(0, firstHit - 300);
+  return normalized.slice(start, start + 1200).trim();
+}
+
+function cleanSourceText(value: string): string {
+  return value
+    .replace(/본문내용 바로가기[\s\S]*?(?=□|202\d년|[0-9]{4}년|붙임|자료|문의|$)/g, " ")
+    .replace(/한국은행이 하는 일[\s\S]*?(?=□|202\d년|[0-9]{4}년|붙임|자료|문의|$)/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function keywordFragments(value: string): string[] {
+  return value
+    .replace(/[^\p{L}\p{N}\s.%/-]/gu, " ")
+    .split(/\s+/)
+    .map((part) => part.trim())
+    .filter((part) => part.length >= 4)
+    .slice(0, 8);
+}
+
+function usefulText(value: string | undefined): value is string {
+  if (!value) {
+    return false;
+  }
+  const normalized = value.trim().toLowerCase();
+  return Boolean(normalized && normalized !== "undefined" && normalized !== "null");
 }
 
 function inferAxis(source: SourceItem): SeriousCandidateEvaluation["axis"] {
