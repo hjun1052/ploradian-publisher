@@ -14,7 +14,7 @@ import { scheduledNonsenseCandidate } from "./nonsense";
 import { extractFacts, generateSatireArticle, intensifySatireArticle } from "./ai";
 import { fetchFeedItems, fetchSourcePageText, sourceHash } from "./rss";
 import { validateGeneratedArticle } from "./validation";
-import type { GeneratedArticleJson, PipelineResult, PreparedArticle, SeenStore, SourceItem } from "./types";
+import type { FactSummary, GeneratedArticleJson, PipelineResult, PreparedArticle, SeenStore, SourceItem } from "./types";
 
 export async function runPublishingPipeline(
   env: Env,
@@ -58,7 +58,7 @@ export async function runPublishingPipeline(
       try {
         const hash = await sourceHash(candidate);
         const pageText = await fetchSourcePageText(candidate);
-        const facts = await extractFacts(config, candidate, pageText);
+        const facts = await extractFactsWithFallback(config, candidate, pageText);
         const article = await generateAndValidate(config, candidate, facts, pageText);
         const image = await findArticleImage(config, candidate, article, facts);
         const markdownArticle = prepareMarkdownArticle(article, candidate, hash, config, new Date(), image);
@@ -176,10 +176,33 @@ function filterSourceCandidates(items: SourceItem[], skipped: string[]): SourceI
   });
 }
 
+async function extractFactsWithFallback(
+  config: ReturnType<typeof loadConfig>,
+  source: SourceItem,
+  pageText: string
+): Promise<FactSummary> {
+  try {
+    return await extractFacts(config, source, pageText);
+  } catch (error) {
+    if (source.synthetic) {
+      throw error;
+    }
+
+    console.warn(
+      JSON.stringify({
+        event: "fact_extraction_fallback",
+        title: source.title,
+        error: errorMessage(error)
+      })
+    );
+    return fallbackFacts(source, pageText);
+  }
+}
+
 async function generateAndValidate(
   config: ReturnType<typeof loadConfig>,
   source: SourceItem,
-  facts: Awaited<ReturnType<typeof extractFacts>>,
+  facts: FactSummary,
   pageText: string
 ) {
   const sourceText = [source.title, source.summary, pageText].join("\n");
@@ -191,6 +214,10 @@ async function generateAndValidate(
     if (fallback) {
       return fallback;
     }
+    const regularFallback = fallbackRegularArticle(source, facts, error);
+    if (regularFallback) {
+      return regularFallback;
+    }
     throw error;
   }
 
@@ -201,6 +228,22 @@ async function generateAndValidate(
     const fallback = fallbackMarketArticle(source, error);
     if (fallback) {
       return fallback;
+    }
+    const draftValidation = validateGeneratedArticle(draft, source, facts, sourceText);
+    if (draftValidation.ok || isSoftSatireValidationFailure(draftValidation.reasons)) {
+      console.warn(
+        JSON.stringify({
+          event: "intensify_failed_draft_accepted",
+          title: source.title,
+          error: errorMessage(error),
+          validation: draftValidation.reasons
+        })
+      );
+      return draft;
+    }
+    const regularFallback = fallbackRegularArticle(source, facts, error);
+    if (regularFallback) {
+      return regularFallback;
     }
     throw error;
   }
@@ -246,10 +289,134 @@ async function generateAndValidate(
     if (fallback) {
       return fallback;
     }
+    const regularFallback = fallbackRegularArticle(source, facts, error);
+    if (regularFallback) {
+      return regularFallback;
+    }
     throw error;
   }
 
   return retry;
+}
+
+function fallbackFacts(source: SourceItem, pageText: string): FactSummary {
+  const summary = [source.summary, pageText].join(" ").replace(/\s+/g, " ").trim();
+  return {
+    entities: [source.feedName, ...keywordFragmentsForFallback(source.title).slice(0, 4)],
+    numbers: summary.match(/[+-]?\d+(?:,\d{3})*(?:\.\d+)?%?/g)?.slice(0, 8) ?? [],
+    dates: source.publishedAt ? [source.publishedAt] : [],
+    conflict_or_controversy: source.summary || source.title,
+    money_stock_market_angle: source.category === "시장" ? source.summary : "",
+    reader_relevance: source.summary || source.title,
+    satire_targets: [source.title],
+    mockable_details: [source.title, source.summary].filter(Boolean).slice(0, 4),
+    weak_points: [source.summary || source.title].filter(Boolean),
+    corporate_euphemisms: [],
+    facts: [source.title, source.summary, summary.slice(0, 600)].filter(Boolean)
+  };
+}
+
+function fallbackRegularArticle(
+  source: SourceItem,
+  facts: FactSummary,
+  error: unknown
+): GeneratedArticleJson | null {
+  if (source.synthetic) {
+    return null;
+  }
+
+  console.warn(
+    JSON.stringify({
+      event: "regular_fallback_article",
+      title: source.title,
+      error: errorMessage(error)
+    })
+  );
+
+  const category = normalizeFallbackCategory(source.category);
+  const target = source.feedName;
+  const detail = cleanFallbackSentence(facts.mockable_details[0] || facts.facts[0] || source.title);
+  const title = `${target}, 설명은 늦었고 기사는 먼저 도착했다`;
+  const subtitle = "자동 작성 데스크가 모델의 지각을 기다리다 결국 기사 형식부터 출고했다";
+  const body = [
+    `${target}이 전한 소식은 원래 조금 더 화려한 조롱을 받을 예정이었다. 그러나 작성 모델이 제시간에 문을 열지 못했고, 편집국은 기다림도 하나의 업무라는 낡은 농담을 더는 믿지 않기로 했다. 그래서 이 기사는 최소한의 사실과 최대한의 체면 손실만 들고 먼저 나왔다.`,
+    `소재의 핵심은 다음 한 줄로 충분하다. ${detail} 이 문장은 대단한 분석처럼 보이기에는 짧고, 그냥 지나치기에는 또 묘하게 성가시다. 회사와 플랫폼과 시장은 대개 이런 문장 하나를 키워 보도자료라는 온실에 넣지만, 오늘은 온실 유리가 먼저 퇴근했다.`,
+    `좋게 말하면 빠른 발행이다. 나쁘게 말하면 원래 있어야 할 윤기와 분노가 엘리베이터를 놓쳤다. 다만 독자에게 필요한 사실은 남아 있다. 무언가가 발표됐고, 움직였고, 누군가는 그것을 그럴듯하게 포장하려 했으며, 그 포장지는 생각보다 얇았다.`,
+    `The Ploradian은 이 상황을 매우 성실한 실패로 분류한다. 모델이 늦은 덕분에 대상은 잠시 조롱의 최고 강도를 피했지만, 완전히 무사하지는 못했다. 자동화된 신문에서 가장 민망한 순간은 기계가 인간처럼 늦는 순간이고, 오늘 이 기사는 그 민망함을 정시 발행이라는 이름으로 접수했다.`,
+    `결론은 단순하다. 원문은 출처에 남아 있고, 이 기사는 그 주변을 너무 오래 서성이지 않기로 했다. 더 날카로운 문장이 올 수도 있었지만 오지 않았다. 대신 남은 것은 제때 올라온 기사 한 편과, 지각한 모델보다 조금 더 성실했던 빈정거림이다.`
+  ].join("\n\n");
+
+  return {
+    title,
+    subtitle,
+    category,
+    slug: `${category}-fallback-${simpleSlug(source.title)}`,
+    satire_brief: {
+      target: source.title,
+      ridiculous_core: "모델 호출이 늦어도 자동 신문은 빈 시간대를 남기지 않는다.",
+      straight_faced_defense: [
+        "정시 발행은 때로 문장보다 먼저 도착하는 미덕이다.",
+        "모델이 늦은 덕분에 조롱은 오히려 절약됐다.",
+        "비어 있는 시간표보다는 덜 익은 빈정거림이 낫다."
+      ],
+      must_include_jabs: [
+        "작성 모델이 제시간에 문을 열지 못했다.",
+        "온실 유리가 먼저 퇴근했다.",
+        "자동화된 신문에서 기계가 인간처럼 늦었다.",
+        "지각한 모델보다 빈정거림이 더 성실했다."
+      ],
+      analogies: ["온실 유리", "엘리베이터를 놓친 분노", "정시 발행이라는 접수증"]
+    },
+    body,
+    source_name: source.feedName,
+    source_url: source.url,
+    original_title: source.title
+  };
+}
+
+function normalizeFallbackCategory(value: string): string {
+  const normalized = value.trim().toLocaleLowerCase("ko-KR");
+  if (["technology", "tech", "it", "ai", "기술"].includes(normalized)) {
+    return "기술";
+  }
+  if (["business", "biz", "economy", "비즈니스", "경제"].includes(normalized)) {
+    return "비즈니스";
+  }
+  if (["markets", "market", "finance", "financial", "금융", "시장", "증시"].includes(normalized)) {
+    return "시장";
+  }
+  return "기술";
+}
+
+function cleanFallbackSentence(value: string): string {
+  const cleaned = value
+    .replace(/\s+/g, " ")
+    .replace(/[<>]/g, "")
+    .trim();
+  if (!cleaned) {
+    return "출처는 짧은 소식 하나를 남겼고, 자동 데스크는 그 짧음을 기사 형식으로 접었다.";
+  }
+  return cleaned.endsWith(".") || cleaned.endsWith("다.") ? cleaned : `${cleaned}.`;
+}
+
+function simpleSlug(value: string): string {
+  return value
+    .normalize("NFKD")
+    .replace(/[^\w\s-]/g, " ")
+    .toLowerCase()
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 6)
+    .join("-")
+    .slice(0, 56) || "rss-source";
+}
+
+function keywordFragmentsForFallback(value: string): string[] {
+  return value
+    .replace(/[^\p{L}\p{N}\s.$%원달러-]/gu, " ")
+    .split(/\s+/)
+    .map((part) => part.trim())
+    .filter((part) => part.length >= 2);
 }
 
 function fallbackMarketArticle(source: SourceItem, error: unknown): GeneratedArticleJson | null {
