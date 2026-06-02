@@ -51,7 +51,7 @@ export async function runPublishingPipeline(
     const candidateAttemptLimit = scheduledItems.length > 0
       ? Math.max(maxArticlesThisRun * 3, scheduledItems.length)
       : Math.max(config.maxArticlesPerRun * 6, 6);
-    const runDeadlineMs = Date.now() + 115_000;
+    const runDeadlineMs = Date.now() + 240_000;
 
     for (const candidate of candidates.slice(0, candidateAttemptLimit)) {
       if (prepared.length >= maxArticlesThisRun) {

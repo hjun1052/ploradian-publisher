@@ -387,7 +387,7 @@ async function callOpenAIJson<T>(
     },
     {
       label: `OpenAI ${schemaName}`,
-      timeoutMs: 30000,
+      timeoutMs: schemaName === "ploradian_satire_article" ? 90000 : 30000,
       maxBytes: 98304,
       retries: 0
     }
