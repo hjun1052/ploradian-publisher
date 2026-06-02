@@ -14,7 +14,7 @@ import { scheduledNonsenseCandidate } from "./nonsense";
 import { extractFacts, generateSatireArticle, intensifySatireArticle } from "./ai";
 import { fetchFeedItems, fetchSourcePageText, sourceHash } from "./rss";
 import { validateGeneratedArticle } from "./validation";
-import type { PipelineResult, PreparedArticle, SeenStore, SourceItem } from "./types";
+import type { GeneratedArticleJson, PipelineResult, PreparedArticle, SeenStore, SourceItem } from "./types";
 
 export async function runPublishingPipeline(
   env: Env,
@@ -183,8 +183,27 @@ async function generateAndValidate(
   pageText: string
 ) {
   const sourceText = [source.title, source.summary, pageText].join("\n");
-  const draft = await generateSatireArticle(config, source, facts);
-  const first = await intensifySatireArticle(config, source, facts, draft);
+  let draft: GeneratedArticleJson;
+  try {
+    draft = await generateSatireArticle(config, source, facts);
+  } catch (error) {
+    const fallback = fallbackMarketArticle(source, error);
+    if (fallback) {
+      return fallback;
+    }
+    throw error;
+  }
+
+  let first: GeneratedArticleJson;
+  try {
+    first = await intensifySatireArticle(config, source, facts, draft);
+  } catch (error) {
+    const fallback = fallbackMarketArticle(source, error);
+    if (fallback) {
+      return fallback;
+    }
+    throw error;
+  }
   const firstValidation = validateGeneratedArticle(first, source, facts, sourceText);
 
   if (firstValidation.ok) {
@@ -226,6 +245,90 @@ async function generateAndValidate(
   }
 
   return retry;
+}
+
+function fallbackMarketArticle(source: SourceItem, error: unknown): GeneratedArticleJson | null {
+  if (!source.synthetic || source.category !== "시장") {
+    return null;
+  }
+
+  console.warn(
+    JSON.stringify({
+      event: "market_fallback_article",
+      title: source.title,
+      error: errorMessage(error)
+    })
+  );
+
+  const rows = parseMarketRows(source.summary);
+  const marketName = source.title.includes("미장") ? "미장" : "국장";
+  const day = source.publishedAt?.slice(0, 10) ?? new Date().toISOString().slice(0, 10);
+  const lead = rows[0];
+  const title = lead
+    ? `${lead.name}, 오늘은 이름값 때문에 움직였다... ${marketName} 마감판이 설명을 포기했다`
+    : `${marketName} 마감, 숫자는 있었고 이유는 끝내 출근하지 않았다`;
+
+  const lines = rows.length > 0
+    ? rows.map((row, index) => marketSentence(row, index))
+    : [`${marketName}에는 숫자가 있었지만, 숫자를 설득할 만한 이유는 현장에 도착하지 못했다.`];
+
+  const body = [
+    `${day} ${marketName} 마감판에는 숫자가 먼저 도착했고 이유는 한참 뒤에도 오지 않았다. 그래서 The Ploradian 시장 데스크는 정상적인 설명을 포기하고, 종목명이 풍기는 기분과 숫자의 표정만으로 오늘의 움직임을 정리했다. 숫자는 실제로 남기되, 이유는 일부러 쓸모없게 붙인다. 그래야 오늘 시장이 적어도 솔직하게 이상해진다.`,
+    ...lines,
+    `이날 ${marketName}을 설명하는 일은 결국 숫자 옆에 말도 안 되는 사유를 붙이는 사무직 체조에 가까웠다. 오르면 오른 대로, 내리면 내린 대로, 보합이면 보합인 척하느라 지친 표정으로 앉아 있었다. 다행히 모든 등락률은 그대로 남았다. 불행히도 이유는 아무도 정상적으로 챙기지 않았다.`,
+    `결론적으로 오늘의 ${marketName}은 대단한 해석을 요구하지 않았다. 숫자는 숫자였고, 이름은 이름이었고, 데스크는 그 둘 사이에 억지로 의자를 놓았다. 누군가 왜 움직였느냐고 묻는다면 답은 간단하다. 종목들이 각자 자기 이름을 너무 오래 바라보다가 그만 방향을 정해버린 것이다.`
+  ].join("\n\n");
+
+  return {
+    title,
+    subtitle: "등락률은 그대로 두고 이유만 전부 이상하게 붙인 마감 정리",
+    category: "시장",
+    slug: `${day}-${marketName === "국장" ? "korea" : "us"}-market-close-nonsense`,
+    satire_brief: {
+      target: "시장 마감 해석",
+      ridiculous_core: "숫자는 실제지만 이유는 종목명과 생활감으로 억지 해석한다.",
+      straight_faced_defense: [
+        "숫자는 이미 충분히 진지하므로 이유는 조금 쉬어도 된다.",
+        "종목명은 하루 종일 차트를 보느라 자기 역할을 다했다.",
+        "마감 해석은 원래 끝난 일을 그럴듯하게 다시 접는 업무다."
+      ],
+      must_include_jabs: rows.slice(0, 4).map((row) => `${row.name} ${row.change}`),
+      analogies: ["계단 핑계", "이름값 체조", "마감판 사무직 체조"]
+    },
+    body,
+    source_name: source.feedName,
+    source_url: source.url,
+    original_title: source.title
+  };
+}
+
+function parseMarketRows(summary: string): Array<{ name: string; symbol: string; price: string; change: string }> {
+  return summary
+    .split("\n")
+    .map((line) => /^-\s+(.+?)\s+\((.+?)\):\s+(.+?),\s+([+-]\d+(?:\.\d+)?%)$/.exec(line.trim()))
+    .filter((match): match is RegExpExecArray => Boolean(match))
+    .map((match) => ({
+      name: match[1] ?? "",
+      symbol: match[2] ?? "",
+      price: match[3] ?? "",
+      change: match[4] ?? ""
+    }))
+    .filter((row) => {
+      return Boolean(row.name && row.symbol && row.price && row.change);
+    });
+}
+
+function marketSentence(row: { name: string; symbol: string; price: string; change: string }, index: number): string {
+  const direction = row.change.startsWith("-") ? "내렸다" : row.change.startsWith("+") ? "올랐다" : "가만히 있었다";
+  const excuses = [
+    `${row.name}은 자기 이름을 너무 오래 들여다보다가 ${direction}. 가격표는 ${row.price}, 등락률은 ${row.change}였다. 설명은 단순하다. 이름이 하루 종일 이름값을 하느라 차트까지 끌고 갔다.`,
+    `${row.name}은 마감 직전 책상 위 물컵 위치가 마음에 들지 않았는지 ${direction}. 숫자는 ${row.change}로 남았고, ${row.symbol}이라는 표기는 아무 일도 모른다는 듯 옆에 앉아 있었다.`,
+    `${row.name}은 오늘 ${direction}. 이유는 거창하지 않다. 종목명이 스스로를 발음해본 뒤 약간 민망해졌고, 그 민망함이 ${row.change}만큼 가격에 반영됐다.`,
+    `${row.name}의 ${row.change}는 대체로 계단과 관련이 있는 것으로 보인다. 올라간 종목은 위층 버튼을 눌렀고, 내려간 종목은 잠깐 지하 매점에 다녀온 셈이다.`,
+    `${row.name}은 ${row.price}라는 숫자를 앞에 세워놓고 ${direction}. 이 정도면 설명이 아니라 출석 확인에 가깝지만, 마감판은 원래 그런 표정으로 버티는 직업이다.`
+  ];
+
+  return excuses[index % excuses.length] ?? excuses[0] ?? `${row.name}은 ${row.change}만큼 움직였다. 이유는 끝내 사무실에 도착하지 않았다.`;
 }
 
 function isSoftSatireValidationFailure(reasons: string[]): boolean {
