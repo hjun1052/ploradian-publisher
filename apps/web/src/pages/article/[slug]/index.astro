@@ -11,9 +11,79 @@ export async function getStaticPaths() {
 }
 
 const { article } = Astro.props;
+const canonicalPath = `/article/${article.slug}/`;
+const canonicalUrl = new URL(canonicalPath, Astro.site ?? "https://news.ploradian.com").toString();
+const publishedIso = new Date(article.date).toISOString();
+const articleStructuredData = [
+  {
+    "@type": "SatiricalArticle",
+    "@id": `${canonicalUrl}#article`,
+    headline: article.title,
+    description: article.subtitle,
+    articleSection: article.category,
+    datePublished: publishedIso,
+    dateModified: publishedIso,
+    inLanguage: "ko-KR",
+    isAccessibleForFree: true,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": canonicalUrl
+    },
+    author: {
+      "@type": "Organization",
+      name: "The Ploradian Automated Desk"
+    },
+    publisher: {
+      "@id": new URL("/#organization", Astro.site ?? "https://news.ploradian.com").toString()
+    },
+    citation: article.source_url,
+    isBasedOn: {
+      "@type": "CreativeWork",
+      name: article.original_title,
+      url: article.source_url,
+      publisher: {
+        "@type": "Organization",
+        name: article.source_name
+      }
+    }
+  },
+  {
+    "@type": "BreadcrumbList",
+    "@id": `${canonicalUrl}#breadcrumb`,
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Latest",
+        item: new URL("/", Astro.site ?? "https://news.ploradian.com").toString()
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Archive",
+        item: new URL("/archive/", Astro.site ?? "https://news.ploradian.com").toString()
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: article.title,
+        item: canonicalUrl
+      }
+    ]
+  }
+];
 ---
 
-<BaseLayout title={article.title} description={article.subtitle}>
+<BaseLayout
+  title={article.title}
+  description={article.excerpt}
+  canonicalPath={canonicalPath}
+  ogType="article"
+  publishedTime={publishedIso}
+  modifiedTime={publishedIso}
+  articleSection={article.category}
+  structuredData={articleStructuredData}
+>
   <article class="site-shell article-detail">
     <header class="article-hero">
       <p class="kicker">{article.category}</p>

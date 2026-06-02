@@ -22,7 +22,8 @@ const searchDataJson = JSON.stringify(searchData).replace(/</g, "\\u003c");
 
 <BaseLayout
   title="Archive"
-  description="Search and browse The Ploradian's published satirical technology and business articles."
+  description="The Ploradian의 기술, 비즈니스, 시장 풍자 기사를 검색하고 최신 발행분을 카테고리별로 둘러보세요."
+  canonicalPath="/archive/"
 >
   <section class="site-shell archive-page" aria-labelledby="archive-title">
     <div class="archive-heading">
@@ -99,6 +100,18 @@ const searchDataJson = JSON.stringify(searchData).replace(/</g, "\\u003c");
     const empty = document.getElementById("archive-empty");
 
     const normalize = (value) => value.toLocaleLowerCase("ko-KR").replace(/\s+/g, " ").trim();
+    const params = new URLSearchParams(window.location.search);
+
+    if (queryInput instanceof HTMLInputElement) {
+      queryInput.value = params.get("q") || "";
+    }
+
+    if (categorySelect instanceof HTMLSelectElement) {
+      const category = params.get("category") || "";
+      if ([...categorySelect.options].some((option) => option.value === category)) {
+        categorySelect.value = category;
+      }
+    }
 
     function render() {
       if (!list || !count || !empty) return;
@@ -163,5 +176,6 @@ const searchDataJson = JSON.stringify(searchData).replace(/</g, "\\u003c");
     queryInput?.addEventListener("input", render);
     categorySelect?.addEventListener("change", render);
     sortSelect?.addEventListener("change", render);
+    render();
   </script>
 </BaseLayout>

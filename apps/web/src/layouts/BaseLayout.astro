@@ -18,16 +18,72 @@ import SiteHeader from "../components/SiteHeader.astro";
 interface Props {
   title?: string;
   description?: string;
+  canonicalPath?: string;
+  imagePath?: string;
+  ogType?: "website" | "article";
+  publishedTime?: string;
+  modifiedTime?: string;
+  articleSection?: string;
+  structuredData?: Record<string, unknown> | Array<Record<string, unknown>>;
   showHeader?: boolean;
 }
 
 const {
   title = "The Ploradian",
-  description = "A static satirical technology, business, and economy newspaper.",
+  description = "The Ploradian은 기술, 비즈니스, 시장 뉴스를 한국어 풍자 기사로 자동 발행하는 온라인 신문입니다.",
+  canonicalPath,
+  imagePath = "/ploradian-mark.svg",
+  ogType = "website",
+  publishedTime,
+  modifiedTime,
+  articleSection,
+  structuredData,
   showHeader = true
 } = Astro.props;
 
 const pageTitle = title === "The Ploradian" ? title : `${title} - The Ploradian`;
+const siteUrl = Astro.site ?? new URL("https://news.ploradian.com");
+const canonicalUrl = new URL(canonicalPath ?? Astro.url.pathname, siteUrl).toString();
+const imageUrl = new URL(imagePath, siteUrl).toString();
+const siteName = "The Ploradian";
+const organizationId = new URL("/#organization", siteUrl).toString();
+const websiteId = new URL("/#website", siteUrl).toString();
+const baseStructuredData: Array<Record<string, unknown>> = [
+  {
+    "@type": "Organization",
+    "@id": organizationId,
+    name: siteName,
+    url: new URL("/", siteUrl).toString(),
+    logo: {
+      "@type": "ImageObject",
+      url: new URL("/ploradian-mark.svg", siteUrl).toString()
+    }
+  },
+  {
+    "@type": "WebSite",
+    "@id": websiteId,
+    name: siteName,
+    url: new URL("/", siteUrl).toString(),
+    inLanguage: "ko-KR",
+    publisher: {
+      "@id": organizationId
+    },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: `${new URL("/archive/", siteUrl).toString()}?q={search_term_string}`,
+      "query-input": "required name=search_term_string"
+    }
+  }
+];
+const pageStructuredData = structuredData
+  ? Array.isArray(structuredData)
+    ? structuredData
+    : [structuredData]
+  : [];
+const jsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [...baseStructuredData, ...pageStructuredData]
+}).replace(/</g, "\\u003c");
 ---
 
 <!doctype html>
@@ -37,11 +93,28 @@ const pageTitle = title === "The Ploradian" ? title : `${title} - The Ploradian`
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#f8f5ed" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="ko-KR" href={canonicalUrl} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:alt" content="The Ploradian masthead mark" />
+    <meta property="og:locale" content="ko_KR" />
+    {publishedTime && <meta property="article:published_time" content={publishedTime} />}
+    {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+    {articleSection && <meta property="article:section" content={articleSection} />}
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
     <link rel="icon" href="/ploradian-mark.svg" />
     <link rel="alternate" type="application/rss+xml" title="The Ploradian RSS" href="/feed.xml" />
+    <script type="application/ld+json" set:html={jsonLd} />
     <title>{pageTitle}</title>
   </head>
   <body>
