@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-02T08:43:36.963Z",
+  "updated_at": "2026-06-02T09:11:00.505Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -81,6 +81,14 @@
       "title": "한 사무실 구석에서 클립 세 개가 방향을 바꾸지 않은 채 오후를 견뎠다",
       "article_path": "content/articles/published/2026-06-02-bc3b5c93-three-clips-remained-without-direction-change.md",
       "seen_at": "2026-06-02T07:09:56.984Z"
+    },
+    "c22f6273857c59bf62729c22a85b717adb9a236ef319364e85a0c48286754fd7": {
+      "url": "https://news.ploradian.com/market/2026-06-02-국장-16/",
+      "canonical_url": "https://news.ploradian.com/market/2026-06-02-국장-16/",
+      "source_name": "The Ploradian 국장 마감 억지해석 데스크",
+      "title": "2026-06-02 국장 마감 억지해석",
+      "article_path": "content/articles/published/2026-06-02-c22f6273-2026-06-02-korea-market-nonsense-close.md",
+      "seen_at": "2026-06-02T09:11:00.505Z"
     }
   }
 }
