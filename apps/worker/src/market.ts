@@ -44,16 +44,37 @@ export async function scheduledMarketCandidate(now: Date, timeZone: string): Pro
   const slot = zonedSlot(now, timeZone);
 
   if (slot.hour === KOREA_MARKET_HOUR) {
-    const quotes = await fetchKoreaQuotes(KOREA_TARGETS);
-    return marketCandidate("국장", slot, quotes);
+    return koreaMarketCandidate(slot);
   }
 
   if (slot.hour === US_MARKET_HOUR) {
-    const quotes = await fetchUsQuotes(US_TARGETS);
-    return marketCandidate("미장", slot, quotes);
+    return usMarketCandidate(slot);
   }
 
   return null;
+}
+
+export async function forcedMarketCandidate(
+  market: "korea" | "us",
+  now: Date,
+  timeZone: string
+): Promise<SourceItem | null> {
+  const slot = zonedSlot(now, timeZone);
+  if (market === "korea") {
+    return koreaMarketCandidate({ ...slot, hour: KOREA_MARKET_HOUR });
+  }
+
+  return usMarketCandidate({ ...slot, hour: US_MARKET_HOUR });
+}
+
+async function koreaMarketCandidate(slot: { day: string; hour: number; offset: string }): Promise<SourceItem | null> {
+  const quotes = await fetchKoreaQuotes(KOREA_TARGETS);
+  return marketCandidate("국장", slot, quotes);
+}
+
+async function usMarketCandidate(slot: { day: string; hour: number; offset: string }): Promise<SourceItem | null> {
+  const quotes = await fetchUsQuotes(US_TARGETS);
+  return marketCandidate("미장", slot, quotes);
 }
 
 async function fetchKoreaQuotes(targets: MarketQuoteTarget[]): Promise<MarketQuote[]> {

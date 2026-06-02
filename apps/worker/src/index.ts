@@ -44,9 +44,15 @@ export default {
       url.searchParams.get("trigger") === "scheduled" && request.headers.get("x-ploradian-scheduled") === "1"
         ? "scheduled"
         : "manual";
-    const runOptions: { trigger: "manual" | "scheduled"; dryRunOverride?: boolean } = { trigger };
+    const runOptions: { trigger: "manual" | "scheduled"; dryRunOverride?: boolean; forceMarket?: "korea" | "us" } = {
+      trigger
+    };
     if (url.searchParams.get("dry_run") === "true") {
       runOptions.dryRunOverride = true;
+    }
+    const market = url.searchParams.get("market");
+    if (market === "korea" || market === "us") {
+      runOptions.forceMarket = market;
     }
     const result = await runPublishingPipeline(env, runOptions);
 

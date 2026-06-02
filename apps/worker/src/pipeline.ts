@@ -9,7 +9,7 @@ import {
 import { prepareMarkdownArticle } from "./markdown";
 import { findArticleImage } from "./images";
 import { candidateSkipReason } from "./candidates";
-import { scheduledMarketCandidate } from "./market";
+import { forcedMarketCandidate, scheduledMarketCandidate } from "./market";
 import { scheduledNonsenseCandidate } from "./nonsense";
 import { extractFacts, generateSatireArticle, intensifySatireArticle } from "./ai";
 import { fetchFeedItems, fetchSourcePageText, sourceHash } from "./rss";
@@ -18,7 +18,7 @@ import type { PipelineResult, PreparedArticle, SeenStore, SourceItem } from "./t
 
 export async function runPublishingPipeline(
   env: Env,
-  options: { trigger: "manual" | "scheduled"; dryRunOverride?: boolean }
+  options: { trigger: "manual" | "scheduled"; dryRunOverride?: boolean; forceMarket?: "korea" | "us" }
 ): Promise<PipelineResult> {
   const startedAt = new Date().toISOString();
   const skipped: string[] = [];
@@ -32,7 +32,9 @@ export async function runPublishingPipeline(
     const githubTarget = dryRun ? null : requireGitHubTarget(config);
     const seen = githubTarget ? await readSeenStore(githubTarget) : emptySeenStore();
     const feedItems = await fetchFeedItems(config.rssFeeds);
-    const market = await scheduledMarketCandidate(new Date(startedAt), config.siteTimezone);
+    const market = options.forceMarket
+      ? await forcedMarketCandidate(options.forceMarket, new Date(startedAt), config.siteTimezone)
+      : await scheduledMarketCandidate(new Date(startedAt), config.siteTimezone);
     const nonsense = scheduledNonsenseCandidate(new Date(startedAt), config.siteTimezone);
     const scheduledItems = [market, nonsense].filter((item): item is SourceItem => item !== null);
     const sourceItems = [...scheduledItems, ...feedItems];
