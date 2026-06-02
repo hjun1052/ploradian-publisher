@@ -29,6 +29,9 @@ export interface RuntimeConfig {
   aiProvider: AiProvider;
   openaiApiKey: string | null;
   openaiModel: string;
+  openaiArticleModel: string;
+  openaiUtilityModel: string;
+  openaiLightArticleModel: string;
   workersAiModel: string;
   workersAi: WorkersAiBinding | null;
   generationModel: string;

@@ -186,7 +186,8 @@ export async function extractFacts(
         )
       }
     ],
-    1200
+    1200,
+    config.openaiUtilityModel
   );
 }
 
@@ -234,7 +235,8 @@ Output strict JSON matching the requested schema.`
         )
       }
     ],
-    isRegularSatire ? 3200 : 2200
+    isRegularSatire ? 3200 : 2200,
+    isRegularSatire ? config.openaiArticleModel : config.openaiLightArticleModel
   );
 
   return {
@@ -295,7 +297,8 @@ final_score should initially equal raw_score; downstream editor may adjust for d
         )
       }
     ],
-    1400
+    1400,
+    config.openaiUtilityModel
   );
 
   return {
@@ -348,7 +351,8 @@ Use the editorial judgment as the article's structure, not as metadata decoratio
         )
       }
     ],
-    3000
+    3000,
+    config.openaiArticleModel
   );
 
   return {
@@ -428,7 +432,8 @@ Keep the newspaper form. Do not add unsupported facts. Output strict JSON matchi
         )
       }
     ],
-    2600
+    2600,
+    source.synthetic ? config.openaiLightArticleModel : config.openaiArticleModel
   );
 
   return {
@@ -507,13 +512,14 @@ async function callModelJson<T>(
   schemaName: string,
   schema: object,
   input: Array<{ role: "system" | "user"; content: string }>,
-  maxOutputTokens: number
+  maxOutputTokens: number,
+  openaiModel = config.openaiModel
 ): Promise<T> {
   if (config.aiProvider === "workers-ai") {
     return callWorkersAiJson<T>(config, schemaName, schema, input, maxOutputTokens);
   }
 
-  return callOpenAIJson<T>(config, schemaName, schema, input, maxOutputTokens);
+  return callOpenAIJson<T>(config, schemaName, schema, input, maxOutputTokens, openaiModel);
 }
 
 async function callWorkersAiJson<T>(
@@ -545,14 +551,15 @@ async function callOpenAIJson<T>(
   schemaName: string,
   schema: object,
   input: Array<{ role: "system" | "user"; content: string }>,
-  maxOutputTokens: number
+  maxOutputTokens: number,
+  model: string
 ): Promise<T> {
   if (!config.openaiApiKey) {
     throw new Error("OPENAI_API_KEY is required when AI_PROVIDER=openai.");
   }
 
   const payload = {
-    model: config.openaiModel,
+    model,
     input,
     text: {
       format: {

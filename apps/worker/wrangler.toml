@@ -26,7 +26,10 @@ crons = ["0 * * * *", "30 12 * * 1-5"]
 
 [vars]
 AI_PROVIDER = "openai"
-OPENAI_MODEL = "gpt-5.5"
+OPENAI_MODEL = "gpt-5.4"
+OPENAI_ARTICLE_MODEL = "gpt-5.4"
+OPENAI_UTILITY_MODEL = "gpt-5.4-mini"
+OPENAI_LIGHT_ARTICLE_MODEL = "gpt-5.4-mini"
 GITHUB_REPO = "hjun1052/ploradian-publisher"
 GITHUB_BRANCH = "main"
 MAX_ARTICLES_PER_RUN = "1"

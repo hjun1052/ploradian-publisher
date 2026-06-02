@@ -9,7 +9,8 @@ import type {
   WorkersAiBinding
 } from "./types";
 
-const DEFAULT_MODEL = "gpt-5.5";
+const DEFAULT_MODEL = "gpt-5.4";
+const DEFAULT_UTILITY_MODEL = "gpt-5.4-mini";
 const DEFAULT_PROVIDER: AiProvider = "openai";
 const DEFAULT_WORKERS_AI_MODEL = "@cf/meta/llama-3.3-70b-instruct-fp8-fast";
 const DEFAULT_BRANCH = "main";
@@ -31,9 +32,12 @@ export function loadConfig(env: Env): RuntimeConfig {
   const openaiApiKey =
     aiProvider === "openai" ? requiredSecret(values, "OPENAI_API_KEY") : clean(values.OPENAI_API_KEY);
   const openaiModel = clean(values.OPENAI_MODEL) ?? DEFAULT_MODEL;
+  const openaiArticleModel = clean(values.OPENAI_ARTICLE_MODEL) ?? openaiModel;
+  const openaiUtilityModel = clean(values.OPENAI_UTILITY_MODEL) ?? DEFAULT_UTILITY_MODEL;
+  const openaiLightArticleModel = clean(values.OPENAI_LIGHT_ARTICLE_MODEL) ?? openaiUtilityModel;
   const workersAiModel = clean(values.WORKERS_AI_MODEL) ?? DEFAULT_WORKERS_AI_MODEL;
   const workersAi = aiProvider === "workers-ai" ? requireWorkersAiBinding(env) : null;
-  const generationModel = aiProvider === "workers-ai" ? `workers-ai:${workersAiModel}` : openaiModel;
+  const generationModel = aiProvider === "workers-ai" ? `workers-ai:${workersAiModel}` : openaiArticleModel;
   const githubRepo = clean(values.GITHUB_REPO) ?? "";
   const githubBranch = clean(values.GITHUB_BRANCH) ?? DEFAULT_BRANCH;
   const githubToken = clean(values.GITHUB_TOKEN) ?? null;
@@ -53,6 +57,9 @@ export function loadConfig(env: Env): RuntimeConfig {
     aiProvider,
     openaiApiKey,
     openaiModel,
+    openaiArticleModel,
+    openaiUtilityModel,
+    openaiLightArticleModel,
     workersAiModel,
     workersAi,
     generationModel,

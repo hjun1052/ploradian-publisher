@@ -24,7 +24,7 @@ export function prepareMarkdownArticle(
     source_name: source.feedName,
     source_url: source.url,
     original_title: source.title,
-    generated_by: config.generationModel,
+    generated_by: articleGenerationModel(config, source),
     status: "published",
     ...(image
       ? {
@@ -47,6 +47,14 @@ export function prepareMarkdownArticle(
     topic,
     ...(source.seriousEvaluation ? { seriousEvaluation: source.seriousEvaluation } : {})
   };
+}
+
+function articleGenerationModel(config: RuntimeConfig, source: SourceItem): string {
+  if (config.aiProvider === "workers-ai") {
+    return config.generationModel;
+  }
+
+  return source.synthetic ? config.openaiLightArticleModel : config.openaiArticleModel;
 }
 
 function renderMarkdown(article: Omit<PreparedArticle, "markdown" | "path" | "sourceHash" | "topic">): string {
