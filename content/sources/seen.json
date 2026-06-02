@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-02T16:01:09.329Z",
+  "updated_at": "2026-06-02T17:01:25.961Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -145,6 +145,14 @@
       "title": "Microsoft Build 2026: All the news about Windows, AI, RTX Spark and more",
       "article_path": "content/articles/published/2026-06-03-e712007e-microsoft-build-2026-all-the-news-vagueness-live.md",
       "seen_at": "2026-06-02T16:01:09.329Z"
+    },
+    "c1163bf6c4f290447e182b0321300223c5d82943e71a2ee4e3e511ac46f18492": {
+      "url": "https://www.theverge.com/policy/941734/trump-green-cards-adjustment-of-status-uscis",
+      "canonical_url": "https://www.theverge.com/policy/941734/trump-green-cards-adjustment-of-status-uscis",
+      "source_name": "The Verge",
+      "title": "Trump goes after green cards",
+      "article_path": "content/articles/published/2026-06-03-c1163bf6-trump-green-cards-adjustment-of-status-uscis.md",
+      "seen_at": "2026-06-02T17:01:25.961Z"
     }
   }
 }
