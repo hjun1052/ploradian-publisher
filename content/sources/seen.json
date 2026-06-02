@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-02T03:01:17.181Z",
+  "updated_at": "2026-06-02T04:01:51.820Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -41,6 +41,14 @@
       "title": "Why cats prefer silver vine to catnip and other May highlights",
       "article_path": "content/articles/published/2026-06-02-0484e8fd-cats-silver-vine-science-roundup-ars-technica-satire.md",
       "seen_at": "2026-06-02T03:01:17.181Z"
+    },
+    "f3ca3476eeedfdc62fb85e101316d8be2ab92e50eb29cc50825dc906b8fbaf16": {
+      "url": "https://www.theverge.com/gadgets/941273/pebblebee-halo-bluetooth-tracker-personal-safety-deal-sale",
+      "canonical_url": "https://www.theverge.com/gadgets/941273/pebblebee-halo-bluetooth-tracker-personal-safety-deal-sale",
+      "source_name": "The Verge",
+      "title": "Pebblebee&#8217;s Halo can help track lost items and keep you safe, and it&#8217;s on sale for $50",
+      "article_path": "content/articles/published/2026-06-02-f3ca3476-pebblebee-halo-bluetooth-tracker-safety-amazon-sale.md",
+      "seen_at": "2026-06-02T04:01:51.820Z"
     }
   }
 }
