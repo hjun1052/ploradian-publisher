@@ -241,7 +241,12 @@ async function generateAndValidate(
   const retryValidation = validateGeneratedArticle(retry, source, facts, sourceText);
 
   if (!retryValidation.ok) {
-    throw new Error(`validation failed after retry: ${retryValidation.reasons.join("; ")}`);
+    const error = new Error(`validation failed after retry: ${retryValidation.reasons.join("; ")}`);
+    const fallback = fallbackMarketArticle(source, error);
+    if (fallback) {
+      return fallback;
+    }
+    throw error;
   }
 
   return retry;
@@ -319,16 +324,29 @@ function parseMarketRows(summary: string): Array<{ name: string; symbol: string;
 }
 
 function marketSentence(row: { name: string; symbol: string; price: string; change: string }, index: number): string {
+  const name = `${row.name}${topicParticle(row.name)}`;
   const direction = row.change.startsWith("-") ? "내렸다" : row.change.startsWith("+") ? "올랐다" : "가만히 있었다";
   const excuses = [
-    `${row.name}은 자기 이름을 너무 오래 들여다보다가 ${direction}. 가격표는 ${row.price}, 등락률은 ${row.change}였다. 설명은 단순하다. 이름이 하루 종일 이름값을 하느라 차트까지 끌고 갔다.`,
-    `${row.name}은 마감 직전 책상 위 물컵 위치가 마음에 들지 않았는지 ${direction}. 숫자는 ${row.change}로 남았고, ${row.symbol}이라는 표기는 아무 일도 모른다는 듯 옆에 앉아 있었다.`,
-    `${row.name}은 오늘 ${direction}. 이유는 거창하지 않다. 종목명이 스스로를 발음해본 뒤 약간 민망해졌고, 그 민망함이 ${row.change}만큼 가격에 반영됐다.`,
+    `${name} 자기 이름을 너무 오래 들여다보다가 ${direction}. 가격표는 ${row.price}, 등락률은 ${row.change}였다. 설명은 단순하다. 이름이 하루 종일 이름값을 하느라 차트까지 끌고 갔다.`,
+    `${name} 마감 직전 책상 위 물컵 위치가 마음에 들지 않았는지 ${direction}. 숫자는 ${row.change}로 남았고, ${row.symbol}이라는 표기는 아무 일도 모른다는 듯 옆에 앉아 있었다.`,
+    `${name} 오늘 ${direction}. 이유는 거창하지 않다. 종목명이 스스로를 발음해본 뒤 약간 민망해졌고, 그 민망함이 ${row.change}만큼 가격에 반영됐다.`,
     `${row.name}의 ${row.change}는 대체로 계단과 관련이 있는 것으로 보인다. 올라간 종목은 위층 버튼을 눌렀고, 내려간 종목은 잠깐 지하 매점에 다녀온 셈이다.`,
-    `${row.name}은 ${row.price}라는 숫자를 앞에 세워놓고 ${direction}. 이 정도면 설명이 아니라 출석 확인에 가깝지만, 마감판은 원래 그런 표정으로 버티는 직업이다.`
+    `${name} ${row.price}라는 숫자를 앞에 세워놓고 ${direction}. 이 정도면 설명이 아니라 출석 확인에 가깝지만, 마감판은 원래 그런 표정으로 버티는 직업이다.`
   ];
 
   return excuses[index % excuses.length] ?? excuses[0] ?? `${row.name}은 ${row.change}만큼 움직였다. 이유는 끝내 사무실에 도착하지 않았다.`;
+}
+
+function topicParticle(value: string): "은" | "는" {
+  const last = [...value].at(-1);
+  if (!last) {
+    return "는";
+  }
+  const code = last.charCodeAt(0);
+  if (code < 0xac00 || code > 0xd7a3) {
+    return "는";
+  }
+  return (code - 0xac00) % 28 === 0 ? "는" : "은";
 }
 
 function isSoftSatireValidationFailure(reasons: string[]): boolean {
