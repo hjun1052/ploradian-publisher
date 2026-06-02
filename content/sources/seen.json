@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-02T05:06:28.868Z",
+  "updated_at": "2026-06-02T06:04:07.377Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -65,6 +65,14 @@
       "title": "Gemini’s new AI agent is about as good as Google’s demo",
       "article_path": "content/articles/published/2026-06-02-c988336c-google-gemini-spark-demo-level-agent-privacy-cost.md",
       "seen_at": "2026-06-02T05:06:28.868Z"
+    },
+    "fb5ac42330348230075b8db7f45bac4a4d01597569f8a7d1b0fe4b70381bb649": {
+      "url": "https://www.theverge.com/tech/941215/windows-laptops-nvidia-rtx-spark-apple-m1-arm-price-ram",
+      "canonical_url": "https://www.theverge.com/tech/941215/windows-laptops-nvidia-rtx-spark-apple-m1-arm-price-ram",
+      "source_name": "The Verge",
+      "title": "This could be Windows’ M1 moment — but expect it to cost a ton",
+      "article_path": "content/articles/published/2026-06-02-fb5ac423-windows-m1-moment-rtx-spark-expensive-before-specs.md",
+      "seen_at": "2026-06-02T06:04:07.377Z"
     }
   }
 }
