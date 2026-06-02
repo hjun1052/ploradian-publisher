@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-02T18:01:09.153Z",
+  "updated_at": "2026-06-02T19:01:07.095Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -161,6 +161,14 @@
       "title": "I tested a bunch of Switch 2 screen protectors, and these are the best",
       "article_path": "content/articles/published/2026-06-03-a9bb80f0-switch-2-glass-screen-protector-best-the-verge-satire.md",
       "seen_at": "2026-06-02T18:01:09.153Z"
+    },
+    "78ac8c1e151037d66df047601ab508c53c62c86bfc0ef2eaa68dd4ce8c208ced": {
+      "url": "https://www.theverge.com/policy/941775/trump-ai-executive-order",
+      "canonical_url": "https://www.theverge.com/policy/941775/trump-ai-executive-order",
+      "source_name": "The Verge",
+      "title": "Trump signs executive order to review AI models before they’re released",
+      "article_path": "content/articles/published/2026-06-03-78ac8c1e-trump-ai-executive-order-voluntary-review-frontier-models.md",
+      "seen_at": "2026-06-02T19:01:07.095Z"
     }
   }
 }
