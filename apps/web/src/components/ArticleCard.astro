@@ -9,9 +9,35 @@ interface Props {
 
 const { article, variant = "standard" } = Astro.props;
 const href = `/article/${article.slug}/`;
+const unsplashCreditUrl = "https://unsplash.com/?utm_source=the_ploradian&utm_medium=referral";
 ---
 
 <article class:list={["article-card", `article-card-${variant}`]}>
+  {variant !== "brief" && article.image_url && (
+    <figure class="article-card-media">
+      <a class="article-card-image" href={href} aria-label={article.title}>
+        <img
+          src={article.image_url}
+          alt={article.image_alt || ""}
+          loading={variant === "lead" ? "eager" : "lazy"}
+          decoding="async"
+        />
+      </a>
+      {article.image_credit_name && article.image_credit_url && (
+        <figcaption>
+          Photo by
+          {" "}
+          <a href={article.image_credit_url} rel="noopener noreferrer" target="_blank">
+            {article.image_credit_name}
+          </a>
+          {" "}
+          on
+          {" "}
+          <a href={unsplashCreditUrl} rel="noopener noreferrer" target="_blank">Unsplash</a>
+        </figcaption>
+      )}
+    </figure>
+  )}
   <p class="kicker">{article.category}</p>
   <h2>
     <a href={href}>{article.title}</a>

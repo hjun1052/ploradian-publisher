@@ -20,6 +20,7 @@ interface Props {
   description?: string;
   canonicalPath?: string;
   imagePath?: string;
+  imageAlt?: string;
   ogType?: "website" | "article";
   publishedTime?: string;
   modifiedTime?: string;
@@ -33,6 +34,7 @@ const {
   description = "The Ploradian은 기술, 비즈니스, 시장, 헛소리 뉴스를 한국어 풍자 기사로 자동 발행하는 온라인 신문입니다.",
   canonicalPath,
   imagePath = "/ploradian-mark.svg",
+  imageAlt = "The Ploradian masthead mark",
   ogType = "website",
   publishedTime,
   modifiedTime,
@@ -103,7 +105,7 @@ const jsonLd = JSON.stringify({
     <meta property="og:site_name" content={siteName} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={imageUrl} />
-    <meta property="og:image:alt" content="The Ploradian masthead mark" />
+    <meta property="og:image:alt" content={imageAlt} />
     <meta property="og:locale" content="ko_KR" />
     {publishedTime && <meta property="article:published_time" content={publishedTime} />}
     {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
@@ -112,6 +114,7 @@ const jsonLd = JSON.stringify({
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={imageUrl} />
+    <meta name="twitter:image:alt" content={imageAlt} />
     <link rel="icon" href="/ploradian-mark.svg" />
     <link rel="alternate" type="application/rss+xml" title="The Ploradian RSS" href="/feed.xml" />
     <link rel="alternate" type="text/plain" title="The Ploradian LLM index" href="/llms.txt" />

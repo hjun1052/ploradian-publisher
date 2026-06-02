@@ -29,6 +29,7 @@ export function loadConfig(env: Env): RuntimeConfig {
   const maxArticlesPerRun = parseInteger(values.MAX_ARTICLES_PER_RUN, 2, 1, 5);
   const dryRun = parseBoolean(values.DRY_RUN, false);
   const siteTimezone = clean(values.SITE_TIMEZONE) ?? DEFAULT_TIMEZONE;
+  const unsplashAccessKey = clean(values.UNSPLASH_ACCESS_KEY);
 
   if (rssFeeds.length === 0) {
     throw new ConfigError("RSS_FEEDS_JSON must contain at least one feed.");
@@ -47,7 +48,8 @@ export function loadConfig(env: Env): RuntimeConfig {
     rssFeeds,
     maxArticlesPerRun,
     dryRun,
-    siteTimezone
+    siteTimezone,
+    unsplashAccessKey
   };
 }
 

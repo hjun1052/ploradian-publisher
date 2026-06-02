@@ -1,11 +1,12 @@
-import type { GeneratedArticleJson, PreparedArticle, RuntimeConfig, SourceItem } from "./types";
+import type { ArticleImage, GeneratedArticleJson, PreparedArticle, RuntimeConfig, SourceItem } from "./types";
 
 export function prepareMarkdownArticle(
   generated: GeneratedArticleJson,
   source: SourceItem,
   sourceHash: string,
   config: RuntimeConfig,
-  now = new Date()
+  now = new Date(),
+  image: ArticleImage | null = null
 ): PreparedArticle {
   const date = formatZonedIso(now, config.siteTimezone);
   const day = date.slice(0, 10);
@@ -25,6 +26,14 @@ export function prepareMarkdownArticle(
     original_title: source.title,
     generated_by: config.generationModel,
     status: "published",
+    ...(image
+      ? {
+          image_url: image.url,
+          image_alt: image.alt,
+          image_credit_name: image.creditName,
+          image_credit_url: image.creditUrl
+        }
+      : {}),
     body: generated.body.trim()
   };
 
@@ -40,7 +49,11 @@ export function prepareMarkdownArticle(
 }
 
 function renderMarkdown(article: Omit<PreparedArticle, "markdown" | "path" | "sourceHash" | "topic">): string {
-  return `---\ntitle: ${yamlString(article.title)}\nsubtitle: ${yamlString(article.subtitle)}\nslug: ${yamlString(article.slug)}\ndate: ${yamlString(article.date)}\ncategory: ${yamlString(article.category)}\nsource_name: ${yamlString(article.source_name)}\nsource_url: ${yamlString(article.source_url)}\noriginal_title: ${yamlString(article.original_title)}\ngenerated_by: ${yamlString(article.generated_by)}\nstatus: ${yamlString(article.status)}\n---\n\n${article.body}\n`;
+  const imageFields = article.image_url
+    ? `image_url: ${yamlString(article.image_url)}\nimage_alt: ${yamlString(article.image_alt ?? "")}\nimage_credit_name: ${yamlString(article.image_credit_name ?? "")}\nimage_credit_url: ${yamlString(article.image_credit_url ?? "")}\n`
+    : "";
+
+  return `---\ntitle: ${yamlString(article.title)}\nsubtitle: ${yamlString(article.subtitle)}\nslug: ${yamlString(article.slug)}\ndate: ${yamlString(article.date)}\ncategory: ${yamlString(article.category)}\nsource_name: ${yamlString(article.source_name)}\nsource_url: ${yamlString(article.source_url)}\noriginal_title: ${yamlString(article.original_title)}\ngenerated_by: ${yamlString(article.generated_by)}\nstatus: ${yamlString(article.status)}\n${imageFields}---\n\n${article.body}\n`;
 }
 
 function yamlString(value: string): string {

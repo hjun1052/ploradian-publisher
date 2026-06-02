@@ -30,6 +30,7 @@ export interface RuntimeConfig {
   maxArticlesPerRun: number;
   dryRun: boolean;
   siteTimezone: string;
+  unsplashAccessKey: string | null;
 }
 
 export interface SourceItem {
@@ -76,11 +77,22 @@ export interface PreparedArticle {
   original_title: string;
   generated_by: string;
   status: "published";
+  image_url?: string;
+  image_alt?: string;
+  image_credit_name?: string;
+  image_credit_url?: string;
   body: string;
   path: string;
   markdown: string;
   sourceHash: string;
   topic: string;
+}
+
+export interface ArticleImage {
+  url: string;
+  alt: string;
+  creditName: string;
+  creditUrl: string;
 }
 
 export interface SeenItem {

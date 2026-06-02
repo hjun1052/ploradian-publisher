@@ -15,6 +15,10 @@ export interface ArticleFrontmatter {
   original_title: string;
   generated_by: string;
   status: "published";
+  image_url?: string;
+  image_alt?: string;
+  image_credit_name?: string;
+  image_credit_url?: string;
 }
 
 export interface Article extends ArticleFrontmatter {
@@ -123,8 +127,19 @@ function normalizeFrontmatter(
 
   return {
     ...frontmatter,
-    category: normalizeCategory(frontmatter.category)
+    category: normalizeCategory(frontmatter.category),
+    ...optionalStringFields(frontmatter)
   };
+}
+
+function optionalStringFields(data: Partial<ArticleFrontmatter>): Partial<ArticleFrontmatter> {
+  const output: Partial<ArticleFrontmatter> = {};
+  for (const key of ["image_url", "image_alt", "image_credit_name", "image_credit_url"] as const) {
+    if (typeof data[key] === "string" && data[key]?.trim()) {
+      output[key] = data[key]?.trim();
+    }
+  }
+  return output;
 }
 
 function normalizeCategory(value: string): string {

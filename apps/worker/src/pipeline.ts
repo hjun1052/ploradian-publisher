@@ -7,6 +7,7 @@ import {
   readSeenStore
 } from "./github";
 import { prepareMarkdownArticle } from "./markdown";
+import { findArticleImage } from "./images";
 import { scheduledNonsenseCandidate } from "./nonsense";
 import { extractFacts, generateSatireArticle } from "./ai";
 import { fetchFeedItems, fetchSourcePageText, sourceHash } from "./rss";
@@ -43,7 +44,8 @@ export async function runPublishingPipeline(
         const pageText = await fetchSourcePageText(candidate);
         const facts = await extractFacts(config, candidate, pageText);
         const article = await generateAndValidate(config, candidate, facts, pageText);
-        const markdownArticle = prepareMarkdownArticle(article, candidate, hash, config);
+        const image = await findArticleImage(config, candidate, article, facts);
+        const markdownArticle = prepareMarkdownArticle(article, candidate, hash, config, new Date(), image);
 
         if (githubTarget && (await githubPathExists(githubTarget, markdownArticle.path))) {
           skipped.push(`article path already exists: ${markdownArticle.path}`);
