@@ -146,8 +146,7 @@ async function fetchKoreaQuotes(targets: MarketQuoteTarget[]): Promise<MarketQuo
 }
 
 async function fetchNaverQuote(target: MarketQuoteTarget): Promise<MarketQuote | null> {
-  const url = new URL("https://polling.finance.naver.com/api/realtime");
-  url.searchParams.set("query", `SERVICE_ITEM:${target.symbol}`);
+  const url = new URL(`https://m.stock.naver.com/api/stock/${target.symbol}/basic`);
   const { response, text } = await fetchTextWithRetry(
     url,
     {
@@ -168,17 +167,18 @@ async function fetchNaverQuote(target: MarketQuoteTarget): Promise<MarketQuote |
     return null;
   }
 
-  const data = JSON.parse(text) as NaverRealtimeResponse;
-  const quote = data.result?.areas?.flatMap((area) => area.datas ?? [])[0];
-  if (!quote || typeof quote.nv !== "number" || typeof quote.cr !== "number") {
+  const quote = JSON.parse(text) as NaverBasicResponse;
+  const price = parseMarketNumber(quote.closePrice);
+  const changePercent = Number(quote.fluctuationsRatio);
+  if (!Number.isFinite(price) || !Number.isFinite(changePercent)) {
     return null;
   }
 
   return {
-    name: target.name,
+    name: quote.stockName || target.name,
     symbol: target.symbol,
-    price: quote.nv,
-    changePercent: quote.cr
+    price,
+    changePercent
   };
 }
 
@@ -307,15 +307,10 @@ function zonedSlot(date: Date, timeZone: string): { day: string; hour: number; o
   };
 }
 
-interface NaverRealtimeResponse {
-  result?: {
-    areas?: Array<{
-      datas?: Array<{
-        nv?: number;
-        cr?: number;
-      }>;
-    }>;
-  };
+interface NaverBasicResponse {
+  stockName?: string;
+  closePrice?: string;
+  fluctuationsRatio?: string;
 }
 
 function dedupeTargets(targets: MarketQuoteTarget[]): MarketQuoteTarget[] {
@@ -346,6 +341,13 @@ function decodeHtmlEntities(value: string): string {
     .replace(/&gt;/g, ">")
     .replace(/&quot;/g, "\"")
     .replace(/&#39;/g, "'");
+}
+
+function parseMarketNumber(value: string | undefined): number {
+  if (!value) {
+    return NaN;
+  }
+  return Number(value.replace(/,/g, ""));
 }
 
 function fetchWithTimeout(input: string | URL | Request, init: RequestInit, timeoutMs: number): Promise<Response> {
