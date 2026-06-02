@@ -39,6 +39,44 @@ const SATIRE_SIGNAL_TERMS = [
   "변명",
   "합리화"
 ];
+const SERIOUS_CRITIQUE_TERMS = [
+  "우려",
+  "시사점",
+  "과제",
+  "논란",
+  "비판",
+  "책임",
+  "투명성",
+  "윤리",
+  "거버넌스",
+  "균형",
+  "숙제",
+  "리스크",
+  "문제 제기"
+];
+const JOKE_CARRIER_TERMS = [
+  "무슨",
+  "차라리",
+  "덕분에",
+  "친절하게도",
+  "훌륭하게",
+  "대단히",
+  "정중하게",
+  "마치",
+  "같다",
+  "격이다",
+  "셈이다",
+  "꼴이다",
+  "분위기다",
+  "놀라운",
+  "민망",
+  "변명",
+  "체면",
+  "회의실",
+  "포장",
+  "손잡이",
+  "간판"
+];
 
 export interface ValidationResult {
   ok: boolean;
@@ -75,8 +113,32 @@ export function validateGeneratedArticle(
     reasons.push("satire is too polite; add sharper grounded ridicule, analogy, or irony");
   }
 
+  if (body.length > 900 && countJokeCarriers(`${title} ${article.subtitle} ${body}`) < 5) {
+    reasons.push("article reads like serious criticism; add more visible jokes, ridicule carriers, and absurd analogies");
+  }
+
+  if (body.length > 900 && countSeriousCritiqueTerms(body) > 5) {
+    reasons.push("too many serious critique terms; reduce policy-column cadence and increase mockery");
+  }
+
   if (!source.synthetic && article.category !== "헛소리" && body.length > 900 && concreteWeakPointHits(body, facts) < 1) {
     reasons.push("does not visibly attack any extracted weak point or mockable detail");
+  }
+
+  if (article.satire_brief.must_include_jabs.length < 4) {
+    reasons.push("satire_brief must include at least four concrete jabs");
+  }
+
+  if (article.satire_brief.analogies.length < 3) {
+    reasons.push("satire_brief must include at least three analogies");
+  }
+
+  if (article.satire_brief.must_include_jabs.length >= 4 && briefCoverage(body, article.satire_brief.must_include_jabs) < 2) {
+    reasons.push("body does not use enough satire_brief jabs");
+  }
+
+  if (article.satire_brief.analogies.length >= 3 && briefCoverage(body, article.satire_brief.analogies) < 1) {
+    reasons.push("body does not use enough satire_brief analogies");
   }
 
   for (const word of BANNED_HYPE_WORDS) {
@@ -135,6 +197,32 @@ export function validateGeneratedArticle(
 
 function countSatireSignals(value: string): number {
   return SATIRE_SIGNAL_TERMS.reduce((count, term) => count + (value.includes(term) ? 1 : 0), 0);
+}
+
+function countJokeCarriers(value: string): number {
+  return JOKE_CARRIER_TERMS.reduce((count, term) => count + (value.includes(term) ? 1 : 0), 0);
+}
+
+function countSeriousCritiqueTerms(value: string): number {
+  return SERIOUS_CRITIQUE_TERMS.reduce((count, term) => count + occurrences(value, term), 0);
+}
+
+function briefCoverage(body: string, lines: string[]): number {
+  let hits = 0;
+  for (const line of lines) {
+    const fragments = keywordFragments(line);
+    if (fragments.some((fragment) => body.includes(fragment))) {
+      hits += 1;
+    }
+  }
+  return hits;
+}
+
+function occurrences(value: string, needle: string): number {
+  if (!needle) {
+    return 0;
+  }
+  return value.split(needle).length - 1;
 }
 
 function concreteWeakPointHits(body: string, facts: FactSummary): number {

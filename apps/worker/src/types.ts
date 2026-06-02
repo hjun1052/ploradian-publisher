@@ -64,10 +64,18 @@ export interface GeneratedArticleJson {
   subtitle: string;
   category: string;
   slug: string;
+  satire_brief: SatireBrief;
   body: string;
   source_name: string;
   source_url: string;
   original_title: string;
+}
+
+export interface SatireBrief {
+  target: string;
+  ridiculous_core: string;
+  must_include_jabs: string[];
+  analogies: string[];
 }
 
 export interface PreparedArticle {

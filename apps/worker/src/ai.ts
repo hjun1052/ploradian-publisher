@@ -42,6 +42,17 @@ const articleSchema = {
     subtitle: { type: "string" },
     category: { type: "string", enum: ["기술", "비즈니스", "시장", "헛소리"] },
     slug: { type: "string" },
+    satire_brief: {
+      type: "object",
+      properties: {
+        target: { type: "string" },
+        ridiculous_core: { type: "string" },
+        must_include_jabs: { type: "array", items: { type: "string" } },
+        analogies: { type: "array", items: { type: "string" } }
+      },
+      required: ["target", "ridiculous_core", "must_include_jabs", "analogies"],
+      additionalProperties: false
+    },
     body: { type: "string" },
     source_name: { type: "string" },
     source_url: { type: "string" },
@@ -52,6 +63,7 @@ const articleSchema = {
     "subtitle",
     "category",
     "slug",
+    "satire_brief",
     "body",
     "source_name",
     "source_url",
@@ -178,9 +190,11 @@ export async function intensifySatireArticle(
         content: `${SATIRE_ENGINE_PROMPT}
 
 You are now the final rewrite desk. The draft is fact-safe but too polite by default.
-Rewrite it into a sharper final article while preserving every factual boundary.
-Increase ridicule, indirect contempt, and dry bite.
+Rewrite it into a visibly funnier, meaner final article while preserving every factual boundary.
+Increase ridicule, indirect contempt, and dry bite. This must read like satire, not a serious critique column.
 Replace neutral explanation with specific mockery grounded in the provided weak points.
+The satire_brief is not metadata decoration: every must_include_jabs item must be substantially reflected in the body.
+Use analogies from satire_brief in the body or rewrite better ones before output.
 Keep the newspaper form. Do not add unsupported facts. Output strict JSON matching the requested schema.`
       },
       {
@@ -197,7 +211,7 @@ Keep the newspaper form. Do not add unsupported facts. Output strict JSON matchi
             existing_draft: draft,
             correction:
               correction ??
-              "The draft passed basic safety but lacks enough 조롱, 돌려까기, 비아냥. Make the title more unavoidable and make at least four body sentences visibly sharper without inventing facts."
+              "The draft passed basic safety but lacks enough 조롱, 돌려까기, 비아냥. Make the title more unavoidable and make at least six body sentences visibly funnier or more contemptuous without inventing facts. Avoid serious policy-critique cadence."
           },
           null,
           2
