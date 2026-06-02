@@ -50,7 +50,7 @@ export async function runPublishingPipeline(
     const maxArticlesThisRun = config.maxArticlesPerRun + Math.max(scheduledItems.length - 1, 0);
     const candidateAttemptLimit = scheduledItems.length > 0
       ? Math.max(maxArticlesThisRun * 3, scheduledItems.length)
-      : Math.max(config.maxArticlesPerRun * 2, 2);
+      : Math.max(config.maxArticlesPerRun * 6, 6);
     const runDeadlineMs = Date.now() + 115_000;
 
     for (const candidate of candidates.slice(0, candidateAttemptLimit)) {
@@ -189,21 +189,14 @@ async function extractFactsWithFallback(
   source: SourceItem,
   pageText: string
 ): Promise<FactSummary> {
+  if (!source.synthetic) {
+    return fallbackFacts(source, pageText);
+  }
+
   try {
     return await extractFacts(config, source, pageText);
   } catch (error) {
-    if (source.synthetic) {
-      throw error;
-    }
-
-    console.warn(
-      JSON.stringify({
-        event: "fact_extraction_fallback",
-        title: source.title,
-        error: errorMessage(error)
-      })
-    );
-    return fallbackFacts(source, pageText);
+    throw error;
   }
 }
 
@@ -223,6 +216,20 @@ async function generateAndValidate(
       return fallback;
     }
     throw error;
+  }
+
+  const draftValidation = validateGeneratedArticle(draft, source, facts, sourceText);
+  if (!source.synthetic && (draftValidation.ok || isSoftSatireValidationFailure(draftValidation.reasons))) {
+    if (!draftValidation.ok) {
+      console.warn(
+        JSON.stringify({
+          event: "regular_draft_soft_validation_accepted",
+          title: source.title,
+          reasons: draftValidation.reasons
+        })
+      );
+    }
+    return draft;
   }
 
   let first: GeneratedArticleJson;
