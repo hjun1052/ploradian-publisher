@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-02T20:01:07.884Z",
+  "updated_at": "2026-06-02T21:01:10.057Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -177,6 +177,14 @@
       "title": "Microsoft Build 2026: the 7 biggest announcements",
       "article_path": "content/articles/published/2026-06-03-af72e1d6-microsoft-build-2026-everything-announced-nothing-too-specific.md",
       "seen_at": "2026-06-02T20:01:07.884Z"
+    },
+    "2440416b8eed2dc33613f76080a73f9be5cb1e135a35584f900e413c313ae989": {
+      "url": "https://www.theverge.com/gadgets/941763/ultimate-ears-wonderboom-fractal-design-scape-deal-sale",
+      "canonical_url": "https://www.theverge.com/gadgets/941763/ultimate-ears-wonderboom-fractal-design-scape-deal-sale",
+      "source_name": "The Verge",
+      "title": "The durable, floatable UE Wonderboom 4 speaker is cheaper than ever",
+      "article_path": "content/articles/published/2026-06-03-2440416b-ue-wonderboom-4-blue-sale-floatable-price-drop.md",
+      "seen_at": "2026-06-02T21:01:10.057Z"
     }
   }
 }
