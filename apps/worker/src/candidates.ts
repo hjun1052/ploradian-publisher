@@ -37,6 +37,19 @@ const COMMERCE_TERMS = [
   "%"
 ];
 
+const EVENT_LOGISTICS_TERMS = [
+  "how to watch",
+  "watch live",
+  "livestream",
+  "live stream",
+  "live-stream",
+  "where to watch",
+  "when to watch",
+  "keynote time",
+  "conference schedule",
+  "event schedule"
+];
+
 export function candidateSkipReason(source: SourceItem): string | null {
   if (source.synthetic || source.category === "헛소리") {
     return null;
@@ -49,6 +62,10 @@ export function candidateSkipReason(source: SourceItem): string | null {
   }
 
   const text = `${source.title} ${source.summary}`.toLowerCase();
+  if (EVENT_LOGISTICS_TERMS.some((term) => text.includes(term))) {
+    return "thin event viewing/logistics item";
+  }
+
   const looksLikeDeal = DEAL_TERMS.some((term) => text.includes(term));
   const looksLikeShopping = COMMERCE_TERMS.some((term) => text.includes(term));
 
