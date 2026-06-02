@@ -173,17 +173,13 @@ export async function extractFacts(
       },
       {
         role: "user",
-        content: JSON.stringify(
-          {
-            source_name: source.feedName,
-            source_url: source.url,
-            original_title: source.title,
-            rss_summary: source.summary,
-            page_text_excerpt: pageText
-          },
-          null,
-          2
-        )
+        content: JSON.stringify({
+          source_name: source.feedName,
+          source_url: source.url,
+          original_title: source.title,
+          rss_summary: source.summary,
+          page_text_excerpt: pageText
+        })
       }
     ],
     1200,
@@ -214,20 +210,16 @@ Final article now: sharp, funny, mean, rhythmic. First identify the exact target
       },
       {
         role: "user",
-        content: JSON.stringify(
-          {
-            source_metadata: {
-              source_name: source.feedName,
-              source_url: source.url,
-              original_title: source.title,
-              category: source.category
-            },
-            extracted_facts: facts,
-            correction
+        content: JSON.stringify({
+          source_metadata: {
+            source_name: source.feedName,
+            source_url: source.url,
+            original_title: source.title,
+            category: source.category
           },
-          null,
-          2
-        )
+          extracted_facts: facts,
+          correction
+        })
       }
     ],
     isRegularSatire ? 2300 : 1500,
@@ -262,22 +254,18 @@ raw_score 0-100. publish only for concrete grounded angles. final_score initiall
       },
       {
         role: "user",
-        content: JSON.stringify(
-          {
-            source_metadata: {
-              source_name: source.feedName,
-              source_url: source.url,
-              original_title: source.title,
-              axis: source.seriousAxis,
-              institution: source.seriousInstitution
-            },
-            rss_summary: usefulText(source.summary) ? source.summary : "",
-            page_text_excerpt: pageText.slice(0, 1200),
-            recent_serious_history: history.recent.slice(0, 6)
+        content: JSON.stringify({
+          source_metadata: {
+            source_name: source.feedName,
+            source_url: source.url,
+            original_title: source.title,
+            axis: source.seriousAxis,
+            institution: source.seriousInstitution
           },
-          null,
-          2
-        )
+          rss_summary: usefulText(source.summary) ? source.summary : "",
+          page_text_excerpt: pageText.slice(0, 1200),
+          recent_serious_history: history.recent.slice(0, 6)
+        })
       }
     ],
     1400,
@@ -313,23 +301,19 @@ Strict JSON. Use editorial judgment as structure, not metadata. Hide scoring. 4-
       },
       {
         role: "user",
-        content: JSON.stringify(
-          {
-            source_metadata: {
-              source_name: source.feedName,
-              source_url: source.url,
-              original_title: source.title,
-              category: "정색",
-              axis: source.seriousAxis,
-              institution: source.seriousInstitution
-            },
-            extracted_facts: facts,
-            editorial_judgment: evaluation,
-            correction
+        content: JSON.stringify({
+          source_metadata: {
+            source_name: source.feedName,
+            source_url: source.url,
+            original_title: source.title,
+            category: "정색",
+            axis: source.seriousAxis,
+            institution: source.seriousInstitution
           },
-          null,
-          2
-        )
+          extracted_facts: facts,
+          editorial_judgment: evaluation,
+          correction
+        })
       }
     ],
     2200,
@@ -376,27 +360,23 @@ Final rewrite: keep facts, make it funnier/meaner/drier. Replace broad analogies
       },
       {
         role: "user",
-        content: JSON.stringify(
-          {
-            source_metadata: {
-              source_name: source.feedName,
-              source_url: source.url,
-              original_title: source.title,
-              category: source.category
-            },
-            extracted_facts: facts,
-            existing_draft: draft,
-            correction:
-              correction ??
-              (isNonsense
-                ? "Keep pure 헛소리: contextless, useless, formal, shorter. Remove usefulness/business/critique."
-                : isMarketNonsense
-                  ? "Preserve percentages exactly. Reasons absurd, financially useless, name-based. Remove macro logic."
-                  : "More biting, direct, source-specific satire. Hit at least 4 concrete details, name the exact target early, and stop relying on fake praise or generic metaphors.")
+        content: JSON.stringify({
+          source_metadata: {
+            source_name: source.feedName,
+            source_url: source.url,
+            original_title: source.title,
+            category: source.category
           },
-          null,
-          2
-        )
+          extracted_facts: facts,
+          existing_draft: draft,
+          correction:
+            correction ??
+            (isNonsense
+              ? "Keep pure 헛소리: contextless, useless, formal, shorter. Remove usefulness/business/critique."
+              : isMarketNonsense
+                ? "Preserve percentages exactly. Reasons absurd, financially useless, name-based. Remove macro logic."
+                : "More biting, direct, source-specific satire. Hit at least 4 concrete details, name the exact target early, and stop relying on fake praise or generic metaphors.")
+        })
       }
     ],
     1900,
