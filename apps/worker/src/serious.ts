@@ -385,7 +385,7 @@ function inferAxis(source: SourceItem): SeriousCandidateEvaluation["axis"] {
 
 function isSeriousSlot(now: Date, timeZone: string): boolean {
   const slot = zonedParts(now, timeZone);
-  return slot.weekday >= 1 && slot.weekday <= 5 && slot.hour === 21 && slot.minute >= 25 && slot.minute <= 40;
+  return (slot.weekday === 2 || slot.weekday === 5) && slot.hour === 21 && slot.minute >= 25 && slot.minute <= 40;
 }
 
 function recentAxis(history: SeriousEditorialStore, axis: string, today: string, days: number): boolean {
