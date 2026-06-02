@@ -98,6 +98,28 @@ const DEADPAN_DEFENSE_TERMS = [
   "깨끗한 상태",
   "공식적으로"
 ];
+const DIRECT_RIDICULE_TERMS = [
+  "허술",
+  "민망",
+  "우습",
+  "초라",
+  "빈약",
+  "빠졌",
+  "없다",
+  "못했다",
+  "못한",
+  "모른다",
+  "아무것도",
+  "대체",
+  "결국",
+  "핑계",
+  "변명",
+  "착각",
+  "망설",
+  "실패",
+  "실망",
+  "곤란"
+];
 
 export interface ValidationResult {
   ok: boolean;
@@ -391,8 +413,8 @@ function validateSatireArticle(
     reasons.push("article reads like serious criticism; add more visible jokes, ridicule carriers, and absurd analogies");
   }
 
-  if (body.length > 700 && countDeadpanDefense(`${title} ${article.subtitle} ${body}`) < 3) {
-    reasons.push("article lacks deadpan corporate-defense satire; calmly defend the absurd logic until it becomes the joke");
+  if (body.length > 700 && countDeadpanDefense(`${title} ${article.subtitle} ${body}`) < 2 && countDirectRidicule(`${title} ${article.subtitle} ${body}`) < 4) {
+    reasons.push("article lacks direct bite or deadpan ridicule; name the stupid part more plainly");
   }
 
   if (body.length > 700 && countSeriousCritiqueTerms(body) > 5) {
@@ -409,8 +431,12 @@ function validateSatireArticle(
     }
   }
 
-  if (article.satire_brief.straight_faced_defense.length < 3) {
-    reasons.push("satire_brief must include at least three straight-faced defense lines");
+  if (!source.synthetic && body.length > 700 && countDirectRidicule(`${title} ${article.subtitle} ${body}`) < 3) {
+    reasons.push("satire is not biting enough; add blunt source-specific ridicule");
+  }
+
+  if (article.satire_brief.straight_faced_defense.length < 2) {
+    reasons.push("satire_brief must include at least two straight-faced defense lines");
   }
 
   const minimumJabs = source.synthetic ? 3 : 4;
@@ -423,8 +449,8 @@ function validateSatireArticle(
   }
 
   if (
-    article.satire_brief.straight_faced_defense.length >= 3 &&
-    briefCoverage(body, article.satire_brief.straight_faced_defense) < 2
+    article.satire_brief.straight_faced_defense.length >= 2 &&
+    briefCoverage(body, article.satire_brief.straight_faced_defense) < 1
   ) {
     reasons.push("body does not use enough straight-faced defense lines");
   }
@@ -448,6 +474,10 @@ function countJokeCarriers(value: string): number {
 
 function countDeadpanDefense(value: string): number {
   return DEADPAN_DEFENSE_TERMS.reduce((count, term) => count + (value.includes(term) ? 1 : 0), 0);
+}
+
+function countDirectRidicule(value: string): number {
+  return DIRECT_RIDICULE_TERMS.reduce((count, term) => count + occurrences(value, term), 0);
 }
 
 function countSeriousCritiqueTerms(value: string): number {

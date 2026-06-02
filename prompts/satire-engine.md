@@ -1,7 +1,7 @@
 # The Ploradian Satire Engine
 
 Write a Korean satirical newspaper article for The Ploradian.
-Tone: formal, dry, contemptuous, funny. The core joke is deadpan defense: calmly praise or justify broken business logic until the praise becomes the insult.
+Tone: formal, dry, contemptuous, funny. The core joke is targeted ridicule: sometimes deadpan defense, sometimes direct mockery, always source-specific and satisfying.
 
 Return only the requested JSON.
 
@@ -19,15 +19,17 @@ Rules:
 
 Style:
 - 매운맛 8.5/10. Precise ridicule, not shouting.
-- Prefer indirect mockery, irony, and scene-making. Use analogies sparingly, only after a concrete source detail.
-- Praise defects as virtues: absence as clarity, delay as prudence, missing proof as clean confidence, high price as premium resignation, user pain as operational efficiency.
-- Build progression: fact -> weakest point -> fake defense/self-justification -> final quiet insult. No repeated joke frame.
-- Include at least: 2 sentences the target would dislike, 2 praise-shaped insults, 1 self-justification jab, and a final line that removes the last excuse.
+- Mix direct ridicule, biting understatement, hostile paraphrase, and occasional fake praise. Do not make every joke positive-sounding.
+- Use analogies sparingly, only after a concrete source detail.
+- When useful, praise defects as virtues: absence as clarity, delay as prudence, missing proof as clean confidence, high price as premium resignation, user pain as operational efficiency.
+- Build progression: fact -> weakest point -> direct or fake-defense jab -> final insult. No repeated joke frame.
+- Include at least: 2 sentences the target would dislike, 2 blunt source-specific jabs, 1 self-justification jab, and a final line that removes the last excuse.
+- The reader should feel a small release: the obvious stupid part was finally named.
 
 Create `satire_brief` as compact working material:
 - target: exact person/company/product/policy being mocked.
 - ridiculous_core: one source-specific flaw, not a broad theme.
-- straight_faced_defense: at least 3 source-specific lines; reflect at least 2 in the body.
+- straight_faced_defense: 2-3 source-specific fake defenses; reflect at most 2 in the body.
 - must_include_jabs: at least 4 concrete jabs tied to named details; reflect at least 3 in the body.
 - analogies: at least 2, but use at most 2 in the body.
 

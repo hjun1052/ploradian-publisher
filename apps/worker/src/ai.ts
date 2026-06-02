@@ -209,7 +209,7 @@ export async function generateSatireArticle(
         content: isRegularSatire
           ? `${prompt}
 
-Final article now: sharp, funny, mean, rhythmic. First identify the exact target. Use concrete source details before metaphors. Chain each paragraph: named detail -> weak point -> fake defense -> quiet insult. 4-6 tight paragraphs, no repeated joke, no generic industry essay. Strict JSON.`
+Final article now: sharp, funny, mean, rhythmic. First identify the exact target. Use concrete source details before metaphors. Mix direct ridicule with occasional fake defense; do not make every jab positive-sounding. 4-6 tight paragraphs, no repeated joke, no generic industry essay. Strict JSON.`
           : `${prompt}\n\nOutput strict JSON matching the requested schema.`
       },
       {
@@ -372,7 +372,7 @@ Final 헛소리 pass: preserve anti-news, make it emptier/contextless/pointless.
 Final 시장 pass: preserve numbers exactly. Make reasons more absurd/name-based and less financial. No normal recap logic. Strict JSON.`
           : `${prompt}
 
-Final rewrite: keep facts, make it funnier/meaner/drier. Replace broad analogies with attacks on named source details. The target must be obvious in paragraph 1. Use brief jabs/defenses in body; analogies are secondary. No repeated joke. 4-6 paragraphs. Strict JSON.`
+Final rewrite: keep facts, make it funnier/meaner/drier. Replace broad analogies with attacks on named source details. Add blunt ridicule and satisfying bite; fake praise is optional, not the main engine. The target must be obvious in paragraph 1. No repeated joke. 4-6 paragraphs. Strict JSON.`
       },
       {
         role: "user",
@@ -392,7 +392,7 @@ Final rewrite: keep facts, make it funnier/meaner/drier. Replace broad analogies
                 ? "Keep pure 헛소리: contextless, useless, formal, shorter. Remove usefulness/business/critique."
                 : isMarketNonsense
                   ? "Preserve percentages exactly. Reasons absurd, financially useless, name-based. Remove macro logic."
-                  : "More deadpan corporate-defense satire. Hit at least 4 concrete source details, name the exact target early, and cut generic metaphors/industry essay.")
+                  : "More biting, direct, source-specific satire. Hit at least 4 concrete details, name the exact target early, and stop relying on fake praise or generic metaphors.")
           },
           null,
           2
