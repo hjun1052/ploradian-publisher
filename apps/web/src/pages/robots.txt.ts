@@ -29,6 +29,7 @@ Allow: /
 # ${site}/llms-full.txt
 
 Sitemap: ${site}/sitemap.xml
+Sitemap: ${site}/news-sitemap.xml
 `;
 
   return new Response(body, {
