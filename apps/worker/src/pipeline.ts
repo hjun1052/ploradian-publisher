@@ -8,6 +8,7 @@ import {
 } from "./github";
 import { prepareMarkdownArticle } from "./markdown";
 import { findArticleImage } from "./images";
+import { candidateSkipReason } from "./candidates";
 import { scheduledNonsenseCandidate } from "./nonsense";
 import { extractFacts, generateSatireArticle } from "./ai";
 import { fetchFeedItems, fetchSourcePageText, sourceHash } from "./rss";
@@ -32,7 +33,7 @@ export async function runPublishingPipeline(
     const feedItems = await fetchFeedItems(config.rssFeeds);
     const nonsense = scheduledNonsenseCandidate(new Date(startedAt), config.siteTimezone);
     const sourceItems = nonsense ? [nonsense, ...feedItems] : feedItems;
-    const candidates = await unseenCandidates(sourceItems, seen);
+    const candidates = await unseenCandidates(filterSourceCandidates(sourceItems, skipped), seen);
 
     for (const candidate of candidates.slice(0, Math.max(config.maxArticlesPerRun * 4, 4))) {
       if (prepared.length >= config.maxArticlesPerRun) {
@@ -146,6 +147,18 @@ export async function runPublishingPipeline(
       }))
     });
   }
+}
+
+function filterSourceCandidates(items: SourceItem[], skipped: string[]): SourceItem[] {
+  return items.filter((item) => {
+    const reason = candidateSkipReason(item);
+    if (!reason) {
+      return true;
+    }
+
+    skipped.push(`source skipped (${reason}): ${item.title}`);
+    return false;
+  });
 }
 
 async function generateAndValidate(
