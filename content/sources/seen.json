@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-02T02:03:08.525Z",
+  "updated_at": "2026-06-02T03:01:17.181Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -33,6 +33,14 @@
       "title": "Hackers duped Meta AI support chatbot to steal celebrity Instagram accounts",
       "article_path": "content/articles/published/2026-06-02-2af7ff63-meta-ai-support-chatbot-instagram-account-recovery-satire.md",
       "seen_at": "2026-06-02T02:03:08.525Z"
+    },
+    "0484e8fd435253756f3fd843d479a70070cacfc1b4e826ff6370e5ac16c3544a": {
+      "url": "https://arstechnica.com/science/2026/06/research-roundup-7-cool-science-stories-we-almost-missed-4/",
+      "canonical_url": "https://arstechnica.com/science/2026/06/research-roundup-7-cool-science-stories-we-almost-missed-4/",
+      "source_name": "Ars Technica",
+      "title": "Why cats prefer silver vine to catnip and other May highlights",
+      "article_path": "content/articles/published/2026-06-02-0484e8fd-cats-silver-vine-science-roundup-ars-technica-satire.md",
+      "seen_at": "2026-06-02T03:01:17.181Z"
     }
   }
 }
