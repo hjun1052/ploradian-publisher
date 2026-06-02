@@ -26,6 +26,7 @@ import type {
   SeenStore,
   SeriousCandidateEvaluation,
   SeriousEditorialEntry,
+  FeedSource,
   SourceItem
 } from "./types";
 
@@ -77,7 +78,11 @@ export async function runPublishingPipeline(
       reason: seriousSelection.reason
     };
     const seriousOnlyRun = Boolean(options.forceSerious) || seriousSelection.reason !== "not serious desk slot";
-    const feedItems = seriousOnlyRun ? [] : await fetchFeedItems(config.rssFeeds);
+    const scheduledFeeds = seriousOnlyRun ? [] : scheduledFeedSources(config.rssFeeds, new Date(startedAt), config.siteTimezone);
+    if (!seriousOnlyRun) {
+      skipped.push(`rss window: ${feedWindowName(new Date(startedAt), config.siteTimezone)} (${scheduledFeeds.map((feed) => feed.name).join(", ") || "no rss"})`);
+    }
+    const feedItems = scheduledFeeds.length === 0 ? [] : await fetchFeedItems(scheduledFeeds);
     const scheduledItems = [market, nonsense, seriousSelection.source].filter((item): item is SourceItem => item !== null);
     const sourceItems = prioritizeSourceItems([...scheduledItems, ...feedItems]);
     const candidates = await unseenCandidates(filterSourceCandidates(sourceItems, skipped), seen);
@@ -280,6 +285,78 @@ function sourcePriority(source: SourceItem): number {
   }
 
   return 50;
+}
+
+function scheduledFeedSources(feeds: FeedSource[], now: Date, timeZone: string): FeedSource[] {
+  const hour = zonedHour(now, timeZone);
+
+  if (hour === 7 || hour === 16) {
+    return [];
+  }
+
+  if (hour >= 0 && hour <= 6) {
+    return feeds.filter((feed) => isUsTechFeed(feed) || isUsBusinessFeed(feed) || isGlobalMarketFeed(feed));
+  }
+
+  if (hour >= 8 && hour <= 15) {
+    return feeds.filter(isKoreaMarketFeed);
+  }
+
+  if (hour >= 17 && hour <= 18) {
+    return feeds.filter((feed) => isKoreaMarketFeed(feed) || isUsBusinessFeed(feed));
+  }
+
+  if (hour >= 19 && hour <= 23) {
+    return feeds.filter((feed) => isUsTechFeed(feed) || isUsBusinessFeed(feed) || isGlobalMarketFeed(feed));
+  }
+
+  return feeds;
+}
+
+function feedWindowName(now: Date, timeZone: string): string {
+  const hour = zonedHour(now, timeZone);
+  if (hour >= 0 && hour <= 6) {
+    return "us-tech-night";
+  }
+  if (hour === 7) {
+    return "us-market-close-only";
+  }
+  if (hour >= 8 && hour <= 15) {
+    return "korea-day";
+  }
+  if (hour === 16) {
+    return "korea-market-close-only";
+  }
+  if (hour >= 17 && hour <= 18) {
+    return "korea-aftermarket-plus-npr";
+  }
+  return "us-tech-evening";
+}
+
+function isUsTechFeed(feed: FeedSource): boolean {
+  const name = feed.name.toLowerCase();
+  return name.includes("the verge") || name.includes("ars technica");
+}
+
+function isUsBusinessFeed(feed: FeedSource): boolean {
+  return feed.name.toLowerCase().includes("npr business");
+}
+
+function isKoreaMarketFeed(feed: FeedSource): boolean {
+  return feed.name.includes("연합인포맥스") && !isGlobalMarketFeed(feed);
+}
+
+function isGlobalMarketFeed(feed: FeedSource): boolean {
+  return feed.name.includes("해외주식") || feed.name.includes("국제뉴스");
+}
+
+function zonedHour(now: Date, timeZone: string): number {
+  const hour = new Intl.DateTimeFormat("en-US", {
+    timeZone,
+    hour: "2-digit",
+    hour12: false
+  }).format(now);
+  return Number(hour);
 }
 
 async function extractFactsWithFallback(
