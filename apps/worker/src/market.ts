@@ -3,6 +3,8 @@ import type { SourceItem } from "./types";
 
 const KOREA_MARKET_HOUR = 16;
 const US_MARKET_HOUR = 7;
+const KOREA_QUOTE_LIMIT = 16;
+const US_QUOTE_LIMIT = 12;
 
 interface MarketQuoteTarget {
   name: string;
@@ -16,15 +18,27 @@ interface MarketQuote {
   changePercent: number;
 }
 
-const KOREA_TARGETS: MarketQuoteTarget[] = [
+const KOREA_FALLBACK_TARGETS: MarketQuoteTarget[] = [
   { name: "삼성전자", symbol: "005930" },
   { name: "SK하이닉스", symbol: "000660" },
-  { name: "네이버", symbol: "035420" },
-  { name: "카카오", symbol: "035720" },
+  { name: "삼성전자우", symbol: "005935" },
+  { name: "SK스퀘어", symbol: "402340" },
   { name: "현대차", symbol: "005380" },
+  { name: "삼성전기", symbol: "009150" },
   { name: "LG에너지솔루션", symbol: "373220" },
-  { name: "셀트리온", symbol: "068270" },
-  { name: "카카오뱅크", symbol: "323410" }
+  { name: "삼성생명", symbol: "032830" },
+  { name: "삼성물산", symbol: "028260" },
+  { name: "HD현대중공업", symbol: "329180" },
+  { name: "현대모비스", symbol: "012330" },
+  { name: "기아", symbol: "000270" },
+  { name: "두산에너빌리티", symbol: "034020" },
+  { name: "LG전자", symbol: "066570" },
+  { name: "삼성바이오로직스", symbol: "207940" },
+  { name: "KB금융", symbol: "105560" },
+  { name: "에코프로비엠", symbol: "247540" },
+  { name: "알테오젠", symbol: "196170" },
+  { name: "에코프로", symbol: "086520" },
+  { name: "레인보우로보틱스", symbol: "277810" }
 ];
 
 const US_TARGETS: MarketQuoteTarget[] = [
@@ -68,13 +82,62 @@ export async function forcedMarketCandidate(
 }
 
 async function koreaMarketCandidate(slot: { day: string; hour: number; offset: string }): Promise<SourceItem | null> {
-  const quotes = await fetchKoreaQuotes(KOREA_TARGETS);
+  const quotes = await fetchKoreaQuotes(await koreaMarketCapTargets());
   return marketCandidate("국장", slot, quotes);
 }
 
 async function usMarketCandidate(slot: { day: string; hour: number; offset: string }): Promise<SourceItem | null> {
   const quotes = await fetchUsQuotes(US_TARGETS);
   return marketCandidate("미장", slot, quotes);
+}
+
+async function koreaMarketCapTargets(): Promise<MarketQuoteTarget[]> {
+  const [kospi, kosdaq] = await Promise.all([
+    fetchNaverMarketCapTargets(0, 16),
+    fetchNaverMarketCapTargets(1, 8)
+  ]);
+  const targets = dedupeTargets([
+    ...kospi.slice(0, 14),
+    ...kosdaq.slice(0, 6),
+    ...KOREA_FALLBACK_TARGETS
+  ]);
+  return targets.slice(0, 22);
+}
+
+async function fetchNaverMarketCapTargets(sosok: 0 | 1, limit: number): Promise<MarketQuoteTarget[]> {
+  const url = new URL("https://finance.naver.com/sise/sise_market_sum.naver");
+  url.searchParams.set("sosok", String(sosok));
+  url.searchParams.set("page", "1");
+
+  try {
+    const response = await fetchWithTimeout(url, {
+      headers: {
+        accept: "text/html,*/*;q=0.5",
+        "user-agent": "The Ploradian bot/0.1 (+https://news.ploradian.com/about/)"
+      }
+    }, 7000);
+    if (!response.ok) {
+      return [];
+    }
+
+    const bytes = await response.arrayBuffer();
+    const html = decodeKoreanHtml(bytes);
+    const matches = html.matchAll(/<a href="\/item\/main\.naver\?code=(\d{6})"[^>]*class="tltle"[^>]*>([^<]+)<\/a>/g);
+    const targets: MarketQuoteTarget[] = [];
+    for (const match of matches) {
+      const symbol = match[1]?.trim();
+      const name = decodeHtmlEntities(match[2]?.trim() ?? "");
+      if (symbol && name) {
+        targets.push({ symbol, name });
+      }
+      if (targets.length >= limit) {
+        break;
+      }
+    }
+    return targets;
+  } catch {
+    return [];
+  }
 }
 
 async function fetchKoreaQuotes(targets: MarketQuoteTarget[]): Promise<MarketQuote[]> {
@@ -166,7 +229,9 @@ async function fetchStooqQuote(target: MarketQuoteTarget): Promise<MarketQuote |
 }
 
 function marketCandidate(market: "국장" | "미장", slot: { day: string; hour: number; offset: string }, quotes: MarketQuote[]): SourceItem | null {
-  const usable = quotes.filter((quote) => Number.isFinite(quote.changePercent)).slice(0, 10);
+  const usable = quotes
+    .filter((quote) => Number.isFinite(quote.changePercent))
+    .slice(0, market === "국장" ? KOREA_QUOTE_LIMIT : US_QUOTE_LIMIT);
   if (usable.length < 3) {
     return null;
   }
@@ -251,4 +316,40 @@ interface NaverRealtimeResponse {
       }>;
     }>;
   };
+}
+
+function dedupeTargets(targets: MarketQuoteTarget[]): MarketQuoteTarget[] {
+  const seen = new Set<string>();
+  const output: MarketQuoteTarget[] = [];
+  for (const target of targets) {
+    if (seen.has(target.symbol)) {
+      continue;
+    }
+    seen.add(target.symbol);
+    output.push(target);
+  }
+  return output;
+}
+
+function decodeKoreanHtml(bytes: ArrayBuffer): string {
+  try {
+    return new TextDecoder("euc-kr").decode(bytes);
+  } catch {
+    return new TextDecoder("utf-8", { fatal: false, ignoreBOM: false }).decode(bytes);
+  }
+}
+
+function decodeHtmlEntities(value: string): string {
+  return value
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, "\"")
+    .replace(/&#39;/g, "'");
+}
+
+function fetchWithTimeout(input: string | URL | Request, init: RequestInit, timeoutMs: number): Promise<Response> {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
+  return fetch(input, { ...init, signal: controller.signal }).finally(() => clearTimeout(timeout));
 }

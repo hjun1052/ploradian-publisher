@@ -11,6 +11,9 @@ Rules:
 - Write in Korean.
 - Category must be exactly 시장.
 - Preserve every supplied ticker/name and every supplied percentage exactly as given.
+- A negative percentage is a fall. Never describe a negative percentage as rising, going up, swelling, flying upward, or improving.
+- A positive percentage is a rise. Never describe a positive percentage as falling, going down, sinking, or weakening.
+- Keep the sign in front of every percentage. Do not turn -1.10% into 1.10% or +1.10%.
 - Each listed item gets one short absurd explanation.
 - The explanation must be financially meaningless.
 - Prefer wordplay from the company/index name, physical movement, emotions, office gossip, weather inside the ticker, pronunciation jokes, or impossible daily-life causes.

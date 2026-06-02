@@ -131,7 +131,7 @@ export function validateGeneratedArticle(
 
   if (article.category === "헛소리" || source.synthetic) {
     if (article.category === "시장") {
-      validateMarketNonsenseArticle(source, body, reasons);
+      validateMarketNonsenseArticle(source, `${title}\n${article.subtitle}\n${body}`, body, reasons);
     } else {
       validateNonsenseArticle(body, reasons);
     }
@@ -210,15 +210,35 @@ function validateNonsenseArticle(body: string, reasons: string[]): void {
   }
 }
 
-function validateMarketNonsenseArticle(source: SourceItem, body: string, reasons: string[]): void {
+function validateMarketNonsenseArticle(source: SourceItem, fullText: string, body: string, reasons: string[]): void {
   if (body.length > 4200) {
     reasons.push("market nonsense body is too long; keep the fake recap punchy");
   }
 
-  const percentages = source.summary.match(/[+-]\d+(?:\.\d+)?%/g) ?? [];
+  const rows = parseMarketRows(source.summary);
+  const percentages = rows.map((row) => row.change);
   const missing = [...new Set(percentages)].filter((percent) => !body.includes(percent));
   if (missing.length > 0) {
     reasons.push(`market nonsense must preserve supplied percentages: ${missing.join(", ")}`);
+  }
+
+  for (const row of rows) {
+    const withoutCorrectPercent = fullText.split(row.change).join("");
+    const absolute = row.change.replace(/^[+-]/, "");
+    if (row.change.startsWith("-") && hasForbiddenPercentVariant(withoutCorrectPercent, absolute, "+")) {
+      reasons.push(`market nonsense flipped negative percentage for ${row.name}: ${row.change}`);
+    }
+    if (row.change.startsWith("+") && hasForbiddenPercentVariant(withoutCorrectPercent, absolute, "-")) {
+      reasons.push(`market nonsense flipped positive percentage for ${row.name}: ${row.change}`);
+    }
+
+    const related = marketRowContext(fullText, row.name, row.change);
+    if (row.change.startsWith("-") && hasPositiveMoveWord(related) && !hasNegativeMoveWord(related)) {
+      reasons.push(`market nonsense describes negative mover as rising: ${row.name} ${row.change}`);
+    }
+    if (row.change.startsWith("+") && hasNegativeMoveWord(related) && !hasPositiveMoveWord(related)) {
+      reasons.push(`market nonsense describes positive mover as falling: ${row.name} ${row.change}`);
+    }
   }
 
   const normalMarketTerms = [
@@ -244,6 +264,47 @@ function validateMarketNonsenseArticle(source: SourceItem, body: string, reasons
       reasons.push(`market nonsense used normal market explanation: ${term}`);
     }
   }
+}
+
+function parseMarketRows(summary: string): Array<{ name: string; symbol: string; change: string }> {
+  return summary
+    .split("\n")
+    .map((line) => /^-\s+(.+?)\s+\((.+?)\):\s+.+?,\s+([+-]\d+(?:\.\d+)?%)$/.exec(line.trim()))
+    .filter((match): match is RegExpExecArray => Boolean(match))
+    .map((match) => ({
+      name: match[1] ?? "",
+      symbol: match[2] ?? "",
+      change: match[3] ?? ""
+    }))
+    .filter((row) => Boolean(row.name && row.symbol && row.change));
+}
+
+function hasForbiddenPercentVariant(text: string, absolutePercent: string, sign: "+" | "-"): boolean {
+  if (text.includes(`${sign}${absolutePercent}`)) {
+    return true;
+  }
+
+  if (sign === "+") {
+    return false;
+  }
+
+  const escaped = escapeRegExp(absolutePercent);
+  return new RegExp(`(^|[^+\\-\\d.])${escaped}(?![\\d.])`).test(text);
+}
+
+function marketRowContext(text: string, name: string, change: string): string {
+  return text
+    .split(/\n{2,}|(?<=[.!?。])\s+/)
+    .filter((part) => part.includes(name) || part.includes(change))
+    .join(" ");
+}
+
+function hasPositiveMoveWord(value: string): boolean {
+  return /올랐|오른|올라|상승|뛰었|튀었|위로|부풀|들어 올|끌어올/.test(value);
+}
+
+function hasNegativeMoveWord(value: string): boolean {
+  return /내렸|내린|내려|하락|떨어|빠졌|아래|지하|내리막|음전/.test(value);
 }
 
 function validateSatireArticle(
@@ -334,6 +395,10 @@ function occurrences(value: string, needle: string): number {
     return 0;
   }
   return value.split(needle).length - 1;
+}
+
+function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
 function concreteWeakPointHits(body: string, facts: FactSummary): number {
