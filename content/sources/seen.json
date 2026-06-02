@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-02T11:44:48.588Z",
+  "updated_at": "2026-06-02T12:01:13.524Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -105,6 +105,14 @@
       "title": "2026-06-02 국장 마감 억지해석",
       "article_path": "content/articles/published/2026-06-02-c22f6273-2026-06-02-kospi-close-nonsense-interpretation.md",
       "seen_at": "2026-06-02T11:44:48.588Z"
+    },
+    "4f86ff7e1eaafa78eae528172af7ecf3046499ae30d67a0b29a0b0e27dca09d5": {
+      "url": "https://www.theverge.com/podcast/941140/casey-neistat-daily-vergecast",
+      "canonical_url": "https://www.theverge.com/podcast/941140/casey-neistat-daily-vergecast",
+      "source_name": "The Verge",
+      "title": "Casey Neistat’s guide to posting every day",
+      "article_path": "content/articles/published/2026-06-02-4f86ff7e-the-vergecast-daily-podcast-casey-neistat-posting-every-day.md",
+      "seen_at": "2026-06-02T12:01:13.524Z"
     }
   }
 }
