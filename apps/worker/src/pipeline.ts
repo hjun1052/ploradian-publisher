@@ -718,6 +718,8 @@ function isSoftSatireValidationFailure(reasons: string[]): boolean {
       reason.startsWith("article lacks deadpan corporate-defense satire") ||
       reason.startsWith("too many serious critique terms") ||
       reason.startsWith("does not visibly attack any extracted weak point") ||
+      reason.startsWith("does not visibly attack enough extracted weak point") ||
+      reason.startsWith("too much analogy for too little source detail") ||
       reason.startsWith("satire_brief must include") ||
       reason.startsWith("body does not use enough")
     );

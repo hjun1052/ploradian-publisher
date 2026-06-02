@@ -169,7 +169,7 @@ export async function extractFacts(
       {
         role: "system",
         content:
-          "Extract grounded facts only. No source prose copying or invented claims. Include satire targets, mockable details, weak points, and euphemisms. Strict JSON."
+          "Extract grounded facts only. No source prose copying or invented claims. Prioritize source-specific attack material: exact target, names, numbers, dates, prices, claims, omissions, limitations, awkward wording, contradictions, and oddly mockable details. Fill mockable_details with at least 5 concrete details when available; weak_points must be specific, not broad themes. Strict JSON."
       },
       {
         role: "user",
@@ -209,7 +209,7 @@ export async function generateSatireArticle(
         content: isRegularSatire
           ? `${prompt}
 
-Final article now: sharp, funny, mean, rhythmic. Chain: fact -> weak point -> fake defense -> quiet insult. 4-6 tight paragraphs, no repeated joke. Strict JSON.`
+Final article now: sharp, funny, mean, rhythmic. First identify the exact target. Use concrete source details before metaphors. Chain each paragraph: named detail -> weak point -> fake defense -> quiet insult. 4-6 tight paragraphs, no repeated joke, no generic industry essay. Strict JSON.`
           : `${prompt}\n\nOutput strict JSON matching the requested schema.`
       },
       {
@@ -372,7 +372,7 @@ Final 헛소리 pass: preserve anti-news, make it emptier/contextless/pointless.
 Final 시장 pass: preserve numbers exactly. Make reasons more absurd/name-based and less financial. No normal recap logic. Strict JSON.`
           : `${prompt}
 
-Final rewrite: keep facts, make it funnier/meaner/drier. Ground mockery in weak points. Use brief jabs/defenses/analogies in body. No repeated joke. 4-6 paragraphs. Strict JSON.`
+Final rewrite: keep facts, make it funnier/meaner/drier. Replace broad analogies with attacks on named source details. The target must be obvious in paragraph 1. Use brief jabs/defenses in body; analogies are secondary. No repeated joke. 4-6 paragraphs. Strict JSON.`
       },
       {
         role: "user",
@@ -392,7 +392,7 @@ Final rewrite: keep facts, make it funnier/meaner/drier. Ground mockery in weak 
                 ? "Keep pure 헛소리: contextless, useless, formal, shorter. Remove usefulness/business/critique."
                 : isMarketNonsense
                   ? "Preserve percentages exactly. Reasons absurd, financially useless, name-based. Remove macro logic."
-                  : "More deadpan corporate-defense satire; polite defense becomes insult. Use at least 3 defense beats. Avoid policy-column cadence.")
+                  : "More deadpan corporate-defense satire. Hit at least 4 concrete source details, name the exact target early, and cut generic metaphors/industry essay.")
           },
           null,
           2

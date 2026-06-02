@@ -11,20 +11,25 @@ Rules:
 - No source-prose copying, slurs, hate speech, emoji, internet slang, checklist headings, or cheap hype words: 충격, 경악, 대박, 폭소, 미쳤다, 난리났다, 네티즌 폭발, ㅋㅋㅋ.
 - Title must be aggressively clickable but fact-safe: provocative, strange, and hard to ignore.
 - Body: 4-6 tight paragraphs, 1-3 sentences each. Each paragraph needs one fact plus one jab. If the joke landed, move on.
+- Name the target clearly in paragraph 1. The reader must know exactly what is being mocked.
+- Use at least 4 distinct source details from extracted facts: product names, prices, numbers, missing specs, awkward claims, limitations, quotes/paraphrases, dates, or conditions.
+- Attack source-specific details before using analogy. No paragraph may be only a broad analogy or generic industry complaint.
 - Do not write a normal critique column. Avoid filler like 우려, 시사점, 과제, 논란, 투명성, 윤리, 거버넌스, 리스크 unless mocked.
 - Avoid abstract inflation. Thin shopping/deal/gadget-discount items should stay short and concrete; do not turn them into essays about 문명, 시대, 현대인, 불안, 제품화, 인간의 허술함.
 
 Style:
 - 매운맛 8.5/10. Precise ridicule, not shouting.
-- Prefer indirect mockery, irony, scene-making, and absurd but grounded analogies.
+- Prefer indirect mockery, irony, and scene-making. Use analogies sparingly, only after a concrete source detail.
 - Praise defects as virtues: absence as clarity, delay as prudence, missing proof as clean confidence, high price as premium resignation, user pain as operational efficiency.
 - Build progression: fact -> weakest point -> fake defense/self-justification -> final quiet insult. No repeated joke frame.
 - Include at least: 2 sentences the target would dislike, 2 praise-shaped insults, 1 self-justification jab, and a final line that removes the last excuse.
 
 Create `satire_brief` as compact working material:
-- straight_faced_defense: at least 3 lines; reflect at least 2 in the body.
-- must_include_jabs: at least 3 concrete jabs; reflect at least 2 in the body.
-- analogies: at least 2; use at least 1 in the body.
+- target: exact person/company/product/policy being mocked.
+- ridiculous_core: one source-specific flaw, not a broad theme.
+- straight_faced_defense: at least 3 source-specific lines; reflect at least 2 in the body.
+- must_include_jabs: at least 4 concrete jabs tied to named details; reflect at least 3 in the body.
+- analogies: at least 2, but use at most 2 in the body.
 
 Good sentence patterns:
 - 제품에서 제품을 구성하는 대부분의 요소를 제외하면 발표는 상당히 완성도 높았다.

@@ -399,16 +399,23 @@ function validateSatireArticle(
     reasons.push("too many serious critique terms; reduce policy-column cadence and increase mockery");
   }
 
-  if (!source.synthetic && body.length > 700 && concreteWeakPointHits(body, facts) < 1) {
-    reasons.push("does not visibly attack any extracted weak point or mockable detail");
+  if (!source.synthetic && body.length > 700) {
+    const concreteHits = concreteWeakPointHits(body, facts);
+    if (concreteHits < 3) {
+      reasons.push("does not visibly attack enough extracted weak points or mockable source details");
+    }
+    if (concreteHits < 5 && analogyLoad(body) > 7) {
+      reasons.push("too much analogy for too little source detail; replace broad metaphors with concrete attacks");
+    }
   }
 
   if (article.satire_brief.straight_faced_defense.length < 3) {
     reasons.push("satire_brief must include at least three straight-faced defense lines");
   }
 
-  if (article.satire_brief.must_include_jabs.length < 3) {
-    reasons.push("satire_brief must include at least three concrete jabs");
+  const minimumJabs = source.synthetic ? 3 : 4;
+  if (article.satire_brief.must_include_jabs.length < minimumJabs) {
+    reasons.push(`satire_brief must include at least ${minimumJabs} concrete jabs`);
   }
 
   if (article.satire_brief.analogies.length < 2) {
@@ -422,7 +429,7 @@ function validateSatireArticle(
     reasons.push("body does not use enough straight-faced defense lines");
   }
 
-  if (article.satire_brief.must_include_jabs.length >= 3 && briefCoverage(body, article.satire_brief.must_include_jabs) < 2) {
+  if (article.satire_brief.must_include_jabs.length >= minimumJabs && briefCoverage(body, article.satire_brief.must_include_jabs) < 3) {
     reasons.push("body does not use enough satire_brief jabs");
   }
 
@@ -445,6 +452,13 @@ function countDeadpanDefense(value: string): number {
 
 function countSeriousCritiqueTerms(value: string): number {
   return SERIOUS_CRITIQUE_TERMS.reduce((count, term) => count + occurrences(value, term), 0);
+}
+
+function analogyLoad(value: string): number {
+  return ["마치", "같다", "같은", "격이다", "셈이다", "꼴이다", "비슷하다"].reduce(
+    (count, term) => count + occurrences(value, term),
+    0
+  );
 }
 
 function briefCoverage(body: string, lines: string[]): number {
