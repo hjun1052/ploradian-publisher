@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { formatDisplayDate, getPublishedArticles } from "../lib/articles";
 
 const articles = await getPublishedArticles();
-const categoryOrder = ["기술", "비즈니스", "시장", "헛소리"];
+const categoryOrder = ["기술", "비즈니스", "시장", "정색", "헛소리"];
 const categories = [
   ...categoryOrder,
   ...[...new Set(articles.map((article) => article.category).filter(Boolean))]

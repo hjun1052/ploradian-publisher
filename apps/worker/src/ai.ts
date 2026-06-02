@@ -1,6 +1,18 @@
-import { MARKET_NONSENSE_ENGINE_PROMPT, NONSENSE_ENGINE_PROMPT, SATIRE_ENGINE_PROMPT } from "./generated/satire-engine";
+import {
+  MARKET_NONSENSE_ENGINE_PROMPT,
+  NONSENSE_ENGINE_PROMPT,
+  SATIRE_ENGINE_PROMPT,
+  SERIOUS_ENGINE_PROMPT
+} from "./generated/satire-engine";
 import { fetchTextWithRetry } from "./http";
-import type { FactSummary, GeneratedArticleJson, RuntimeConfig, SourceItem } from "./types";
+import type {
+  FactSummary,
+  GeneratedArticleJson,
+  RuntimeConfig,
+  SeriousCandidateEvaluation,
+  SeriousEditorialStore,
+  SourceItem
+} from "./types";
 
 const RESPONSES_URL = "https://api.openai.com/v1/responses";
 
@@ -40,7 +52,7 @@ const articleSchema = {
   properties: {
     title: { type: "string" },
     subtitle: { type: "string" },
-    category: { type: "string", enum: ["기술", "비즈니스", "시장", "헛소리"] },
+    category: { type: "string", enum: ["기술", "비즈니스", "시장", "헛소리", "정색"] },
     slug: { type: "string" },
     satire_brief: {
       type: "object",
@@ -69,6 +81,39 @@ const articleSchema = {
     "source_name",
     "source_url",
     "original_title"
+  ],
+  additionalProperties: false
+} as const;
+
+const seriousEvaluationSchema = {
+  type: "object",
+  properties: {
+    raw_score: { type: "number" },
+    final_score: { type: "number" },
+    axis: { type: "string", enum: ["노동", "생활경제", "기업", "규제/감시", "정책"] },
+    institution: { type: "string" },
+    angle_type: { type: "string" },
+    angle: { type: "string" },
+    who_benefits: { type: "string" },
+    who_pays: { type: "string" },
+    hidden_cost: { type: "string" },
+    missing_question: { type: "string" },
+    publish_decision: { type: "string", enum: ["publish", "hold", "reject"] },
+    reasoning_note: { type: "string" }
+  },
+  required: [
+    "raw_score",
+    "final_score",
+    "axis",
+    "institution",
+    "angle_type",
+    "angle",
+    "who_benefits",
+    "who_pays",
+    "hidden_cost",
+    "missing_question",
+    "publish_decision",
+    "reasoning_note"
   ],
   additionalProperties: false
 } as const;
@@ -201,6 +246,120 @@ Output strict JSON matching the requested schema.`
   };
 }
 
+export async function evaluateSeriousCandidate(
+  config: RuntimeConfig,
+  source: SourceItem,
+  pageText: string,
+  history: SeriousEditorialStore
+): Promise<SeriousCandidateEvaluation> {
+  const evaluation = await callModelJson<SeriousCandidateEvaluation>(
+    config,
+    "ploradian_serious_evaluation",
+    seriousEvaluationSchema,
+    [
+      {
+        role: "system",
+        content: `You are The Ploradian 정색 editorial desk.
+Score whether this Korean society/economy/company/labor/policy item deserves a serious critical column.
+Do not write the article. Return strict JSON only.
+
+Scoring criteria:
+- hidden transfer of cost, risk, inconvenience, responsibility, or bargaining power
+- clear who benefits and who pays
+- Korean reader relevance
+- concrete source basis
+- a missing question normal coverage would avoid
+- not just routine promotion, personnel, ceremony, or bland policy notice
+
+Use raw_score from 0 to 100.
+publish_decision should be publish only when the angle is concrete and grounded.
+final_score should initially equal raw_score; downstream editor may adjust for diversity.`
+      },
+      {
+        role: "user",
+        content: JSON.stringify(
+          {
+            source_metadata: {
+              source_name: source.feedName,
+              source_url: source.url,
+              original_title: source.title,
+              axis: source.seriousAxis,
+              institution: source.seriousInstitution
+            },
+            rss_summary: source.summary,
+            page_text_excerpt: pageText.slice(0, 4500),
+            recent_serious_history: history.recent.slice(0, 10)
+          },
+          null,
+          2
+        )
+      }
+    ],
+    1400
+  );
+
+  return {
+    ...evaluation,
+    raw_score: clampScore(evaluation.raw_score),
+    final_score: clampScore(evaluation.final_score),
+    axis: source.seriousAxis ?? evaluation.axis,
+    institution: source.seriousInstitution ?? evaluation.institution
+  };
+}
+
+export async function generateSeriousArticle(
+  config: RuntimeConfig,
+  source: SourceItem,
+  facts: FactSummary,
+  evaluation: SeriousCandidateEvaluation,
+  correction?: string
+): Promise<GeneratedArticleJson> {
+  const article = await callModelJson<GeneratedArticleJson>(
+    config,
+    "ploradian_serious_article",
+    articleSchema,
+    [
+      {
+        role: "system",
+        content: `${SERIOUS_ENGINE_PROMPT}
+
+Output strict JSON matching the requested schema.
+Do not reveal internal editorial scoring as a separate section.
+Use the editorial judgment as the article's structure, not as metadata decoration.`
+      },
+      {
+        role: "user",
+        content: JSON.stringify(
+          {
+            source_metadata: {
+              source_name: source.feedName,
+              source_url: source.url,
+              original_title: source.title,
+              category: "정색",
+              axis: source.seriousAxis,
+              institution: source.seriousInstitution
+            },
+            extracted_facts: facts,
+            editorial_judgment: evaluation,
+            correction
+          },
+          null,
+          2
+        )
+      }
+    ],
+    3000
+  );
+
+  return {
+    ...article,
+    source_name: source.feedName,
+    source_url: source.url,
+    original_title: source.title,
+    category: "정색"
+  };
+}
+
 export async function intensifySatireArticle(
   config: RuntimeConfig,
   source: SourceItem,
@@ -320,7 +479,18 @@ function normalizeCategory(value: string): string {
     return "헛소리";
   }
 
+  if (["serious", "column", "critique", "analysis", "정색", "칼럼", "논평"].includes(normalized)) {
+    return "정색";
+  }
+
   return value.trim();
+}
+
+function clampScore(value: number): number {
+  if (!Number.isFinite(value)) {
+    return 0;
+  }
+  return Math.min(100, Math.max(0, Math.round(value)));
 }
 
 async function callModelJson<T>(
@@ -351,7 +521,7 @@ async function callWorkersAiJson<T>(
   const data = await config.workersAi.run(config.workersAiModel, {
     messages: input,
     max_tokens: maxOutputTokens,
-    temperature: schemaName === "ploradian_satire_article" ? 0.7 : 0.2,
+    temperature: schemaName === "ploradian_satire_article" ? 0.7 : schemaName === "ploradian_serious_article" ? 0.45 : 0.2,
     response_format: {
       type: "json_schema",
       json_schema: schema
@@ -398,7 +568,7 @@ async function callOpenAIJson<T>(
     },
     {
       label: `OpenAI ${schemaName}`,
-      timeoutMs: schemaName === "ploradian_satire_article" ? 90000 : 30000,
+      timeoutMs: schemaName === "ploradian_satire_article" || schemaName === "ploradian_serious_article" ? 90000 : 30000,
       maxBytes: 98304,
       retries: 0
     }

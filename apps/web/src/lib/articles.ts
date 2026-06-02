@@ -161,6 +161,10 @@ function normalizeCategory(value: string): string {
     return "헛소리";
   }
 
+  if (["serious", "column", "critique", "analysis", "정색", "칼럼", "논평"].includes(normalized)) {
+    return "정색";
+  }
+
   return value.trim();
 }
 

@@ -1,9 +1,12 @@
 import { ConfigError, loadConfig, requireGitHubTarget } from "./config";
 import {
+  addSeriousEditorialEntries,
   addSeenItems,
   commitGeneratedArticles,
+  emptySeriousEditorialStore,
   emptySeenStore,
   githubPathExists,
+  readSeriousEditorialStore,
   readSeenStore
 } from "./github";
 import { prepareMarkdownArticle } from "./markdown";
@@ -11,10 +14,20 @@ import { findArticleImage } from "./images";
 import { candidateSkipReason } from "./candidates";
 import { forcedMarketCandidate, scheduledMarketCandidate } from "./market";
 import { scheduledNonsenseCandidate } from "./nonsense";
-import { extractFacts, generateSatireArticle, intensifySatireArticle } from "./ai";
+import { scheduledSeriousSelection } from "./serious";
+import { extractFacts, generateSatireArticle, generateSeriousArticle, intensifySatireArticle } from "./ai";
 import { fetchFeedItems, fetchSourcePageText, sourceHash } from "./rss";
 import { validateGeneratedArticle } from "./validation";
-import type { FactSummary, GeneratedArticleJson, PipelineResult, PreparedArticle, SeenStore, SourceItem } from "./types";
+import type {
+  FactSummary,
+  GeneratedArticleJson,
+  PipelineResult,
+  PreparedArticle,
+  SeenStore,
+  SeriousCandidateEvaluation,
+  SeriousEditorialEntry,
+  SourceItem
+} from "./types";
 
 export async function runPublishingPipeline(
   env: Env,
@@ -22,6 +35,7 @@ export async function runPublishingPipeline(
     trigger: "manual" | "scheduled";
     dryRunOverride?: boolean;
     forceMarket?: "korea" | "us";
+    forceSerious?: boolean;
     ignoreSeen?: boolean;
   }
 ): Promise<PipelineResult> {
@@ -29,6 +43,11 @@ export async function runPublishingPipeline(
   const skipped: string[] = [];
   const errors: string[] = [];
   const prepared: PreparedArticle[] = [];
+  let seriousEditorial: NonNullable<PipelineResult["serious_editorial"]> = {
+    selected: null,
+    top_candidates: [],
+    reason: "not evaluated"
+  };
   let dryRun = false;
 
   try {
@@ -36,12 +55,30 @@ export async function runPublishingPipeline(
     dryRun = options.dryRunOverride ?? config.dryRun;
     const githubTarget = dryRun && options.ignoreSeen ? null : requireGitHubTarget(config);
     const seen = githubTarget && !options.ignoreSeen ? await readSeenStore(githubTarget) : emptySeenStore();
-    const feedItems = await fetchFeedItems(config.rssFeeds);
-    const market = options.forceMarket
+    const seriousHistory = githubTarget && !options.ignoreSeen
+      ? await readSeriousEditorialStore(githubTarget)
+      : emptySeriousEditorialStore();
+    const market = options.forceSerious
+      ? null
+      : options.forceMarket
       ? await forcedMarketCandidate(options.forceMarket, new Date(startedAt), config.siteTimezone)
       : await scheduledMarketCandidate(new Date(startedAt), config.siteTimezone);
-    const nonsense = scheduledNonsenseCandidate(new Date(startedAt), config.siteTimezone);
-    const scheduledItems = [market, nonsense].filter((item): item is SourceItem => item !== null);
+    const nonsense = options.forceSerious ? null : scheduledNonsenseCandidate(new Date(startedAt), config.siteTimezone);
+    const seriousSelection = await scheduledSeriousSelection(
+      config,
+      seen,
+      seriousHistory,
+      new Date(startedAt),
+      Boolean(options.forceSerious)
+    );
+    seriousEditorial = {
+      selected: seriousSelection.selected,
+      top_candidates: seriousSelection.topCandidates,
+      reason: seriousSelection.reason
+    };
+    const seriousOnlyRun = Boolean(options.forceSerious) || seriousSelection.reason !== "not serious desk slot";
+    const feedItems = seriousOnlyRun ? [] : await fetchFeedItems(config.rssFeeds);
+    const scheduledItems = [market, nonsense, seriousSelection.source].filter((item): item is SourceItem => item !== null);
     const sourceItems = prioritizeSourceItems([...scheduledItems, ...feedItems]);
     const candidates = await unseenCandidates(filterSourceCandidates(sourceItems, skipped), seen);
     if (candidates.length === 0) {
@@ -94,7 +131,8 @@ export async function runPublishingPipeline(
         committed: false,
         skipped,
         errors,
-        articles: []
+        articles: [],
+        serious_editorial: seriousEditorial
       });
     }
 
@@ -112,7 +150,8 @@ export async function runPublishingPipeline(
           path: article.path,
           title: article.title,
           markdown: article.markdown
-        }))
+        })),
+        serious_editorial: seriousEditorial
       });
     }
 
@@ -130,12 +169,18 @@ export async function runPublishingPipeline(
         committed: false,
         skipped,
         errors,
-        articles: []
+        articles: [],
+        serious_editorial: seriousEditorial
       });
     }
 
     const nextSeen = addSeenItems(latestSeen, publishable);
-    const commitSha = await commitGeneratedArticles(target, publishable, nextSeen);
+    const seriousEntries = publishable.map(seriousEditorialEntry).filter((entry): entry is SeriousEditorialEntry => entry !== null);
+    const latestSeriousHistory = seriousEntries.length > 0 ? await readSeriousEditorialStore(target) : null;
+    const nextSeriousHistory = latestSeriousHistory
+      ? addSeriousEditorialEntries(latestSeriousHistory, seriousEntries)
+      : undefined;
+    const commitSha = await commitGeneratedArticles(target, publishable, nextSeen, nextSeriousHistory);
     console.log(JSON.stringify({ event: "github_commit_created", commitSha, count: publishable.length }));
 
     return finish({
@@ -150,7 +195,8 @@ export async function runPublishingPipeline(
       articles: publishable.map((article) => ({
         path: article.path,
         title: article.title
-      }))
+      })),
+      serious_editorial: seriousEditorial
     });
   } catch (error) {
     const message = error instanceof ConfigError ? error.message : errorMessage(error);
@@ -167,7 +213,8 @@ export async function runPublishingPipeline(
       articles: prepared.map((article) => ({
         path: article.path,
         title: article.title
-      }))
+      })),
+      serious_editorial: seriousEditorial
     });
   }
 }
@@ -228,6 +275,10 @@ function sourcePriority(source: SourceItem): number {
     return 35;
   }
 
+  if (source.category === "정색") {
+    return 5;
+  }
+
   return 50;
 }
 
@@ -236,6 +287,10 @@ async function extractFactsWithFallback(
   source: SourceItem,
   pageText: string
 ): Promise<FactSummary> {
+  if (source.category === "정색") {
+    return seriousFacts(source, pageText);
+  }
+
   if (!source.synthetic) {
     return fallbackFacts(source, pageText);
   }
@@ -253,6 +308,10 @@ async function generateAndValidate(
   facts: FactSummary,
   pageText: string
 ) {
+  if (source.category === "정색") {
+    return await generateSeriousAndValidate(config, source, facts, pageText);
+  }
+
   const sourceText = [source.title, source.summary, pageText].join("\n");
   let draft: GeneratedArticleJson;
   try {
@@ -349,6 +408,39 @@ async function generateAndValidate(
   return retry;
 }
 
+async function generateSeriousAndValidate(
+  config: ReturnType<typeof loadConfig>,
+  source: SourceItem,
+  facts: FactSummary,
+  pageText: string
+): Promise<GeneratedArticleJson> {
+  const evaluation = source.seriousEvaluation;
+  if (!evaluation) {
+    throw new Error("serious source is missing editorial evaluation");
+  }
+
+  const sourceText = [source.title, source.summary, pageText, evaluation.angle, evaluation.hidden_cost].join("\n");
+  const draft = await generateSeriousArticle(config, source, facts, evaluation);
+  const draftValidation = validateGeneratedArticle(draft, source, facts, sourceText);
+  if (draftValidation.ok) {
+    return draft;
+  }
+
+  const retry = await generateSeriousArticle(
+    config,
+    source,
+    facts,
+    evaluation,
+    `The previous draft failed validation for: ${draftValidation.reasons.join("; ")}. Rewrite as serious 정색 criticism, not satire, and stay grounded in supplied facts.`
+  );
+  const retryValidation = validateGeneratedArticle(retry, source, facts, sourceText);
+  if (!retryValidation.ok) {
+    throw new Error(`serious validation failed after retry: ${retryValidation.reasons.join("; ")}`);
+  }
+
+  return retry;
+}
+
 function fallbackFacts(source: SourceItem, pageText: string): FactSummary {
   const summary = [source.summary, pageText].join(" ").replace(/\s+/g, " ").trim();
   return {
@@ -363,6 +455,53 @@ function fallbackFacts(source: SourceItem, pageText: string): FactSummary {
     weak_points: [source.summary || source.title].filter(Boolean),
     corporate_euphemisms: [],
     facts: [source.title, source.summary, summary.slice(0, 600)].filter(Boolean)
+  };
+}
+
+function seriousFacts(source: SourceItem, pageText: string): FactSummary {
+  const evaluation = source.seriousEvaluation;
+  const summary = [source.summary, pageText].join(" ").replace(/\s+/g, " ").trim();
+  return {
+    entities: [
+      source.seriousInstitution ?? source.feedName,
+      source.seriousAxis ?? "정색",
+      ...keywordFragmentsForFallback(source.title).slice(0, 4)
+    ],
+    numbers: summary.match(/[+-]?\d+(?:,\d{3})*(?:\.\d+)?%?/g)?.slice(0, 10) ?? [],
+    dates: source.publishedAt ? [source.publishedAt] : [],
+    conflict_or_controversy: evaluation?.angle ?? (source.summary || source.title),
+    money_stock_market_angle: source.seriousAxis === "생활경제" || source.seriousAxis === "기업" ? source.summary : "",
+    reader_relevance: evaluation?.who_pays ?? (source.summary || source.title),
+    satire_targets: [evaluation?.angle ?? source.title].filter(Boolean),
+    mockable_details: [source.title, source.summary, evaluation?.missing_question].filter(Boolean).slice(0, 5) as string[],
+    weak_points: [evaluation?.hidden_cost, evaluation?.who_pays, evaluation?.who_benefits].filter(Boolean) as string[],
+    corporate_euphemisms: keywordFragmentsForFallback(`${source.title} ${source.summary}`).slice(0, 6),
+    facts: [
+      source.title,
+      source.summary,
+      summary.slice(0, 1200),
+      evaluation ? `정색 angle: ${evaluation.angle}` : "",
+      evaluation ? `who benefits: ${evaluation.who_benefits}` : "",
+      evaluation ? `who pays: ${evaluation.who_pays}` : "",
+      evaluation ? `hidden cost: ${evaluation.hidden_cost}` : "",
+      evaluation ? `missing question: ${evaluation.missing_question}` : ""
+    ].filter(Boolean)
+  };
+}
+
+function seriousEditorialEntry(article: PreparedArticle): SeriousEditorialEntry | null {
+  const evaluation = article.seriousEvaluation;
+  if (!evaluation || article.category !== "정색") {
+    return null;
+  }
+
+  return {
+    date: article.date.slice(0, 10),
+    axis: evaluation.axis,
+    institution: evaluation.institution,
+    angle_type: evaluation.angle_type,
+    title: article.title,
+    source_url: article.source_url
   };
 }
 

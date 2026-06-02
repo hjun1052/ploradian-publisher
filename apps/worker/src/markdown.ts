@@ -44,7 +44,8 @@ export function prepareMarkdownArticle(
     path,
     markdown,
     sourceHash,
-    topic
+    topic,
+    ...(source.seriousEvaluation ? { seriousEvaluation: source.seriousEvaluation } : {})
   };
 }
 
@@ -77,6 +78,10 @@ function normalizeCategory(value: string): string {
 
   if (["nonsense", "bullshit", "bs", "absurd", "anti-news", "antinote", "헛소리", "개소리", "뻘소리"].includes(normalized)) {
     return "헛소리";
+  }
+
+  if (["serious", "column", "critique", "analysis", "정색", "칼럼", "논평"].includes(normalized)) {
+    return "정색";
   }
 
   return value.trim();

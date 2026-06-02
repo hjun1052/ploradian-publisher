@@ -1,6 +1,12 @@
 import { fromBase64Utf8 } from "./crypto";
 import { fetchTextWithRetry, HttpError } from "./http";
-import type { GitHubTarget, PreparedArticle, SeenStore } from "./types";
+import type {
+  GitHubTarget,
+  PreparedArticle,
+  SeenStore,
+  SeriousEditorialEntry,
+  SeriousEditorialStore
+} from "./types";
 
 interface GitHubRef {
   object: {
@@ -29,12 +35,14 @@ interface GitHubContentFile {
 }
 
 const API_ROOT = "https://api.github.com";
+const SEEN_PATH = "content/sources/seen.json";
+const SERIOUS_EDITORIAL_PATH = "content/sources/serious-editorial.json";
 
 export async function readSeenStore(target: GitHubTarget): Promise<SeenStore> {
   try {
     const file = await githubJson<GitHubContentFile>(
       target,
-      `/repos/${repoPath(target)}/contents/${encodePath("content/sources/seen.json")}?ref=${encodeURIComponent(target.branch)}`,
+      `/repos/${repoPath(target)}/contents/${encodePath(SEEN_PATH)}?ref=${encodeURIComponent(target.branch)}`,
       "read seen.json"
     );
 
@@ -46,6 +54,27 @@ export async function readSeenStore(target: GitHubTarget): Promise<SeenStore> {
   } catch (error) {
     if (error instanceof HttpError && error.status === 404) {
       return emptySeenStore();
+    }
+    throw error;
+  }
+}
+
+export async function readSeriousEditorialStore(target: GitHubTarget): Promise<SeriousEditorialStore> {
+  try {
+    const file = await githubJson<GitHubContentFile>(
+      target,
+      `/repos/${repoPath(target)}/contents/${encodePath(SERIOUS_EDITORIAL_PATH)}?ref=${encodeURIComponent(target.branch)}`,
+      "read serious-editorial.json"
+    );
+
+    if (file.type !== "file" || typeof file.content !== "string") {
+      return emptySeriousEditorialStore();
+    }
+
+    return normalizeSeriousEditorialStore(JSON.parse(fromBase64Utf8(file.content)));
+  } catch (error) {
+    if (error instanceof HttpError && error.status === 404) {
+      return emptySeriousEditorialStore();
     }
     throw error;
   }
@@ -70,7 +99,8 @@ export async function githubPathExists(target: GitHubTarget, path: string): Prom
 export async function commitGeneratedArticles(
   target: GitHubTarget,
   articles: PreparedArticle[],
-  seenStore: SeenStore
+  seenStore: SeenStore,
+  seriousEditorialStore?: SeriousEditorialStore
 ): Promise<string> {
   const ref = await githubJson<GitHubRef>(
     target,
@@ -86,9 +116,17 @@ export async function commitGeneratedArticles(
   const files = [
     ...articles.map((article) => ({ path: article.path, content: article.markdown })),
     {
-      path: "content/sources/seen.json",
+      path: SEEN_PATH,
       content: `${JSON.stringify(seenStore, null, 2)}\n`
-    }
+    },
+    ...(seriousEditorialStore
+      ? [
+          {
+            path: SERIOUS_EDITORIAL_PATH,
+            content: `${JSON.stringify(seriousEditorialStore, null, 2)}\n`
+          }
+        ]
+      : [])
   ];
 
   const blobs = await Promise.all(
@@ -194,6 +232,30 @@ export function emptySeenStore(): SeenStore {
   };
 }
 
+export function addSeriousEditorialEntries(
+  store: SeriousEditorialStore,
+  entries: SeriousEditorialEntry[],
+  now = new Date()
+): SeriousEditorialStore {
+  if (entries.length === 0) {
+    return store;
+  }
+
+  return {
+    version: 1,
+    updated_at: now.toISOString(),
+    recent: [...entries, ...store.recent].slice(0, 40)
+  };
+}
+
+export function emptySeriousEditorialStore(): SeriousEditorialStore {
+  return {
+    version: 1,
+    updated_at: null,
+    recent: []
+  };
+}
+
 async function githubJson<T>(
   target: GitHubTarget,
   path: string,
@@ -243,6 +305,56 @@ function normalizeSeenStore(value: unknown): SeenStore {
   }
 
   return emptySeenStore();
+}
+
+function normalizeSeriousEditorialStore(value: unknown): SeriousEditorialStore {
+  if (!value || typeof value !== "object") {
+    return emptySeriousEditorialStore();
+  }
+
+  const record = value as Record<string, unknown>;
+  if (record.version !== 1 || !Array.isArray(record.recent)) {
+    return emptySeriousEditorialStore();
+  }
+
+  return {
+    version: 1,
+    updated_at: typeof record.updated_at === "string" ? record.updated_at : null,
+    recent: record.recent
+      .map(normalizeSeriousEditorialEntry)
+      .filter((entry): entry is SeriousEditorialEntry => entry !== null)
+      .slice(0, 40)
+  };
+}
+
+function normalizeSeriousEditorialEntry(value: unknown): SeriousEditorialEntry | null {
+  if (!value || typeof value !== "object") {
+    return null;
+  }
+
+  const record = value as Record<string, unknown>;
+  const date = stringValue(record.date);
+  const axis = stringValue(record.axis);
+  const institution = stringValue(record.institution);
+  const angleType = stringValue(record.angle_type);
+  const title = stringValue(record.title);
+  const sourceUrl = stringValue(record.source_url);
+  if (!date || !axis || !institution || !angleType || !title || !sourceUrl) {
+    return null;
+  }
+
+  return {
+    date,
+    axis: axis as SeriousEditorialEntry["axis"],
+    institution,
+    angle_type: angleType,
+    title,
+    source_url: sourceUrl
+  };
+}
+
+function stringValue(value: unknown): string {
+  return typeof value === "string" ? value.trim() : "";
 }
 
 function repoPath(target: GitHubTarget): string {

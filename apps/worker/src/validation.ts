@@ -20,7 +20,8 @@ const BANNED_SECTION_HEADERS = [
 ];
 
 const CRIMINAL_TERMS = ["범죄", "사기", "횡령", "불법", "조작", "기소", "체포", "수사"];
-const ALLOWED_CATEGORIES = new Set(["기술", "비즈니스", "시장", "헛소리"]);
+const UNSUPPORTED_INTENT_TERMS = ["고의로", "일부러", "작정하고", "속이려", "은폐하려", "공모"];
+const ALLOWED_CATEGORIES = new Set(["기술", "비즈니스", "시장", "헛소리", "정색"]);
 const SATIRE_SIGNAL_TERMS = [
   "마치",
   "같다",
@@ -129,7 +130,9 @@ export function validateGeneratedArticle(
     reasons.push("body is too long");
   }
 
-  if (article.category === "헛소리" || source.synthetic) {
+  if (article.category === "정색") {
+    validateSeriousArticle(article, source, facts, title, body, reasons);
+  } else if (article.category === "헛소리" || source.synthetic) {
     if (article.category === "시장") {
       validateMarketNonsenseArticle(source, `${title}\n${article.subtitle}\n${body}`, body, reasons);
     } else {
@@ -156,7 +159,7 @@ export function validateGeneratedArticle(
   }
 
   if (!ALLOWED_CATEGORIES.has(article.category.trim())) {
-    reasons.push(`category must be one of 기술, 비즈니스, 시장, 헛소리: ${article.category}`);
+    reasons.push(`category must be one of 기술, 비즈니스, 시장, 헛소리, 정색: ${article.category}`);
   }
 
   if (!isProbablyUrl(article.source_url)) {
@@ -187,10 +190,75 @@ export function validateGeneratedArticle(
     }
   }
 
+  for (const term of UNSUPPORTED_INTENT_TERMS) {
+    if (generated.includes(term) && !factualBasis.includes(term)) {
+      reasons.push(`adds unsupported motive/intent claim: ${term}`);
+    }
+  }
+
   return {
     ok: reasons.length === 0,
     reasons
   };
+}
+
+function validateSeriousArticle(
+  article: GeneratedArticleJson,
+  source: SourceItem,
+  facts: FactSummary,
+  title: string,
+  body: string,
+  reasons: string[]
+): void {
+  if (body.length < 1200) {
+    reasons.push("정색 body is too short for a serious critical column");
+  }
+
+  if (body.length > 5600) {
+    reasons.push("정색 body is too long; keep the criticism focused");
+  }
+
+  if (countJokeCarriers(`${title} ${article.subtitle} ${body}`) > 7 || countDeadpanDefense(body) > 8) {
+    reasons.push("정색 article reads too much like satire");
+  }
+
+  const bannedCliches = [
+    "향후 논란",
+    "귀추가 주목",
+    "투명성이 필요",
+    "업계의 과제",
+    "사회적 논의",
+    "신중한 접근",
+    "균형 있는 접근",
+    "시사점을 남긴다"
+  ];
+  for (const cliche of bannedCliches) {
+    if (body.includes(cliche) || title.includes(cliche)) {
+      reasons.push(`정색 contains banned column cliche: ${cliche}`);
+    }
+  }
+
+  const groundingHits = concreteWeakPointHits(body, facts);
+  if (groundingHits < 2) {
+    reasons.push("정색 does not use enough supplied hidden-cost or who-pays facts");
+  }
+
+  const requiredPerspectiveTerms = [
+    source.seriousEvaluation?.who_pays,
+    source.seriousEvaluation?.hidden_cost,
+    source.seriousEvaluation?.missing_question
+  ].filter((value): value is string => Boolean(value && value.length >= 4));
+  if (requiredPerspectiveTerms.length >= 2 && briefCoverage(body, requiredPerspectiveTerms) < 2) {
+    reasons.push("정색 body does not reflect enough editorial judgment fields");
+  }
+
+  if (article.satire_brief.must_include_jabs.length < 4) {
+    reasons.push("정색 brief must include at least four grounded critical points");
+  }
+
+  if (!source.seriousEvaluation) {
+    reasons.push("정색 source is missing editorial evaluation");
+  }
 }
 
 function validateNonsenseArticle(body: string, reasons: string[]): void {

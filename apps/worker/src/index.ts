@@ -48,6 +48,7 @@ export default {
       trigger: "manual" | "scheduled";
       dryRunOverride?: boolean;
       forceMarket?: "korea" | "us";
+      forceSerious?: boolean;
       ignoreSeen?: boolean;
     } = {
       trigger
@@ -61,6 +62,9 @@ export default {
     const market = url.searchParams.get("market");
     if (market === "korea" || market === "us") {
       runOptions.forceMarket = market;
+    }
+    if (url.searchParams.get("serious") === "true") {
+      runOptions.forceSerious = true;
     }
     const result = await runPublishingPipeline(env, runOptions);
 

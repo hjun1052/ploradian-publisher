@@ -22,7 +22,7 @@ enabled = true
 head_sampling_rate = 1.0
 
 [triggers]
-crons = ["0 * * * *"]
+crons = ["0 * * * *", "30 12 * * 1-5"]
 
 [vars]
 AI_PROVIDER = "openai"
@@ -30,6 +30,7 @@ OPENAI_MODEL = "gpt-5.5"
 GITHUB_REPO = "hjun1052/ploradian-publisher"
 GITHUB_BRANCH = "main"
 MAX_ARTICLES_PER_RUN = "1"
+SERIOUS_MIN_SCORE = "80"
 DRY_RUN = "false"
 SITE_TIMEZONE = "Asia/Seoul"
 RSS_FEEDS_JSON = """
@@ -73,6 +74,106 @@ RSS_FEEDS_JSON = """
     "name": "연합인포맥스 국제뉴스",
     "url": "https://news.einfomax.co.kr/rss/S1N23.xml",
     "category": "시장"
+  }
+]
+"""
+SERIOUS_SOURCES_JSON = """
+[
+  {
+    "name": "고용노동부 정책자료",
+    "url": "https://www.moel.go.kr/rss/policy.do",
+    "category": "정색",
+    "axis": "노동",
+    "kind": "rss",
+    "institution": "고용노동부"
+  },
+  {
+    "name": "고용노동부 입법행정예고",
+    "url": "https://www.moel.go.kr/rss/lawinfo.do",
+    "category": "정색",
+    "axis": "노동",
+    "kind": "rss",
+    "institution": "고용노동부"
+  },
+  {
+    "name": "금융위원회 보도자료",
+    "url": "https://www.fsc.go.kr/about/fsc_bbs_rss/?fid=0111",
+    "category": "정색",
+    "axis": "생활경제",
+    "kind": "rss",
+    "institution": "금융위원회"
+  },
+  {
+    "name": "금융위원회 보도설명",
+    "url": "https://www.fsc.go.kr/about/fsc_bbs_rss/?fid=0112",
+    "category": "정색",
+    "axis": "규제/감시",
+    "kind": "rss",
+    "institution": "금융위원회"
+  },
+  {
+    "name": "한국은행 보도자료 통화정책",
+    "url": "https://www.bok.or.kr/portal/bbs/P0000559/news.rss?menuNo=200690",
+    "category": "정색",
+    "axis": "생활경제",
+    "kind": "rss",
+    "institution": "한국은행"
+  },
+  {
+    "name": "한국은행 보도자료 경제통계",
+    "url": "https://www.bok.or.kr/portal/bbs/B0000501/news.rss?menuNo=201264",
+    "category": "정색",
+    "axis": "생활경제",
+    "kind": "rss",
+    "institution": "한국은행"
+  },
+  {
+    "name": "한국은행 BOK 이슈노트",
+    "url": "https://www.bok.or.kr/portal/bbs/P0002353/news.rss?menuNo=200433",
+    "category": "정색",
+    "axis": "생활경제",
+    "kind": "rss",
+    "institution": "한국은행"
+  },
+  {
+    "name": "한국은행 금융안정보고서",
+    "url": "https://www.bok.or.kr/portal/bbs/P0000593/news.rss?menuNo=200068",
+    "category": "정색",
+    "axis": "규제/감시",
+    "kind": "rss",
+    "institution": "한국은행"
+  },
+  {
+    "name": "한국은행 경제전망보고서",
+    "url": "https://www.bok.or.kr/portal/bbs/P0002359/news.rss?menuNo=200066",
+    "category": "정색",
+    "axis": "생활경제",
+    "kind": "rss",
+    "institution": "한국은행"
+  },
+  {
+    "name": "한국은행 경제상황 평가",
+    "url": "https://www.bok.or.kr/portal/bbs/P0002105/news.rss?menuNo=200439",
+    "category": "정색",
+    "axis": "생활경제",
+    "kind": "rss",
+    "institution": "한국은행"
+  },
+  {
+    "name": "국회예산정책처 보도자료",
+    "url": "https://www.nabo.go.kr/rss/pressRelease.do",
+    "category": "정색",
+    "axis": "정책",
+    "kind": "rss",
+    "institution": "국회예산정책처"
+  },
+  {
+    "name": "국회예산정책처 발간물",
+    "url": "https://www.nabo.go.kr/rss/publications.do",
+    "category": "정색",
+    "axis": "생활경제",
+    "kind": "rss",
+    "institution": "국회예산정책처"
   }
 ]
 """

@@ -4,6 +4,15 @@ export interface FeedSource {
   category: string;
 }
 
+export type SeriousAxis = "노동" | "생활경제" | "기업" | "규제/감시" | "정책";
+export type SeriousSourceKind = "rss" | "sitemap" | "watch";
+
+export interface SeriousSource extends FeedSource {
+  axis: SeriousAxis;
+  kind: SeriousSourceKind;
+  institution?: string;
+}
+
 export interface GitHubTarget {
   token: string;
   repo: string;
@@ -27,6 +36,8 @@ export interface RuntimeConfig {
   githubBranch: string;
   githubToken: string | null;
   rssFeeds: FeedSource[];
+  seriousSources: SeriousSource[];
+  seriousMinScore: number;
   maxArticlesPerRun: number;
   dryRun: boolean;
   siteTimezone: string;
@@ -43,6 +54,25 @@ export interface SourceItem {
   summary: string;
   publishedAt?: string;
   synthetic?: boolean;
+  seriousAxis?: SeriousAxis;
+  seriousKind?: SeriousSourceKind;
+  seriousInstitution?: string;
+  seriousEvaluation?: SeriousCandidateEvaluation;
+}
+
+export interface SeriousCandidateEvaluation {
+  raw_score: number;
+  final_score: number;
+  axis: SeriousAxis;
+  institution: string;
+  angle_type: string;
+  angle: string;
+  who_benefits: string;
+  who_pays: string;
+  hidden_cost: string;
+  missing_question: string;
+  publish_decision: "publish" | "hold" | "reject";
+  reasoning_note: string;
 }
 
 export interface FactSummary {
@@ -99,6 +129,7 @@ export interface PreparedArticle {
   markdown: string;
   sourceHash: string;
   topic: string;
+  seriousEvaluation?: SeriousCandidateEvaluation;
 }
 
 export interface ArticleImage {
@@ -123,6 +154,21 @@ export interface SeenStore {
   items: Record<string, SeenItem>;
 }
 
+export interface SeriousEditorialEntry {
+  date: string;
+  axis: SeriousAxis;
+  institution: string;
+  angle_type: string;
+  title: string;
+  source_url: string;
+}
+
+export interface SeriousEditorialStore {
+  version: 1;
+  updated_at: string | null;
+  recent: SeriousEditorialEntry[];
+}
+
 export interface PipelineResult {
   ok: boolean;
   trigger: "manual" | "scheduled";
@@ -138,4 +184,9 @@ export interface PipelineResult {
     title: string;
     markdown?: string;
   }>;
+  serious_editorial?: {
+    selected: SeriousCandidateEvaluation | null;
+    top_candidates: SeriousCandidateEvaluation[];
+    reason: string;
+  };
 }
