@@ -511,10 +511,14 @@ function isSoftSatireValidationFailure(reasons: string[]): boolean {
 async function unseenCandidates(items: SourceItem[], seen: SeenStore): Promise<SourceItem[]> {
   const output: SourceItem[] = [];
   const runSeen = new Set<string>();
+  const seenTopicTokens = Object.values(seen.items).map((item) => topicTokens(item.title));
 
   for (const item of items) {
     const hash = await sourceHash(item);
     if (seen.items[hash] || runSeen.has(hash)) {
+      continue;
+    }
+    if (!item.synthetic && seenTopicTokens.some((tokens) => isSameSourceTopic(topicTokens(`${item.title} ${item.summary}`), tokens))) {
       continue;
     }
     runSeen.add(hash);
@@ -522,6 +526,64 @@ async function unseenCandidates(items: SourceItem[], seen: SeenStore): Promise<S
   }
 
   return output;
+}
+
+function topicTokens(value: string): Set<string> {
+  const normalized = decodeHtmlEntitiesForTopic(value)
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}\s]/gu, " ");
+  const stopwords = new Set([
+    "the",
+    "and",
+    "for",
+    "with",
+    "from",
+    "that",
+    "this",
+    "own",
+    "new",
+    "after",
+    "about",
+    "says",
+    "said",
+    "news",
+    "update",
+    "상보",
+    "마감",
+    "속보"
+  ]);
+  return new Set(
+    normalized
+      .split(/\s+/)
+      .map((token) => token.trim())
+      .filter((token) => token.length >= 3 && !stopwords.has(token))
+      .slice(0, 32)
+  );
+}
+
+function isSameSourceTopic(left: Set<string>, right: Set<string>): boolean {
+  if (left.size < 3 || right.size < 3) {
+    return false;
+  }
+
+  let overlap = 0;
+  for (const token of left) {
+    if (right.has(token)) {
+      overlap += 1;
+    }
+  }
+
+  return overlap >= 4 || (overlap >= 3 && overlap / Math.min(left.size, right.size) >= 0.6);
+}
+
+function decodeHtmlEntitiesForTopic(value: string): string {
+  return value
+    .replace(/&amp;/g, "&")
+    .replace(/&#8217;|&rsquo;/g, "'")
+    .replace(/&quot;/g, "\"")
+    .replace(/&#39;/g, "'")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">");
 }
 
 async function filterPublishableArticles(
