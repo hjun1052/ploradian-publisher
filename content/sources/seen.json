@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-02T04:39:49.632Z",
+  "updated_at": "2026-06-02T05:06:28.868Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -57,6 +57,14 @@
       "title": "Microsoft's Surface Laptop Ultra looks like its first true MacBook Pro competitor",
       "article_path": "content/articles/published/2026-06-02-700897d2-microsoft-surface-laptop-ultra-macbook-pro-competitor-satire.md",
       "seen_at": "2026-06-02T04:39:49.632Z"
+    },
+    "c988336cfd82142b7c18ed3e25aa04e55b17fcd7f3a9dc0d3a10ce680293e1a9": {
+      "url": "https://www.theverge.com/tech/941138/google-gemini-spark-ai-agent-hands-on",
+      "canonical_url": "https://www.theverge.com/tech/941138/google-gemini-spark-ai-agent-hands-on",
+      "source_name": "The Verge",
+      "title": "Gemini’s new AI agent is about as good as Google’s demo",
+      "article_path": "content/articles/published/2026-06-02-c988336c-google-gemini-spark-demo-level-agent-privacy-cost.md",
+      "seen_at": "2026-06-02T05:06:28.868Z"
     }
   }
 }
