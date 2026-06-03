@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-03T18:01:28.871Z",
+  "updated_at": "2026-06-03T19:01:02.979Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -369,6 +369,14 @@
       "title": "The best Qi2 batteries for iPhone and Pixel",
       "article_path": "content/articles/published/2026-06-04-fbaaaee5-qi2-2-magsafe-battery-iphone-pixel-25w-15w-compatibility.md",
       "seen_at": "2026-06-03T18:01:28.871Z"
+    },
+    "1035ab21e9d5bfe83817d5109d7377cdcf828f49339ccd3f95f601541c196280": {
+      "url": "https://www.theverge.com/ai-artificial-intelligence/942242/microsoft-build-ai-agents-openai-competition",
+      "canonical_url": "https://www.theverge.com/ai-artificial-intelligence/942242/microsoft-build-ai-agents-openai-competition",
+      "source_name": "The Verge",
+      "title": "Microsoft and OpenAI broke up — now they’re ready to fight",
+      "article_path": "content/articles/published/2026-06-04-1035ab21-microsoft-build-openai-breakup-mai-thinking-1-fight.md",
+      "seen_at": "2026-06-03T19:01:02.979Z"
     }
   }
 }
