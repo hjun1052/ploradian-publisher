@@ -321,6 +321,7 @@ code {
 }
 
 .home-latest,
+.home-weather,
 .home-sections {
   border-top: 3px double var(--color-rule-strong);
 }
@@ -395,6 +396,26 @@ code {
 
 .home-row-meta {
   text-align: right;
+}
+
+.home-weather-body {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.home-weather-body p {
+  min-height: 88px;
+  margin: 0;
+  padding: var(--space-4);
+  border-top: 1px solid var(--color-rule);
+  color: var(--color-ink);
+  font-size: 1.08rem;
+  line-height: 1.35;
+}
+
+.home-weather-body p:nth-child(odd) {
+  border-right: 1px solid var(--color-rule);
 }
 
 .home-section-grid {
@@ -802,6 +823,18 @@ code {
   }
 
   .home-latest-row:nth-child(odd) {
+    border-right: 0;
+  }
+
+  .home-weather-body {
+    grid-template-columns: 1fr;
+  }
+
+  .home-weather-body p {
+    min-height: auto;
+  }
+
+  .home-weather-body p:nth-child(odd) {
     border-right: 0;
   }
 
