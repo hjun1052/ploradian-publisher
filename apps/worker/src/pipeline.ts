@@ -112,12 +112,14 @@ export async function runPublishingPipeline(
     }
     const feedItems = scheduledFeeds.length === 0 ? [] : await fetchFeedItems(scheduledFeeds);
     const scheduledItems = [market, nonsense, securitySelection.source, seriousSelection.source].filter((item): item is SourceItem => item !== null);
+    const nonSecurityScheduledItems = [market, nonsense, seriousSelection.source].filter((item): item is SourceItem => item !== null);
     const sourceItems = prioritizeSourceItems([...scheduledItems, ...feedItems]);
     const candidates = await unseenCandidates(filterSourceCandidates(sourceItems, skipped), seen);
     if (candidates.length === 0) {
       skipped.push("no unseen source candidates after filtering and seen-store dedupe");
     }
-    const maxArticlesThisRun = config.maxArticlesPerRun + Math.max(scheduledItems.length - 1, 0);
+    const securityExtraSlots = securitySelection.source ? 1 : 0;
+    const maxArticlesThisRun = config.maxArticlesPerRun + securityExtraSlots + Math.max(nonSecurityScheduledItems.length - 1, 0);
     const candidateAttemptLimit = scheduledItems.length > 0
       ? Math.max(maxArticlesThisRun * 3, scheduledItems.length)
       : Math.max(config.maxArticlesPerRun * 6, 6);
