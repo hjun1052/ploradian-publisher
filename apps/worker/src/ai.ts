@@ -234,7 +234,7 @@ export async function generateSatireArticle(
         content: isSecurityPrey
           ? `${securityPreyPrompt(source.securityPreyEvaluation)}
 
-Strict JSON. Paragraph 1 must summarize the security incident, target, and why it deserves ridicule. Use supplied concrete details before any metaphor. Do not mock Boannews, the reporter, or the article format. 5-7 tight paragraphs.`
+Strict JSON. Paragraph 1 must summarize the security incident, target, and why it deserves ridicule. Use supplied concrete details before any metaphor. The ridicule should sound incredulous: how did they fail at this, how much did they not care, how basic was the missed duty. Do not mock Boannews, the reporter, victims, or the article format. 5-7 tight paragraphs.`
           : isRegularSatire
           ? `${prompt}
 
@@ -425,7 +425,7 @@ export async function intensifySatireArticle(
         content: isSecurityPrey
           ? `${securityPreyPrompt(source.securityPreyEvaluation)}
 
-Final 보안 먹잇감 pass: keep facts and make the ridicule harsher, clearer, and more source-specific. Name the responsible target early. Attack the actual failure, negligence, contradiction, or security theater. No generic cyber essay. Strict JSON.`
+Final 보안 먹잇감 pass: keep facts and make the ridicule harsher, clearer, and more source-specific. Name the responsible target early. Attack the actual failure, laziness, negligence, contradiction, or security theater. Add incredulous "this basic thing too?" energy. No generic cyber essay. Strict JSON.`
           : isNonsense
           ? `${prompt}
 
@@ -462,7 +462,7 @@ Final rewrite: keep facts, make it funnier/meaner/drier. Paragraph 1 must summar
               : isMarketNonsense
                 ? "Preserve percentages exactly when supplied. Use impossible, financially useless reasons. Remove macro logic and real investment framing."
               : isSecurityPrey
-                ? "Make it a special brutal security mockery article: concrete first, savage second, no vague security sermon."
+                ? "Make it a special brutal security mockery article: concrete first, savage second. The core feeling is 'you failed at this basic duty too?' and 'how little did you care?' No vague security sermon."
                 : "More biting, direct, source-specific satire. Hit at least 4 concrete details, name the exact target early, and stop relying on fake praise or generic metaphors. Do not attack the source article, outlet, reporter, or writing quality.")
         })
       }
@@ -503,8 +503,9 @@ Return only the requested JSON.
 Tone:
 - Ruthless, dry, funny, and concrete.
 - This is not 정색 analysis and not a normal cybersecurity explainer.
-- The article should feel like a security desk finally lost patience with a ridiculous failure.
-- Use 0-2 blunt Korean insults naturally when earned: 거지같다, 멍청하기 짝이 없다, 개판이다, 똥덩어리보다 가치가 없다, 등신같이 행동한다.
+- The article should feel like a security desk finally lost patience with a ridiculous, lazy, basic failure.
+- Main comic engine: incredulous contempt. "이것조차 못했냐", "얼마나 귀찮았냐", "이 정도면 보안이 아니라 방치의 취미 활동이다" style energy.
+- Use 1-3 blunt Korean jabs naturally when earned: 이것조차 못했냐, 얼마나 귀찮았냐, 거지같다, 멍청하기 짝이 없다, 개판이다, 똥덩어리보다 가치가 없다, 등신같이 행동한다.
 
 Rules:
 - Korean only. Category must be 기술.
@@ -513,6 +514,9 @@ Rules:
 - First paragraph: plain factual summary with target, failure/risk, and stakes.
 - Every joke must lean on a supplied fact, number, named product, CVE, institution, leaked data type, or specific operational detail.
 - Avoid broad metaphors unless a concrete source detail is being hit in the same paragraph.
+- Prefer direct attacks on negligence over elegant metaphors. If a metaphor appears, it must make the responsible target look more incompetent, not merely poetic.
+- Repeatedly ask the obvious missing duty: what should have been checked, patched, separated, limited, logged, encrypted, monitored, or disclosed earlier?
+- Show how the organization tries to convert its failure into the user's burden: password changes, phishing warnings, customer caution, delayed notices, vague apologies.
 - No malware instructions, exploit steps, or advice enabling attacks.
 - Body: 5-7 concise paragraphs.
 
