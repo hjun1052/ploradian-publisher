@@ -253,8 +253,14 @@ function validateStarsArticle(
     reasons.push("별들의 세계 lacks enough concrete astronomy language");
   }
 
+  const requiredJudgments = [
+    source.astronomyEvaluation?.primary_object,
+    source.astronomyEvaluation?.scientific_anchor,
+    source.astronomyEvaluation?.literary_axis
+  ].filter((value): value is string => Boolean(value && value.length >= 4));
+  const judgmentCoverage = requiredJudgments.length >= 2 ? briefCoverage(body, requiredJudgments) : 0;
   const groundingHits = concreteWeakPointHits(body, facts);
-  if (groundingHits < 2) {
+  if (groundingHits < 1 && judgmentCoverage < 1) {
     reasons.push("별들의 세계 does not use enough supplied scientific anchors");
   }
 
@@ -270,12 +276,7 @@ function validateStarsArticle(
     reasons.push("별들의 세계 drifted into market/business/policy framing");
   }
 
-  const requiredJudgments = [
-    source.astronomyEvaluation?.primary_object,
-    source.astronomyEvaluation?.scientific_anchor,
-    source.astronomyEvaluation?.literary_axis
-  ].filter((value): value is string => Boolean(value && value.length >= 4));
-  if (requiredJudgments.length >= 2 && briefCoverage(body, requiredJudgments) < 1) {
+  if (requiredJudgments.length >= 2 && judgmentCoverage < 1 && groundingHits < 1) {
     reasons.push("별들의 세계 body does not reflect astronomy evaluation fields");
   }
 
