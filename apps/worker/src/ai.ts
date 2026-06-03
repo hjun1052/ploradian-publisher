@@ -205,7 +205,7 @@ export async function generateSatireArticle(
         content: isRegularSatire
           ? `${prompt}
 
-Final article now: sharp, funny, mean, rhythmic. Paragraph 1 plainly summarizes the source event and target before the jokes. Use concrete source details before metaphors. Mix direct ridicule with occasional fake defense; do not make every jab positive-sounding. 5-7 tight paragraphs, no repeated joke, no generic industry essay. Strict JSON.`
+Final article now: sharp, funny, mean, rhythmic. Paragraph 1 plainly summarizes the source event and target before the jokes. Mock the facts being reported, not the source article/outlet/reporter/writing. Use concrete source details before metaphors. Mix direct ridicule with occasional fake defense; do not make every jab positive-sounding. 5-7 tight paragraphs, no repeated joke, no generic industry essay. Strict JSON.`
           : `${prompt}\n\nOutput strict JSON matching the requested schema.`
       },
       {
@@ -361,7 +361,7 @@ Final feature pass: keep the assigned corner format. Make it stranger, funnier, 
 Final 시장 pass: preserve supplied numbers exactly when present. Follow the assigned corner: market close, holiday holders, or impossible shareholder rally. Make it more absurd/name-based and less financial. No normal recap logic. Strict JSON.`
           : `${prompt}
 
-Final rewrite: keep facts, make it funnier/meaner/drier. Paragraph 1 must summarize the source event and target. Replace broad analogies with attacks on named source details. Add blunt ridicule and satisfying bite; fake praise is optional, not the main engine. No repeated joke. 5-7 paragraphs. Strict JSON.`
+Final rewrite: keep facts, make it funnier/meaner/drier. Paragraph 1 must summarize the source event and target. Mock the facts being reported, not the source article/outlet/reporter/writing. Replace broad analogies with attacks on named source details. Add blunt ridicule and satisfying bite; fake praise is optional, not the main engine. No repeated joke. 5-7 paragraphs. Strict JSON.`
       },
       {
         role: "user",
@@ -382,7 +382,7 @@ Final rewrite: keep facts, make it funnier/meaner/drier. Paragraph 1 must summar
                 ? "Keep the exact weekend corner. Make the premise more absurd and concrete; avoid normal social commentary."
               : isMarketNonsense
                 ? "Preserve percentages exactly when supplied. Use impossible, financially useless reasons. Remove macro logic and real investment framing."
-                : "More biting, direct, source-specific satire. Hit at least 4 concrete details, name the exact target early, and stop relying on fake praise or generic metaphors.")
+                : "More biting, direct, source-specific satire. Hit at least 4 concrete details, name the exact target early, and stop relying on fake praise or generic metaphors. Do not attack the source article, outlet, reporter, or writing quality.")
         })
       }
     ],

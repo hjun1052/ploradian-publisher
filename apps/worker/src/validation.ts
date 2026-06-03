@@ -445,6 +445,10 @@ function validateSatireArticle(
     }
   }
 
+  if (!source.synthetic && attacksSourceCoverageItself(`${title}\n${article.subtitle}\n${body}`, source)) {
+    reasons.push("satire attacks the source article, outlet, reporter, wording, or coverage format instead of the facts being reported");
+  }
+
   if (!source.synthetic && body.length > 700 && countDirectRidicule(`${title} ${article.subtitle} ${body}`) < 3) {
     reasons.push("satire is not biting enough; add blunt source-specific ridicule");
   }
@@ -476,6 +480,55 @@ function validateSatireArticle(
   if (article.satire_brief.analogies.length >= 2 && briefCoverage(body, article.satire_brief.analogies) < 1) {
     reasons.push("body does not use enough satire_brief analogies");
   }
+}
+
+function attacksSourceCoverageItself(text: string, source: SourceItem): boolean {
+  const outletTerms = source.feedName
+    .split(/[\/\s]+/)
+    .map((part) => part.trim())
+    .filter((part) => part.length >= 3);
+  const sourceTerms = [
+    "기사",
+    "원문",
+    "보도",
+    "매체",
+    "기자",
+    "문장",
+    "제목",
+    "글",
+    "보도자료",
+    "라운드업",
+    "라이브블로그",
+    ...outletTerms
+  ];
+  const attackTerms = [
+    "거지같",
+    "멍청",
+    "개판",
+    "똥덩어리",
+    "등신",
+    "허술",
+    "빈약",
+    "민망",
+    "우습",
+    "대체",
+    "아무것도",
+    "핑계",
+    "변명",
+    "문장으로 덮",
+    "형식만",
+    "내용 없이",
+    "성실하게 덮"
+  ];
+
+  return text
+    .split(/\n+|(?<=[.!?。])\s+|(?<=다\.)\s+/)
+    .some((sentence) => {
+      const normalized = sentence.toLowerCase();
+      const hasSourceTerm = sourceTerms.some((term) => term && normalized.includes(term.toLowerCase()));
+      const hasAttackTerm = attackTerms.some((term) => normalized.includes(term.toLowerCase()));
+      return hasSourceTerm && hasAttackTerm;
+    });
 }
 
 function countSatireSignals(value: string): number {

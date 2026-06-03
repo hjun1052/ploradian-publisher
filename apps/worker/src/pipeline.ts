@@ -14,7 +14,7 @@ import {
 } from "./github";
 import { prepareMarkdownArticle } from "./markdown";
 import { findArticleImage } from "./images";
-import { candidateSkipReason } from "./candidates";
+import { candidateSkipReason, satireSuitabilitySkipReason } from "./candidates";
 import { forcedMarketCandidate, marketHistoryEntryFromSource, scheduledMarketCandidate } from "./market";
 import { scheduledNonsenseCandidate } from "./nonsense";
 import { scheduledSeriousSelection } from "./serious";
@@ -115,6 +115,11 @@ export async function runPublishingPipeline(
       try {
         const hash = await sourceHash(candidate);
         const pageText = await fetchSourcePageText(candidate);
+        const suitabilityReason = satireSuitabilitySkipReason(candidate, pageText);
+        if (suitabilityReason) {
+          skipped.push(`source skipped (${suitabilityReason}): ${candidate.title}`);
+          continue;
+        }
         const facts = await extractFactsWithFallback(config, candidate, pageText);
         const article = await generateAndValidate(config, candidate, facts, pageText);
         const image = await findArticleImage(config, candidate, article, facts);
@@ -536,6 +541,7 @@ async function generateSeriousAndValidate(
 
 function fallbackFacts(source: SourceItem, pageText: string): FactSummary {
   const summary = [source.summary, pageText].join(" ").replace(/\s+/g, " ").trim();
+  const mockableDetails = groundedMockableFragments(source, pageText);
   return {
     entities: [source.feedName, ...keywordFragmentsForFallback(source.title).slice(0, 4)],
     numbers: summary.match(/[+-]?\d+(?:,\d{3})*(?:\.\d+)?%?/g)?.slice(0, 8) ?? [],
@@ -544,11 +550,66 @@ function fallbackFacts(source: SourceItem, pageText: string): FactSummary {
     money_stock_market_angle: source.category === "시장" ? source.summary : "",
     reader_relevance: source.summary || source.title,
     satire_targets: [source.title],
-    mockable_details: [source.title, source.summary].filter(Boolean).slice(0, 4),
-    weak_points: [source.summary || source.title].filter(Boolean),
+    mockable_details: mockableDetails.slice(0, 6),
+    weak_points: mockableDetails.slice(0, 4),
     corporate_euphemisms: [],
-    facts: [source.title, source.summary, summary.slice(0, 600)].filter(Boolean)
+    facts: [source.title, source.summary, ...mockableDetails.slice(0, 5), summary.slice(0, 600)].filter(Boolean)
   };
+}
+
+function groundedMockableFragments(source: SourceItem, pageText: string): string[] {
+  const text = [source.summary, pageText].join(" ").replace(/\s+/g, " ");
+  const fragments = text
+    .split(/(?<=[.!?。])\s+|(?<=다\.)\s+|(?<=요\.)\s+/)
+    .map((part) => part.trim())
+    .filter((part) => part.length >= 24 && part.length <= 240)
+    .filter((part) => hasConcreteSatireMaterial(part))
+    .filter((part) => !looksLikeSourceCoverageMeta(part, source));
+
+  const seen = new Set<string>();
+  const output: string[] = [];
+  for (const fragment of fragments) {
+    const key = fragment.slice(0, 80);
+    if (seen.has(key)) {
+      continue;
+    }
+    seen.add(key);
+    output.push(fragment);
+    if (output.length >= 8) {
+      break;
+    }
+  }
+
+  return output.length > 0 ? output : [source.summary].filter((value) => value.length >= 20);
+}
+
+function hasConcreteSatireMaterial(value: string): boolean {
+  return /[+-]?\d+(?:,\d{3})*(?:\.\d+)?%?|\$\d+|가격|요금|구독|비용|없|빠진|실패|취소|지연|논란|소송|규제|명령|보안|유출|개인정보|해고|감원|중단|철회|ban|blocked|delay|failed|missing|without|privacy|security|lawsuit|price|fee|subscription|layoff|recall/i.test(value);
+}
+
+function looksLikeSourceCoverageMeta(value: string, source: SourceItem): boolean {
+  const normalized = value.toLowerCase();
+  const outlet = source.feedName.toLowerCase();
+  const sourceNames = [
+    outlet,
+    "the verge",
+    "ars technica",
+    "npr",
+    "연합인포맥스",
+    "보도",
+    "기사",
+    "원문",
+    "기자",
+    "매체",
+    "문장",
+    "제목"
+  ];
+  const sourceMention = sourceNames.some((term) => term && normalized.includes(term));
+  if (!sourceMention) {
+    return false;
+  }
+
+  return /전했다|보도했다|소개했다|기사|원문|기자|매체|문장|제목|roundup|podcast|live blog|newsletter/i.test(value);
 }
 
 function seriousFacts(source: SourceItem, pageText: string): FactSummary {

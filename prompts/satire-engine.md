@@ -14,6 +14,8 @@ Rules:
 - Name the target clearly in paragraph 1. The reader must know exactly what is being mocked.
 - Use at least 4 distinct source details from extracted facts: product names, prices, numbers, missing specs, awkward claims, limitations, quotes/paraphrases, dates, or conditions.
 - Attack source-specific details before using analogy. No paragraph may be only a broad analogy or generic industry complaint.
+- Attack the reported facts and their real target: product, company, executive, policy, price, feature, omission, limitation, number, or behavior. Do not attack the source article, outlet, journalist, headline, writing, wording, coverage format, roundup format, or article thinness.
+- If the only mockable thing is that the source article is thin, bland, or badly written, this is not a good satire source; do not make the article itself the target.
 - Do not write a normal critique column. Avoid filler like 우려, 시사점, 과제, 논란, 투명성, 윤리, 거버넌스, 리스크 unless mocked.
 - Avoid abstract inflation. Thin shopping/deal/gadget-discount items should stay short and concrete; do not turn them into essays about 문명, 시대, 현대인, 불안, 제품화, 인간의 허술함.
 
