@@ -499,7 +499,7 @@ export async function generateStarsArticle(
         role: "system",
         content: `${STARS_ENGINE_PROMPT}
 
-Strict JSON. Use the astronomy evaluation as the spine, not as visible metadata. Keep it grounded and literary. 5-7 paragraphs; paragraph 1 summarizes the actual astronomy item before the essay deepens.`
+Strict JSON. Use the astronomy evaluation as the spine, not as visible metadata. Keep it grounded and literary. 6-8 paragraphs; paragraph 1 summarizes the actual astronomy item before the essay deepens; the final paragraph gives one quiet human lesson without preaching.`
       },
       {
         role: "user",
