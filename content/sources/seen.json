@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-03T04:01:05.166Z",
+  "updated_at": "2026-06-03T05:01:08.565Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -241,6 +241,14 @@
       "title": "창가 블라인드 근처에서 투명 파일철이 열릴 수 있었으나 열리지 않았다",
       "article_path": "content/articles/published/2026-06-03-5f32b0cc-changgabl-raindeu-geot-ui-tumyeong-pailcheol-endeun-yeolliji-ana.md",
       "seen_at": "2026-06-03T04:01:05.166Z"
+    },
+    "a775c60f63e0708aa97626528044479620b11ca95012d71d5846cb20b9d85904": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418115",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418115",
+      "source_name": "연합인포맥스 증권",
+      "title": "게임스톱, 호실적에 시간외서 주가 급등",
+      "article_path": "content/articles/published/2026-06-03-a775c60f-gamestop-afterhours-earnings-pop-dry-satire.md",
+      "seen_at": "2026-06-03T05:01:08.565Z"
     }
   }
 }
