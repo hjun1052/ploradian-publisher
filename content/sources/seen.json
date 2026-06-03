@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-03T07:15:50.729Z",
+  "updated_at": "2026-06-03T08:01:41.232Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -265,6 +265,22 @@
       "title": "2026-06-03 국장 휴장일 주주 근황",
       "article_path": "content/articles/published/2026-06-03-5ec7b93b-2026-06-03-korea-holiday-holder-status.md",
       "seen_at": "2026-06-03T07:15:50.729Z"
+    },
+    "d614a7d36bc82d6c3edb46c8ad603fe107a6bf66da748b34b04ab58e68311355": {
+      "url": "http://www.boannews.com/media/view.asp?idx=143935&kind=1&sub_kind=",
+      "canonical_url": "http://www.boannews.com/media/view.asp?idx=143935&kind=1&sub_kind=",
+      "source_name": "보안뉴스 사건사고",
+      "title": "티빙, 회원 개인정보 유출 사고",
+      "article_path": "content/articles/published/2026-06-03-d614a7d3-tving-privacy-leak-change-password-after-spill.md",
+      "seen_at": "2026-06-03T08:01:41.232Z"
+    },
+    "6c45a5b738e6887e7dbe1b59dfe1a239cdd085ee32263ed985748a5088e8f447": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418123",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418123",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "티빙, 개인정보 유출…이름·생년월일·온라인용 주민번호 'CI'까지 털렸다",
+      "article_path": "content/articles/published/2026-06-03-6c45a5b7-tving-data-breach-ci-di-db-access-2026-06-03.md",
+      "seen_at": "2026-06-03T08:01:41.232Z"
     }
   }
 }
