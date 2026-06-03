@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-03T19:01:02.979Z",
+  "updated_at": "2026-06-03T20:01:28.142Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -377,6 +377,14 @@
       "title": "Microsoft and OpenAI broke up — now they’re ready to fight",
       "article_path": "content/articles/published/2026-06-04-1035ab21-microsoft-build-openai-breakup-mai-thinking-1-fight.md",
       "seen_at": "2026-06-03T19:01:02.979Z"
+    },
+    "f64ef76b7e8e7886d0dd9dee298192fa2f8ab640e33a788ba1b234b0753e06c8": {
+      "url": "https://www.theverge.com/23769840/best-bluetooth-trackers",
+      "canonical_url": "https://www.theverge.com/23769840/best-bluetooth-trackers",
+      "source_name": "The Verge",
+      "title": "The best Bluetooth trackers for Apple and Android phones",
+      "article_path": "content/articles/published/2026-06-04-f64ef76b-bluetooth-trackers-precision-finding-lost-dignity.md",
+      "seen_at": "2026-06-03T20:01:28.142Z"
     }
   }
 }
