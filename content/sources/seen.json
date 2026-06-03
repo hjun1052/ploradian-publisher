@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-03T14:31:24.789Z",
+  "updated_at": "2026-06-03T15:01:05.364Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -337,6 +337,14 @@
       "title": "Webb reveals black hole that formed before its galaxy",
       "article_path": "content/articles/published/2026-06-03-633181d4-before-its-galaxy-abell2744-qso1.md",
       "seen_at": "2026-06-03T14:31:24.789Z"
+    },
+    "b629f090bfd64c5a3cdb960bb853783f7e7a6362ab33e9d8edfb6a1f4f24ced6": {
+      "url": "https://www.theverge.com/news/941816/supernatural-health-meta-quest-vr",
+      "canonical_url": "https://www.theverge.com/news/941816/supernatural-health-meta-quest-vr",
+      "source_name": "The Verge",
+      "title": "Supernatural isn’t dead after all",
+      "article_path": "content/articles/published/2026-06-04-b629f090-meta-supernatural-not-dead-after-all-spinout-fall.md",
+      "seen_at": "2026-06-03T15:01:05.364Z"
     }
   }
 }
