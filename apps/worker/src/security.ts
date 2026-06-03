@@ -177,11 +177,12 @@ function applySecurityPreyEditorialFloor(
 }
 
 function isConcreteConsumerPrivacyLeak(value: string): boolean {
+  const leakEvidence = privacyLeakEvidenceText(value);
   return (
     /개인정보/.test(value) &&
     /유출|비인가(?:된)?\s*접근|침해|breach|leak/i.test(value) &&
     /(회원|이용자|고객|사용자|가입자|account|user|customer)/i.test(value) &&
-    privacyFieldCount(value) >= 2
+    privacyFieldCount(leakEvidence) >= 2
   );
 }
 
@@ -202,6 +203,7 @@ function privacyFieldCount(value: string): number {
 
 function extractPrivacyLeakDetails(value: string): string[] {
   const details: string[] = [];
+  const leakEvidence = privacyLeakEvidenceText(value);
   const fieldNames = [
     ["회원 ID", /회원\s*ID|아이디|계정\s*ID/i],
     ["이름", /이름|성명/],
@@ -215,7 +217,7 @@ function extractPrivacyLeakDetails(value: string): string[] {
   ] as const;
 
   const leakedFields = fieldNames
-    .filter(([, pattern]) => pattern.test(value))
+    .filter(([, pattern]) => pattern.test(leakEvidence))
     .map(([label]) => label);
 
   if (leakedFields.length > 0) {
@@ -229,6 +231,20 @@ function extractPrivacyLeakDetails(value: string): string[] {
   }
 
   return details;
+}
+
+function privacyLeakEvidenceText(value: string): string {
+  const sentences = value
+    .split(/(?<=[.!?。！？])\s+|[\n\r]+|(?<=다\.)\s*|(?<=임\.)\s*/u)
+    .map((sentence) => sentence.trim())
+    .filter(Boolean);
+  const evidence = sentences.filter(
+    (sentence) =>
+      /(유출|비인가(?:된)?\s*접근|침해|breach|leak)/i.test(sentence) &&
+      !/(유출\s*대상(?:이)?\s*(?:아니|아님)|유출되지|유출된\s*것(?:은)?\s*아니|보유하지\s*않아\s*유출\s*대상)/.test(sentence)
+  );
+
+  return evidence.length > 0 ? evidence.join(" ") : value;
 }
 
 function isFresh(source: SourceItem, now: Date): boolean {
