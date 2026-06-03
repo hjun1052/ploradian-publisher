@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-03T00:01:03.224Z",
+  "updated_at": "2026-06-03T01:01:01.197Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -209,6 +209,14 @@
       "title": "북미에서 승승장구한 효성중공업, 일본으로 보폭 넓힌다",
       "article_path": "content/articles/published/2026-06-03-ceeea0b9-hyosung-heavy-japan-ess-640-epc-step.md",
       "seen_at": "2026-06-03T00:01:03.224Z"
+    },
+    "b675a8bf44fd7d44f8d1630aeb4b294c1d50b89e14c998c0229518a86224546a": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418098",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418098",
+      "source_name": "연합인포맥스 증권",
+      "title": "팔로알토, 순손실 발표에 주가 하락",
+      "article_path": "content/articles/published/2026-06-03-b675a8bf-palo-alto-networks-net-loss-stock-drop-q3-2026.md",
+      "seen_at": "2026-06-03T01:01:01.197Z"
     }
   }
 }
