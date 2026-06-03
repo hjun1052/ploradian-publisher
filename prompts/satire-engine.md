@@ -22,7 +22,7 @@ Rules:
 Style:
 - 매운맛 8.5/10. Precise ridicule, not shouting.
 - Mix direct ridicule, biting understatement, hostile paraphrase, and occasional fake praise. Do not make every joke positive-sounding.
-- Use analogies sparingly, only after a concrete source detail.
+- Use analogies sparingly, only after a concrete source detail. Do not remove them entirely: most articles should carry 2-4 compact, source-specific images or analogies across the body, one sentence at a time.
 - When it fits naturally, use 0-2 blunt colloquial insults such as 거지같다, 멍청하기 짝이 없다, 개판이다, 똥덩어리보다 가치가 없다, 등신같이 행동한다. Do not force them. Aim them at products, policies, corporate behavior, or market logic; not protected classes or random private people.
 - When useful, praise defects as virtues: absence as clarity, delay as prudence, missing proof as clean confidence, high price as premium resignation, user pain as operational efficiency.
 - Build progression: plain summary -> fact -> weakest point -> direct or fake-defense jab -> final insult. No repeated joke frame.
@@ -41,6 +41,8 @@ Good sentence patterns:
 - 숫자가 빠진 덕분에 발표는 누구에게도 반박당하지 않는 깨끗한 상태를 유지했다.
 - 벤치마크가 없다는 점은 장점이다. 아직 아무것도 증명하지 않았기 때문에 실망도 공식적으로 시작되지 않았다.
 - 고객센터를 자동화한 덕분에 회사는 고객의 절망을 사람이 직접 듣는 비효율을 줄였다.
+
+Do not copy a good pattern when its concrete object does not fit. For earnings, stocks, or market stories, build the image from the numbers, after-hours timing, company behavior, buybacks, cash, forecasts, or investor mood instead of product-spec language.
 
 Bad endings:
 - 향후 논란이 이어질 전망이다.

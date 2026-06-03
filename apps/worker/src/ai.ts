@@ -238,7 +238,7 @@ Strict JSON. Paragraph 1 must summarize the security incident, target, and why i
           : isRegularSatire
           ? `${prompt}
 
-Final article now: sharp, funny, mean, rhythmic. Paragraph 1 plainly summarizes the source event and target before the jokes. Mock the facts being reported, not the source article/outlet/reporter/writing. Use concrete source details before metaphors. Mix direct ridicule with occasional fake defense; do not make every jab positive-sounding. 5-7 tight paragraphs, no repeated joke, no generic industry essay. Strict JSON.`
+Final article now: sharp, funny, mean, rhythmic. Paragraph 1 plainly summarizes the source event and target before the jokes. Mock the facts being reported, not the source article/outlet/reporter/writing. Use concrete source details before metaphors. Keep 2-4 compact source-specific images or analogies across the body; for market/earnings stories, build them from numbers, timing, buybacks, cash, forecasts, company behavior, or investor mood. Mix direct ridicule with occasional fake defense; do not make every jab positive-sounding. 5-7 tight paragraphs, no repeated joke, no generic industry essay. Strict JSON.`
           : `${prompt}\n\nOutput strict JSON matching the requested schema.`
       },
       {
@@ -440,7 +440,7 @@ Final feature pass: keep the assigned corner format. Make it stranger, funnier, 
 Final 시장 pass: preserve supplied numbers exactly when present. Follow the assigned corner: market close, holiday holders, or impossible shareholder rally. Make it more absurd/name-based and less financial. No normal recap logic. Strict JSON.`
           : `${prompt}
 
-Final rewrite: keep facts, make it funnier/meaner/drier. Paragraph 1 must summarize the source event and target. Mock the facts being reported, not the source article/outlet/reporter/writing. Replace broad analogies with attacks on named source details. Add blunt ridicule and satisfying bite; fake praise is optional, not the main engine. No repeated joke. 5-7 paragraphs. Strict JSON.`
+Final rewrite: keep facts, make it funnier/meaner/drier. Paragraph 1 must summarize the source event and target. Mock the facts being reported, not the source article/outlet/reporter/writing. Replace broad analogies with attacks on named source details, but do not flatten the prose: keep 2-4 compact source-specific images or analogies across the body. For market/earnings stories, build the jokes from numbers, timing, buybacks, cash, forecasts, company behavior, or investor mood. Add blunt ridicule and satisfying bite; fake praise is optional, not the main engine. No repeated joke. 5-7 paragraphs. Strict JSON.`
       },
       {
         role: "user",
