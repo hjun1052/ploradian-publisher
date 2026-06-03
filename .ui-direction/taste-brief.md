@@ -26,3 +26,4 @@ Constraints:
 - Keep `/`, `/article/`, `/archive/`, and `/classic/` unchanged except for a nav link.
 - No new dependencies.
 - Use existing article images only; if absent, fall back to pastel surfaces.
+- Reference screenshots are mood and structure only; all visible UI copy must be native Ploradian copy.

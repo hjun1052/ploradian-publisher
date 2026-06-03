@@ -15,6 +15,7 @@ Source base: user-provided 2013 mobile app and web screenshots in this thread. E
 - This is not a retro portal. It is the moment when smartphone app UI leaked into web pages.
 - Keep the surface simple: image, title strip, one CTA, card grid, small app-like controls.
 - Use real article images as blurred scene material; no fake device mockups.
+- Borrow layout behavior, color behavior, and density only. Do not copy visible text, product names, logos, or UI labels from the references.
 - Preserve fixed editorial reading widths, but make mobile single-column and touch-friendly.
 - Keep the default Ploradian and Classic editions intact; 2013 is a third reading skin.
 
