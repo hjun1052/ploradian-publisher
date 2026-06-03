@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-03T03:01:12.811Z",
+  "updated_at": "2026-06-03T04:01:05.166Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -233,6 +233,14 @@
       "title": "'中 화장품 수출 증가 눈에 띄네'…화장품업계 주목한 이유",
       "article_path": "content/articles/published/2026-06-03-e6ba0cc7-china-cosmetics-export-price-jump-brand-power-wishful-thinking.md",
       "seen_at": "2026-06-03T03:01:12.811Z"
+    },
+    "5f32b0cc2a45daf96ea3528d232b9c052d8e3cc572a1188a990f0d97711682f9": {
+      "url": "https://news.ploradian.com/nonsense/2026-06-03-13/",
+      "canonical_url": "https://news.ploradian.com/nonsense/2026-06-03-13/",
+      "source_name": "The Ploradian 헛소리 데스크",
+      "title": "창가 블라인드 근처에서 투명 파일철이 열릴 수 있었으나 열리지 않았다",
+      "article_path": "content/articles/published/2026-06-03-5f32b0cc-changgabl-raindeu-geot-ui-tumyeong-pailcheol-endeun-yeolliji-ana.md",
+      "seen_at": "2026-06-03T04:01:05.166Z"
     }
   }
 }
