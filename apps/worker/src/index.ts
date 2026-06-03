@@ -1,5 +1,6 @@
 import { constantTimeEqual } from "./crypto";
 import { runPublishingPipeline } from "./pipeline";
+import { handleReactionRequest } from "./reactions";
 
 export default {
   async scheduled(_controller, env, ctx): Promise<void> {
@@ -24,6 +25,10 @@ export default {
 
     if (request.method === "GET" && url.pathname === "/health") {
       return json({ ok: true, service: "ploradian-publisher" }, 200);
+    }
+
+    if (url.pathname === "/api/reactions") {
+      return handleReactionRequest(request, env);
     }
 
     if (url.pathname !== "/run") {

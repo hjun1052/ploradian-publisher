@@ -708,6 +708,71 @@ code {
   color: var(--color-accent);
 }
 
+.article-reactions {
+  margin-top: var(--space-8);
+  padding: var(--space-4) 0;
+  border-top: 1px solid var(--color-rule-strong);
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.article-reactions h2 {
+  margin: 0 0 var(--space-3);
+  color: var(--color-ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.article-reaction-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-2);
+}
+
+.article-reaction-buttons button {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-2);
+  align-items: center;
+  min-width: 0;
+  min-height: 44px;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-rule);
+  border-radius: 0;
+  background: var(--color-paper-muted);
+  color: var(--color-ink);
+  font: inherit;
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  cursor: pointer;
+}
+
+.article-reaction-buttons button:hover,
+.article-reaction-buttons button[aria-pressed="true"] {
+  border-color: var(--color-accent);
+  background: var(--color-surface);
+}
+
+.article-reaction-buttons button:disabled {
+  cursor: wait;
+  opacity: 0.66;
+}
+
+.article-reaction-buttons strong {
+  color: var(--color-accent);
+  font-size: 0.84rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.article-reaction-status {
+  min-height: 1.2em;
+  margin: var(--space-2) 0 0;
+  color: var(--color-ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+}
+
 .source-box {
   margin-top: var(--space-8);
   padding: var(--space-4) 0 0;
@@ -948,6 +1013,10 @@ code {
 
   .home-section-grid {
     grid-template-columns: 1fr;
+  }
+
+  .article-reaction-buttons {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .home-category-block,

@@ -12,7 +12,11 @@ directory = "../web/dist"
 binding = "ASSETS"
 html_handling = "auto-trailing-slash"
 not_found_handling = "404-page"
-run_worker_first = ["/run", "/health"]
+run_worker_first = ["/run", "/health", "/api/reactions*"]
+
+[[kv_namespaces]]
+binding = "REACTIONS"
+id = "c543443d782640a28dd848bbc397c611"
 
 [placement]
 region = "aws:us-east-1"

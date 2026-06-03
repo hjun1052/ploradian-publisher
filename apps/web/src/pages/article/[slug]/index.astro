@@ -137,6 +137,29 @@ const articleStructuredData = [
 
     <div class="article-prose" set:html={article.html} />
 
+    <section class="article-reactions" data-reactions data-reaction-slug={article.slug} aria-labelledby="article-reactions-title">
+      <h2 id="article-reactions-title">반응</h2>
+      <div class="article-reaction-buttons">
+        <button type="button" data-reaction-kind="heart">
+          <span>하트</span>
+          <strong data-reaction-count="heart">0</strong>
+        </button>
+        <button type="button" data-reaction-kind="laugh">
+          <span>웃김</span>
+          <strong data-reaction-count="laugh">0</strong>
+        </button>
+        <button type="button" data-reaction-kind="spicy">
+          <span>더 세게</span>
+          <strong data-reaction-count="spicy">0</strong>
+        </button>
+        <button type="button" data-reaction-kind="tip">
+          <span>제보감</span>
+          <strong data-reaction-count="tip">0</strong>
+        </button>
+      </div>
+      <p class="article-reaction-status" data-reaction-status aria-live="polite"></p>
+    </section>
+
     <footer class="source-box">
       <p>정보 출처: {article.source_name} 기사에서 정보를 파밍함.</p>
       <p>
@@ -245,6 +268,88 @@ const articleStructuredData = [
             button.textContent = original;
             if (status) status.textContent = "";
           }, 3600);
+        }
+      });
+    });
+
+    const reactionBlocks = document.querySelectorAll("[data-reactions]");
+    const reactionLabels = {
+      heart: "하트",
+      laugh: "웃김",
+      spicy: "더 세게",
+      tip: "제보감"
+    };
+
+    function todayKey() {
+      return new Date().toISOString().slice(0, 10);
+    }
+
+    function setCounts(block, counts) {
+      for (const reaction of Object.keys(reactionLabels)) {
+        const count = Number(counts?.[reaction] || 0);
+        const countElement = block.querySelector(`[data-reaction-count="${reaction}"]`);
+        if (countElement) countElement.textContent = new Intl.NumberFormat("ko-KR").format(count);
+      }
+    }
+
+    function markLocalReaction(block, slug, reaction) {
+      const key = `ploradian:reaction:${todayKey()}:${slug}:${reaction}`;
+      if (window.localStorage.getItem(key)) {
+        block.querySelector(`[data-reaction-kind="${reaction}"]`)?.setAttribute("aria-pressed", "true");
+      }
+    }
+
+    reactionBlocks.forEach(async (block) => {
+      const slug = block.dataset.reactionSlug;
+      const status = block.querySelector("[data-reaction-status]");
+      if (!slug) return;
+
+      try {
+        const response = await fetch(`/api/reactions?slug=${encodeURIComponent(slug)}`, {
+          headers: { accept: "application/json" }
+        });
+        if (response.ok) {
+          const data = await response.json();
+          setCounts(block, data.counts);
+        }
+      } catch {
+        block.setAttribute("data-reactions-offline", "true");
+      }
+
+      for (const reaction of Object.keys(reactionLabels)) {
+        markLocalReaction(block, slug, reaction);
+      }
+
+      block.addEventListener("click", async (event) => {
+        const button = event.target instanceof Element ? event.target.closest("[data-reaction-kind]") : null;
+        if (!(button instanceof HTMLButtonElement)) return;
+
+        const reaction = button.dataset.reactionKind;
+        if (!reaction || !(reaction in reactionLabels)) return;
+
+        button.disabled = true;
+        if (status) status.textContent = "";
+
+        try {
+          const response = await fetch("/api/reactions", {
+            method: "POST",
+            headers: {
+              accept: "application/json",
+              "content-type": "application/json"
+            },
+            body: JSON.stringify({ slug, reaction })
+          });
+          const data = await response.json();
+          if (!response.ok || !data.ok) throw new Error(data.error || "reaction failed");
+
+          setCounts(block, data.counts);
+          button.setAttribute("aria-pressed", "true");
+          window.localStorage.setItem(`ploradian:reaction:${todayKey()}:${slug}:${reaction}`, "1");
+          if (status) status.textContent = data.duplicate ? "오늘 이미 접수됨" : `${reactionLabels[reaction]} 접수됨`;
+        } catch {
+          if (status) status.textContent = "반응 접수 실패";
+        } finally {
+          button.disabled = false;
         }
       });
     });
