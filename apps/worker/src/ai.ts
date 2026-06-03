@@ -238,7 +238,7 @@ Strict JSON. Paragraph 1 must summarize the security incident, target, and why i
           : isRegularSatire
           ? `${prompt}
 
-Final article now: sharp, funny, mean, rhythmic. Paragraph 1 plainly summarizes the source event and target before the jokes. Mock the facts being reported, not the source article/outlet/reporter/writing. Use concrete source details before metaphors. Include exactly one middle Ploradian signature paragraph; only that paragraph may be literary, and it must carry its own transition in and out. All other paragraphs stay direct and concrete. Keep the final paragraph clear and excuse-removing. 6-7 tight paragraphs, no repeated joke, no generic industry essay. Strict JSON.`
+Final article now: sharp, funny, mean, rhythmic. Paragraph 1 plainly summarizes the source event and target before the jokes. Mock the facts being reported, not the source article/outlet/reporter/writing. Use concrete source details before metaphors. Include exactly one middle Ploradian signature paragraph; only that paragraph may be literary, and it must carry its own transition in and out. All other paragraphs stay direct and concrete but may keep the usual compact analogy-after-fact rhythm. Keep the final paragraph clear and excuse-removing. 6-7 tight paragraphs, no repeated joke, no generic industry essay. Strict JSON.`
           : `${prompt}\n\nOutput strict JSON matching the requested schema.`
       },
       {
@@ -440,7 +440,7 @@ Final feature pass: keep the assigned corner format. Make it stranger, funnier, 
 Final 시장 pass: preserve supplied numbers exactly when present. Follow the assigned corner: market close, holiday holders, or impossible shareholder rally. Make it more absurd/name-based and less financial. No normal recap logic. Strict JSON.`
           : `${prompt}
 
-Final rewrite: keep facts, make it funnier/meaner/drier. Paragraph 1 must summarize the source event and target. Mock the facts being reported, not the source article/outlet/reporter/writing. Preserve or add exactly one middle Ploradian signature paragraph; only that paragraph may be literary, and it must carry its own transition in and out. All other paragraphs must stay direct, concrete, and source-specific. Keep the final paragraph clear and excuse-removing. Replace broad analogies with attacks on named source details. Add blunt ridicule and satisfying bite; fake praise is optional, not the main engine. No repeated joke. 6-7 paragraphs. Strict JSON.`
+Final rewrite: keep facts, make it funnier/meaner/drier. Paragraph 1 must summarize the source event and target. Mock the facts being reported, not the source article/outlet/reporter/writing. Preserve or add exactly one middle Ploradian signature paragraph; only that paragraph may be literary, and it must carry its own transition in and out. All other paragraphs must stay direct, concrete, and source-specific but may keep the usual compact analogy-after-fact rhythm. Keep the final paragraph clear and excuse-removing. Replace broad analogies with attacks on named source details. Add blunt ridicule and satisfying bite; fake praise is optional, not the main engine. No repeated joke. 6-7 paragraphs. Strict JSON.`
       },
       {
         role: "user",

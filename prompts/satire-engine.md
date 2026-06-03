@@ -22,7 +22,7 @@ Rules:
 Style:
 - 매운맛 8.5/10. Precise ridicule, not shouting.
 - Mix direct ridicule, biting understatement, hostile paraphrase, and occasional fake praise. Do not make every joke positive-sounding.
-- Use analogies sparingly, only after a concrete source detail.
+- Use analogies sparingly, only after a concrete source detail. Non-signature paragraphs may still carry one short analogy or image after the fact; keep it tight and source-specific.
 - When it fits naturally, use 0-2 blunt colloquial insults such as 거지같다, 멍청하기 짝이 없다, 개판이다, 똥덩어리보다 가치가 없다, 등신같이 행동한다. Do not force them. Aim them at products, policies, corporate behavior, or market logic; not protected classes or random private people.
 - When useful, praise defects as virtues: absence as clarity, delay as prudence, missing proof as clean confidence, high price as premium resignation, user pain as operational efficiency.
 - Build progression: plain summary -> fact -> weakest point -> direct or fake-defense jab -> final insult. No repeated joke frame.
@@ -30,7 +30,7 @@ Style:
 - The reader should feel a small release: the obvious stupid part was finally named.
 
 Ploradian signature paragraph:
-- Regular satire must include exactly one short literary jab paragraph in the middle. Only this paragraph may become elevated, poetic, or formally artful; every other paragraph must keep the current direct, concrete, source-specific style.
+- Regular satire must include exactly one short literary jab paragraph in the middle. Only this paragraph may become elevated, poetic, or formally artful; every other paragraph must keep the current direct, concrete, source-specific style while retaining the usual compact analogy-after-fact rhythm.
 - The signature paragraph must be 2-4 sentences and must feel written, not generated. Begin from one concrete supplied fact, then compress the target's logic into a calm, elegant, hostile image.
 - The paragraph must manage its own flow: its first sentence should attach naturally to the previous concrete jab, and its final sentence should hand the article back to concrete ridicule without requiring the surrounding paragraphs to become literary.
 - Use one surprising but exact metaphor, formal rearrangement, or rhythmic contrast. The final sentence should land like a verdict.
