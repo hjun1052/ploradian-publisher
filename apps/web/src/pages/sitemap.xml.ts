@@ -7,6 +7,7 @@ export async function GET(context: APIContext) {
   const urls = [
     { loc: `${site}/`, lastmod: latestDate(articles), changefreq: "hourly", priority: "1.0" },
     { loc: `${site}/archive/`, lastmod: latestDate(articles), changefreq: "hourly", priority: "0.9" },
+    { loc: `${site}/classic/`, lastmod: latestDate(articles), changefreq: "hourly", priority: "0.7" },
     { loc: `${site}/llms.txt`, lastmod: latestDate(articles), changefreq: "hourly", priority: "0.9" },
     { loc: `${site}/llms-full.txt`, lastmod: latestDate(articles), changefreq: "hourly", priority: "0.9" },
     { loc: `${site}/about/`, lastmod: latestDate(articles), changefreq: "monthly", priority: "0.4" },

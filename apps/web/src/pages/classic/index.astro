@@ -1,0 +1,80 @@
+---
+import { formatDisplayDate, getPublishedArticles } from "../../lib/articles";
+
+const articles = await getPublishedArticles();
+const siteUrl = Astro.site ?? new URL("https://news.ploradian.com");
+const canonicalUrl = new URL("/classic/", siteUrl).toString();
+---
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="description"
+      content="The Ploradian Classic Edition은 자바스크립트 없이 읽는 초경량 HTML 기사 목록입니다."
+    />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" type="application/rss+xml" title="The Ploradian RSS" href="/feed.xml" />
+    <title>The Ploradian Classic Edition</title>
+    <style is:global>
+      body { max-width: 760px; margin: 24px auto; padding: 0 12px; line-height: 1.55; }
+      table { width: 100%; border-collapse: collapse; }
+      th, td { border-bottom: 1px solid #999; padding: 6px 4px; vertical-align: top; }
+      th { text-align: left; }
+      small { color: #333; }
+    </style>
+  </head>
+  <body>
+    <h1>The Ploradian Classic Edition</h1>
+    <p>
+      <a href="/">Modern Edition</a>
+      |
+      <a href="/archive/">Archive</a>
+      |
+      <a href="/feed.xml">RSS</a>
+      |
+      <a href="/llms.txt">llms.txt</a>
+      |
+      <a href="/llms-full.txt">Full Text</a>
+    </p>
+    <hr />
+    <p>
+      자바스크립트 없이 읽는 플로라디안 HTML판입니다. 브라우저 기본값에 가까운 링크, 표,
+      제목, 본문만 남겼습니다.
+    </p>
+
+    <h2>Latest Articles</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>날짜</th>
+          <th>분류</th>
+          <th>제목</th>
+        </tr>
+      </thead>
+      <tbody>
+        {articles.map((article) => (
+          <tr>
+            <td><time datetime={article.date}>{formatDisplayDate(article.date)}</time></td>
+            <td>{article.category}</td>
+            <td>
+              <a href={`/classic/article/${article.slug}/`}>{article.title}</a>
+              <br />
+              <small>{article.subtitle}</small>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+
+    <hr />
+    <p>
+      <small>
+        This page intentionally uses almost no styling. Source articles remain linked on every classic article page.
+      </small>
+    </p>
+  </body>
+</html>

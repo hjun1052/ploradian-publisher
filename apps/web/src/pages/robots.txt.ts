@@ -25,6 +25,7 @@ User-agent: *
 Allow: /
 
 # Public text indexes for AI, search, and archival crawlers:
+# ${site}/classic/
 # ${site}/llms.txt
 # ${site}/llms-full.txt
 
