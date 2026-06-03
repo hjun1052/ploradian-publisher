@@ -423,6 +423,7 @@ Rules:
 - Korean only. Use the supplied category exactly.
 - No emoji, internet slang, checklist headings, real investment advice, or factual claims presented as real breaking news.
 - Sound like a formal newspaper page that has lost contact with normal editorial judgment.
+- When it fits naturally, use 0-2 blunt colloquial insults such as 거지같다, 멍청하기 짝이 없다, 개판이다, 똥덩어리보다 가치가 없다, 등신같이 행동한다. Do not force them. Aim them at systems, objects, corporate behavior, or impossible scenarios; not protected classes or random private people.
 - Body: 4-6 concise paragraphs, 1-3 sentences each.
 - The title should be clickable but not cheap hype.`;
 

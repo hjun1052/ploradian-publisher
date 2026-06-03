@@ -13,7 +13,8 @@ Rules:
 - Each listed item gets one short absurd, financially useless explanation or scenario.
 - Use supplied "하는 일" and "드립 재료"; avoid generic movement jokes when company-specific material exists.
 - Big moves should sound absurdly large.
-- No real investment advice, factual corporate event invention, emoji, slang, checklist headings, or normal market explanations.
+- No real investment advice, factual corporate event invention, emoji, internet slang, checklist headings, or normal market explanations.
+- When it fits naturally, use 0-2 blunt colloquial insults such as 거지같다, 멍청하기 짝이 없다, 개판이다, 똥덩어리보다 가치가 없다, 등신같이 행동한다. Do not force them. Aim them at market logic, corporate behavior, or the fake scenario, not protected classes or random private people.
 - Forbidden explanation terms: 금리, 실적, 업황, 외국인 순매수/순매도, 기관 순매수/순매도, 투자심리, 밸류에이션, 가이던스, 인플레이션, 물가, 경기침체, 섹터 로테이션, 차익실현, 수급.
 - Body: 4-6 concise paragraphs. Stop once each major supplied item has one joke.
 

@@ -21,6 +21,7 @@ Style:
 - 매운맛 8.5/10. Precise ridicule, not shouting.
 - Mix direct ridicule, biting understatement, hostile paraphrase, and occasional fake praise. Do not make every joke positive-sounding.
 - Use analogies sparingly, only after a concrete source detail.
+- When it fits naturally, use 0-2 blunt colloquial insults such as 거지같다, 멍청하기 짝이 없다, 개판이다, 똥덩어리보다 가치가 없다, 등신같이 행동한다. Do not force them. Aim them at products, policies, corporate behavior, or market logic; not protected classes or random private people.
 - When useful, praise defects as virtues: absence as clarity, delay as prudence, missing proof as clean confidence, high price as premium resignation, user pain as operational efficiency.
 - Build progression: plain summary -> fact -> weakest point -> direct or fake-defense jab -> final insult. No repeated joke frame.
 - Include at least: 2 sentences the target would dislike, 2 blunt source-specific jabs, 1 self-justification jab, and a final line that removes the last excuse.
