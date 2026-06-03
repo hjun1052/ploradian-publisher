@@ -287,10 +287,9 @@ const articleStructuredData = [
       }
     }
 
-    reactionBlocks.forEach(async (block) => {
-      const slug = block.dataset.reactionSlug;
-      const status = block.querySelector("[data-reaction-status]");
-      if (!slug) return;
+    async function loadReactionCounts(block, slug) {
+      if (block.dataset.reactionsLoaded === "true") return;
+      block.dataset.reactionsLoaded = "true";
 
       try {
         const response = await fetch(`/api/reactions?slug=${encodeURIComponent(slug)}`, {
@@ -303,9 +302,27 @@ const articleStructuredData = [
       } catch {
         block.setAttribute("data-reactions-offline", "true");
       }
+    }
+
+    reactionBlocks.forEach((block) => {
+      const slug = block.dataset.reactionSlug;
+      const status = block.querySelector("[data-reaction-status]");
+      if (!slug) return;
 
       for (const reaction of Object.keys(reactionLabels)) {
         markLocalReaction(block, slug, reaction);
+      }
+
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver((entries) => {
+          if (!entries.some((entry) => entry.isIntersecting)) return;
+
+          observer.disconnect();
+          void loadReactionCounts(block, slug);
+        }, { rootMargin: "360px 0px" });
+        observer.observe(block);
+      } else {
+        void loadReactionCounts(block, slug);
       }
 
       block.addEventListener("click", async (event) => {
@@ -317,6 +334,7 @@ const articleStructuredData = [
 
         button.disabled = true;
         if (status) status.textContent = "";
+        await loadReactionCounts(block, slug);
 
         try {
           const response = await fetch("/api/reactions", {
