@@ -140,21 +140,12 @@ const articleStructuredData = [
     <section class="article-reactions" data-reactions data-reaction-slug={article.slug} aria-labelledby="article-reactions-title">
       <h2 id="article-reactions-title">반응</h2>
       <div class="article-reaction-buttons">
-        <button type="button" data-reaction-kind="heart">
+        <button class="article-heart-button" type="button" data-reaction-kind="heart" aria-label="이 기사에 하트 보내기">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M12 20.7l-.86-.78C4.74 14.12 2 11.48 2 7.76 2 4.72 4.38 2.4 7.42 2.4c1.72 0 3.37.8 4.08 2.05A4.95 4.95 0 0 1 15.58 2.4C18.62 2.4 21 4.72 21 7.76c0 3.72-2.74 6.36-9.14 12.16l-.86.78Z" />
+          </svg>
           <span>하트</span>
           <strong data-reaction-count="heart">0</strong>
-        </button>
-        <button type="button" data-reaction-kind="laugh">
-          <span>웃김</span>
-          <strong data-reaction-count="laugh">0</strong>
-        </button>
-        <button type="button" data-reaction-kind="spicy">
-          <span>더 세게</span>
-          <strong data-reaction-count="spicy">0</strong>
-        </button>
-        <button type="button" data-reaction-kind="tip">
-          <span>제보감</span>
-          <strong data-reaction-count="tip">0</strong>
         </button>
       </div>
       <p class="article-reaction-status" data-reaction-status aria-live="polite"></p>
@@ -274,10 +265,7 @@ const articleStructuredData = [
 
     const reactionBlocks = document.querySelectorAll("[data-reactions]");
     const reactionLabels = {
-      heart: "하트",
-      laugh: "웃김",
-      spicy: "더 세게",
-      tip: "제보감"
+      heart: "하트"
     };
 
     function todayKey() {

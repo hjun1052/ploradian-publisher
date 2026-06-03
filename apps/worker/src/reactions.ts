@@ -1,15 +1,12 @@
 import { sha256Hex } from "./crypto";
 
-const reactionKinds = ["heart", "laugh", "spicy", "tip"] as const;
+const reactionKinds = ["heart"] as const;
 
 type ReactionKind = (typeof reactionKinds)[number];
 type ReactionCounts = Record<ReactionKind, number>;
 
 const emptyCounts: ReactionCounts = {
-  heart: 0,
-  laugh: 0,
-  spicy: 0,
-  tip: 0
+  heart: 0
 };
 
 const maxBodyBytes = 2048;
@@ -135,10 +132,7 @@ async function readCounts(kv: KVNamespace, slug: string): Promise<ReactionCounts
 
   const record = raw as Partial<Record<ReactionKind, unknown>>;
   return {
-    heart: normalizeCount(record.heart),
-    laugh: normalizeCount(record.laugh),
-    spicy: normalizeCount(record.spicy),
-    tip: normalizeCount(record.tip)
+    heart: normalizeCount(record.heart)
   };
 }
 

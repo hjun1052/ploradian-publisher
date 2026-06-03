@@ -725,13 +725,13 @@ code {
 
 .article-reaction-buttons {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 172px);
   gap: var(--space-2);
 }
 
 .article-reaction-buttons button {
-  display: flex;
-  justify-content: space-between;
+  display: inline-flex;
+  justify-content: center;
   gap: var(--space-2);
   align-items: center;
   min-width: 0;
@@ -747,10 +747,25 @@ code {
   cursor: pointer;
 }
 
+.article-heart-button svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  transition: fill 140ms ease, transform 140ms ease;
+}
+
 .article-reaction-buttons button:hover,
 .article-reaction-buttons button[aria-pressed="true"] {
   border-color: var(--color-accent);
   background: var(--color-surface);
+}
+
+.article-heart-button:hover svg,
+.article-heart-button[aria-pressed="true"] svg {
+  fill: var(--color-accent);
+  transform: translateY(-1px);
 }
 
 .article-reaction-buttons button:disabled {
@@ -1013,10 +1028,6 @@ code {
 
   .home-section-grid {
     grid-template-columns: 1fr;
-  }
-
-  .article-reaction-buttons {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .home-category-block,
