@@ -157,6 +157,8 @@ export function validateGeneratedArticle(
   } else if (article.category === "헛소리" || source.synthetic) {
     if (article.category === "시장") {
       validateMarketNonsenseArticle(source, `${title}\n${article.subtitle}\n${body}`, body, reasons);
+    } else if (source.syntheticFlavor && source.syntheticFlavor !== "nonsense") {
+      validateSyntheticFeatureArticle(source, body, reasons);
     } else {
       validateNonsenseArticle(body, reasons);
     }
@@ -300,6 +302,16 @@ function validateNonsenseArticle(body: string, reasons: string[]): void {
   }
 }
 
+function validateSyntheticFeatureArticle(source: SourceItem, body: string, reasons: string[]): void {
+  if (body.length > 3200) {
+    reasons.push(`${source.syntheticFlavor ?? "synthetic"} body is too long; keep the weekend feature punchy`);
+  }
+
+  if (source.syntheticFlavor === "weekend-fable" && /주가|등락률|코스피|나스닥|매수|매도/.test(body)) {
+    reasons.push("weekend fable should stay away from stock-market framing");
+  }
+}
+
 function validateMarketNonsenseArticle(source: SourceItem, fullText: string, body: string, reasons: string[]): void {
   if (body.length > 2800) {
     reasons.push("market nonsense body is too long; keep the fake recap punchy");
@@ -312,22 +324,24 @@ function validateMarketNonsenseArticle(source: SourceItem, fullText: string, bod
     reasons.push(`market nonsense must preserve supplied percentages: ${missing.join(", ")}`);
   }
 
-  for (const row of rows) {
-    const withoutCorrectPercent = fullText.split(row.change).join("");
-    const absolute = row.change.replace(/^[+-]/, "");
-    if (row.change.startsWith("-") && hasForbiddenPercentVariant(withoutCorrectPercent, absolute, "+")) {
-      reasons.push(`market nonsense flipped negative percentage for ${row.name}: ${row.change}`);
-    }
-    if (row.change.startsWith("+") && hasForbiddenPercentVariant(withoutCorrectPercent, absolute, "-")) {
-      reasons.push(`market nonsense flipped positive percentage for ${row.name}: ${row.change}`);
-    }
+  if (!source.syntheticFlavor || source.syntheticFlavor === "market-close") {
+    for (const row of rows) {
+      const withoutCorrectPercent = fullText.split(row.change).join("");
+      const absolute = row.change.replace(/^[+-]/, "");
+      if (row.change.startsWith("-") && hasForbiddenPercentVariant(withoutCorrectPercent, absolute, "+")) {
+        reasons.push(`market nonsense flipped negative percentage for ${row.name}: ${row.change}`);
+      }
+      if (row.change.startsWith("+") && hasForbiddenPercentVariant(withoutCorrectPercent, absolute, "-")) {
+        reasons.push(`market nonsense flipped positive percentage for ${row.name}: ${row.change}`);
+      }
 
-    const related = marketRowContext(fullText, row.name, row.change);
-    if (row.change.startsWith("-") && hasPositiveMoveWord(related) && !hasNegativeMoveWord(related)) {
-      reasons.push(`market nonsense describes negative mover as rising: ${row.name} ${row.change}`);
-    }
-    if (row.change.startsWith("+") && hasNegativeMoveWord(related) && !hasPositiveMoveWord(related)) {
-      reasons.push(`market nonsense describes positive mover as falling: ${row.name} ${row.change}`);
+      const related = marketRowContext(fullText, row.name, row.change);
+      if (row.change.startsWith("-") && hasPositiveMoveWord(related) && !hasNegativeMoveWord(related)) {
+        reasons.push(`market nonsense describes negative mover as rising: ${row.name} ${row.change}`);
+      }
+      if (row.change.startsWith("+") && hasNegativeMoveWord(related) && !hasPositiveMoveWord(related)) {
+        reasons.push(`market nonsense describes positive mover as falling: ${row.name} ${row.change}`);
+      }
     }
   }
 

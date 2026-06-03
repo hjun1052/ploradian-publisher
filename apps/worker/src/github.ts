@@ -2,6 +2,8 @@ import { fromBase64Utf8 } from "./crypto";
 import { fetchTextWithRetry, HttpError } from "./http";
 import type {
   GitHubTarget,
+  MarketHistoryEntry,
+  MarketHistoryStore,
   PreparedArticle,
   SeenStore,
   SeriousEditorialEntry,
@@ -37,6 +39,7 @@ interface GitHubContentFile {
 const API_ROOT = "https://api.github.com";
 const SEEN_PATH = "content/sources/seen.json";
 const SERIOUS_EDITORIAL_PATH = "content/sources/serious-editorial.json";
+const MARKET_HISTORY_PATH = "content/sources/market-history.json";
 
 export async function readSeenStore(target: GitHubTarget): Promise<SeenStore> {
   try {
@@ -80,6 +83,27 @@ export async function readSeriousEditorialStore(target: GitHubTarget): Promise<S
   }
 }
 
+export async function readMarketHistoryStore(target: GitHubTarget): Promise<MarketHistoryStore> {
+  try {
+    const file = await githubJson<GitHubContentFile>(
+      target,
+      `/repos/${repoPath(target)}/contents/${encodePath(MARKET_HISTORY_PATH)}?ref=${encodeURIComponent(target.branch)}`,
+      "read market-history.json"
+    );
+
+    if (file.type !== "file" || typeof file.content !== "string") {
+      return emptyMarketHistoryStore();
+    }
+
+    return normalizeMarketHistoryStore(JSON.parse(fromBase64Utf8(file.content)));
+  } catch (error) {
+    if (error instanceof HttpError && error.status === 404) {
+      return emptyMarketHistoryStore();
+    }
+    throw error;
+  }
+}
+
 export async function githubPathExists(target: GitHubTarget, path: string): Promise<boolean> {
   try {
     await githubJson<GitHubContentFile>(
@@ -100,7 +124,8 @@ export async function commitGeneratedArticles(
   target: GitHubTarget,
   articles: PreparedArticle[],
   seenStore: SeenStore,
-  seriousEditorialStore?: SeriousEditorialStore
+  seriousEditorialStore?: SeriousEditorialStore,
+  marketHistoryStore?: MarketHistoryStore
 ): Promise<string> {
   const ref = await githubJson<GitHubRef>(
     target,
@@ -124,6 +149,14 @@ export async function commitGeneratedArticles(
           {
             path: SERIOUS_EDITORIAL_PATH,
             content: `${JSON.stringify(seriousEditorialStore, null, 2)}\n`
+          }
+        ]
+      : []),
+    ...(marketHistoryStore
+      ? [
+          {
+            path: MARKET_HISTORY_PATH,
+            content: `${JSON.stringify(marketHistoryStore, null, 2)}\n`
           }
         ]
       : [])
@@ -256,6 +289,35 @@ export function emptySeriousEditorialStore(): SeriousEditorialStore {
   };
 }
 
+export function addMarketHistoryEntries(
+  store: MarketHistoryStore,
+  entries: MarketHistoryEntry[],
+  now = new Date()
+): MarketHistoryStore {
+  if (entries.length === 0) {
+    return store;
+  }
+
+  const keyed = new Map<string, MarketHistoryEntry>();
+  for (const entry of [...entries, ...store.recent]) {
+    keyed.set(`${entry.market}:${entry.date}:${entry.source_url}`, entry);
+  }
+
+  return {
+    version: 1,
+    updated_at: now.toISOString(),
+    recent: [...keyed.values()].slice(0, 30)
+  };
+}
+
+export function emptyMarketHistoryStore(): MarketHistoryStore {
+  return {
+    version: 1,
+    updated_at: null,
+    recent: []
+  };
+}
+
 async function githubJson<T>(
   target: GitHubTarget,
   path: string,
@@ -324,6 +386,73 @@ function normalizeSeriousEditorialStore(value: unknown): SeriousEditorialStore {
       .map(normalizeSeriousEditorialEntry)
       .filter((entry): entry is SeriousEditorialEntry => entry !== null)
       .slice(0, 40)
+  };
+}
+
+function normalizeMarketHistoryStore(value: unknown): MarketHistoryStore {
+  if (!value || typeof value !== "object") {
+    return emptyMarketHistoryStore();
+  }
+
+  const record = value as Record<string, unknown>;
+  if (record.version !== 1 || !Array.isArray(record.recent)) {
+    return emptyMarketHistoryStore();
+  }
+
+  return {
+    version: 1,
+    updated_at: typeof record.updated_at === "string" ? record.updated_at : null,
+    recent: record.recent
+      .map(normalizeMarketHistoryEntry)
+      .filter((entry): entry is MarketHistoryEntry => entry !== null)
+      .slice(0, 30)
+  };
+}
+
+function normalizeMarketHistoryEntry(value: unknown): MarketHistoryEntry | null {
+  if (!value || typeof value !== "object") {
+    return null;
+  }
+
+  const record = value as Record<string, unknown>;
+  const market = stringValue(record.market);
+  const date = stringValue(record.date);
+  const title = stringValue(record.title);
+  const sourceUrl = stringValue(record.source_url);
+  const rows = Array.isArray(record.rows)
+    ? record.rows
+        .map(normalizeMarketHistoryRow)
+        .filter((row): row is MarketHistoryEntry["rows"][number] => row !== null)
+    : [];
+
+  if ((market !== "국장" && market !== "미장") || !date || !title || !sourceUrl || rows.length === 0) {
+    return null;
+  }
+
+  return { market, date, title, source_url: sourceUrl, rows };
+}
+
+function normalizeMarketHistoryRow(value: unknown): MarketHistoryEntry["rows"][number] | null {
+  if (!value || typeof value !== "object") {
+    return null;
+  }
+
+  const record = value as Record<string, unknown>;
+  const name = stringValue(record.name);
+  const symbol = stringValue(record.symbol);
+  const price = stringValue(record.price);
+  const change = stringValue(record.change);
+  if (!name || !symbol || !price || !change) {
+    return null;
+  }
+
+  return {
+    name,
+    symbol,
+    price,
+    change,
+    business: stringValue(record.business) || "업종 단서 없음",
+    jokeSeed: stringValue(record.jokeSeed) || name
   };
 }
 

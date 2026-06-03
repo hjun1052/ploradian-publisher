@@ -57,6 +57,7 @@ export interface SourceItem {
   summary: string;
   publishedAt?: string;
   synthetic?: boolean;
+  syntheticFlavor?: "market-close" | "market-holiday" | "weekly-digest" | "next-week-prophecy" | "weekend-fable" | "shareholder-rally" | "nonsense";
   seriousAxis?: SeriousAxis;
   seriousKind?: SeriousSourceKind;
   seriousInstitution?: string;
@@ -170,6 +171,29 @@ export interface SeriousEditorialStore {
   version: 1;
   updated_at: string | null;
   recent: SeriousEditorialEntry[];
+}
+
+export interface MarketHistoryRow {
+  name: string;
+  symbol: string;
+  price: string;
+  change: string;
+  business: string;
+  jokeSeed: string;
+}
+
+export interface MarketHistoryEntry {
+  market: "국장" | "미장";
+  date: string;
+  title: string;
+  source_url: string;
+  rows: MarketHistoryRow[];
+}
+
+export interface MarketHistoryStore {
+  version: 1;
+  updated_at: string | null;
+  recent: MarketHistoryEntry[];
 }
 
 export interface PipelineResult {

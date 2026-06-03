@@ -1,0 +1,142 @@
+{
+  "version": 1,
+  "updated_at": "2026-06-03T00:00:00.000Z",
+  "recent": [
+    {
+      "market": "국장",
+      "date": "2026-06-02",
+      "title": "2026-06-02 국장 마감 억지해석",
+      "source_url": "https://news.ploradian.com/market/2026-06-02-국장-16/",
+      "rows": [
+        {
+          "name": "삼성전자",
+          "symbol": "005930",
+          "price": "360,500",
+          "change": "+3.30%",
+          "business": "반도체와 스마트폰",
+          "jokeSeed": "칩, 갤럭시, 전자레인지 아닌 전자"
+        },
+        {
+          "name": "SK하이닉스",
+          "symbol": "000660",
+          "price": "2,360,000",
+          "change": "-0.13%",
+          "business": "메모리 반도체",
+          "jokeSeed": "하이와 닉스, 메모리, 저장장치"
+        },
+        {
+          "name": "삼성전자우",
+          "symbol": "005935",
+          "price": "231,500",
+          "change": "+1.09%",
+          "business": "삼성전자 우선주",
+          "jokeSeed": "우선권, 줄서기, 본주 옆자리"
+        },
+        {
+          "name": "SK스퀘어",
+          "symbol": "402340",
+          "price": "1,346,000",
+          "change": "+7.17%",
+          "business": "투자 지주회사",
+          "jokeSeed": "사각형, 네 귀퉁이, 투자 바구니"
+        },
+        {
+          "name": "현대차",
+          "symbol": "005380",
+          "price": "729,000",
+          "change": "-2.80%",
+          "business": "자동차",
+          "jokeSeed": "핸들, 기어, 후진과 전진"
+        },
+        {
+          "name": "삼성전기",
+          "symbol": "009150",
+          "price": "1,813,000",
+          "change": "-9.58%",
+          "business": "전자부품",
+          "jokeSeed": "부품, 전기, 콘센트"
+        },
+        {
+          "name": "LG에너지솔루션",
+          "symbol": "373220",
+          "price": "442,500",
+          "change": "-2.75%",
+          "business": "배터리",
+          "jokeSeed": "충전, 방전, 배터리 잔량"
+        },
+        {
+          "name": "삼성생명",
+          "symbol": "032830",
+          "price": "480,000",
+          "change": "+17.07%",
+          "business": "생명보험",
+          "jokeSeed": "보험 약관, 생명, 만기"
+        },
+        {
+          "name": "삼성물산",
+          "symbol": "028260",
+          "price": "485,500",
+          "change": "+6.70%",
+          "business": "건설과 상사",
+          "jokeSeed": "물산, 물건 산, 공사장"
+        },
+        {
+          "name": "HD현대중공업",
+          "symbol": "329180",
+          "price": "673,000",
+          "change": "-1.61%",
+          "business": "조선과 중공업",
+          "jokeSeed": "배, 조선소, 용접봉"
+        },
+        {
+          "name": "현대모비스",
+          "symbol": "012330",
+          "price": "759,000",
+          "change": "-0.26%",
+          "business": "자동차 부품",
+          "jokeSeed": "모비스, 부품함, 범퍼"
+        },
+        {
+          "name": "기아",
+          "symbol": "000270",
+          "price": "168,800",
+          "change": "-0.65%",
+          "business": "자동차",
+          "jokeSeed": "기어, 시동, 주차장"
+        },
+        {
+          "name": "두산에너빌리티",
+          "symbol": "034020",
+          "price": "100,000",
+          "change": "-6.45%",
+          "business": "발전 설비",
+          "jokeSeed": "발전소, 에너지, 터빈"
+        },
+        {
+          "name": "LG전자",
+          "symbol": "066570",
+          "price": "392,500",
+          "change": "+3.15%",
+          "business": "가전과 전자제품",
+          "jokeSeed": "세탁기, 냉장고, 리모컨"
+        },
+        {
+          "name": "에코프로비엠",
+          "symbol": "247540",
+          "price": "198,000",
+          "change": "-4.35%",
+          "business": "2차전지 소재",
+          "jokeSeed": "에코, 양극재, 친환경인 척하는 금속"
+        },
+        {
+          "name": "알테오젠",
+          "symbol": "196170",
+          "price": "357,000",
+          "change": "-2.46%",
+          "business": "바이오 플랫폼",
+          "jokeSeed": "알, 테오, 실험실 이름표"
+        }
+      ]
+    }
+  ]
+}

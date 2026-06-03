@@ -222,7 +222,7 @@ Final article now: sharp, funny, mean, rhythmic. Paragraph 1 plainly summarizes 
         })
       }
     ],
-    isRegularSatire ? 2700 : 1500,
+    isRegularSatire ? 2700 : syntheticOutputTokens(source),
     isRegularSatire ? config.openaiArticleModel : config.openaiLightArticleModel
   );
 
@@ -336,8 +336,9 @@ export async function intensifySatireArticle(
   draft: GeneratedArticleJson,
   correction?: string
 ): Promise<GeneratedArticleJson> {
-  const isNonsense = source.synthetic && source.category === "헛소리";
+  const isNonsense = source.synthetic && (source.syntheticFlavor === "nonsense" || !source.syntheticFlavor) && source.category === "헛소리";
   const isMarketNonsense = source.synthetic && source.category === "시장";
+  const isSyntheticFeature = source.synthetic && source.syntheticFlavor && source.syntheticFlavor !== "nonsense";
   const prompt = articlePromptFor(source);
   const article = await callModelJson<GeneratedArticleJson>(
     config,
@@ -350,10 +351,14 @@ export async function intensifySatireArticle(
           ? `${prompt}
 
 Final 헛소리 pass: preserve anti-news, make it emptier/contextless/pointless. No useful essay or tech/business critique. Strict JSON.`
+          : isSyntheticFeature && !isMarketNonsense
+            ? `${prompt}
+
+Final feature pass: keep the assigned corner format. Make it stranger, funnier, and more specific; do not turn it into normal commentary. Strict JSON.`
           : isMarketNonsense
             ? `${prompt}
 
-Final 시장 pass: preserve numbers exactly. Make reasons more absurd/name-based and less financial. No normal recap logic. Strict JSON.`
+Final 시장 pass: preserve supplied numbers exactly when present. Follow the assigned corner: market close, holiday holders, or impossible shareholder rally. Make it more absurd/name-based and less financial. No normal recap logic. Strict JSON.`
           : `${prompt}
 
 Final rewrite: keep facts, make it funnier/meaner/drier. Paragraph 1 must summarize the source event and target. Replace broad analogies with attacks on named source details. Add blunt ridicule and satisfying bite; fake praise is optional, not the main engine. No repeated joke. 5-7 paragraphs. Strict JSON.`
@@ -373,13 +378,15 @@ Final rewrite: keep facts, make it funnier/meaner/drier. Paragraph 1 must summar
             correction ??
             (isNonsense
               ? "Keep pure 헛소리: contextless, useless, formal, shorter. Remove usefulness/business/critique."
+              : isSyntheticFeature && !isMarketNonsense
+                ? "Keep the exact weekend corner. Make the premise more absurd and concrete; avoid normal social commentary."
               : isMarketNonsense
-                ? "Preserve percentages exactly. Reasons absurd, financially useless, name-based. Remove macro logic."
+                ? "Preserve percentages exactly when supplied. Use impossible, financially useless reasons. Remove macro logic and real investment framing."
                 : "More biting, direct, source-specific satire. Hit at least 4 concrete details, name the exact target early, and stop relying on fake praise or generic metaphors.")
         })
       }
     ],
-    2300,
+    source.synthetic ? syntheticOutputTokens(source) : 2300,
     source.synthetic ? config.openaiLightArticleModel : config.openaiArticleModel
   );
 
@@ -393,7 +400,11 @@ Final rewrite: keep facts, make it funnier/meaner/drier. Paragraph 1 must summar
 }
 
 function articlePromptFor(source: SourceItem): string {
-  if (source.synthetic && source.category === "헛소리") {
+  if (source.synthetic && source.syntheticFlavor && source.syntheticFlavor !== "nonsense" && source.category === "헛소리") {
+    return weekendFeaturePrompt(source.syntheticFlavor);
+  }
+
+  if (source.synthetic && (source.syntheticFlavor === "nonsense" || !source.syntheticFlavor) && source.category === "헛소리") {
     return NONSENSE_ENGINE_PROMPT;
   }
 
@@ -402,6 +413,62 @@ function articlePromptFor(source: SourceItem): string {
   }
 
   return SATIRE_ENGINE_PROMPT;
+}
+
+function weekendFeaturePrompt(flavor: NonNullable<SourceItem["syntheticFlavor"]>): string {
+  const shared = `Write Korean weekend feature prose for The Ploradian.
+Return only the requested JSON.
+
+Rules:
+- Korean only. Use the supplied category exactly.
+- No emoji, internet slang, checklist headings, real investment advice, or factual claims presented as real breaking news.
+- Sound like a formal newspaper page that has lost contact with normal editorial judgment.
+- Body: 4-6 concise paragraphs, 1-3 sentences each.
+- The title should be clickable but not cheap hype.`;
+
+  if (flavor === "weekly-digest") {
+    return `${shared}
+
+Corner: 이번 주의 범행 기록.
+Summarize the supplied weekly Ploradian materials as if they were an incident ledger for civilization.
+Do not write a neutral recap. Each paragraph should compress several items into one dry accusation against the week itself.
+The joke is that the week appears to have committed paperwork, product, policy, and technology offenses without quite knowing why.`;
+  }
+
+  if (flavor === "next-week-prophecy") {
+    return `${shared}
+
+Corner: 인공지능이 예측하는 다음 주.
+This is not office-life forecasting. It is a deranged AI prophecy mixing geopolitics, companies, space, defense, platforms, CEOs, satellites, weather, and bodily absurdity.
+Use impossible causality with a serious model/forecast tone.
+Good direction:
+- Aliens invade, Hanwha Aerospace prepares Cheongung, but a North Korean ICBM accidentally hits the UFO first.
+- A meteor clips Starlink, Elon Musk's hair volatility returns, and people confuse him with Satya Nadella by silhouette.
+- Samsung, Nvidia, Naver, Tesla, Microsoft, defense stocks, satellites, and cosmic accidents may collide in one ridiculous forecast.
+Too plausible is failure. The content should read like an AI ate news keywords and produced a majestic hallucinated calendar.`;
+  }
+
+  if (flavor === "weekend-fable") {
+    return `${shared}
+
+Corner: 주말 우화.
+Write a short contextless social-satire fable with no stock-market framing.
+Use objects, offices, elevators, printers, lunchbox lids, notices, benches, or small public systems as characters.
+The fable should feel like it criticizes society indirectly, but the lesson should arrive slightly broken.
+No market, stock, ticker, price, percentage, buy/sell, or investment language.`;
+  }
+
+  return shared;
+}
+
+function syntheticOutputTokens(source: SourceItem): number {
+  if (source.syntheticFlavor === "next-week-prophecy" || source.syntheticFlavor === "shareholder-rally") {
+    return 1900;
+  }
+  if (source.syntheticFlavor === "weekly-digest" || source.syntheticFlavor === "market-holiday") {
+    return 1700;
+  }
+  return 1500;
 }
 
 function extractNumbers(value: string): string[] {

@@ -172,7 +172,8 @@ export function scheduledNonsenseCandidate(now: Date, timeZone: string): SourceI
     canonicalUrl: url,
     summary: [seed.summary, ...NONSENSE_NOTES].join(" "),
     publishedAt: `${slot.day}T${String(slot.hour).padStart(2, "0")}:00:00${slot.offset}`,
-    synthetic: true
+    synthetic: true,
+    syntheticFlavor: "nonsense"
   };
 }
 

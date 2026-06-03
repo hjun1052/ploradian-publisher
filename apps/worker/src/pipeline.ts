@@ -1,18 +1,21 @@
 import { ConfigError, loadConfig, requireGitHubTarget } from "./config";
 import {
+  addMarketHistoryEntries,
   addSeriousEditorialEntries,
   addSeenItems,
   commitGeneratedArticles,
+  emptyMarketHistoryStore,
   emptySeriousEditorialStore,
   emptySeenStore,
   githubPathExists,
+  readMarketHistoryStore,
   readSeriousEditorialStore,
   readSeenStore
 } from "./github";
 import { prepareMarkdownArticle } from "./markdown";
 import { findArticleImage } from "./images";
 import { candidateSkipReason } from "./candidates";
-import { forcedMarketCandidate, scheduledMarketCandidate } from "./market";
+import { forcedMarketCandidate, marketHistoryEntryFromSource, scheduledMarketCandidate } from "./market";
 import { scheduledNonsenseCandidate } from "./nonsense";
 import { scheduledSeriousSelection } from "./serious";
 import { extractFacts, generateSatireArticle, generateSeriousArticle, intensifySatireArticle } from "./ai";
@@ -44,6 +47,7 @@ export async function runPublishingPipeline(
   const skipped: string[] = [];
   const errors: string[] = [];
   const prepared: PreparedArticle[] = [];
+  const preparedSources = new Map<string, SourceItem>();
   let seriousEditorial: NonNullable<PipelineResult["serious_editorial"]> = {
     selected: null,
     top_candidates: [],
@@ -56,6 +60,9 @@ export async function runPublishingPipeline(
     dryRun = options.dryRunOverride ?? config.dryRun;
     const githubTarget = dryRun && options.ignoreSeen ? null : requireGitHubTarget(config);
     const seen = githubTarget && !options.ignoreSeen ? await readSeenStore(githubTarget) : emptySeenStore();
+    const marketHistory = githubTarget && !options.ignoreSeen
+      ? await readMarketHistoryStore(githubTarget)
+      : emptyMarketHistoryStore();
     const seriousHistory = githubTarget && !options.ignoreSeen
       ? await readSeriousEditorialStore(githubTarget)
       : emptySeriousEditorialStore();
@@ -63,7 +70,7 @@ export async function runPublishingPipeline(
       ? null
       : options.forceMarket
       ? await forcedMarketCandidate(options.forceMarket, new Date(startedAt), config.siteTimezone)
-      : await scheduledMarketCandidate(new Date(startedAt), config.siteTimezone);
+      : await scheduledMarketCandidate(new Date(startedAt), config.siteTimezone, seen, marketHistory);
     const nonsense = options.forceSerious ? null : scheduledNonsenseCandidate(new Date(startedAt), config.siteTimezone);
     const seriousSelection = await scheduledSeriousSelection(
       config,
@@ -119,6 +126,7 @@ export async function runPublishingPipeline(
         }
 
         prepared.push(markdownArticle);
+        preparedSources.set(markdownArticle.path, candidate);
       } catch (error) {
         const message = `${candidate.title}: ${errorMessage(error)}`;
         errors.push(message);
@@ -181,11 +189,19 @@ export async function runPublishingPipeline(
 
     const nextSeen = addSeenItems(latestSeen, publishable);
     const seriousEntries = publishable.map(seriousEditorialEntry).filter((entry): entry is SeriousEditorialEntry => entry !== null);
+    const marketEntries = publishable
+      .map((article) => preparedSources.get(article.path))
+      .map((source) => (source ? marketHistoryEntryFromSource(source) : null))
+      .filter((entry): entry is NonNullable<ReturnType<typeof marketHistoryEntryFromSource>> => entry !== null);
     const latestSeriousHistory = seriousEntries.length > 0 ? await readSeriousEditorialStore(target) : null;
     const nextSeriousHistory = latestSeriousHistory
       ? addSeriousEditorialEntries(latestSeriousHistory, seriousEntries)
       : undefined;
-    const commitSha = await commitGeneratedArticles(target, publishable, nextSeen, nextSeriousHistory);
+    const latestMarketHistory = marketEntries.length > 0 ? await readMarketHistoryStore(target) : null;
+    const nextMarketHistory = latestMarketHistory
+      ? addMarketHistoryEntries(latestMarketHistory, marketEntries)
+      : undefined;
+    const commitSha = await commitGeneratedArticles(target, publishable, nextSeen, nextSeriousHistory, nextMarketHistory);
     console.log(JSON.stringify({ event: "github_commit_created", commitSha, count: publishable.length }));
 
     return finish({
