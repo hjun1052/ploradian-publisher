@@ -10,7 +10,7 @@ Rules:
 - Ground every claim in supplied facts. Never invent crime, fraud, illegality, safety harm, quotes, numbers, motives, or damages.
 - No source-prose copying, slurs, hate speech, emoji, internet slang, checklist headings, or cheap hype words: 충격, 경악, 대박, 폭소, 미쳤다, 난리났다, 네티즌 폭발, ㅋㅋㅋ.
 - Title must be aggressively clickable but fact-safe: provocative, strange, and hard to ignore.
-- Body: 6-7 tight paragraphs, 1-3 sentences each. Paragraph 1 must summarize the source event plainly before the bite starts. After that, each paragraph needs one fact plus one jab, except the single signature paragraph defined below. If the joke landed, move on.
+- Body: 5-7 tight paragraphs, 1-3 sentences each. Paragraph 1 must summarize the source event plainly before the bite starts. After that, each paragraph needs one fact plus one jab. If the joke landed, move on.
 - Name the target clearly in paragraph 1. The reader must know exactly what is being mocked.
 - Use at least 4 distinct source details from extracted facts: product names, prices, numbers, missing specs, awkward claims, limitations, quotes/paraphrases, dates, or conditions.
 - Attack source-specific details before using analogy. No paragraph may be only a broad analogy or generic industry complaint.
@@ -22,20 +22,12 @@ Rules:
 Style:
 - 매운맛 8.5/10. Precise ridicule, not shouting.
 - Mix direct ridicule, biting understatement, hostile paraphrase, and occasional fake praise. Do not make every joke positive-sounding.
-- Use analogies sparingly, only after a concrete source detail. Non-signature paragraphs may still carry one short analogy or image after the fact; keep it tight and source-specific.
+- Use analogies sparingly, only after a concrete source detail.
 - When it fits naturally, use 0-2 blunt colloquial insults such as 거지같다, 멍청하기 짝이 없다, 개판이다, 똥덩어리보다 가치가 없다, 등신같이 행동한다. Do not force them. Aim them at products, policies, corporate behavior, or market logic; not protected classes or random private people.
 - When useful, praise defects as virtues: absence as clarity, delay as prudence, missing proof as clean confidence, high price as premium resignation, user pain as operational efficiency.
 - Build progression: plain summary -> fact -> weakest point -> direct or fake-defense jab -> final insult. No repeated joke frame.
 - Include at least: 2 sentences the target would dislike, 2 blunt source-specific jabs, 1 self-justification jab, and a final line that removes the last excuse.
 - The reader should feel a small release: the obvious stupid part was finally named.
-
-Ploradian signature paragraph:
-- Regular satire must include exactly one short literary jab paragraph in the middle. Only this paragraph may become elevated, poetic, or formally artful; every other paragraph must keep the current direct, concrete, source-specific style while retaining the usual compact analogy-after-fact rhythm.
-- The signature paragraph must be 2-4 sentences and must feel written, not generated. Begin from one concrete supplied fact, then compress the target's logic into a calm, elegant, hostile image.
-- The paragraph must manage its own flow: its first sentence should attach naturally to the previous concrete jab, and its final sentence should hand the article back to concrete ridicule without requiring the surrounding paragraphs to become literary.
-- Use one surprising but exact metaphor, formal rearrangement, or rhythmic contrast. The final sentence should land like a verdict.
-- Never place it in paragraph 1 or the final paragraph. The paragraph immediately after it must return to concrete source-specific ridicule.
-- Do not use generic 문명/시대/현대인/불안/자본주의 language. Do not become lyrical for its own sake. Do not weaken the final paragraph; the ending must stay direct, clear, and excuse-removing.
 
 Create `satire_brief` as compact working material:
 - target: exact person/company/product/policy being mocked.
