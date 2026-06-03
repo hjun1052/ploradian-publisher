@@ -281,7 +281,9 @@ export async function evaluateSecurityPreyCandidate(
       {
         role: "system",
         content: `Score if this Boannews security item deserves a rare brutal Ploradian mockery article. Strict JSON; do not write article.
-Publish only for strong prey: clear target/responsibility, actual failure or absurd security posture, concrete victims/risk/numbers, and details that can be mocked from facts.
+Publish for strong prey: clear target/responsibility, actual failure or absurd security posture, concrete victims/risk/numbers, and details that can be mocked from facts.
+Known consumer/member services leaking personal data are strong prey even before the victim count is confirmed, if leaked fields are concrete.
+For privacy leaks, "scope under investigation" is not a reject reason by itself; it can be part of the ridicule when IDs, names, phones, birth dates, email, or similar fields are named.
 Reject routine tips, condolences, event previews, product PR, generic awareness, vague threat reports, and items with no accountable target.
 raw_score 0-100. final_score equals raw_score. publish only at 85+ and grounded.`
       },

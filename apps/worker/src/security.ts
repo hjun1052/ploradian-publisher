@@ -46,7 +46,11 @@ export async function scheduledSecurityPreySelection(
   const results = await Promise.allSettled(
     scoringCandidates.map(async (source) => {
       const pageText = await fetchSourcePageText(source);
-      const evaluation = await evaluateSecurityPreyCandidate(config, source, pageText);
+      const evaluation = applySecurityPreyEditorialFloor(
+        await evaluateSecurityPreyCandidate(config, source, pageText),
+        source,
+        pageText
+      );
       return {
         source: {
           ...source,
@@ -134,6 +138,97 @@ function securityCandidateSkipReason(source: SourceItem): string | null {
 
 function strongPreyTerms(value: string): boolean {
   return /(cve-|취약점|인증\s*우회|제로데이|2fa|내부망|유출|개인정보|침해|해킹|랜섬웨어|백도어|공급망|다크웹|도박사이트|불법|징역|행정\s*마비|의료\s*셧다운|전력\s*중단|공공망|망분리|피해|벌금|기밀|결함|패치|vpn|malware|ransomware|breach|backdoor|supply chain)/i.test(value);
+}
+
+function applySecurityPreyEditorialFloor(
+  evaluation: SecurityPreyEvaluation,
+  source: SourceItem,
+  pageText: string
+): SecurityPreyEvaluation {
+  const text = `${source.title} ${source.summary} ${pageText}`;
+  if (!isConcreteConsumerPrivacyLeak(text)) {
+    return evaluation;
+  }
+
+  const finalScore = Math.max(evaluation.final_score, SECURITY_PREY_MIN_SCORE + 3);
+  const details = [
+    ...evaluation.concrete_details,
+    ...extractPrivacyLeakDetails(text)
+  ].filter((detail, index, list) => detail && list.indexOf(detail) === index);
+
+  return {
+    ...evaluation,
+    final_score: finalScore,
+    publish_decision: "publish",
+    prey_type: evaluation.prey_type || "consumer personal data leak",
+    target: evaluation.target || source.title,
+    ridicule_angle:
+      evaluation.ridicule_angle ||
+      "회원제 서비스가 이름, 연락처 같은 기본 개인정보를 유출하고도 피해 범위를 조사 중이라고 말하는 장면",
+    concrete_details: details.slice(0, 8),
+    why_it_is_mockable:
+      evaluation.why_it_is_mockable ||
+      "피해 규모가 아직 확정되지 않았더라도, 회원정보 항목이 구체적으로 유출된 순간 책임 주체와 조롱 포인트는 충분히 명확하다.",
+    why_hold_or_reject:
+      evaluation.why_hold_or_reject && evaluation.why_hold_or_reject !== "n/a"
+        ? `${evaluation.why_hold_or_reject} Editorial floor applied: concrete consumer privacy leak with named exposed fields.`
+        : "Editorial floor applied: concrete consumer privacy leak with named exposed fields."
+  };
+}
+
+function isConcreteConsumerPrivacyLeak(value: string): boolean {
+  return (
+    /개인정보/.test(value) &&
+    /유출|비인가(?:된)?\s*접근|침해|breach|leak/i.test(value) &&
+    /(회원|이용자|고객|사용자|가입자|account|user|customer)/i.test(value) &&
+    privacyFieldCount(value) >= 2
+  );
+}
+
+function privacyFieldCount(value: string): number {
+  const fields = [
+    /회원\s*ID|아이디|계정\s*ID/i,
+    /이름|성명/,
+    /전화번호|휴대전화|연락처/,
+    /이메일|전자우편|email/i,
+    /생년월일|생일/,
+    /성별/,
+    /주소/,
+    /주민등록|주민번호/,
+    /결제|카드|계좌/
+  ];
+  return fields.filter((pattern) => pattern.test(value)).length;
+}
+
+function extractPrivacyLeakDetails(value: string): string[] {
+  const details: string[] = [];
+  const fieldNames = [
+    ["회원 ID", /회원\s*ID|아이디|계정\s*ID/i],
+    ["이름", /이름|성명/],
+    ["전화번호", /전화번호|휴대전화|연락처/],
+    ["이메일", /이메일|전자우편|email/i],
+    ["생년월일", /생년월일|생일/],
+    ["성별", /성별/],
+    ["주소", /주소/],
+    ["주민등록번호", /주민등록|주민번호/],
+    ["결제 정보", /결제|카드|계좌/]
+  ] as const;
+
+  const leakedFields = fieldNames
+    .filter(([, pattern]) => pattern.test(value))
+    .map(([label]) => label);
+
+  if (leakedFields.length > 0) {
+    details.push(`유출 항목: ${leakedFields.join(", ")}`);
+  }
+  if (/피해\s*범위|범위.*조사|조사\s*중/.test(value)) {
+    details.push("피해 범위는 조사 중으로 공지됨");
+  }
+  if (/비인가(?:된)?\s*접근/.test(value)) {
+    details.push("비인가 접근으로 개인정보 유출 확인");
+  }
+
+  return details;
 }
 
 function isFresh(source: SourceItem, now: Date): boolean {
