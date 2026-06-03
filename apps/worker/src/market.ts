@@ -97,15 +97,16 @@ export async function scheduledMarketCandidate(
 export async function forcedMarketCandidate(
   market: "korea" | "us",
   now: Date,
-  timeZone: string
+  timeZone: string,
+  history?: MarketHistoryStore
 ): Promise<SourceItem | null> {
   const slot = zonedSlot(now, timeZone);
   if (market === "korea") {
-    return koreaMarketCandidate({ ...slot, hour: KOREA_MARKET_HOUR });
+    return koreaMarketCandidate({ ...slot, hour: KOREA_MARKET_HOUR }, history);
   }
 
   const usSlot = zonedSlot(now, NEW_YORK_TIMEZONE);
-  return usMarketCandidate({ ...slot, hour: US_MARKET_HOUR }, usSlot.day);
+  return usMarketCandidate({ ...slot, hour: US_MARKET_HOUR }, usSlot.day, history);
 }
 
 async function koreaMarketCandidate(

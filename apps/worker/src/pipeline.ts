@@ -76,7 +76,7 @@ export async function runPublishingPipeline(
     const market = options.forceSerious
       ? null
       : options.forceMarket
-      ? await forcedMarketCandidate(options.forceMarket, new Date(startedAt), config.siteTimezone)
+      ? await forcedMarketCandidate(options.forceMarket, new Date(startedAt), config.siteTimezone, marketHistory)
       : await scheduledMarketCandidate(new Date(startedAt), config.siteTimezone, seen, marketHistory);
     const nonsense = options.forceSerious ? null : scheduledNonsenseCandidate(new Date(startedAt), config.siteTimezone);
     const securitySelection = options.forceSerious
