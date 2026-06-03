@@ -1,7 +1,7 @@
 ---
 title: "휴장인데도 주주들은 각자 계좌를 만지작거린다"
 subtitle: "직전 마감 숫자는 배경자료일 뿐, 오늘의 주인공은 종목이 아니라 멍청하게 희망을 붙드는 사람들이다"
-slug: "2026-06-03-5ec7b93b-2026-06-03----"
+slug: "2026-06-03-5ec7b93b-2026-06-03-korea-holiday-holder-status"
 date: "2026-06-03T16:15:50+09:00"
 category: "시장"
 source_name: "The Ploradian 국장 휴장 관찰 데스크"

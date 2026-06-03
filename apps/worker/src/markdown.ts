@@ -10,10 +10,10 @@ export function prepareMarkdownArticle(
 ): PreparedArticle {
   const date = formatZonedIso(now, config.siteTimezone);
   const day = date.slice(0, 10);
-  const topic = topicSlug(generated.slug || generated.title || source.title, source.category, sourceHash);
+  const category = normalizeCategory(generated.category || source.category);
+  const topic = topicSlug([generated.slug, generated.title, source.title, source.url], category, sourceHash);
   const slug = `${day}-${sourceHash.slice(0, 8)}-${topic}`;
   const path = `content/articles/published/${slug}.md`;
-  const category = normalizeCategory(generated.category || source.category);
 
   const article: Omit<PreparedArticle, "markdown" | "path" | "sourceHash" | "topic"> = {
     title: generated.title.trim(),
@@ -95,8 +95,23 @@ function normalizeCategory(value: string): string {
   return value.trim();
 }
 
-function topicSlug(value: string, category: string, hash: string): string {
-  const ascii = value
+function topicSlug(values: Array<string | undefined>, category: string, hash: string): string {
+  for (const value of values) {
+    const ascii = asciiSlug(value ?? "");
+    if (isUsefulTopicSlug(ascii)) {
+      return ascii.slice(0, 72).replace(/-$/g, "");
+    }
+  }
+
+  const fallback = asciiSlug(category);
+
+  return (fallback || `story-${hash.slice(0, 6)}`).slice(0, 72).replace(/-$/g, "");
+}
+
+function asciiSlug(value: string): string {
+  const pathValue = value.startsWith("http://") || value.startsWith("https://") ? slugPathFromUrl(value) : value;
+
+  return pathValue
     .normalize("NFKD")
     .replace(/[^\w\s-]/g, " ")
     .replace(/_/g, " ")
@@ -104,14 +119,22 @@ function topicSlug(value: string, category: string, hash: string): string {
     .split(/\s+/)
     .filter(Boolean)
     .slice(0, 7)
-    .join("-");
-
-  const fallback = category
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
+    .join("-")
+    .replace(/-+/g, "-")
     .replace(/^-|-$/g, "");
+}
 
-  return (ascii || fallback || `story-${hash.slice(0, 6)}`).slice(0, 72).replace(/-$/g, "");
+function slugPathFromUrl(value: string): string {
+  try {
+    const url = new URL(value);
+    return url.pathname.split("/").filter(Boolean).slice(-2).join("-");
+  } catch {
+    return value;
+  }
+}
+
+function isUsefulTopicSlug(value: string): boolean {
+  return /[a-z]/.test(value) && value.replace(/[0-9-]/g, "").length >= 3;
 }
 
 function formatZonedIso(date: Date, timeZone: string): string {
