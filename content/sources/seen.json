@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-03T16:01:31.067Z",
+  "updated_at": "2026-06-03T17:00:58.088Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -353,6 +353,14 @@
       "title": "PlayStation is getting back to what it’s good at",
       "article_path": "content/articles/published/2026-06-04-d3403af5-playstation-state-of-play-june-2026-single-player-return-satire.md",
       "seen_at": "2026-06-03T16:01:31.067Z"
+    },
+    "5c4344dbf1f175383bed0384f23d0ce5ab26effa701a900c89709c385458a7cc": {
+      "url": "https://www.theverge.com/tech/942547/amazon-search-bar-ai-images",
+      "canonical_url": "https://www.theverge.com/tech/942547/amazon-search-bar-ai-images",
+      "source_name": "The Verge",
+      "title": "Amazon&#8217;s search bar will invent AI-generated products you can&#8217;t buy",
+      "article_path": "content/articles/published/2026-06-04-5c4344db-amazon-search-bar-ai-generated-products-you-cant-buy.md",
+      "seen_at": "2026-06-03T17:00:58.088Z"
     }
   }
 }
