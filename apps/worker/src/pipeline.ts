@@ -19,7 +19,8 @@ import { forcedMarketCandidate, forcedMarketHolidayCandidate, marketHistoryEntry
 import { scheduledNonsenseCandidate } from "./nonsense";
 import { scheduledSeriousSelection } from "./serious";
 import { scheduledSecurityPreySelection } from "./security";
-import { extractFacts, generateSatireArticle, generateSeriousArticle, intensifySatireArticle } from "./ai";
+import { scheduledAstronomySelection } from "./astronomy";
+import { extractFacts, generateSatireArticle, generateSeriousArticle, generateStarsArticle, intensifySatireArticle } from "./ai";
 import { fetchFeedItems, fetchSourcePageText, sourceHash } from "./rss";
 import { validateGeneratedArticle } from "./validation";
 import type {
@@ -43,6 +44,7 @@ export async function runPublishingPipeline(
     forceMarketHoliday?: "korea" | "us";
     forceSerious?: boolean;
     forceSecurity?: boolean;
+    forceStars?: boolean;
     ignoreSeen?: boolean;
   }
 ): Promise<PipelineResult> {
@@ -61,6 +63,11 @@ export async function runPublishingPipeline(
     top_candidates: [],
     reason: "not evaluated"
   };
+  let starsWorld: NonNullable<PipelineResult["stars_world"]> = {
+    selected: null,
+    top_candidates: [],
+    reason: "not evaluated"
+  };
   let dryRun = false;
 
   try {
@@ -74,20 +81,21 @@ export async function runPublishingPipeline(
     const seriousHistory = githubTarget && !options.ignoreSeen
       ? await readSeriousEditorialStore(githubTarget)
       : emptySeriousEditorialStore();
-    const market = options.forceSerious
+    const specialOnlyRun = Boolean(options.forceSerious || options.forceStars);
+    const market = specialOnlyRun
       ? null
       : options.forceMarketHoliday
       ? forcedMarketHolidayCandidate(options.forceMarketHoliday, new Date(startedAt), config.siteTimezone, marketHistory)
       : options.forceMarket
       ? await forcedMarketCandidate(options.forceMarket, new Date(startedAt), config.siteTimezone, marketHistory)
       : await scheduledMarketCandidate(new Date(startedAt), config.siteTimezone, seen, marketHistory);
-    const nonsense = options.forceSerious ? null : scheduledNonsenseCandidate(new Date(startedAt), config.siteTimezone);
-    const securitySelection = options.forceSerious
+    const nonsense = specialOnlyRun ? null : scheduledNonsenseCandidate(new Date(startedAt), config.siteTimezone);
+    const securitySelection = specialOnlyRun
       ? {
           source: null,
           selected: null,
           topCandidates: [],
-          reason: "skipped during serious-only run"
+          reason: "skipped during special-only run"
         }
       : await scheduledSecurityPreySelection(config, seen, new Date(startedAt), Boolean(options.forceSecurity));
     securityPrey = {
@@ -95,27 +103,51 @@ export async function runPublishingPipeline(
       top_candidates: securitySelection.topCandidates,
       reason: securitySelection.reason
     };
-    const seriousSelection = await scheduledSeriousSelection(
-      config,
-      seen,
-      seriousHistory,
-      new Date(startedAt),
-      Boolean(options.forceSerious)
-    );
+    const seriousSelection = options.forceStars
+      ? {
+          source: null,
+          selected: null,
+          topCandidates: [],
+          reason: "skipped during stars-only run"
+        }
+      : await scheduledSeriousSelection(
+          config,
+          seen,
+          seriousHistory,
+          new Date(startedAt),
+          Boolean(options.forceSerious)
+        );
     seriousEditorial = {
       selected: seriousSelection.selected,
       top_candidates: seriousSelection.topCandidates,
       reason: seriousSelection.reason
     };
+    const astronomySelection = options.forceSerious
+      ? {
+          source: null,
+          selected: null,
+          topCandidates: [],
+          reason: "skipped during serious-only run"
+        }
+      : await scheduledAstronomySelection(config, seen, new Date(startedAt), Boolean(options.forceStars));
+    starsWorld = {
+      selected: astronomySelection.selected,
+      top_candidates: astronomySelection.topCandidates,
+      reason: astronomySelection.reason
+    };
     const seriousOnlyRun = Boolean(options.forceSerious) || seriousSelection.reason !== "not serious desk slot";
-    const scheduledFeeds = seriousOnlyRun ? [] : scheduledFeedSources(config.rssFeeds, new Date(startedAt), config.siteTimezone);
-    if (!seriousOnlyRun) {
+    const starsOnlyRun = Boolean(options.forceStars) || astronomySelection.reason !== "not astronomy slot";
+    const scheduledFeeds = seriousOnlyRun || starsOnlyRun
+      ? []
+      : scheduledFeedSources(config.rssFeeds, new Date(startedAt), config.siteTimezone);
+    if (!seriousOnlyRun && !starsOnlyRun) {
       skipped.push(`rss window: ${feedWindowName(new Date(startedAt), config.siteTimezone)} (${scheduledFeeds.map((feed) => feed.name).join(", ") || "no rss"})`);
       skipped.push(`security prey: ${securitySelection.reason}`);
+      skipped.push(`stars world: ${astronomySelection.reason}`);
     }
     const feedItems = scheduledFeeds.length === 0 ? [] : await fetchFeedItems(scheduledFeeds);
-    const scheduledItems = [market, nonsense, securitySelection.source, seriousSelection.source].filter((item): item is SourceItem => item !== null);
-    const nonSecurityScheduledItems = [market, nonsense, seriousSelection.source].filter((item): item is SourceItem => item !== null);
+    const scheduledItems = [market, nonsense, securitySelection.source, seriousSelection.source, astronomySelection.source].filter((item): item is SourceItem => item !== null);
+    const nonSecurityScheduledItems = [market, nonsense, seriousSelection.source, astronomySelection.source].filter((item): item is SourceItem => item !== null);
     const sourceItems = prioritizeSourceItems([...scheduledItems, ...feedItems]);
     const candidates = await unseenCandidates(filterSourceCandidates(sourceItems, skipped), seen);
     if (candidates.length === 0) {
@@ -177,7 +209,8 @@ export async function runPublishingPipeline(
         errors,
         articles: [],
         serious_editorial: seriousEditorial,
-        security_prey: securityPrey
+        security_prey: securityPrey,
+        stars_world: starsWorld
       });
     }
 
@@ -197,7 +230,8 @@ export async function runPublishingPipeline(
           markdown: article.markdown
         })),
         serious_editorial: seriousEditorial,
-        security_prey: securityPrey
+        security_prey: securityPrey,
+        stars_world: starsWorld
       });
     }
 
@@ -217,7 +251,8 @@ export async function runPublishingPipeline(
         errors,
         articles: [],
         serious_editorial: seriousEditorial,
-        security_prey: securityPrey
+        security_prey: securityPrey,
+        stars_world: starsWorld
       });
     }
 
@@ -252,7 +287,8 @@ export async function runPublishingPipeline(
         title: article.title
       })),
       serious_editorial: seriousEditorial,
-      security_prey: securityPrey
+      security_prey: securityPrey,
+      stars_world: starsWorld
     });
   } catch (error) {
     const message = error instanceof ConfigError ? error.message : errorMessage(error);
@@ -271,7 +307,8 @@ export async function runPublishingPipeline(
         title: article.title
       })),
       serious_editorial: seriousEditorial,
-      security_prey: securityPrey
+      security_prey: securityPrey,
+      stars_world: starsWorld
     });
   }
 }
@@ -308,6 +345,10 @@ function sourcePriority(source: SourceItem): number {
 
   if (source.securityPreyEvaluation || source.feedName.includes("보안뉴스")) {
     return 4;
+  }
+
+  if (source.category === "별들의 세계") {
+    return 6;
   }
 
   const feedName = source.feedName.toLowerCase();
@@ -424,6 +465,10 @@ async function extractFactsWithFallback(
     return seriousFacts(source, pageText);
   }
 
+  if (source.category === "별들의 세계") {
+    return astronomyFacts(source, pageText);
+  }
+
   if (!source.synthetic) {
     return fallbackFacts(source, pageText);
   }
@@ -443,6 +488,10 @@ async function generateAndValidate(
 ) {
   if (source.category === "정색") {
     return await generateSeriousAndValidate(config, source, facts, pageText);
+  }
+
+  if (source.category === "별들의 세계") {
+    return await generateStarsAndValidate(config, source, facts, pageText);
   }
 
   const sourceText = [source.title, source.summary, pageText].join("\n");
@@ -574,6 +623,47 @@ async function generateSeriousAndValidate(
   return retry;
 }
 
+async function generateStarsAndValidate(
+  config: ReturnType<typeof loadConfig>,
+  source: SourceItem,
+  facts: FactSummary,
+  pageText: string
+): Promise<GeneratedArticleJson> {
+  const evaluation = source.astronomyEvaluation;
+  if (!evaluation) {
+    throw new Error("astronomy source is missing editorial evaluation");
+  }
+
+  const sourceText = [
+    source.title,
+    source.summary,
+    pageText,
+    evaluation.primary_object,
+    evaluation.scientific_anchor,
+    evaluation.literary_axis
+  ].join("\n");
+  const draft = await generateStarsArticle(config, source, facts, evaluation, pageText);
+  const draftValidation = validateGeneratedArticle(draft, source, facts, sourceText);
+  if (draftValidation.ok) {
+    return draft;
+  }
+
+  const retry = await generateStarsArticle(
+    config,
+    source,
+    facts,
+    evaluation,
+    pageText,
+    `The previous draft failed validation for: ${draftValidation.reasons.join("; ")}. Rewrite as 별들의 세계: a grounded literary astronomy essay, not satire and not generic science news.`
+  );
+  const retryValidation = validateGeneratedArticle(retry, source, facts, sourceText);
+  if (!retryValidation.ok) {
+    throw new Error(`stars validation failed after retry: ${retryValidation.reasons.join("; ")}`);
+  }
+
+  return retry;
+}
+
 function fallbackFacts(source: SourceItem, pageText: string): FactSummary {
   const summary = [source.summary, pageText].join(" ").replace(/\s+/g, " ").trim();
   const mockableDetails = groundedMockableFragments(source, pageText);
@@ -603,6 +693,68 @@ function fallbackFacts(source: SourceItem, pageText: string): FactSummary {
       summary.slice(0, 700)
     ].filter(Boolean)
   };
+}
+
+function astronomyFacts(source: SourceItem, pageText: string): FactSummary {
+  const evaluation = source.astronomyEvaluation;
+  const summary = [source.summary, pageText].join(" ").replace(/\s+/g, " ").trim();
+  const scientificFragments = astronomyFragments(`${source.title}. ${source.summary}. ${pageText}`);
+  return {
+    entities: [
+      source.feedName,
+      evaluation?.primary_object ?? "",
+      evaluation?.object_type ?? "",
+      ...keywordFragmentsForFallback(source.title).slice(0, 5)
+    ].filter(Boolean),
+    numbers: summary.match(/[+-]?\d+(?:,\d{3})*(?:\.\d+)?%?|(?:\d+(?:\.\d+)?)\s*(?:light-years?|광년|AU|km|miles?)/gi)?.slice(0, 10) ?? [],
+    dates: source.publishedAt ? [source.publishedAt] : [],
+    conflict_or_controversy: evaluation?.scientific_anchor ?? (source.summary || source.title),
+    money_stock_market_angle: "",
+    reader_relevance: evaluation?.literary_axis ?? "밤과 거리와 오래된 빛을 사람의 시간으로 읽는다.",
+    satire_targets: [evaluation?.primary_object ?? source.title].filter(Boolean),
+    mockable_details: scientificFragments.slice(0, 6),
+    weak_points: [
+      evaluation?.scientific_anchor,
+      evaluation?.why_it_works,
+      evaluation?.literary_axis,
+      ...scientificFragments.slice(0, 4)
+    ].filter(Boolean) as string[],
+    corporate_euphemisms: [],
+    facts: [
+      source.title,
+      source.summary,
+      ...scientificFragments.slice(0, 8),
+      evaluation ? `primary object: ${evaluation.primary_object}` : "",
+      evaluation ? `scientific anchor: ${evaluation.scientific_anchor}` : "",
+      evaluation ? `literary axis: ${evaluation.literary_axis}` : "",
+      summary.slice(0, 1200)
+    ].filter(Boolean)
+  };
+}
+
+function astronomyFragments(value: string): string[] {
+  const candidates = value
+    .replace(/\s+/g, " ")
+    .split(/(?<=[.!?。])\s+|(?<=다\.)\s+|(?<=요\.)\s+/)
+    .map((part) => part.trim())
+    .filter((part) => part.length >= 30 && part.length <= 260)
+    .filter((part) => /star|galax|planet|moon|sun|solar|comet|asteroid|black hole|nebula|supernova|telescope|webb|hubble|jwst|light-year|은하|항성|별|행성|달|태양|혜성|소행성|블랙홀|성운|초신성|망원경|광년|관측/i.test(part));
+
+  const seen = new Set<string>();
+  const output: string[] = [];
+  for (const candidate of candidates) {
+    const key = candidate.slice(0, 80);
+    if (seen.has(key)) {
+      continue;
+    }
+    seen.add(key);
+    output.push(candidate);
+    if (output.length >= 8) {
+      break;
+    }
+  }
+
+  return output.length > 0 ? output : [value.slice(0, 240)].filter((part) => part.trim().length >= 30);
 }
 
 function groundedMockableFragments(source: SourceItem, pageText: string): string[] {

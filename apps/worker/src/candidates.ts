@@ -127,7 +127,7 @@ const TARGETABLE_FACT_TERMS = [
 ];
 
 export function candidateSkipReason(source: SourceItem): string | null {
-  if (source.synthetic || source.category === "헛소리") {
+  if (source.synthetic || source.category === "헛소리" || source.category === "별들의 세계") {
     return null;
   }
 
@@ -153,7 +153,13 @@ export function candidateSkipReason(source: SourceItem): string | null {
 }
 
 export function satireSuitabilitySkipReason(source: SourceItem, pageText: string): string | null {
-  if (source.synthetic || source.category === "헛소리" || source.category === "정색" || source.securityPreyEvaluation) {
+  if (
+    source.synthetic ||
+    source.category === "헛소리" ||
+    source.category === "정색" ||
+    source.category === "별들의 세계" ||
+    source.securityPreyEvaluation
+  ) {
     return null;
   }
 

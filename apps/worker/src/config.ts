@@ -42,9 +42,11 @@ export function loadConfig(env: Env): RuntimeConfig {
   const githubBranch = clean(values.GITHUB_BRANCH) ?? DEFAULT_BRANCH;
   const githubToken = clean(values.GITHUB_TOKEN) ?? null;
   const rssFeeds = parseFeeds(values.RSS_FEEDS_JSON);
+  const astronomyFeeds = parseFeeds(values.ASTRONOMY_FEEDS_JSON);
+  const astronomyMinScore = parseInteger(values.ASTRONOMY_MIN_SCORE, 78, 60, 100, "ASTRONOMY_MIN_SCORE");
   const seriousSources = parseSeriousSources(values.SERIOUS_SOURCES_JSON);
-  const seriousMinScore = parseInteger(values.SERIOUS_MIN_SCORE, DEFAULT_SERIOUS_MIN_SCORE, 60, 100);
-  const maxArticlesPerRun = parseInteger(values.MAX_ARTICLES_PER_RUN, 2, 1, 5);
+  const seriousMinScore = parseInteger(values.SERIOUS_MIN_SCORE, DEFAULT_SERIOUS_MIN_SCORE, 60, 100, "SERIOUS_MIN_SCORE");
+  const maxArticlesPerRun = parseInteger(values.MAX_ARTICLES_PER_RUN, 2, 1, 5, "MAX_ARTICLES_PER_RUN");
   const dryRun = parseBoolean(values.DRY_RUN, false);
   const siteTimezone = clean(values.SITE_TIMEZONE) ?? DEFAULT_TIMEZONE;
   const unsplashAccessKey = clean(values.UNSPLASH_ACCESS_KEY);
@@ -67,6 +69,8 @@ export function loadConfig(env: Env): RuntimeConfig {
     githubBranch,
     githubToken,
     rssFeeds,
+    astronomyFeeds,
+    astronomyMinScore,
     seriousSources,
     seriousMinScore,
     maxArticlesPerRun,
@@ -234,7 +238,8 @@ function parseInteger(
   raw: string | undefined,
   fallback: number,
   min: number,
-  max: number
+  max: number,
+  label = "integer value"
 ): number {
   const value = clean(raw);
   if (!value) {
@@ -242,7 +247,7 @@ function parseInteger(
   }
   const parsed = Number.parseInt(value, 10);
   if (!Number.isFinite(parsed) || parsed < min || parsed > max) {
-    throw new ConfigError(`MAX_ARTICLES_PER_RUN must be between ${min} and ${max}.`);
+    throw new ConfigError(`${label} must be between ${min} and ${max}.`);
   }
   return parsed;
 }

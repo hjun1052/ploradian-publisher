@@ -98,6 +98,10 @@ export async function findArticleImage(
 }
 
 function imageQuery(source: SourceItem, article: GeneratedArticleJson, facts: FactSummary): string {
+  if (article.category === "별들의 세계" || source.category === "별들의 세계") {
+    return astronomyImageQuery(source);
+  }
+
   if (article.category === "헛소리" || source.category === "헛소리") {
     return CATEGORY_QUERIES["헛소리"] ?? "empty office desk";
   }
@@ -114,6 +118,44 @@ function imageQuery(source: SourceItem, article: GeneratedArticleJson, facts: Fa
     .join(" ");
 
   return [entities, base].filter(Boolean).join(" ").trim();
+}
+
+function astronomyImageQuery(source: SourceItem): string {
+  const evaluation = source.astronomyEvaluation;
+  const candidates = [
+    evaluation?.visual_query,
+    evaluation?.primary_object,
+    evaluation?.object_type
+  ];
+
+  for (const candidate of candidates) {
+    const query = (candidate ?? "").trim();
+    if (isUsableAstronomyQuery(query)) {
+      return query;
+    }
+  }
+
+  return "";
+}
+
+function isUsableAstronomyQuery(query: string): boolean {
+  const normalized = query.toLowerCase();
+  if (query.length < 3 || query.length > 60) {
+    return false;
+  }
+
+  return ![
+    "space",
+    "universe",
+    "cosmos",
+    "sky",
+    "night sky",
+    "stars",
+    "astronomy",
+    "unknown",
+    "none",
+    "n/a"
+  ].includes(normalized);
 }
 
 function topicImageQuery(source: SourceItem, article: GeneratedArticleJson, facts: FactSummary): string | null {

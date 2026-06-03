@@ -26,7 +26,7 @@ enabled = true
 head_sampling_rate = 1.0
 
 [triggers]
-crons = ["0 * * * *", "30 12 * * 2,5"]
+crons = ["0 * * * *", "30 12 * * 2,5", "30 14 * * 0,3,5"]
 
 [vars]
 AI_PROVIDER = "openai"
@@ -81,6 +81,36 @@ RSS_FEEDS_JSON = """
     "name": "연합인포맥스 국제뉴스",
     "url": "https://news.einfomax.co.kr/rss/S1N23.xml",
     "category": "시장"
+  }
+]
+"""
+ASTRONOMY_MIN_SCORE = "78"
+ASTRONOMY_FEEDS_JSON = """
+[
+  {
+    "name": "ESA Space Science",
+    "url": "https://www.esa.int/rssfeed/Our_Activities/Space_Science",
+    "category": "별들의 세계"
+  },
+  {
+    "name": "EarthSky",
+    "url": "https://earthsky.org/feed/",
+    "category": "별들의 세계"
+  },
+  {
+    "name": "Phys.org Astronomy",
+    "url": "https://phys.org/rss-feed/space-news/astronomy/",
+    "category": "별들의 세계"
+  },
+  {
+    "name": "Space.com All",
+    "url": "https://www.space.com/feeds/all",
+    "category": "별들의 세계"
+  },
+  {
+    "name": "NASA News Releases",
+    "url": "https://www.nasa.gov/news-release/feed/",
+    "category": "별들의 세계"
   }
 ]
 """

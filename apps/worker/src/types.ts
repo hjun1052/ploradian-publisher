@@ -39,6 +39,8 @@ export interface RuntimeConfig {
   githubBranch: string;
   githubToken: string | null;
   rssFeeds: FeedSource[];
+  astronomyFeeds: FeedSource[];
+  astronomyMinScore: number;
   seriousSources: SeriousSource[];
   seriousMinScore: number;
   maxArticlesPerRun: number;
@@ -63,6 +65,20 @@ export interface SourceItem {
   seriousInstitution?: string;
   seriousEvaluation?: SeriousCandidateEvaluation;
   securityPreyEvaluation?: SecurityPreyEvaluation;
+  astronomyEvaluation?: AstronomyCandidateEvaluation;
+}
+
+export interface AstronomyCandidateEvaluation {
+  raw_score: number;
+  final_score: number;
+  publish_decision: "publish" | "hold" | "reject";
+  primary_object: string;
+  object_type: string;
+  visual_query: string;
+  literary_axis: string;
+  scientific_anchor: string;
+  why_it_works: string;
+  why_hold_or_reject: string;
 }
 
 export interface SeriousCandidateEvaluation {
@@ -232,6 +248,11 @@ export interface PipelineResult {
   security_prey?: {
     selected: SecurityPreyEvaluation | null;
     top_candidates: SecurityPreyEvaluation[];
+    reason: string;
+  };
+  stars_world?: {
+    selected: AstronomyCandidateEvaluation | null;
+    top_candidates: AstronomyCandidateEvaluation[];
     reason: string;
   };
 }

@@ -21,7 +21,7 @@ const BANNED_SECTION_HEADERS = [
 
 const CRIMINAL_TERMS = ["범죄", "사기", "횡령", "불법", "조작", "기소", "체포", "수사"];
 const UNSUPPORTED_INTENT_TERMS = ["고의로", "일부러", "작정하고", "속이려", "은폐하려", "공모"];
-const ALLOWED_CATEGORIES = new Set(["기술", "비즈니스", "시장", "헛소리", "정색"]);
+const ALLOWED_CATEGORIES = new Set(["기술", "비즈니스", "시장", "헛소리", "정색", "별들의 세계"]);
 const SATIRE_SIGNAL_TERMS = [
   "마치",
   "같다",
@@ -154,6 +154,8 @@ export function validateGeneratedArticle(
 
   if (article.category === "정색") {
     validateSeriousArticle(article, source, facts, title, body, reasons);
+  } else if (article.category === "별들의 세계") {
+    validateStarsArticle(article, source, facts, title, body, reasons);
   } else if (article.category === "헛소리" || source.synthetic) {
     if (article.category === "시장") {
       validateMarketNonsenseArticle(source, `${title}\n${article.subtitle}\n${body}`, body, reasons);
@@ -183,7 +185,7 @@ export function validateGeneratedArticle(
   }
 
   if (!ALLOWED_CATEGORIES.has(article.category.trim())) {
-    reasons.push(`category must be one of 기술, 비즈니스, 시장, 헛소리, 정색: ${article.category}`);
+    reasons.push(`category must be one of 기술, 비즈니스, 시장, 헛소리, 정색, 별들의 세계: ${article.category}`);
   }
 
   if (!isProbablyUrl(article.source_url)) {
@@ -224,6 +226,62 @@ export function validateGeneratedArticle(
     ok: reasons.length === 0,
     reasons
   };
+}
+
+function validateStarsArticle(
+  article: GeneratedArticleJson,
+  source: SourceItem,
+  facts: FactSummary,
+  title: string,
+  body: string,
+  reasons: string[]
+): void {
+  if (body.length < 900) {
+    reasons.push("별들의 세계 body is too short for a literary astronomy essay");
+  }
+
+  if (body.length > 3900) {
+    reasons.push("별들의 세계 body is too long; keep the essay luminous and focused");
+  }
+
+  if (!source.astronomyEvaluation) {
+    reasons.push("별들의 세계 source is missing astronomy evaluation");
+  }
+
+  const fullText = `${title} ${article.subtitle} ${body}`;
+  if (countAstronomyTerms(fullText) < 4) {
+    reasons.push("별들의 세계 lacks enough concrete astronomy language");
+  }
+
+  const groundingHits = concreteWeakPointHits(body, facts);
+  if (groundingHits < 2) {
+    reasons.push("별들의 세계 does not use enough supplied scientific anchors");
+  }
+
+  if (countDirectRidicule(fullText) > 1) {
+    reasons.push("별들의 세계 reads too much like ridicule");
+  }
+
+  if (/거지같|멍청|개판|등신|똥덩어리|조롱|비웃|까는|어그로/.test(fullText)) {
+    reasons.push("별들의 세계 contains satire-column diction");
+  }
+
+  if (countMatches(fullText, /주가|증시|시장|투자|기업|소비자|고객|플랫폼|정책/g) > 3) {
+    reasons.push("별들의 세계 drifted into market/business/policy framing");
+  }
+
+  const requiredJudgments = [
+    source.astronomyEvaluation?.primary_object,
+    source.astronomyEvaluation?.scientific_anchor,
+    source.astronomyEvaluation?.literary_axis
+  ].filter((value): value is string => Boolean(value && value.length >= 4));
+  if (requiredJudgments.length >= 2 && briefCoverage(body, requiredJudgments) < 1) {
+    reasons.push("별들의 세계 body does not reflect astronomy evaluation fields");
+  }
+
+  if (article.category !== "별들의 세계") {
+    reasons.push("별들의 세계 article must keep category exactly 별들의 세계");
+  }
 }
 
 function validateSeriousArticle(
@@ -562,6 +620,37 @@ function countDirectRidicule(value: string): number {
 
 function countSeriousCritiqueTerms(value: string): number {
   return SERIOUS_CRITIQUE_TERMS.reduce((count, term) => count + occurrences(value, term), 0);
+}
+
+function countAstronomyTerms(value: string): number {
+  const terms = [
+    "별",
+    "항성",
+    "은하",
+    "행성",
+    "성운",
+    "블랙홀",
+    "혜성",
+    "소행성",
+    "달",
+    "태양",
+    "빛",
+    "중력",
+    "궤도",
+    "대기",
+    "자기장",
+    "망원경",
+    "관측",
+    "광년",
+    "우주",
+    "초신성",
+    "Webb",
+    "Hubble",
+    "JWST",
+    "ESA",
+    "NASA"
+  ];
+  return terms.reduce((count, term) => count + occurrences(value, term), 0);
 }
 
 function analogyLoad(value: string): number {

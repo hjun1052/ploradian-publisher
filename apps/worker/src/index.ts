@@ -56,6 +56,7 @@ export default {
       forceMarketHoliday?: "korea" | "us";
       forceSerious?: boolean;
       forceSecurity?: boolean;
+      forceStars?: boolean;
       ignoreSeen?: boolean;
     } = {
       trigger
@@ -79,6 +80,9 @@ export default {
     }
     if (url.searchParams.get("security") === "true") {
       runOptions.forceSecurity = true;
+    }
+    if (url.searchParams.get("stars") === "true" || url.searchParams.get("astronomy") === "true") {
+      runOptions.forceStars = true;
     }
     const result = await runPublishingPipeline(env, runOptions);
 

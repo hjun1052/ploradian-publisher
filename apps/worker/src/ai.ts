@@ -2,13 +2,15 @@ import {
   MARKET_NONSENSE_ENGINE_PROMPT,
   NONSENSE_ENGINE_PROMPT,
   SATIRE_ENGINE_PROMPT,
-  SERIOUS_ENGINE_PROMPT
+  SERIOUS_ENGINE_PROMPT,
+  STARS_ENGINE_PROMPT
 } from "./generated/satire-engine";
 import { fetchTextWithRetry } from "./http";
 import type {
   FactSummary,
   GeneratedArticleJson,
   RuntimeConfig,
+  AstronomyCandidateEvaluation,
   SeriousCandidateEvaluation,
   SeriousEditorialStore,
   SecurityPreyEvaluation,
@@ -53,7 +55,7 @@ const articleSchema = {
   properties: {
     title: { type: "string" },
     subtitle: { type: "string" },
-    category: { type: "string", enum: ["기술", "비즈니스", "시장", "헛소리", "정색"] },
+    category: { type: "string", enum: ["기술", "비즈니스", "시장", "헛소리", "정색", "별들의 세계"] },
     slug: { type: "string" },
     satire_brief: {
       type: "object",
@@ -141,6 +143,35 @@ const securityPreyEvaluationSchema = {
     "ridicule_angle",
     "concrete_details",
     "why_it_is_mockable",
+    "why_hold_or_reject"
+  ],
+  additionalProperties: false
+} as const;
+
+const astronomyEvaluationSchema = {
+  type: "object",
+  properties: {
+    raw_score: { type: "number" },
+    final_score: { type: "number" },
+    publish_decision: { type: "string", enum: ["publish", "hold", "reject"] },
+    primary_object: { type: "string" },
+    object_type: { type: "string" },
+    visual_query: { type: "string" },
+    literary_axis: { type: "string" },
+    scientific_anchor: { type: "string" },
+    why_it_works: { type: "string" },
+    why_hold_or_reject: { type: "string" }
+  },
+  required: [
+    "raw_score",
+    "final_score",
+    "publish_decision",
+    "primary_object",
+    "object_type",
+    "visual_query",
+    "literary_axis",
+    "scientific_anchor",
+    "why_it_works",
     "why_hold_or_reject"
   ],
   additionalProperties: false
@@ -311,6 +342,52 @@ raw_score 0-100. final_score equals raw_score. publish only at 85+ and grounded.
   };
 }
 
+export async function evaluateAstronomyCandidate(
+  config: RuntimeConfig,
+  source: SourceItem,
+  pageText: string,
+  slotContext: { day: string; night_axis: string }
+): Promise<AstronomyCandidateEvaluation> {
+  const evaluation = await callModelJson<AstronomyCandidateEvaluation>(
+    config,
+    "ploradian_astronomy_evaluation",
+    astronomyEvaluationSchema,
+    [
+      {
+        role: "system",
+        content: `Score whether this astronomy item deserves a literary Korean essay in The Ploradian category 별들의 세계. Strict JSON; do not write the article.
+Choose publish only when the item has both:
+- enough concrete astronomy: named object/phenomenon/instrument/scale/date/finding
+- realistic literary potential: time, distance, light, death, birth, loneliness, gravity, ice, atmosphere, magnetic wind, old signal, or cosmic uncertainty
+Reject or hold: APOD-style thin captions, space business, rockets/launch-company logistics, entertainment, gadgets, generic "look up" tips without depth, admin/personnel/procurement/seminar pages, or items that only allow "space is pretty".
+raw_score 0-100. final_score equals raw_score unless the slot mood clearly fits. publish at 78+ only.
+visual_query should be a concise Unsplash query based on the object itself, not generic vibes. Prefer exact object/object type like "Saturn", "Milky Way", "comet", "moon", "nebula", "galaxy", "telescope".`
+      },
+      {
+        role: "user",
+        content: JSON.stringify({
+          source_metadata: {
+            source_name: source.feedName,
+            source_url: source.url,
+            original_title: source.title
+          },
+          rss_summary: source.summary,
+          page_text_excerpt: pageText.slice(0, 2400),
+          slot_context: slotContext
+        })
+      }
+    ],
+    1200,
+    config.openaiUtilityModel
+  );
+
+  return {
+    ...evaluation,
+    raw_score: clampScore(evaluation.raw_score),
+    final_score: clampScore(evaluation.final_score)
+  };
+}
+
 export async function evaluateSeriousCandidate(
   config: RuntimeConfig,
   source: SourceItem,
@@ -402,6 +479,54 @@ Strict JSON. Use editorial judgment as structure, not metadata. Hide scoring. 5-
     source_url: source.url,
     original_title: source.title,
     category: "정색"
+  };
+}
+
+export async function generateStarsArticle(
+  config: RuntimeConfig,
+  source: SourceItem,
+  facts: FactSummary,
+  evaluation: AstronomyCandidateEvaluation,
+  pageText: string,
+  correction?: string
+): Promise<GeneratedArticleJson> {
+  const article = await callModelJson<GeneratedArticleJson>(
+    config,
+    "ploradian_stars_article",
+    articleSchema,
+    [
+      {
+        role: "system",
+        content: `${STARS_ENGINE_PROMPT}
+
+Strict JSON. Use the astronomy evaluation as the spine, not as visible metadata. Keep it grounded and literary. 5-7 paragraphs; paragraph 1 summarizes the actual astronomy item before the essay deepens.`
+      },
+      {
+        role: "user",
+        content: JSON.stringify({
+          source_metadata: {
+            source_name: source.feedName,
+            source_url: source.url,
+            original_title: source.title,
+            category: "별들의 세계"
+          },
+          extracted_facts: facts,
+          astronomy_judgment: evaluation,
+          source_excerpt: pageText.slice(0, 2400),
+          correction
+        })
+      }
+    ],
+    2700,
+    config.openaiArticleModel
+  );
+
+  return {
+    ...article,
+    source_name: source.feedName,
+    source_url: source.url,
+    original_title: source.title,
+    category: "별들의 세계"
   };
 }
 
@@ -622,6 +747,14 @@ function normalizeCategory(value: string): string {
 
   if (["serious", "column", "critique", "analysis", "정색", "칼럼", "논평"].includes(normalized)) {
     return "정색";
+  }
+
+  if (
+    ["stars", "astronomy", "cosmos", "space essay", "별", "별들의 세계", "천문", "천문학", "우주"].includes(
+      normalized
+    )
+  ) {
+    return "별들의 세계";
   }
 
   return value.trim();

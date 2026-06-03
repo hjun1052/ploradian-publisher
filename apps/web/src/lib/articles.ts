@@ -165,6 +165,10 @@ function normalizeCategory(value: string): string {
     return "정색";
   }
 
+  if (["stars", "astronomy", "cosmos", "space essay", "별", "별들의 세계", "천문", "천문학", "우주"].includes(normalized)) {
+    return "별들의 세계";
+  }
+
   return value.trim();
 }
 
