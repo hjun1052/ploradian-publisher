@@ -18,6 +18,7 @@ import { candidateSkipReason, satireSuitabilitySkipReason } from "./candidates";
 import { forcedMarketCandidate, marketHistoryEntryFromSource, scheduledMarketCandidate } from "./market";
 import { scheduledNonsenseCandidate } from "./nonsense";
 import { scheduledSeriousSelection } from "./serious";
+import { scheduledSecurityPreySelection } from "./security";
 import { extractFacts, generateSatireArticle, generateSeriousArticle, intensifySatireArticle } from "./ai";
 import { fetchFeedItems, fetchSourcePageText, sourceHash } from "./rss";
 import { validateGeneratedArticle } from "./validation";
@@ -40,6 +41,7 @@ export async function runPublishingPipeline(
     dryRunOverride?: boolean;
     forceMarket?: "korea" | "us";
     forceSerious?: boolean;
+    forceSecurity?: boolean;
     ignoreSeen?: boolean;
   }
 ): Promise<PipelineResult> {
@@ -49,6 +51,11 @@ export async function runPublishingPipeline(
   const prepared: PreparedArticle[] = [];
   const preparedSources = new Map<string, SourceItem>();
   let seriousEditorial: NonNullable<PipelineResult["serious_editorial"]> = {
+    selected: null,
+    top_candidates: [],
+    reason: "not evaluated"
+  };
+  let securityPrey: NonNullable<PipelineResult["security_prey"]> = {
     selected: null,
     top_candidates: [],
     reason: "not evaluated"
@@ -72,6 +79,19 @@ export async function runPublishingPipeline(
       ? await forcedMarketCandidate(options.forceMarket, new Date(startedAt), config.siteTimezone)
       : await scheduledMarketCandidate(new Date(startedAt), config.siteTimezone, seen, marketHistory);
     const nonsense = options.forceSerious ? null : scheduledNonsenseCandidate(new Date(startedAt), config.siteTimezone);
+    const securitySelection = options.forceSerious
+      ? {
+          source: null,
+          selected: null,
+          topCandidates: [],
+          reason: "skipped during serious-only run"
+        }
+      : await scheduledSecurityPreySelection(config, seen, new Date(startedAt), Boolean(options.forceSecurity));
+    securityPrey = {
+      selected: securitySelection.selected,
+      top_candidates: securitySelection.topCandidates,
+      reason: securitySelection.reason
+    };
     const seriousSelection = await scheduledSeriousSelection(
       config,
       seen,
@@ -88,9 +108,10 @@ export async function runPublishingPipeline(
     const scheduledFeeds = seriousOnlyRun ? [] : scheduledFeedSources(config.rssFeeds, new Date(startedAt), config.siteTimezone);
     if (!seriousOnlyRun) {
       skipped.push(`rss window: ${feedWindowName(new Date(startedAt), config.siteTimezone)} (${scheduledFeeds.map((feed) => feed.name).join(", ") || "no rss"})`);
+      skipped.push(`security prey: ${securitySelection.reason}`);
     }
     const feedItems = scheduledFeeds.length === 0 ? [] : await fetchFeedItems(scheduledFeeds);
-    const scheduledItems = [market, nonsense, seriousSelection.source].filter((item): item is SourceItem => item !== null);
+    const scheduledItems = [market, nonsense, securitySelection.source, seriousSelection.source].filter((item): item is SourceItem => item !== null);
     const sourceItems = prioritizeSourceItems([...scheduledItems, ...feedItems]);
     const candidates = await unseenCandidates(filterSourceCandidates(sourceItems, skipped), seen);
     if (candidates.length === 0) {
@@ -150,7 +171,8 @@ export async function runPublishingPipeline(
         skipped,
         errors,
         articles: [],
-        serious_editorial: seriousEditorial
+        serious_editorial: seriousEditorial,
+        security_prey: securityPrey
       });
     }
 
@@ -169,7 +191,8 @@ export async function runPublishingPipeline(
           title: article.title,
           markdown: article.markdown
         })),
-        serious_editorial: seriousEditorial
+        serious_editorial: seriousEditorial,
+        security_prey: securityPrey
       });
     }
 
@@ -188,7 +211,8 @@ export async function runPublishingPipeline(
         skipped,
         errors,
         articles: [],
-        serious_editorial: seriousEditorial
+        serious_editorial: seriousEditorial,
+        security_prey: securityPrey
       });
     }
 
@@ -222,7 +246,8 @@ export async function runPublishingPipeline(
         path: article.path,
         title: article.title
       })),
-      serious_editorial: seriousEditorial
+      serious_editorial: seriousEditorial,
+      security_prey: securityPrey
     });
   } catch (error) {
     const message = error instanceof ConfigError ? error.message : errorMessage(error);
@@ -240,7 +265,8 @@ export async function runPublishingPipeline(
         path: article.path,
         title: article.title
       })),
-      serious_editorial: seriousEditorial
+      serious_editorial: seriousEditorial,
+      security_prey: securityPrey
     });
   }
 }
@@ -273,6 +299,10 @@ function prioritizeSourceItems(items: SourceItem[]): SourceItem[] {
 function sourcePriority(source: SourceItem): number {
   if (source.synthetic) {
     return 0;
+  }
+
+  if (source.securityPreyEvaluation || source.feedName.includes("보안뉴스")) {
+    return 4;
   }
 
   const feedName = source.feedName.toLowerCase();
@@ -542,18 +572,31 @@ async function generateSeriousAndValidate(
 function fallbackFacts(source: SourceItem, pageText: string): FactSummary {
   const summary = [source.summary, pageText].join(" ").replace(/\s+/g, " ").trim();
   const mockableDetails = groundedMockableFragments(source, pageText);
+  const securityDetails = source.securityPreyEvaluation?.concrete_details ?? [];
   return {
-    entities: [source.feedName, ...keywordFragmentsForFallback(source.title).slice(0, 4)],
+    entities: [
+      source.feedName,
+      source.securityPreyEvaluation?.target ?? "",
+      ...keywordFragmentsForFallback(source.title).slice(0, 4)
+    ].filter(Boolean),
     numbers: summary.match(/[+-]?\d+(?:,\d{3})*(?:\.\d+)?%?/g)?.slice(0, 8) ?? [],
     dates: source.publishedAt ? [source.publishedAt] : [],
-    conflict_or_controversy: source.summary || source.title,
+    conflict_or_controversy: source.securityPreyEvaluation?.ridicule_angle || source.summary || source.title,
     money_stock_market_angle: source.category === "시장" ? source.summary : "",
-    reader_relevance: source.summary || source.title,
-    satire_targets: [source.title],
-    mockable_details: mockableDetails.slice(0, 6),
-    weak_points: mockableDetails.slice(0, 4),
+    reader_relevance: source.securityPreyEvaluation?.why_it_is_mockable || source.summary || source.title,
+    satire_targets: [source.securityPreyEvaluation?.target ?? "", source.title].filter(Boolean),
+    mockable_details: [...securityDetails, ...mockableDetails].slice(0, 8),
+    weak_points: [source.securityPreyEvaluation?.ridicule_angle ?? "", ...mockableDetails].filter(Boolean).slice(0, 5),
     corporate_euphemisms: [],
-    facts: [source.title, source.summary, ...mockableDetails.slice(0, 5), summary.slice(0, 600)].filter(Boolean)
+    facts: [
+      source.title,
+      source.summary,
+      source.securityPreyEvaluation?.ridicule_angle ?? "",
+      source.securityPreyEvaluation?.why_it_is_mockable ?? "",
+      ...securityDetails,
+      ...mockableDetails.slice(0, 5),
+      summary.slice(0, 700)
+    ].filter(Boolean)
   };
 }
 

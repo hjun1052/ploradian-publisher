@@ -365,6 +365,9 @@ function siteSpecificCandidates(html: string, source: SourceItem): TextCandidate
     candidates.push(...attributeCandidates(html, /id=["']articleViewCon["']/i, 32, "infomax:articleViewCon"));
     candidates.push(...attributeCandidates(html, /id=["']article-view["']/i, 18, "infomax:article-view"));
     candidates.push(...tagCandidates(html, "article", 12, "infomax:article"));
+  } else if (hostname.endsWith("boannews.com")) {
+    candidates.push(...attributeCandidates(html, /id=["']news_content["']/i, 34, "boannews:news_content"));
+    candidates.push(...attributeCandidates(html, /id=["']body_left["']/i, 12, "boannews:body_left"));
   } else if (/(?:korea|moel|fsc|nabo)\.go\.kr$/.test(hostname)) {
     candidates.push(...tagCandidates(html, "main", 22, "public:main"));
     candidates.push(...attributeCandidates(html, /id=["'](?:content|contents|container|main-container)["']/i, 18, "public:content"));

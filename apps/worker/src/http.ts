@@ -3,6 +3,7 @@ export interface FetchTextOptions {
   timeoutMs: number;
   maxBytes: number;
   retries: number;
+  encoding?: string;
 }
 
 export interface TextFetchResult {
@@ -33,7 +34,7 @@ export async function fetchTextWithRetry(
   for (let attempt = 0; attempt <= options.retries; attempt += 1) {
     try {
       const response = await fetchWithTimeout(input, init, options.timeoutMs);
-      const { text, truncated } = await readResponsePrefix(response, options.maxBytes);
+      const { text, truncated } = await readResponsePrefix(response, options.maxBytes, options.encoding);
 
       if (response.ok || !shouldRetryStatus(response.status) || attempt === options.retries) {
         return { response, text, truncated };
@@ -59,7 +60,8 @@ export async function fetchTextWithRetry(
 
 export async function readResponsePrefix(
   response: Response,
-  maxBytes: number
+  maxBytes: number,
+  fallbackEncoding = "utf-8"
 ): Promise<{ text: string; truncated: boolean }> {
   if (!response.body) {
     return { text: "", truncated: false };
@@ -104,9 +106,42 @@ export async function readResponsePrefix(
   }
 
   return {
-    text: new TextDecoder("utf-8", { fatal: false, ignoreBOM: false }).decode(combined),
+    text: decodeBytes(combined, response, fallbackEncoding),
     truncated
   };
+}
+
+function decodeBytes(bytes: Uint8Array, response: Response, fallbackEncoding: string): string {
+  const encoding = sniffEncoding(bytes, response.headers.get("content-type")) ?? fallbackEncoding;
+  try {
+    return new TextDecoder(encoding, { fatal: false, ignoreBOM: false }).decode(bytes);
+  } catch {
+    return new TextDecoder("utf-8", { fatal: false, ignoreBOM: false }).decode(bytes);
+  }
+}
+
+function sniffEncoding(bytes: Uint8Array, contentType: string | null): string | null {
+  const headerMatch = /charset\s*=\s*["']?([^;"'\s]+)/i.exec(contentType ?? "");
+  if (headerMatch?.[1]) {
+    return normalizeEncoding(headerMatch[1]);
+  }
+
+  const asciiPrefix = new TextDecoder("latin1").decode(bytes.slice(0, 2048));
+  const xmlMatch = /<\?xml[^>]*encoding=["']([^"']+)["']/i.exec(asciiPrefix);
+  if (xmlMatch?.[1]) {
+    return normalizeEncoding(xmlMatch[1]);
+  }
+
+  const metaMatch = /charset\s*=\s*["']?([^;"'\s>]+)/i.exec(asciiPrefix);
+  return metaMatch?.[1] ? normalizeEncoding(metaMatch[1]) : null;
+}
+
+function normalizeEncoding(value: string): string {
+  const normalized = value.trim().toLowerCase().replace(/_/g, "-");
+  if (normalized === "ks-c-5601" || normalized === "ksc5601" || normalized === "cp949") {
+    return "euc-kr";
+  }
+  return normalized;
 }
 
 function fetchWithTimeout(

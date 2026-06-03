@@ -11,6 +11,7 @@ import type {
   RuntimeConfig,
   SeriousCandidateEvaluation,
   SeriousEditorialStore,
+  SecurityPreyEvaluation,
   SourceItem
 } from "./types";
 
@@ -118,6 +119,33 @@ const seriousEvaluationSchema = {
   additionalProperties: false
 } as const;
 
+const securityPreyEvaluationSchema = {
+  type: "object",
+  properties: {
+    raw_score: { type: "number" },
+    final_score: { type: "number" },
+    publish_decision: { type: "string", enum: ["publish", "hold", "reject"] },
+    target: { type: "string" },
+    prey_type: { type: "string" },
+    ridicule_angle: { type: "string" },
+    concrete_details: { type: "array", items: { type: "string" } },
+    why_it_is_mockable: { type: "string" },
+    why_hold_or_reject: { type: "string" }
+  },
+  required: [
+    "raw_score",
+    "final_score",
+    "publish_decision",
+    "target",
+    "prey_type",
+    "ridicule_angle",
+    "concrete_details",
+    "why_it_is_mockable",
+    "why_hold_or_reject"
+  ],
+  additionalProperties: false
+} as const;
+
 export async function extractFacts(
   config: RuntimeConfig,
   source: SourceItem,
@@ -194,6 +222,7 @@ export async function generateSatireArticle(
   correction?: string
 ): Promise<GeneratedArticleJson> {
   const prompt = articlePromptFor(source);
+  const isSecurityPrey = Boolean(source.securityPreyEvaluation);
   const isRegularSatire = !source.synthetic;
   const article = await callModelJson<GeneratedArticleJson>(
     config,
@@ -202,7 +231,11 @@ export async function generateSatireArticle(
     [
       {
         role: "system",
-        content: isRegularSatire
+        content: isSecurityPrey
+          ? `${securityPreyPrompt(source.securityPreyEvaluation)}
+
+Strict JSON. Paragraph 1 must summarize the security incident, target, and why it deserves ridicule. Use supplied concrete details before any metaphor. Do not mock Boannews, the reporter, or the article format. 5-7 tight paragraphs.`
+          : isRegularSatire
           ? `${prompt}
 
 Final article now: sharp, funny, mean, rhythmic. Paragraph 1 plainly summarizes the source event and target before the jokes. Mock the facts being reported, not the source article/outlet/reporter/writing. Use concrete source details before metaphors. Mix direct ridicule with occasional fake defense; do not make every jab positive-sounding. 5-7 tight paragraphs, no repeated joke, no generic industry essay. Strict JSON.`
@@ -232,6 +265,47 @@ Final article now: sharp, funny, mean, rhythmic. Paragraph 1 plainly summarizes 
     source_url: source.url,
     original_title: source.title,
     category: source.synthetic ? source.category : normalizeCategory(article.category || source.category)
+  };
+}
+
+export async function evaluateSecurityPreyCandidate(
+  config: RuntimeConfig,
+  source: SourceItem,
+  pageText: string
+): Promise<SecurityPreyEvaluation> {
+  const evaluation = await callModelJson<SecurityPreyEvaluation>(
+    config,
+    "ploradian_security_prey_evaluation",
+    securityPreyEvaluationSchema,
+    [
+      {
+        role: "system",
+        content: `Score if this Boannews security item deserves a rare brutal Ploradian mockery article. Strict JSON; do not write article.
+Publish only for strong prey: clear target/responsibility, actual failure or absurd security posture, concrete victims/risk/numbers, and details that can be mocked from facts.
+Reject routine tips, condolences, event previews, product PR, generic awareness, vague threat reports, and items with no accountable target.
+raw_score 0-100. final_score equals raw_score. publish only at 85+ and grounded.`
+      },
+      {
+        role: "user",
+        content: JSON.stringify({
+          source_metadata: {
+            source_name: source.feedName,
+            source_url: source.url,
+            original_title: source.title
+          },
+          rss_summary: usefulText(source.summary) ? source.summary : "",
+          page_text_excerpt: pageText.slice(0, 1600)
+        })
+      }
+    ],
+    1000,
+    config.openaiUtilityModel
+  );
+
+  return {
+    ...evaluation,
+    raw_score: clampScore(evaluation.raw_score),
+    final_score: clampScore(evaluation.final_score)
   };
 }
 
@@ -339,6 +413,7 @@ export async function intensifySatireArticle(
   const isNonsense = source.synthetic && (source.syntheticFlavor === "nonsense" || !source.syntheticFlavor) && source.category === "헛소리";
   const isMarketNonsense = source.synthetic && source.category === "시장";
   const isSyntheticFeature = source.synthetic && source.syntheticFlavor && source.syntheticFlavor !== "nonsense";
+  const isSecurityPrey = Boolean(source.securityPreyEvaluation);
   const prompt = articlePromptFor(source);
   const article = await callModelJson<GeneratedArticleJson>(
     config,
@@ -347,7 +422,11 @@ export async function intensifySatireArticle(
     [
       {
         role: "system",
-        content: isNonsense
+        content: isSecurityPrey
+          ? `${securityPreyPrompt(source.securityPreyEvaluation)}
+
+Final 보안 먹잇감 pass: keep facts and make the ridicule harsher, clearer, and more source-specific. Name the responsible target early. Attack the actual failure, negligence, contradiction, or security theater. No generic cyber essay. Strict JSON.`
+          : isNonsense
           ? `${prompt}
 
 Final 헛소리 pass: preserve anti-news, make it emptier/contextless/pointless. No useful essay or tech/business critique. Strict JSON.`
@@ -382,6 +461,8 @@ Final rewrite: keep facts, make it funnier/meaner/drier. Paragraph 1 must summar
                 ? "Keep the exact weekend corner. Make the premise more absurd and concrete; avoid normal social commentary."
               : isMarketNonsense
                 ? "Preserve percentages exactly when supplied. Use impossible, financially useless reasons. Remove macro logic and real investment framing."
+              : isSecurityPrey
+                ? "Make it a special brutal security mockery article: concrete first, savage second, no vague security sermon."
                 : "More biting, direct, source-specific satire. Hit at least 4 concrete details, name the exact target early, and stop relying on fake praise or generic metaphors. Do not attack the source article, outlet, reporter, or writing quality.")
         })
       }
@@ -413,6 +494,30 @@ function articlePromptFor(source: SourceItem): string {
   }
 
   return SATIRE_ENGINE_PROMPT;
+}
+
+function securityPreyPrompt(evaluation?: SecurityPreyEvaluation): string {
+  return `Write a Korean special security mockery article for The Ploradian.
+Return only the requested JSON.
+
+Tone:
+- Ruthless, dry, funny, and concrete.
+- This is not 정색 analysis and not a normal cybersecurity explainer.
+- The article should feel like a security desk finally lost patience with a ridiculous failure.
+- Use 0-2 blunt Korean insults naturally when earned: 거지같다, 멍청하기 짝이 없다, 개판이다, 똥덩어리보다 가치가 없다, 등신같이 행동한다.
+
+Rules:
+- Korean only. Category must be 기술.
+- Mock the incident, responsible organization/system, bad operational choice, security theater, or absurd risk transfer.
+- Do not mock victims, ordinary users, protected classes, the source outlet, reporter, article, or headline.
+- First paragraph: plain factual summary with target, failure/risk, and stakes.
+- Every joke must lean on a supplied fact, number, named product, CVE, institution, leaked data type, or specific operational detail.
+- Avoid broad metaphors unless a concrete source detail is being hit in the same paragraph.
+- No malware instructions, exploit steps, or advice enabling attacks.
+- Body: 5-7 concise paragraphs.
+
+Editorial judgment:
+${JSON.stringify(evaluation ?? null)}`;
 }
 
 function weekendFeaturePrompt(flavor: NonNullable<SourceItem["syntheticFlavor"]>): string {

@@ -49,6 +49,7 @@ export default {
       dryRunOverride?: boolean;
       forceMarket?: "korea" | "us";
       forceSerious?: boolean;
+      forceSecurity?: boolean;
       ignoreSeen?: boolean;
     } = {
       trigger
@@ -65,6 +66,9 @@ export default {
     }
     if (url.searchParams.get("serious") === "true") {
       runOptions.forceSerious = true;
+    }
+    if (url.searchParams.get("security") === "true") {
+      runOptions.forceSecurity = true;
     }
     const result = await runPublishingPipeline(env, runOptions);
 

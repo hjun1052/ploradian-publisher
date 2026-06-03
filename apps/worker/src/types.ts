@@ -62,6 +62,7 @@ export interface SourceItem {
   seriousKind?: SeriousSourceKind;
   seriousInstitution?: string;
   seriousEvaluation?: SeriousCandidateEvaluation;
+  securityPreyEvaluation?: SecurityPreyEvaluation;
 }
 
 export interface SeriousCandidateEvaluation {
@@ -77,6 +78,18 @@ export interface SeriousCandidateEvaluation {
   missing_question: string;
   publish_decision: "publish" | "hold" | "reject";
   reasoning_note: string;
+}
+
+export interface SecurityPreyEvaluation {
+  raw_score: number;
+  final_score: number;
+  publish_decision: "publish" | "hold" | "reject";
+  target: string;
+  prey_type: string;
+  ridicule_angle: string;
+  concrete_details: string[];
+  why_it_is_mockable: string;
+  why_hold_or_reject: string;
 }
 
 export interface FactSummary {
@@ -214,6 +227,11 @@ export interface PipelineResult {
   serious_editorial?: {
     selected: SeriousCandidateEvaluation | null;
     top_candidates: SeriousCandidateEvaluation[];
+    reason: string;
+  };
+  security_prey?: {
+    selected: SecurityPreyEvaluation | null;
+    top_candidates: SecurityPreyEvaluation[];
     reason: string;
   };
 }

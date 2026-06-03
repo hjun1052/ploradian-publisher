@@ -153,7 +153,7 @@ export function candidateSkipReason(source: SourceItem): string | null {
 }
 
 export function satireSuitabilitySkipReason(source: SourceItem, pageText: string): string | null {
-  if (source.synthetic || source.category === "헛소리" || source.category === "정색") {
+  if (source.synthetic || source.category === "헛소리" || source.category === "정색" || source.securityPreyEvaluation) {
     return null;
   }
 
