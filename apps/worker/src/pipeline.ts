@@ -860,7 +860,11 @@ async function unseenCandidates(items: SourceItem[], seen: SeenStore): Promise<S
     if (seen.items[hash] || runSeen.has(hash)) {
       continue;
     }
-    if (!item.synthetic && seenTopicTokens.some((tokens) => isSameSourceTopic(topicTokens(`${item.title} ${item.summary}`), tokens))) {
+    if (
+      !item.synthetic &&
+      !isSecurityPrivacyFollowUp(item) &&
+      seenTopicTokens.some((tokens) => isSameSourceTopic(topicTokens(`${item.title} ${item.summary}`), tokens))
+    ) {
       continue;
     }
     runSeen.add(hash);
@@ -916,6 +920,15 @@ function isSameSourceTopic(left: Set<string>, right: Set<string>): boolean {
   }
 
   return overlap >= 4 || (overlap >= 3 && overlap / Math.min(left.size, right.size) >= 0.6);
+}
+
+function isSecurityPrivacyFollowUp(source: SourceItem): boolean {
+  const text = `${source.feedName} ${source.title} ${source.summary}`.toLowerCase();
+  return (
+    /(보안뉴스|security)/i.test(text) &&
+    /(개인정보|유출|침해|breach|leak|privacy)/i.test(text) &&
+    /(보상|배상|환불|피해\s*지원|지원책|보호\s*조치|추가\s*조치|후속\s*조치|재발\s*방지|사과|과징금|제재|분쟁조정|집단소송|손해배상|compensation|refund|remediation|settlement|fine)/i.test(text)
+  );
 }
 
 function decodeHtmlEntitiesForTopic(value: string): string {
