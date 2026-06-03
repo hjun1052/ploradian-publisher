@@ -48,6 +48,7 @@ export default {
       trigger: "manual" | "scheduled";
       dryRunOverride?: boolean;
       forceMarket?: "korea" | "us";
+      forceMarketHoliday?: "korea" | "us";
       forceSerious?: boolean;
       forceSecurity?: boolean;
       ignoreSeen?: boolean;
@@ -63,6 +64,10 @@ export default {
     const market = url.searchParams.get("market");
     if (market === "korea" || market === "us") {
       runOptions.forceMarket = market;
+    } else if (market === "korea-holiday" || market === "korea_holiday") {
+      runOptions.forceMarketHoliday = "korea";
+    } else if (market === "us-holiday" || market === "us_holiday") {
+      runOptions.forceMarketHoliday = "us";
     }
     if (url.searchParams.get("serious") === "true") {
       runOptions.forceSerious = true;

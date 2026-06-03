@@ -109,6 +109,17 @@ export async function forcedMarketCandidate(
   return usMarketCandidate({ ...slot, hour: US_MARKET_HOUR }, usSlot.day, history);
 }
 
+export function forcedMarketHolidayCandidate(
+  market: "korea" | "us",
+  now: Date,
+  timeZone: string,
+  history: MarketHistoryStore
+): SourceItem | null {
+  const slot = zonedSlot(now, timeZone);
+  const expectedTradedDay = market === "korea" ? slot.day : zonedSlot(now, NEW_YORK_TIMEZONE).day;
+  return holidayShareholderStatusCandidate(market === "korea" ? "국장" : "미장", slot, expectedTradedDay, history);
+}
+
 async function koreaMarketCandidate(
   slot: { day: string; hour: number; offset: string },
   history?: MarketHistoryStore

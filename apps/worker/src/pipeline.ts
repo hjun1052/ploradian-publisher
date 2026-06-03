@@ -15,7 +15,7 @@ import {
 import { prepareMarkdownArticle } from "./markdown";
 import { findArticleImage } from "./images";
 import { candidateSkipReason, satireSuitabilitySkipReason } from "./candidates";
-import { forcedMarketCandidate, marketHistoryEntryFromSource, scheduledMarketCandidate } from "./market";
+import { forcedMarketCandidate, forcedMarketHolidayCandidate, marketHistoryEntryFromSource, scheduledMarketCandidate } from "./market";
 import { scheduledNonsenseCandidate } from "./nonsense";
 import { scheduledSeriousSelection } from "./serious";
 import { scheduledSecurityPreySelection } from "./security";
@@ -40,6 +40,7 @@ export async function runPublishingPipeline(
     trigger: "manual" | "scheduled";
     dryRunOverride?: boolean;
     forceMarket?: "korea" | "us";
+    forceMarketHoliday?: "korea" | "us";
     forceSerious?: boolean;
     forceSecurity?: boolean;
     ignoreSeen?: boolean;
@@ -75,6 +76,8 @@ export async function runPublishingPipeline(
       : emptySeriousEditorialStore();
     const market = options.forceSerious
       ? null
+      : options.forceMarketHoliday
+      ? forcedMarketHolidayCandidate(options.forceMarketHoliday, new Date(startedAt), config.siteTimezone, marketHistory)
       : options.forceMarket
       ? await forcedMarketCandidate(options.forceMarket, new Date(startedAt), config.siteTimezone, marketHistory)
       : await scheduledMarketCandidate(new Date(startedAt), config.siteTimezone, seen, marketHistory);
