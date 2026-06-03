@@ -32,6 +32,13 @@ const GENERIC_ARCHITECTURE_TERMS = [
   "skyscraper"
 ];
 
+const ASTRONOMY_FALLBACK_QUERIES = [
+  "deep space telescope",
+  "galaxy nebula",
+  "starry night sky",
+  "milky way stars"
+];
+
 export async function findArticleImage(
   config: RuntimeConfig,
   source: SourceItem,
@@ -42,73 +49,76 @@ export async function findArticleImage(
     return null;
   }
 
-  const query = imageQuery(source, article, facts);
-  if (!query) {
+  const queries = imageQueries(source, article, facts);
+  if (queries.length === 0) {
     return null;
   }
 
-  try {
+  for (const query of queries) {
     const url = new URL(UNSPLASH_SEARCH_URL);
     url.searchParams.set("query", query);
     url.searchParams.set("orientation", "landscape");
     url.searchParams.set("per_page", "10");
     url.searchParams.set("content_filter", "high");
 
-    const { response, text } = await fetchTextWithRetry(
-      url,
-      {
-        headers: {
-          authorization: `Client-ID ${config.unsplashAccessKey}`,
-          accept: "application/json"
+    try {
+      const { response, text } = await fetchTextWithRetry(
+        url,
+        {
+          headers: {
+            authorization: `Client-ID ${config.unsplashAccessKey}`,
+            accept: "application/json"
+          }
+        },
+        {
+          label: "Unsplash image search",
+          timeoutMs: 5000,
+          maxBytes: 262144,
+          retries: 0
         }
-      },
-      {
-        label: "Unsplash image search",
-        timeoutMs: 5000,
-        maxBytes: 262144,
-        retries: 0
+      );
+
+      if (!response.ok) {
+        console.warn(JSON.stringify({ event: "unsplash_image_skipped", query, status: response.status }));
+        continue;
       }
-    );
 
-    if (!response.ok) {
-      console.warn(JSON.stringify({ event: "unsplash_image_skipped", status: response.status }));
-      return null;
+      const photo = selectUsablePhoto(parseJson<UnsplashSearchResponse>(text), imageSeed(source));
+      if (!photo) {
+        continue;
+      }
+
+      const photoUrl = photo.urls.raw || photo.urls.regular || photo.urls.full;
+      if (!photoUrl) {
+        continue;
+      }
+
+      return {
+        url: sizedImageUrl(photoUrl),
+        alt: photo.alt_description || photo.description || fallbackAlt(article),
+        creditName: photo.user.name || photo.user.username,
+        creditUrl: appendUtm(photo.user.links.html)
+      };
+    } catch (error) {
+      console.warn(JSON.stringify({ event: "unsplash_image_skipped", query, error: errorMessage(error) }));
     }
-
-    const photo = selectUsablePhoto(parseJson<UnsplashSearchResponse>(text), imageSeed(source));
-    if (!photo) {
-      return null;
-    }
-
-    const photoUrl = photo.urls.raw || photo.urls.regular || photo.urls.full;
-    if (!photoUrl) {
-      return null;
-    }
-
-    return {
-      url: sizedImageUrl(photoUrl),
-      alt: photo.alt_description || photo.description || `Unsplash image for ${article.category} satire`,
-      creditName: photo.user.name || photo.user.username,
-      creditUrl: appendUtm(photo.user.links.html)
-    };
-  } catch (error) {
-    console.warn(JSON.stringify({ event: "unsplash_image_skipped", error: errorMessage(error) }));
-    return null;
   }
+
+  return null;
 }
 
-function imageQuery(source: SourceItem, article: GeneratedArticleJson, facts: FactSummary): string {
+function imageQueries(source: SourceItem, article: GeneratedArticleJson, facts: FactSummary): string[] {
   if (article.category === "별들의 세계" || source.category === "별들의 세계") {
-    return astronomyImageQuery(source);
+    return astronomyImageQueries(source);
   }
 
   if (article.category === "헛소리" || source.category === "헛소리") {
-    return CATEGORY_QUERIES["헛소리"] ?? "empty office desk";
+    return [CATEGORY_QUERIES["헛소리"] ?? "empty office desk"];
   }
 
   const topic = topicImageQuery(source, article, facts);
   if (topic) {
-    return topic;
+    return [topic];
   }
 
   const base = CATEGORY_QUERIES[article.category] ?? CATEGORY_QUERIES[source.category] ?? "newspaper desk";
@@ -117,25 +127,39 @@ function imageQuery(source: SourceItem, article: GeneratedArticleJson, facts: Fa
     .slice(0, 2)
     .join(" ");
 
-  return [entities, base].filter(Boolean).join(" ").trim();
+  const query = [entities, base].filter(Boolean).join(" ").trim();
+  return query ? [query] : [];
 }
 
-function astronomyImageQuery(source: SourceItem): string {
+function astronomyImageQueries(source: SourceItem): string[] {
   const evaluation = source.astronomyEvaluation;
   const candidates = [
     evaluation?.visual_query,
     evaluation?.primary_object,
-    evaluation?.object_type
+    evaluation?.object_type,
+    ...ASTRONOMY_FALLBACK_QUERIES
   ];
+  const queries: string[] = [];
+  const seen = new Set<string>();
 
   for (const candidate of candidates) {
     const query = (candidate ?? "").trim();
-    if (isUsableAstronomyQuery(query)) {
-      return query;
+    const key = query.toLowerCase();
+    if (isUsableAstronomyQuery(query) && !seen.has(key)) {
+      seen.add(key);
+      queries.push(query);
     }
   }
 
-  return "";
+  return queries;
+}
+
+function fallbackAlt(article: GeneratedArticleJson): string {
+  if (article.category === "별들의 세계") {
+    return "Astronomy image from Unsplash";
+  }
+
+  return `Unsplash image for ${article.category} article`;
 }
 
 function isUsableAstronomyQuery(query: string): boolean {
