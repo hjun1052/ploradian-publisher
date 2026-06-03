@@ -345,6 +345,15 @@ function validateMarketNonsenseArticle(source: SourceItem, fullText: string, bod
     }
   }
 
+  if (source.syntheticFlavor === "market-holiday") {
+    if (countMatches(body, /주주|보유자|단톡|계좌|평단|물타기|존버|자기합리화/g) < 5) {
+      reasons.push("market holiday must focus on holder psychology, not stock movement excuses");
+    }
+    if (/오늘\s+(?:올랐|내렸)|움직였|해석된다|원인|탓으로|덕분에|마감판/.test(body)) {
+      reasons.push("market holiday should not explain stock moves; predict holder status instead");
+    }
+  }
+
   const normalMarketTerms = [
     "금리",
     "실적",
@@ -368,6 +377,10 @@ function validateMarketNonsenseArticle(source: SourceItem, fullText: string, bod
       reasons.push(`market nonsense used normal market explanation: ${term}`);
     }
   }
+}
+
+function countMatches(value: string, pattern: RegExp): number {
+  return value.match(pattern)?.length ?? 0;
 }
 
 function parseMarketRows(summary: string): Array<{ name: string; symbol: string; change: string }> {

@@ -463,10 +463,10 @@ function holidayShareholderStatusCandidate(
     title: `${slot.day} ${market} 휴장일 주주 근황`,
     slug: `market/${slot.day}-${market === "국장" ? "korea" : "us"}-holiday-holder-status`,
     summary: [
-      "코너: 휴장일 주주 근황",
+      "코너: 휴장일 종목별 주주 현황 예측",
       `${market} 마감 시간에 새 거래일 데이터가 확인되지 않아 휴장 또는 미갱신으로 처리한다.`,
-      `오늘 새 시세가 아니라 직전 참고 마감(${entry.date} ${entry.market}) 기준으로 각 종목 주주의 현재 상태를 드립친다.`,
-      "오늘 올랐다/내렸다처럼 쓰지 말고, 반드시 직전 마감 기준이라고 밝힌다.",
+      `오늘 새 시세가 아니라 직전 참고 마감(${entry.date} ${entry.market}) 기준으로 각 종목 주주의 현재 정신상태, 단톡방 발언, 자기합리화, 계좌 확인 습관을 예측한다.`,
+      "주식이 왜 움직였는지 설명하지 않는다. 오늘 올랐다/내렸다처럼 쓰지 말고, 반드시 직전 마감 숫자는 주주 심리의 배경자료라고 밝힌다.",
       ...marketRowsAsSummary(entry.rows.slice(0, market === "국장" ? 12 : 10))
     ].join("\n")
   });
