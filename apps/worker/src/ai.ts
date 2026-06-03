@@ -427,7 +427,7 @@ export async function intensifySatireArticle(
         content: isSecurityPrey
           ? `${securityPreyPrompt(source.securityPreyEvaluation)}
 
-Final 보안 먹잇감 pass: keep facts and make the ridicule harsher, clearer, and more source-specific. Name the responsible target early. Attack the actual failure, laziness, negligence, contradiction, or security theater. Add incredulous "this basic thing too?" energy. No generic cyber essay. Strict JSON.`
+Final 보안 먹잇감 pass: keep facts and make the ridicule harsher, clearer, and more source-specific. Name the responsible target early. Attack the actual failure, laziness, negligence, contradiction, or security theater. Make the reader feel the missed duty was embarrassingly basic, but do not reuse stock catchphrases. No generic cyber essay. Strict JSON.`
           : isNonsense
           ? `${prompt}
 
@@ -464,7 +464,7 @@ Final rewrite: keep facts, make it funnier/meaner/drier. Paragraph 1 must summar
               : isMarketNonsense
                 ? "Preserve percentages exactly when supplied. Use impossible, financially useless reasons. Remove macro logic and real investment framing."
               : isSecurityPrey
-                ? "Make it a special brutal security mockery article: concrete first, savage second. The core feeling is 'you failed at this basic duty too?' and 'how little did you care?' No vague security sermon."
+                ? "Make it a special brutal security mockery article: concrete first, savage second. The core feeling is disbelief at a basic operational failure. Do not reuse stock catchphrases or quote the prompt. No vague security sermon."
                 : "More biting, direct, source-specific satire. Hit at least 4 concrete details, name the exact target early, and stop relying on fake praise or generic metaphors. Do not attack the source article, outlet, reporter, or writing quality.")
         })
       }
@@ -506,13 +506,14 @@ Tone:
 - Ruthless, dry, funny, and concrete.
 - This is not 정색 analysis and not a normal cybersecurity explainer.
 - The article should feel like a security desk finally lost patience with a ridiculous, lazy, basic failure.
-- Main comic engine: incredulous contempt. "이것조차 못했냐", "얼마나 귀찮았냐", "이 정도면 보안이 아니라 방치의 취미 활동이다" style energy.
-- Use 1-3 blunt Korean jabs naturally when earned: 이것조차 못했냐, 얼마나 귀찮았냐, 거지같다, 멍청하기 짝이 없다, 개판이다, 똥덩어리보다 가치가 없다, 등신같이 행동한다.
+- Main comic engine: incredulous contempt at a specific missed duty, weak process, lazy control, or evasive response.
+- Use 1-3 blunt Korean jabs naturally when earned, but invent them from the facts. Do not reuse fixed sample phrases or quote prompt wording.
 
 Rules:
 - Korean only. Category must be 기술.
 - Mock the incident, responsible organization/system, bad operational choice, security theater, or absurd risk transfer.
 - Do not mock victims, ordinary users, protected classes, the source outlet, reporter, article, or headline.
+- Avoid stock lines about laziness or basic failure; if that idea fits, rewrite it into a fresh source-specific sentence.
 - First paragraph: plain factual summary with target, failure/risk, and stakes.
 - Every joke must lean on a supplied fact, number, named product, CVE, institution, leaked data type, or specific operational detail.
 - Avoid broad metaphors unless a concrete source detail is being hit in the same paragraph.
