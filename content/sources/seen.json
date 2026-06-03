@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-03T14:01:07.272Z",
+  "updated_at": "2026-06-03T14:31:24.789Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -329,6 +329,14 @@
       "title": "Google must let publishers opt out of AI Search features, rules UK",
       "article_path": "content/articles/published/2026-06-03-ac7537a4-google-ai-search-uk-cma-publisher-opt-out.md",
       "seen_at": "2026-06-03T14:01:07.272Z"
+    },
+    "633181d498d6945473cf0ae2f4b3ba5be8bee377c03147e4feaf895faae36848": {
+      "url": "https://www.esa.int/Science_Exploration/Space_Science/Webb/Webb_reveals_black_hole_that_formed_before_its_galaxy",
+      "canonical_url": "https://www.esa.int/Science_Exploration/Space_Science/Webb/Webb_reveals_black_hole_that_formed_before_its_galaxy",
+      "source_name": "ESA Space Science",
+      "title": "Webb reveals black hole that formed before its galaxy",
+      "article_path": "content/articles/published/2026-06-03-633181d4-before-its-galaxy-abell2744-qso1.md",
+      "seen_at": "2026-06-03T14:31:24.789Z"
     }
   }
 }
