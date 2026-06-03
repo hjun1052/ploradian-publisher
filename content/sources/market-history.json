@@ -1,7 +1,95 @@
 {
   "version": 1,
-  "updated_at": "2026-06-03T00:00:00.000Z",
+  "updated_at": "2026-06-03T22:00:35.405Z",
   "recent": [
+    {
+      "market": "미장",
+      "date": "2026-06-04",
+      "title": "2026-06-04 미장 마감 억지해석",
+      "source_url": "https://news.ploradian.com/market/2026-06-04-미장-07/",
+      "rows": [
+        {
+          "name": "S&P 500",
+          "symbol": "^spx",
+          "price": "7553.70",
+          "change": "-0.62%",
+          "business": "미국 대형주 지수",
+          "jokeSeed": "500명이 한꺼번에 출석하는 반"
+        },
+        {
+          "name": "나스닥",
+          "symbol": "^ndq",
+          "price": "26853.98",
+          "change": "-0.88%",
+          "business": "기술주 중심 지수",
+          "jokeSeed": "기술주 단톡방, 전광판"
+        },
+        {
+          "name": "다우",
+          "symbol": "^dji",
+          "price": "50687.10",
+          "change": "-0.69%",
+          "business": "미국 대표 우량주 지수",
+          "jokeSeed": "오래된 정장, 다우라는 성씨"
+        },
+        {
+          "name": "엔비디아",
+          "symbol": "nvda.us",
+          "price": "214.82",
+          "change": "-3.11%",
+          "business": "GPU와 AI 칩",
+          "jokeSeed": "그래픽카드, 팬 소리, 젠슨의 가죽 재킷"
+        },
+        {
+          "name": "애플",
+          "symbol": "aapl.us",
+          "price": "310.28",
+          "change": "-1.24%",
+          "business": "아이폰과 소비자 하드웨어",
+          "jokeSeed": "사과, 충전 케이블, 발표장 박수"
+        },
+        {
+          "name": "마이크로소프트",
+          "symbol": "msft.us",
+          "price": "427.61",
+          "change": "-2.47%",
+          "business": "윈도우와 클라우드",
+          "jokeSeed": "창문, 엑셀 셀, 업데이트 재부팅"
+        },
+        {
+          "name": "테슬라",
+          "symbol": "tsla.us",
+          "price": "423.76",
+          "change": "+1.21%",
+          "business": "전기차",
+          "jokeSeed": "충전소, 핸들, 자동주행 척"
+        },
+        {
+          "name": "메타",
+          "symbol": "meta.us",
+          "price": "623.01",
+          "change": "+3.44%",
+          "business": "소셜미디어와 AI",
+          "jokeSeed": "페이스북, 인스타, 메타버스 빈 회의실"
+        },
+        {
+          "name": "알파벳",
+          "symbol": "googl.us",
+          "price": "358.99",
+          "change": "-0.84%",
+          "business": "검색과 광고",
+          "jokeSeed": "알파벳 순서, 검색창, 자동완성"
+        },
+        {
+          "name": "아마존",
+          "symbol": "amzn.us",
+          "price": "250.02",
+          "change": "-1.84%",
+          "business": "전자상거래와 클라우드",
+          "jokeSeed": "상자, 배송기사, 장바구니"
+        }
+      ]
+    },
     {
       "market": "국장",
       "date": "2026-06-02",
