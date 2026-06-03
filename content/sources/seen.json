@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-03T10:01:02.519Z",
+  "updated_at": "2026-06-03T11:01:45.233Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -297,6 +297,14 @@
       "title": "AI has a water problem. Google thinks it has a fix",
       "article_path": "content/articles/published/2026-06-03-7a21fd9e-google-ai-water-commitments-data-centers-2030.md",
       "seen_at": "2026-06-03T10:01:02.519Z"
+    },
+    "dcee68b071b14954c37dda16f4c53ae0f11ed53d12c8a20bc57c6657216d536f": {
+      "url": "https://arstechnica.com/space/2026/06/how-long-will-it-take-to-rebuild-blue-origins-launch-pad-we-asked-some-spacex-vets/",
+      "canonical_url": "https://arstechnica.com/space/2026/06/how-long-will-it-take-to-rebuild-blue-origins-launch-pad-we-asked-some-spacex-vets/",
+      "source_name": "Ars Technica",
+      "title": "How long will it take to rebuild Blue Origin's launch pad? We asked some SpaceX vets.",
+      "article_path": "content/articles/published/2026-06-03-dcee68b0-blue-origin-new-glenn-launch-pad-rebuild-spacex-vets.md",
+      "seen_at": "2026-06-03T11:01:45.233Z"
     }
   }
 }
