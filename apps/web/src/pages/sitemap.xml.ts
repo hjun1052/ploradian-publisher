@@ -7,6 +7,7 @@ export async function GET(context: APIContext) {
   const urls = [
     { loc: `${site}/`, lastmod: latestDate(articles), changefreq: "hourly", priority: "1.0" },
     { loc: `${site}/archive/`, lastmod: latestDate(articles), changefreq: "hourly", priority: "0.9" },
+    { loc: `${site}/2013/`, lastmod: latestDate(articles), changefreq: "hourly", priority: "0.7" },
     { loc: `${site}/classic/`, lastmod: latestDate(articles), changefreq: "hourly", priority: "0.7" },
     { loc: `${site}/llms.txt`, lastmod: latestDate(articles), changefreq: "hourly", priority: "0.9" },
     { loc: `${site}/llms-full.txt`, lastmod: latestDate(articles), changefreq: "hourly", priority: "0.9" },
@@ -16,6 +17,12 @@ export async function GET(context: APIContext) {
       lastmod: new Date(article.date).toISOString(),
       changefreq: "monthly",
       priority: "0.8"
+    })),
+    ...articles.map((article) => ({
+      loc: `${site}/2013/article/${article.slug}/`,
+      lastmod: new Date(article.date).toISOString(),
+      changefreq: "monthly",
+      priority: "0.4"
     }))
   ];
 

@@ -1,26 +1,28 @@
 ## Taste Brief
 
-Quality mode: Taste Mode.
+Mode: Taste Mode, alternate public-facing edition.
 
-Audience: Korean readers interested in technology, business, markets, and workplace satire who still expect a credible publication surface.
+Audience: readers who want The Ploradian content with an early-2010s mobile-app-web visual flavor.
 
-Product core behavior: Static article archive generated from RSS sources by a scheduled Worker, with Markdown as the durable source of truth.
+Core job: browse recent articles and read a full article without losing normal SEO or the existing default site.
 
-Primary action: Scan the latest lead story, then open article detail pages.
+Visual thesis: "2013 Dribbble app UI becomes a newspaper skin." Soft photo backdrops, pastel accent strips, compact app bars, white cards, squared controls, and restrained shadows.
 
-Secondary action: Search the archive by keyword or category and browse a denser list of published stories.
+Primary action: open a 2013-skinned article.
 
-Emotional target: "This looks like a sober newspaper that has made one very dry joke and refused to explain it."
+Secondary action: react with a single heart on article detail.
 
-Visual thesis: A warm broadsheet web edition with serious typographic rhythm, compact metadata, and minimal ornament.
+Emotional target: clean, slightly nostalgic, app-like, pastel, simple, not parody-ugly.
 
-Modernity direction: Editorial Modern with a conservative business-publication bias.
+Screenshot criteria:
 
-One strong design idea: The masthead behaves like an issue plate; the homepage below it is a quiet front page, not a blog feed.
+- `/2013/` should show a recognizable 2013 app-web hero in the first viewport.
+- The hero title should fit in one to two Korean lines inside translucent strips.
+- Cards should feel like early app/web content modules, not the current broadsheet.
+- `/2013/article/[slug]/` should feel like the same edition, with a clear article and no default-site visual bleed.
 
-Screenshot success criteria:
-- First viewport clearly signals The Ploradian as a serious publication.
-- Lead story dominates without becoming a landing-page hero.
-- Secondary stories remain scannable on desktop and mobile.
-- Archive search feels like a newspaper index, not a SaaS filter panel.
-- No decorative filler or meme-coded satire cues.
+Constraints:
+
+- Keep `/`, `/article/`, `/archive/`, and `/classic/` unchanged except for a nav link.
+- No new dependencies.
+- Use existing article images only; if absent, fall back to pastel surfaces.

@@ -1,36 +1,18 @@
-## Implementation Plan
+## 2013 Implementation Plan
 
-Selected hero composition: No marketing hero. Use a newspaper front page: masthead, issue line, lead article, secondary list, and briefs.
-
-Rejected hero options:
-- Split hero with mockup image: too SaaS-like.
-- Full-bleed generated newsroom image: risks fake editorial claims.
-- Joke splash page: violates serious-publication requirement.
-
-Section choreography:
-- Header masthead and issue metadata.
-- Homepage front-page grid with lead, secondary stories, and latest briefs.
-- Archive page with a compact search desk and list-first browsing mode.
-- Article detail page with title deck, source attribution, prose, and disclaimer.
-- About page explaining the satirical publication plainly.
-- Footer disclaimer and feed links.
-
-Component mapping:
-- Header/navigation: `SiteHeader`.
-- Homepage story modules: `ArticleCard`.
-- Archive/search: static article data plus small progressive-enhancement script.
-- Article body shell: `BaseLayout` plus page-specific prose.
-- RSS/sitemap: static Astro endpoints.
-
-Validation plan:
-- Install dependencies.
-- Build Astro static output.
-- Typecheck Worker after generating Wrangler types.
-- Run Worker TypeScript checks.
-- Smoke-test homepage/article/about/feed/sitemap locally.
-- Smoke-test archive search by Korean title, source/category filters, empty state, and mobile stacking.
-
-Screenshot pass plan:
-- Start Astro dev server.
-- Inspect desktop and mobile screenshots.
-- Tighten spacing/type if the first viewport feels like a generic blog.
+1. Create `Ploradian2013Layout.astro` with SEO metadata, RSS links, app-bar navigation, and isolated CSS.
+2. Add `/2013/` home:
+   - hero from highest-ranked home article
+   - compact secondary story rail
+   - article card grid
+   - static weather note as a small 2013-style module
+3. Add `/2013/article/[slug]/`:
+   - canonical points to the normal article to avoid duplicate SEO
+   - alternate points to the 2013 page
+   - real image panel with credit
+   - article body, source, single heart button, related/latest links
+4. Add navigation and sitemap/robots discoverability:
+   - global header link to `/2013/`
+   - sitemap entries for `/2013/` and 2013 article URLs
+   - robots text mention for the alternate edition
+5. Validate with web typecheck, build, and static HTML checks.

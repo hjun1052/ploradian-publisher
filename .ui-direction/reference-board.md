@@ -1,33 +1,25 @@
-## Visual Reference Research
+## The Ploradian 2013 Reference Board
 
-Real products:
-- The New York Times, https://www.nytimes.com/ - dense masthead-first hierarchy, editorial gravity, restrained color, strong typographic scale.
-- Financial Times, https://www.ft.com/ - warm paper field, serious business tone, compact metadata, premium restraint.
-- The Guardian, https://www.theguardian.com/ - section-coded rules, text-led article grid, no marketing hero.
+Source base: user-provided 2013 mobile app and web screenshots in this thread. External browsing was skipped because the user supplied the exact desired reference set and the task is a local alternate skin, not a new brand discovery project.
 
-Portfolio references:
-- Land-book editorial/news references, https://land-book.com/ - screenshot-worthy editorial rhythm without app-dashboard tropes.
-- Awwwards editorial/news inspiration, https://www.awwwards.com/websites/news-magazine/ - modern publication pacing, page choreography, refined whitespace.
+### Used References
 
-Mood references:
-- Printed broadsheet front pages - masthead, date line, columns, typographic authority, thin rules.
-- Financial/business reports - conservative tables, issue metadata, source footnotes, careful disclaimers.
+- 2013 mobile app showcase grids: white pages, fixed-width content, phone/app screenshots, simple captions, wide whitespace.
+- Flat app login/search UI: coral and mint blocks, squared controls, compact shadows, tabbed search, simple icon bars.
+- Blurred image landing pages: photo backdrops pushed soft, translucent title strips, high-contrast CTA buttons.
+- Early 2010s card web layouts: small white cards, subdued metadata, dark charcoal nav, one bold accent mark.
+- App-inspired pastel panels: mint, coral, pale lime, powder gray, and near-white surfaces rather than one dominant hue.
 
-Design system references:
-- IBM Carbon, https://carbondesignsystem.com/ - disciplined spacing, accessible contrast, restrained component states.
-- Astro documentation patterns, https://docs.astro.build/ - static-first content organization and readable technical publishing.
+### Structural Takeaways
 
-Blocked sources and substitutions:
-- Some portfolio galleries require JS-heavy browsing or login for full detail, so public category pages and real publication sites were used for structural takeaways.
+- This is not a retro portal. It is the moment when smartphone app UI leaked into web pages.
+- Keep the surface simple: image, title strip, one CTA, card grid, small app-like controls.
+- Use real article images as blurred scene material; no fake device mockups.
+- Preserve fixed editorial reading widths, but make mobile single-column and touch-friendly.
+- Keep the default Ploradian and Classic editions intact; 2013 is a third reading skin.
 
-Structural ideas extracted:
-- Put the publication identity first: masthead, date line, and issue-style metadata before story cards.
-- Use a lead/secondary/briefs split instead of repeated equal cards.
-- Let category labels be small and functional, not decorative badges.
-- Keep satire disclosure visible in the article/footer, but quieter than the editorial hierarchy.
+### Blocked / Rejected
 
-Surface traps rejected:
-- Meme colors, emoji, joke-site typography, exaggerated cards, gradients, dark AI-product styling, fake newsroom photos.
-
-Screenshot-quality inspiration:
-- A first viewport should read as a serious business paper: paper tone, crisp rules, serif lead headline, dense but breathable columns.
+- Heavy skeuomorphic chrome: wrong era for the provided references.
+- CSS-free classic treatment: already exists at `/classic/`.
+- Modern glass/gradient startup hero: not 2013 and too generic.

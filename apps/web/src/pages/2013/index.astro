@@ -1,0 +1,79 @@
+---
+import Ploradian2013Layout from "../../layouts/Ploradian2013Layout.astro";
+import { formatDisplayDate, getPublishedArticles } from "../../lib/articles";
+import { getHomeFeaturedArticles } from "../../lib/homeRanking";
+
+const articles = await getPublishedArticles();
+const featuredArticles = getHomeFeaturedArticles(articles, 13);
+const heroArticle = featuredArticles[0] ?? articles[0];
+const railArticles = featuredArticles.slice(1, 4);
+const cardArticles = featuredArticles.slice(4, 13);
+const heroImageStyle = heroArticle?.image_url ? `--p13-hero-image: url("${heroArticle.image_url}")` : undefined;
+
+function cardImageStyle(imageUrl?: string): string | undefined {
+  return imageUrl ? `--p13-card-image: url("${imageUrl}")` : undefined;
+}
+---
+
+<Ploradian2013Layout
+  title="The Ploradian 2013"
+  description="2013년 모바일 앱 웹 감성으로 다시 읽는 플로라디안 기사 목록입니다."
+  canonicalPath="/2013/"
+  imagePath={heroArticle?.image_url}
+  imageAlt={heroArticle?.image_alt || "The Ploradian 2013"}
+>
+  {heroArticle && (
+    <section class="p13-hero" style={heroImageStyle}>
+      <div class="p13-hero-content">
+        <p class="p13-kicker">{heroArticle.category} / {formatDisplayDate(heroArticle.date)}</p>
+        <h1>
+          <span class="p13-title-strip">{heroArticle.title}</span>
+        </h1>
+        <p class="p13-hero-copy">
+          <span class="p13-subtitle-strip">{heroArticle.subtitle}</span>
+        </p>
+        <a class="p13-button" href={`/2013/article/${heroArticle.slug}/`}>ZUM ARTIKEL</a>
+      </div>
+    </section>
+  )}
+
+  <section class="p13-shell p13-rail" aria-label="주요 기사">
+    {railArticles.map((article) => (
+      <a class="p13-mini-card" href={`/2013/article/${article.slug}/`} style={cardImageStyle(article.image_url)}>
+        <p class="p13-meta">
+          <span class="p13-chip">{article.category}</span>
+          <time datetime={article.date}>{formatDisplayDate(article.date)}</time>
+        </p>
+        <h2>{article.title}</h2>
+        <p>{article.subtitle}</p>
+      </a>
+    ))}
+  </section>
+
+  <p class="p13-shell p13-section-label">RECENT STORIES / app-web edition</p>
+  <section class="p13-shell p13-card-grid" aria-label="최신 기사">
+    {cardArticles.map((article) => (
+      <a class="p13-card" href={`/2013/article/${article.slug}/`}>
+        <div class="p13-card-image" style={cardImageStyle(article.image_url)}></div>
+        <div class="p13-card-body">
+          <p class="p13-meta">
+            <span class="p13-chip">{article.category}</span>
+            <span>{article.readingMinutes} min</span>
+          </p>
+          <h2>{article.title}</h2>
+          <p>{article.subtitle}</p>
+        </div>
+      </a>
+    ))}
+  </section>
+
+  <section class="p13-shell p13-weather" aria-label="오늘의 일기예보">
+    <h2>오늘의 일기예보</h2>
+    <div class="p13-weather-lines">
+      <p>오늘은 -40도에서 40도 사이 온도가 지속되겠습니다.</p>
+      <p>하늘은 오늘 푸른색일 예정입니다.</p>
+      <p>바람은 불겠으며, 우산은 비막이, 양산, 장식품 중 하나의 용도로 사용되겠습니다.</p>
+      <p>대기에는 먼지가 날아다니겠으며, 오전 4시부터 8시 사이에 해가 뜨고, 오후 4시부터 8시 사이에 해가 지겠습니다.</p>
+    </div>
+  </section>
+</Ploradian2013Layout>

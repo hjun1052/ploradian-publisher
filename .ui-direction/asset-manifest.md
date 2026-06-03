@@ -1,26 +1,22 @@
 ## Asset Manifest
 
-Asset name: Ploradian masthead seal.
+### Real Assets
 
-Truth label: Created brand asset for this project, not an official external mark.
+- Article `image_url`: used as 2013 hero/card/article imagery.
+  - Truth label: sourced by existing article pipeline, usually Unsplash with credit metadata.
+  - Usage: blurred hero backdrop, sharp card thumbnails, article feature panel.
+  - Risk: some images are semantically broad; the 2013 skin treats them as atmosphere, not evidence.
 
-Source or creation method: Hand-authored SVG in `apps/web/public/ploradian-mark.svg`.
+- `/ploradian-mark.svg`
+  - Truth label: existing site logo mark.
+  - Usage: not central in 2013 surface; wordmark and app-bar treatment carry the edition.
 
-Usage note: Original project asset; safe to ship with the site.
+### Generated Assets
 
-Representative vs official label: Official for this local product scaffold.
+None.
 
-Where it appears: Site masthead and social preview metadata.
+### Custom CSS Materials
 
-Product concept supported: Serious automated publication with print-inspired identity.
-
-Mobile behavior: Scales down as a small masthead emblem and never competes with article titles.
-
-Quality risks: If overused, it can feel decorative; keep it limited to the header.
-
-Replacement note: Replace with a professionally drawn wordmark later without changing layout.
-
-Rejected fake/filler assets:
-- Stock newsroom photos.
-- Fake screenshots of nonexistent CMS screens.
-- AI-generated reporter portraits.
+- Pastel strip overlays: mint, lime, and coral bands inspired by 2013 app landing pages.
+- Soft card shadows: deliberately small and squared; no glassmorphism.
+- Optional placeholder panel: pastel block used only when article image is missing.
