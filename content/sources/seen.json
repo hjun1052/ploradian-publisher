@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-03T11:01:45.233Z",
+  "updated_at": "2026-06-03T12:01:05.082Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -305,6 +305,14 @@
       "title": "How long will it take to rebuild Blue Origin's launch pad? We asked some SpaceX vets.",
       "article_path": "content/articles/published/2026-06-03-dcee68b0-blue-origin-new-glenn-launch-pad-rebuild-spacex-vets.md",
       "seen_at": "2026-06-03T11:01:45.233Z"
+    },
+    "a0a224c5d45be3b403bde2d89974508e674cb78e46bac97271213e10f74470f9": {
+      "url": "https://www.theverge.com/features/940977/trans-teens-pediatric-care-closing",
+      "canonical_url": "https://www.theverge.com/features/940977/trans-teens-pediatric-care-closing",
+      "source_name": "The Verge",
+      "title": "Trans teens have something to say",
+      "article_path": "content/articles/published/2026-06-03-a0a224c5-trans-teens-pediatric-care-closing-ploradian.md",
+      "seen_at": "2026-06-03T12:01:05.082Z"
     }
   }
 }
