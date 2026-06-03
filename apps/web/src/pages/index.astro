@@ -2,12 +2,15 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ArticleCard from "../components/ArticleCard.astro";
 import { formatDisplayDate, getPublishedArticles } from "../lib/articles";
+import { getHomeFeaturedArticles } from "../lib/homeRanking";
 
 const articles = await getPublishedArticles();
-const lead = articles[0];
-const secondary = articles.slice(1, 3);
-const briefs = articles.slice(3, 9);
-const latestRows = articles.slice(9, 25);
+const featuredArticles = getHomeFeaturedArticles(articles, 9);
+const featuredSlugs = new Set(featuredArticles.map((article) => article.slug));
+const lead = featuredArticles[0];
+const secondary = featuredArticles.slice(1, 3);
+const briefs = featuredArticles.slice(3, 9);
+const latestRows = articles.filter((article) => !featuredSlugs.has(article.slug)).slice(0, 16);
 const sectionOrder = ["기술", "비즈니스", "시장", "정색", "헛소리"];
 const sections = sectionOrder
   .map((category) => ({
