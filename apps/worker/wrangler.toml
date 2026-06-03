@@ -26,7 +26,7 @@ enabled = true
 head_sampling_rate = 1.0
 
 [triggers]
-crons = ["0 * * * *", "30 12 * * 2", "30 12 * * 5", "30 14 * * 0", "30 14 * * 3", "30 14 * * 5"]
+crons = ["0 * * * *", "30 12 * * 3,6", "30 14 * * 1,4,6"]
 
 [vars]
 AI_PROVIDER = "openai"
