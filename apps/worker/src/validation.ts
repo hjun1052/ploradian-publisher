@@ -264,10 +264,6 @@ function validateStarsArticle(
     reasons.push("별들의 세계 does not use enough supplied scientific anchors");
   }
 
-  if (countDirectRidicule(fullText) > 1) {
-    reasons.push("별들의 세계 reads too much like ridicule");
-  }
-
   if (/거지같|멍청|개판|등신|똥덩어리|조롱|비웃|까는|어그로/.test(fullText)) {
     reasons.push("별들의 세계 contains satire-column diction");
   }
