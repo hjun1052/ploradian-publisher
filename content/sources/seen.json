@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-03T17:00:58.088Z",
+  "updated_at": "2026-06-03T18:01:28.871Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -361,6 +361,14 @@
       "title": "Amazon&#8217;s search bar will invent AI-generated products you can&#8217;t buy",
       "article_path": "content/articles/published/2026-06-04-5c4344db-amazon-search-bar-ai-generated-products-you-cant-buy.md",
       "seen_at": "2026-06-03T17:00:58.088Z"
+    },
+    "fbaaaee560ccc88d002eee3a9b66a6064e315518ccd7edcfe401ecbaff72c36c": {
+      "url": "https://www.theverge.com/gadgets/939362/best-magsafe-qi2-2-batteries-power-banks",
+      "canonical_url": "https://www.theverge.com/gadgets/939362/best-magsafe-qi2-2-batteries-power-banks",
+      "source_name": "The Verge",
+      "title": "The best Qi2 batteries for iPhone and Pixel",
+      "article_path": "content/articles/published/2026-06-04-fbaaaee5-qi2-2-magsafe-battery-iphone-pixel-25w-15w-compatibility.md",
+      "seen_at": "2026-06-03T18:01:28.871Z"
     }
   }
 }
