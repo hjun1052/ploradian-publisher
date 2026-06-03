@@ -9,7 +9,7 @@ const BOANNEWS_FEED = {
 } as const;
 
 const SECURITY_PREY_MIN_SCORE = 85;
-const SECURITY_PREY_HOUR_KST = 12;
+const SECURITY_PREY_HOURS_KST = new Set([12, 17]);
 const MAX_SECURITY_CANDIDATES = 8;
 const MAX_SECURITY_SCORING = 5;
 
@@ -26,7 +26,7 @@ export async function scheduledSecurityPreySelection(
   now: Date,
   force = false
 ): Promise<SecurityPreySelection> {
-  if (!force && zonedHour(now, config.siteTimezone) !== SECURITY_PREY_HOUR_KST) {
+  if (!force && !SECURITY_PREY_HOURS_KST.has(zonedHour(now, config.siteTimezone))) {
     return emptySelection("not security prey slot");
   }
 
