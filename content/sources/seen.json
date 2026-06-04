@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-04T01:01:31.041Z",
+  "updated_at": "2026-06-04T02:01:10.863Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -425,6 +425,14 @@
       "title": "AMD, 에이전틱 AI발 매출 증대 기대로 주가 상승",
       "article_path": "content/articles/published/2026-06-04-501a0c05-amd-agentic-ai-revenue-hype-stock-rise-2026-06-04.md",
       "seen_at": "2026-06-04T01:01:31.041Z"
+    },
+    "482422651522d37580e93effb61d6c315598ebf485ad9574b860ef6dd6d5940e": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418241",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418241",
+      "source_name": "연합인포맥스 증권",
+      "title": "바클레이즈 &quot;亞 AI 투자 대안은 일본…한국보다 수익 기회 나을듯&quot;",
+      "article_path": "content/articles/published/2026-06-04-48242265-barclays-japan-ai-hidden-value-nikkei-225-45-percent.md",
+      "seen_at": "2026-06-04T02:01:10.863Z"
     }
   }
 }
