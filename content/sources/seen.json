@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-04T20:02:18.682Z",
+  "updated_at": "2026-06-04T21:01:29.702Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -585,6 +585,14 @@
       "title": "Google is letting social media stars customize their search result page",
       "article_path": "content/articles/published/2026-06-05-73480bfd-google-search-profile-100k-us-creators.md",
       "seen_at": "2026-06-04T20:02:18.682Z"
+    },
+    "dbc87d9206bdad285ec39c2f8cdfbb73e67f0700a3e35de0a1d443fe577a241e": {
+      "url": "https://www.theverge.com/tech/943445/cyberdeck-tiktok",
+      "canonical_url": "https://www.theverge.com/tech/943445/cyberdeck-tiktok",
+      "source_name": "The Verge",
+      "title": "Cyberdecks used to look like little laptops, but now they&#8217;re getting more personal",
+      "article_path": "content/articles/published/2026-06-05-dbc87d92-cyberdeck-annike-tan-not-looking-like-computer.md",
+      "seen_at": "2026-06-04T21:01:29.702Z"
     }
   }
 }
