@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-04T12:01:24.817Z",
+  "updated_at": "2026-06-04T13:01:15.874Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -521,6 +521,14 @@
       "title": "Yes, the Oura Ring 5 is noticeably smaller",
       "article_path": "content/articles/published/2026-06-04-9e2c3cf1-oura-ring-5-smaller-first-impressions-not-review.md",
       "seen_at": "2026-06-04T12:01:24.817Z"
+    },
+    "0a8b1f5afb46d1bbaaeedaf63df694c5074a42edaaf1cff80dfd4e940fcfa907": {
+      "url": "https://www.theverge.com/ai-artificial-intelligence/942909/let-us-filter-ai-slop-google-youtube-meta-instagram-tiktok",
+      "canonical_url": "https://www.theverge.com/ai-artificial-intelligence/942909/let-us-filter-ai-slop-google-youtube-meta-instagram-tiktok",
+      "source_name": "The Verge",
+      "title": "Let us filter AI slop, you cowards",
+      "article_path": "content/articles/published/2026-06-04-0a8b1f5a-ai-slop-filter-label-without-hide-platforms.md",
+      "seen_at": "2026-06-04T13:01:15.874Z"
     }
   }
 }
