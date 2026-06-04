@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-04T11:01:23.221Z",
+  "updated_at": "2026-06-04T12:01:24.817Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -513,6 +513,14 @@
       "title": "Nintendo confirms it will sell a new Switch 2 with replaceable battery in the EU",
       "article_path": "content/articles/published/2026-06-04-9563d347-nintendo-switch-2-replaceable-battery-eu.md",
       "seen_at": "2026-06-04T11:01:23.221Z"
+    },
+    "9e2c3cf1fc944dd642c3708f69693fc5a3bf1d050cc169cc22bab9681b6d98db": {
+      "url": "https://www.theverge.com/gadgets/942616/oura-ring-5-size-comparison-first-impressions",
+      "canonical_url": "https://www.theverge.com/gadgets/942616/oura-ring-5-size-comparison-first-impressions",
+      "source_name": "The Verge",
+      "title": "Yes, the Oura Ring 5 is noticeably smaller",
+      "article_path": "content/articles/published/2026-06-04-9e2c3cf1-oura-ring-5-smaller-first-impressions-not-review.md",
+      "seen_at": "2026-06-04T12:01:24.817Z"
     }
   }
 }
