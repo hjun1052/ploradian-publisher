@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-04T18:01:13.426Z",
+  "updated_at": "2026-06-04T19:02:34.966Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -569,6 +569,14 @@
       "title": "Amazon’s new plan for games: James Bond and AI Snoop Dogg",
       "article_path": "content/articles/published/2026-06-05-533c78a0-amazon-gaming-plan-james-bond-ai-snoop-dogg-luna-2027.md",
       "seen_at": "2026-06-04T18:01:13.426Z"
+    },
+    "ae79de66d7a74b1b94153ffc0b822d348f8e5d337615cbeec4a6751d9c1d90c7": {
+      "url": "https://www.theverge.com/tech/942897/cash-app-tags-magic-wand-contactless-payments-price-launch",
+      "canonical_url": "https://www.theverge.com/tech/942897/cash-app-tags-magic-wand-contactless-payments-price-launch",
+      "source_name": "The Verge",
+      "title": "Cash App made a magic wand for contactless payments",
+      "article_path": "content/articles/published/2026-06-05-ae79de66-cash-app-wand-contactless-payments-magic-wand-launch.md",
+      "seen_at": "2026-06-04T19:02:34.966Z"
     }
   }
 }
