@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-04T00:03:17.961Z",
+  "updated_at": "2026-06-04T01:01:31.041Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -417,6 +417,14 @@
       "title": "서스퀘하나가 뿌린 씨앗…메모리 가격 폭등각인가",
       "article_path": "content/articles/published/2026-06-04-38cbf6e3-susquehanna-memory-price-spike-target-hike.md",
       "seen_at": "2026-06-04T00:03:17.961Z"
+    },
+    "501a0c05063c10d35510f347e02416e7eb6ce535c6022971ee1800e0712a8e6a": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418217",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418217",
+      "source_name": "연합인포맥스 증권",
+      "title": "AMD, 에이전틱 AI발 매출 증대 기대로 주가 상승",
+      "article_path": "content/articles/published/2026-06-04-501a0c05-amd-agentic-ai-revenue-hype-stock-rise-2026-06-04.md",
+      "seen_at": "2026-06-04T01:01:31.041Z"
     }
   }
 }
