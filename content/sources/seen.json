@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-04T17:01:13.995Z",
+  "updated_at": "2026-06-04T18:01:13.426Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -561,6 +561,14 @@
       "title": "Belkin’s new Joy-Con grips also boost the Switch 2’s battery life",
       "article_path": "content/articles/published/2026-06-05-6aa5f650-belkin-switch-2-charging-grip-case-magnetic-battery-joycon.md",
       "seen_at": "2026-06-04T17:01:13.995Z"
+    },
+    "533c78a0c4e3d1be152c4d1bed5bbc7da0de1306eb2489c6da175e5f9d5ea831": {
+      "url": "https://www.theverge.com/games/943147/amazon-gaming-strategy-james-bond-snoop-dogg-luna",
+      "canonical_url": "https://www.theverge.com/games/943147/amazon-gaming-strategy-james-bond-snoop-dogg-luna",
+      "source_name": "The Verge",
+      "title": "Amazon’s new plan for games: James Bond and AI Snoop Dogg",
+      "article_path": "content/articles/published/2026-06-05-533c78a0-amazon-gaming-plan-james-bond-ai-snoop-dogg-luna-2027.md",
+      "seen_at": "2026-06-04T18:01:13.426Z"
     }
   }
 }
