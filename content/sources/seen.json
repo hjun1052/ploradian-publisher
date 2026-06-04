@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-03T23:03:04.458Z",
+  "updated_at": "2026-06-04T00:03:17.961Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -409,6 +409,14 @@
       "title": "美, 트랙터 등 산업기계 관세 일부 인하…23억달러 규모",
       "article_path": "content/articles/published/2026-06-04-63e9a5be-us-232-tariff-tractor-machinery-cut-23bn.md",
       "seen_at": "2026-06-03T23:03:04.458Z"
+    },
+    "38cbf6e3acf96866f394aea32914c5fef5225614cfdd2f373d8d2c9665fe2d6f": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418185",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418185",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "서스퀘하나가 뿌린 씨앗…메모리 가격 폭등각인가",
+      "article_path": "content/articles/published/2026-06-04-38cbf6e3-susquehanna-memory-price-spike-target-hike.md",
+      "seen_at": "2026-06-04T00:03:17.961Z"
     }
   }
 }
