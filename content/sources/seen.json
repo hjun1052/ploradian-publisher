@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-04T10:01:25.394Z",
+  "updated_at": "2026-06-04T11:01:23.221Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -505,6 +505,14 @@
       "title": "Shokz upgraded its open earbuds with better sound and a lighter design",
       "article_path": "content/articles/published/2026-06-04-85c49dea-shokz-opendots-2-air-open-earbuds-open-defense.md",
       "seen_at": "2026-06-04T10:01:25.394Z"
+    },
+    "9563d3473f381eb885468ae2766fb023a70c0ff75d85e8bf913ec66616fbf370": {
+      "url": "https://www.theverge.com/games/942808/nintendo-switch-2-replaceable-battery-eu",
+      "canonical_url": "https://www.theverge.com/games/942808/nintendo-switch-2-replaceable-battery-eu",
+      "source_name": "The Verge",
+      "title": "Nintendo confirms it will sell a new Switch 2 with replaceable battery in the EU",
+      "article_path": "content/articles/published/2026-06-04-9563d347-nintendo-switch-2-replaceable-battery-eu.md",
+      "seen_at": "2026-06-04T11:01:23.221Z"
     }
   }
 }
