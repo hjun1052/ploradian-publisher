@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-04T07:01:18.000Z",
+  "updated_at": "2026-06-04T08:02:19.422Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -473,6 +473,22 @@
       "title": "2026-06-04 국장 마감 억지해석",
       "article_path": "content/articles/published/2026-06-04-9f4ebb52-market-2026-06-04-ea-b5-ad-ec-9e-a5-16.md",
       "seen_at": "2026-06-04T07:01:18.000Z"
+    },
+    "749eac8aa8369741a66138fcaa7d71da29b4fd98d96bb16d6ca5448220f3bf8b": {
+      "url": "http://www.boannews.com/media/view.asp?idx=143958&kind=1&sub_kind=",
+      "canonical_url": "http://www.boannews.com/media/view.asp?idx=143958&kind=1&sub_kind=",
+      "source_name": "보안뉴스 사건사고",
+      "title": "티빙, 개인정보 유출 사고 연계 서비스로 번지나? ‘CJ ONE’ 연계 피해 우려",
+      "article_path": "content/articles/published/2026-06-04-749eac8a-tving-cjone-ci-di-main-db-breach.md",
+      "seen_at": "2026-06-04T08:02:19.422Z"
+    },
+    "3e649f59e479ea565d4112a377fe47769c1ed06a7265e52d7136807dd99abf5a": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418334",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418334",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "기후부 장관 &quot;산업용 전기요금 중국보다 비싸…하향 안정화해야&quot;",
+      "article_path": "content/articles/published/2026-06-04-3e649f59-power-tariff-181-vs-120-kepco-five-merger.md",
+      "seen_at": "2026-06-04T08:02:19.422Z"
     }
   }
 }
