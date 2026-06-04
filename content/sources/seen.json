@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-04T14:02:09.363Z",
+  "updated_at": "2026-06-04T15:01:34.626Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -537,6 +537,14 @@
       "title": "AI leaders call for tougher protections against AI-aided bioweapons",
       "article_path": "content/articles/published/2026-06-04-d521073a-ai-leaders-open-letter-bioweapons-congress-biosecurity-gap.md",
       "seen_at": "2026-06-04T14:02:09.363Z"
+    },
+    "9d6cf6af8afdc8fba8c3e06958b5a4d7709ce7a1f2b212c70742457d4b67c52f": {
+      "url": "https://www.theverge.com/tech/943066/tsmc-ai-demand-struggles",
+      "canonical_url": "https://www.theverge.com/tech/943066/tsmc-ai-demand-struggles",
+      "source_name": "The Verge",
+      "title": "TSMC struggles to keep up with AI demand: &#8216;We can only support so much&#8217;",
+      "article_path": "content/articles/published/2026-06-05-9d6cf6af-tsmc-ai-demand-struggles-we-can-only-support-so-much.md",
+      "seen_at": "2026-06-04T15:01:34.626Z"
     }
   }
 }
