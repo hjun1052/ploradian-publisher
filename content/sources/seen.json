@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-04T21:01:29.702Z",
+  "updated_at": "2026-06-04T22:00:39.220Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -593,6 +593,14 @@
       "title": "Cyberdecks used to look like little laptops, but now they&#8217;re getting more personal",
       "article_path": "content/articles/published/2026-06-05-dbc87d92-cyberdeck-annike-tan-not-looking-like-computer.md",
       "seen_at": "2026-06-04T21:01:29.702Z"
+    },
+    "ac14bba457f6790b794bbd7a0de0fe77d774e0f293ff588f2cef9a69b1e65b1e": {
+      "url": "https://news.ploradian.com/market/2026-06-05-미장-07/",
+      "canonical_url": "https://news.ploradian.com/market/2026-06-05-미장-07/",
+      "source_name": "The Ploradian 미장 마감 억지해석 데스크",
+      "title": "2026-06-05 미장 마감 억지해석",
+      "article_path": "content/articles/published/2026-06-05-ac14bba4-mijang-magam-eujjahaejeok-2026-06-04.md",
+      "seen_at": "2026-06-04T22:00:39.220Z"
     }
   }
 }
