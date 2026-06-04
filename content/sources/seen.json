@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-04T19:02:34.966Z",
+  "updated_at": "2026-06-04T20:02:18.682Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -577,6 +577,14 @@
       "title": "Cash App made a magic wand for contactless payments",
       "article_path": "content/articles/published/2026-06-05-ae79de66-cash-app-wand-contactless-payments-magic-wand-launch.md",
       "seen_at": "2026-06-04T19:02:34.966Z"
+    },
+    "73480bfddc8da34ff7ff138defc2cda35caa708a17300857f51b1c110c8ac308": {
+      "url": "https://www.theverge.com/tech/943233/google-search-profiles-custom-page",
+      "canonical_url": "https://www.theverge.com/tech/943233/google-search-profiles-custom-page",
+      "source_name": "The Verge",
+      "title": "Google is letting social media stars customize their search result page",
+      "article_path": "content/articles/published/2026-06-05-73480bfd-google-search-profile-100k-us-creators.md",
+      "seen_at": "2026-06-04T20:02:18.682Z"
     }
   }
 }
