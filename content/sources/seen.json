@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-04T06:00:49.589Z",
+  "updated_at": "2026-06-04T07:01:18.000Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -465,6 +465,14 @@
       "title": "넥스트레이드, 조각투자 기술탈취 의혹 '무혐의'…4분기 장외거래소 출범",
       "article_path": "content/articles/published/2026-06-04-a58958c1-nxt-nda-data-alone-launch-q4-market.md",
       "seen_at": "2026-06-04T06:00:49.589Z"
+    },
+    "9f4ebb5296fb96f52f26b34a661deb14f98fa33d3c3bb786d960cfee419b9ed2": {
+      "url": "https://news.ploradian.com/market/2026-06-04-국장-16/",
+      "canonical_url": "https://news.ploradian.com/market/2026-06-04-국장-16/",
+      "source_name": "The Ploradian 국장 마감 억지해석 데스크",
+      "title": "2026-06-04 국장 마감 억지해석",
+      "article_path": "content/articles/published/2026-06-04-9f4ebb52-market-2026-06-04-ea-b5-ad-ec-9e-a5-16.md",
+      "seen_at": "2026-06-04T07:01:18.000Z"
     }
   }
 }
