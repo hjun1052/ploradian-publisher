@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-04T04:00:46.085Z",
+  "updated_at": "2026-06-04T05:00:47.606Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -449,6 +449,14 @@
       "title": "책상 왼쪽 끝에서 회의실 의자 하나가 가까운 사물에게 특별한 신호를 보내지 않았다",
       "article_path": "content/articles/published/2026-06-04-6275678e-chesang-oseukkeut-ui-ija-gakkaun-samulgwa-byeoldareun-gyosin-eopsi-meomu.md",
       "seen_at": "2026-06-04T04:00:46.085Z"
+    },
+    "949d146bda28daf759567b961e0ec01619d17edea68f89dacdc4f0cabcee63ca": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418274",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418274",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "공정위, 도세탁셀 항암제 1위 탁소텔 품은 보령에 &quot;2위 디탁셀 팔아라&quot;",
+      "article_path": "content/articles/published/2026-06-04-949d146b-boryung-taxotere-ditaxel-kftc-conditional-approval-785.md",
+      "seen_at": "2026-06-04T05:00:47.606Z"
     }
   }
 }
