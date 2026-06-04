@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-04T02:01:10.863Z",
+  "updated_at": "2026-06-04T03:01:10.436Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -433,6 +433,14 @@
       "title": "바클레이즈 &quot;亞 AI 투자 대안은 일본…한국보다 수익 기회 나을듯&quot;",
       "article_path": "content/articles/published/2026-06-04-48242265-barclays-japan-ai-hidden-value-nikkei-225-45-percent.md",
       "seen_at": "2026-06-04T02:01:10.863Z"
+    },
+    "dd68a5e1d9593a2cc67cdf02a71e180ed5c4b18b0591b9d3064002a999ce6b37": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418272",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418272",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "국토부, 서소문 고가차도 붕괴 수시검사 착수…관리강화 방안 마련도",
+      "article_path": "content/articles/published/2026-06-04-dd68a5e1-seosomun-overpass-collapse-inspection-after-the-fact.md",
+      "seen_at": "2026-06-04T03:01:10.436Z"
     }
   }
 }
