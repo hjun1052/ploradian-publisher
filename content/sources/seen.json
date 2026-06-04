@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-04T08:02:19.422Z",
+  "updated_at": "2026-06-04T09:01:21.661Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -489,6 +489,14 @@
       "title": "기후부 장관 &quot;산업용 전기요금 중국보다 비싸…하향 안정화해야&quot;",
       "article_path": "content/articles/published/2026-06-04-3e649f59-power-tariff-181-vs-120-kepco-five-merger.md",
       "seen_at": "2026-06-04T08:02:19.422Z"
+    },
+    "d69aa9d952086882d23603becb51a7d04fc26b9bb6fdf0e98ae9c7233ab5d0c4": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418338",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418338",
+      "source_name": "연합인포맥스 증권",
+      "title": "코인원 손잡은 한투증권, 자체 STO 플랫폼 구축키로",
+      "article_path": "content/articles/published/2026-06-04-d69aa9d9-koreainvestment-sto-rfp-before-law.md",
+      "seen_at": "2026-06-04T09:01:21.661Z"
     }
   }
 }
