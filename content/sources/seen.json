@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-05T16:00:59.387Z",
+  "updated_at": "2026-06-05T17:00:59.149Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -769,6 +769,14 @@
       "title": "Rocket Report: Blue Origin explosion still making headlines; Impulse raises money",
       "article_path": "content/articles/published/2026-06-06-66db8e3d-sls-artemis-iii-stacking-this-summer-schedule-left-earth-first.md",
       "seen_at": "2026-06-05T16:00:59.387Z"
+    },
+    "034fda5f2df45268436687984c13cb4f0c956880921d1dcfeec9c2c1917d8721": {
+      "url": "https://www.theverge.com/podcast/944058/ai-laptop-nvidia-build-gemini-spark-vergecast",
+      "canonical_url": "https://www.theverge.com/podcast/944058/ai-laptop-nvidia-build-gemini-spark-vergecast",
+      "source_name": "The Verge",
+      "title": "This is your laptop… on AI",
+      "article_path": "content/articles/published/2026-06-06-034fda5f-ai-laptop-866-verge11-rtx-spark-jensen-huang.md",
+      "seen_at": "2026-06-05T17:00:59.149Z"
     }
   }
 }
