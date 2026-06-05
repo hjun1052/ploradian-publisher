@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-05T11:00:37.580Z",
+  "updated_at": "2026-06-05T12:00:58.983Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -713,6 +713,14 @@
       "title": "The skeptic’s guide to humanoid robots going viral on the Internet",
       "article_path": "content/articles/published/2026-06-05-a5ceb531-skeptics-guide-humanoid-robots-going-viral-unitree-demo.md",
       "seen_at": "2026-06-05T11:00:37.580Z"
+    },
+    "f8a986e51d16dc6c1951c45545d2e7e78693c3c3147aa34293326b5fbe978acc": {
+      "url": "https://www.theverge.com/transportation/943004/porsche-cayenne-coupe-turbo-review-specs-price",
+      "canonical_url": "https://www.theverge.com/transportation/943004/porsche-cayenne-coupe-turbo-review-specs-price",
+      "source_name": "The Verge",
+      "title": "Porsche’s Cayenne Coupe Turbo will even make 911 owners nervous",
+      "article_path": "content/articles/published/2026-06-05-f8a986e5-porsche-cayenne-coupe-turbo-911-owners-nervous-satire.md",
+      "seen_at": "2026-06-05T12:00:58.983Z"
     }
   }
 }
