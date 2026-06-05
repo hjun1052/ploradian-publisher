@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-05T15:00:39.522Z",
+  "updated_at": "2026-06-05T16:00:59.387Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -761,6 +761,14 @@
       "title": "Not the next R8? Audi reveals mid-engined plug-in hybrid V8 Nuvolari.",
       "article_path": "content/articles/published/2026-06-06-dd3fb0aa-audi-nuvolari-not-next-r8-mid-engined-phev-v8.md",
       "seen_at": "2026-06-05T15:00:39.522Z"
+    },
+    "66db8e3daf7572e7eef6d20b7d141d1ec24fc212fda801878083877bfcbac9df": {
+      "url": "https://arstechnica.com/space/2026/06/rocket-report-blue-origin-explosion-still-making-headlines-impulse-raises-money/",
+      "canonical_url": "https://arstechnica.com/space/2026/06/rocket-report-blue-origin-explosion-still-making-headlines-impulse-raises-money/",
+      "source_name": "Ars Technica",
+      "title": "Rocket Report: Blue Origin explosion still making headlines; Impulse raises money",
+      "article_path": "content/articles/published/2026-06-06-66db8e3d-sls-artemis-iii-stacking-this-summer-schedule-left-earth-first.md",
+      "seen_at": "2026-06-05T16:00:59.387Z"
     }
   }
 }
