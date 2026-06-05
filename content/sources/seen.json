@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-05T09:00:35.205Z",
+  "updated_at": "2026-06-05T10:00:31.173Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -697,6 +697,14 @@
       "title": "NH증권, 회사채 수요예측에 2조 몰리며 흥행…2년물 '언더'·5년물은 '오버'",
       "article_path": "content/articles/published/2026-06-05-ab476cf1-nh-investment-bond-bookbuilding-2trillion-5year-over.md",
       "seen_at": "2026-06-05T09:00:35.205Z"
+    },
+    "3eb8a19c5b7ddc2a3ae0d44cf140446bbe2a4b1ba543a99ccf1c78aa2ee626b2": {
+      "url": "https://www.theverge.com/games/943657/valve-steam-machine-frame-summer-launch-verified",
+      "canonical_url": "https://www.theverge.com/games/943657/valve-steam-machine-frame-summer-launch-verified",
+      "source_name": "The Verge",
+      "title": "Valve says it&#8217;s ready to launch the Steam Machine this summer",
+      "article_path": "content/articles/published/2026-06-05-3eb8a19c-valve-steam-machine-frame-summer-launch-verified.md",
+      "seen_at": "2026-06-05T10:00:31.173Z"
     }
   }
 }
