@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-05T14:31:06.793Z",
+  "updated_at": "2026-06-05T15:00:39.522Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -753,6 +753,14 @@
       "title": "A giant star may have destroyed itself in one of the universe&#039;s rarest explosions",
       "article_path": "content/articles/published/2026-06-05-a5720469-sn-2023vbw-pair-instability-long-light.md",
       "seen_at": "2026-06-05T14:31:06.793Z"
+    },
+    "dd3fb0aac946ee350286daf486703ea86573269b9286eecefd6fccf2ca87d5d8": {
+      "url": "https://arstechnica.com/cars/2026/06/not-the-next-r8-audi-reveals-mid-engined-plug-in-hybrid-v8-nuvolari/",
+      "canonical_url": "https://arstechnica.com/cars/2026/06/not-the-next-r8-audi-reveals-mid-engined-plug-in-hybrid-v8-nuvolari/",
+      "source_name": "Ars Technica",
+      "title": "Not the next R8? Audi reveals mid-engined plug-in hybrid V8 Nuvolari.",
+      "article_path": "content/articles/published/2026-06-06-dd3fb0aa-audi-nuvolari-not-next-r8-mid-engined-phev-v8.md",
+      "seen_at": "2026-06-05T15:00:39.522Z"
     }
   }
 }
