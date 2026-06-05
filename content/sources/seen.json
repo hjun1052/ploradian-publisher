@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-05T12:30:49.930Z",
+  "updated_at": "2026-06-05T13:01:07.434Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -729,6 +729,14 @@
       "title": "국회예산정책처, 「공공기관 상생협력사업의 문제점과 개선과제」 발간",
       "article_path": "content/articles/published/2026-06-05-6d4b1e92-public-institution-winwin-loan-overlap-hidden-cost.md",
       "seen_at": "2026-06-05T12:30:49.930Z"
+    },
+    "5b6fc817d6e4ca18c016485d345d8d71c300f048b26b66994dfe6470cf7d19d2": {
+      "url": "https://www.theverge.com/tech/942839/macbook-neo-customization-color-mods-official-parts-frankenlaptop",
+      "canonical_url": "https://www.theverge.com/tech/942839/macbook-neo-customization-color-mods-official-parts-frankenlaptop",
+      "source_name": "The Verge",
+      "title": "I customized a MacBook Neo with colorful spare parts",
+      "article_path": "content/articles/published/2026-06-05-5b6fc817-macbook-neo-color-spare-parts-frankenlaptop.md",
+      "seen_at": "2026-06-05T13:01:07.434Z"
     }
   }
 }
