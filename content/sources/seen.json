@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-05T17:00:59.149Z",
+  "updated_at": "2026-06-05T18:00:41.098Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -777,6 +777,14 @@
       "title": "This is your laptop… on AI",
       "article_path": "content/articles/published/2026-06-06-034fda5f-ai-laptop-866-verge11-rtx-spark-jensen-huang.md",
       "seen_at": "2026-06-05T17:00:59.149Z"
+    },
+    "97367640e255d3001c398948580debe199821e9a20b3a78cec21df0a8497bad4": {
+      "url": "https://arstechnica.com/culture/2026/06/review-spider-noir-recaptures-the-magic-of-a-bygone-era/",
+      "canonical_url": "https://arstechnica.com/culture/2026/06/review-spider-noir-recaptures-the-magic-of-a-bygone-era/",
+      "source_name": "Ars Technica",
+      "title": "Review: Spider-Noir recaptures the magic of a bygone era",
+      "article_path": "content/articles/published/2026-06-06-97367640-spider-noir-1930s-cage-magic-review.md",
+      "seen_at": "2026-06-05T18:00:41.098Z"
     }
   }
 }
