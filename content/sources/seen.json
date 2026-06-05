@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-05T03:01:18.578Z",
+  "updated_at": "2026-06-05T04:00:40.840Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -649,6 +649,14 @@
       "title": "브로드컴發 반도체주 급락에 &quot;일시적 조정&quot; vs &quot;전망 재평가&quot;",
       "article_path": "content/articles/published/2026-06-05-77bebcde-broadcom-semi-selloff-guidance-15-percent-repricing-or-breathing.md",
       "seen_at": "2026-06-05T03:01:18.578Z"
+    },
+    "8aeb61aef2bdee7a396ba50263534302007e636868ef14836c7805cefde5b12b": {
+      "url": "https://news.ploradian.com/nonsense/2026-06-05-13/",
+      "canonical_url": "https://news.ploradian.com/nonsense/2026-06-05-13/",
+      "source_name": "The Ploradian 헛소리 데스크",
+      "title": "우산꽂이 뒤편에서 책갈피 끈이 뜯기지 않은 채 주변과 거리를 뒀다",
+      "article_path": "content/articles/published/2026-06-05-8aeb61ae-usan-kkot-i-dwipyeon-ui-chaekgalpi-keun-ggeutnae-tteutgiji-anheun-cha-na.md",
+      "seen_at": "2026-06-05T04:00:40.840Z"
     }
   }
 }
