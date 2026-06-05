@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-05T12:00:58.983Z",
+  "updated_at": "2026-06-05T12:30:49.930Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -721,6 +721,14 @@
       "title": "Porsche’s Cayenne Coupe Turbo will even make 911 owners nervous",
       "article_path": "content/articles/published/2026-06-05-f8a986e5-porsche-cayenne-coupe-turbo-911-owners-nervous-satire.md",
       "seen_at": "2026-06-05T12:00:58.983Z"
+    },
+    "6d4b1e921e2ed8fbe410be6882cdf3ef1d629a062024672962da941ca70c51b8": {
+      "url": "https://www.nabo.go.kr/ko/notice/releasesView.do?key=2507040045&idx=9252",
+      "canonical_url": "https://www.nabo.go.kr/ko/notice/releasesView.do?key=2507040045&idx=9252",
+      "source_name": "국회예산정책처 보도자료",
+      "title": "국회예산정책처, 「공공기관 상생협력사업의 문제점과 개선과제」 발간",
+      "article_path": "content/articles/published/2026-06-05-6d4b1e92-public-institution-winwin-loan-overlap-hidden-cost.md",
+      "seen_at": "2026-06-05T12:30:49.930Z"
     }
   }
 }
