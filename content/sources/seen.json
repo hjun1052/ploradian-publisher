@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-05T07:00:32.647Z",
+  "updated_at": "2026-06-05T08:00:42.088Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -681,6 +681,14 @@
       "title": "2026-06-05 국장 마감 억지해석",
       "article_path": "content/articles/published/2026-06-05-6e8b632b-market-2026-06-05-ea-b5-ad-ec-9e-a5-16.md",
       "seen_at": "2026-06-05T07:00:32.647Z"
+    },
+    "8af9aa48e90349f21ce4286502b86435b456e3f814f357f3dfdc620438d13a56": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418514",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418514",
+      "source_name": "연합인포맥스 증권",
+      "title": "금감원, '스페이스X 공모주 청약' 미래에셋증권 현장점검",
+      "article_path": "content/articles/published/2026-06-05-8af9aa48-spacex-miraeasset-fss-onsite-check-2026-06-05.md",
+      "seen_at": "2026-06-05T08:00:42.088Z"
     }
   }
 }
