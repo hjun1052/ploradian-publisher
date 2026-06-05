@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-05T20:00:34.767Z",
+  "updated_at": "2026-06-05T21:01:16.691Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -801,6 +801,14 @@
       "title": "Gone in 60 minutes",
       "article_path": "content/articles/published/2026-06-06-69b88e9c-cbs-60-minutes-scott-pelley-bari-weiss-nick-bilton.md",
       "seen_at": "2026-06-05T20:00:34.767Z"
+    },
+    "629fc0abe5b2a9d45bc83bb6d863d17b2752b7a61dee2e551785b2882ca2fc0a": {
+      "url": "https://arstechnica.com/gadgets/2026/06/the-fitbit-air-is-great-but-googles-ai-is-too-nice-to-be-your-coach/",
+      "canonical_url": "https://arstechnica.com/gadgets/2026/06/the-fitbit-air-is-great-but-googles-ai-is-too-nice-to-be-your-coach/",
+      "source_name": "Ars Technica",
+      "title": "The Fitbit Air is a good wearable weighed down by a chatty AI \"coach\"",
+      "article_path": "content/articles/published/2026-06-06-629fc0ab-fitbit-air-google-ai-coach-too-chatty.md",
+      "seen_at": "2026-06-05T21:01:16.691Z"
     }
   }
 }
