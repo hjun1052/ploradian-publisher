@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-05T19:00:34.956Z",
+  "updated_at": "2026-06-05T20:00:34.767Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -793,6 +793,14 @@
       "title": "S&P 500 blocks fast SpaceX entry, won’t waive rule for unprofitable AI firms",
       "article_path": "content/articles/published/2026-06-06-481ec8d4-sp500-blocks-fast-spacex-entry-unprofitable-ai-firms.md",
       "seen_at": "2026-06-05T19:00:34.956Z"
+    },
+    "69b88e9c1f01ac1c32bee0d6bb720ef60f6a62028a1ee1b78f4852b02a43574d": {
+      "url": "https://www.theverge.com/entertainment/944337/gone-in-60-minutes",
+      "canonical_url": "https://www.theverge.com/entertainment/944337/gone-in-60-minutes",
+      "source_name": "The Verge",
+      "title": "Gone in 60 minutes",
+      "article_path": "content/articles/published/2026-06-06-69b88e9c-cbs-60-minutes-scott-pelley-bari-weiss-nick-bilton.md",
+      "seen_at": "2026-06-05T20:00:34.767Z"
     }
   }
 }
