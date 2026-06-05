@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-05T01:00:38.391Z",
+  "updated_at": "2026-06-05T02:00:43.941Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -625,6 +625,14 @@
       "title": "&quot;투자자 대거 몰려&quot;…미래에셋 스페이스X 청약 '1분 완판'",
       "article_path": "content/articles/published/2026-06-05-80b3e8e6-miraeasset-spacex-1min-private-offering.md",
       "seen_at": "2026-06-05T01:00:38.391Z"
+    },
+    "c9bcb7616b1c347f420d58d8f5a43785f7f23669d1e6dab6351e2340cb02f474": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418446",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418446",
+      "source_name": "연합인포맥스 증권",
+      "title": "한투·OKX 우군 얻고도 경영권 지킨 차명훈…코인원 도약 발판",
+      "article_path": "content/articles/published/2026-06-05-c9bcb761-coinone-cha-myeonghun-control-after-20-percent-stakes.md",
+      "seen_at": "2026-06-05T02:00:43.941Z"
     }
   }
 }
