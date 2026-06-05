@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-05T02:00:43.941Z",
+  "updated_at": "2026-06-05T03:01:18.578Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -633,6 +633,22 @@
       "title": "한투·OKX 우군 얻고도 경영권 지킨 차명훈…코인원 도약 발판",
       "article_path": "content/articles/published/2026-06-05-c9bcb761-coinone-cha-myeonghun-control-after-20-percent-stakes.md",
       "seen_at": "2026-06-05T02:00:43.941Z"
+    },
+    "f6a1a03e015b945c6b344fa6a1cedc3f281484cceaa9f73a864eee40fd480293": {
+      "url": "http://www.boannews.com/media/view.asp?idx=143942&kind=1&sub_kind=",
+      "canonical_url": "http://www.boannews.com/media/view.asp?idx=143942&kind=1&sub_kind=",
+      "source_name": "보안뉴스 사건사고",
+      "title": "과기정통부, 티빙(TVING) 침해사고 조사 나서",
+      "article_path": "content/articles/published/2026-06-05-f6a1a03e-tving-breach-joint-investigation-privacy-leak.md",
+      "seen_at": "2026-06-05T03:01:18.578Z"
+    },
+    "77bebcde6e9c48431d4a0e7ed7c88b13ae749f7f6dd9cb6bfdb5f13ff4f0d5f7": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418457",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418457",
+      "source_name": "연합인포맥스 증권",
+      "title": "브로드컴發 반도체주 급락에 &quot;일시적 조정&quot; vs &quot;전망 재평가&quot;",
+      "article_path": "content/articles/published/2026-06-05-77bebcde-broadcom-semi-selloff-guidance-15-percent-repricing-or-breathing.md",
+      "seen_at": "2026-06-05T03:01:18.578Z"
     }
   }
 }
