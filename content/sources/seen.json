@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-05T14:00:41.614Z",
+  "updated_at": "2026-06-05T14:31:06.793Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -745,6 +745,14 @@
       "title": "Can AI tell if your script will make a hit film?",
       "article_path": "content/articles/published/2026-06-05-baae6c32-quilty-ai-script-hit-film-prediction-skepticism-50-dollar-analysis.md",
       "seen_at": "2026-06-05T14:00:41.614Z"
+    },
+    "a5720469b8d3b9f2edc02747ce1c5a5b0b8570482276968b09ab9cdf17dc67da": {
+      "url": "https://phys.org/news/2026-05-giant-star-destroyed-universe-rarest.html",
+      "canonical_url": "https://phys.org/news/2026-05-giant-star-destroyed-universe-rarest.html",
+      "source_name": "Phys.org Astronomy",
+      "title": "A giant star may have destroyed itself in one of the universe&#039;s rarest explosions",
+      "article_path": "content/articles/published/2026-06-05-a5720469-sn-2023vbw-pair-instability-long-light.md",
+      "seen_at": "2026-06-05T14:31:06.793Z"
     }
   }
 }
