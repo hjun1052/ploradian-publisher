@@ -1,7 +1,47 @@
 {
   "version": 1,
-  "updated_at": "2026-06-05T07:00:32.738Z",
+  "updated_at": "2026-06-05T22:00:24.602Z",
   "recent": [
+    {
+      "market": "미장",
+      "date": "2026-06-06",
+      "title": "2026-06-06 미장 마감 억지해석",
+      "source_url": "https://news.ploradian.com/market/2026-06-06-미장-07/",
+      "rows": [
+        {
+          "name": "S&P 500",
+          "symbol": "^spx",
+          "price": "7383.70",
+          "change": "-2.02%",
+          "business": "미국 대형주 지수",
+          "jokeSeed": "500명이 한꺼번에 출석하는 반"
+        },
+        {
+          "name": "나스닥",
+          "symbol": "^ndq",
+          "price": "25709.43",
+          "change": "-3.06%",
+          "business": "기술주 중심 지수",
+          "jokeSeed": "기술주 단톡방, 전광판"
+        },
+        {
+          "name": "마이크로소프트",
+          "symbol": "msft.us",
+          "price": "416.69",
+          "change": "-2.72%",
+          "business": "윈도우와 클라우드",
+          "jokeSeed": "창문, 엑셀 셀, 업데이트 재부팅"
+        },
+        {
+          "name": "메타",
+          "symbol": "meta.us",
+          "price": "592.68",
+          "change": "-4.94%",
+          "business": "소셜미디어와 AI",
+          "jokeSeed": "페이스북, 인스타, 메타버스 빈 회의실"
+        }
+      ]
+    },
     {
       "market": "국장",
       "date": "2026-06-05",

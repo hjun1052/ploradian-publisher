@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-05T21:01:16.691Z",
+  "updated_at": "2026-06-05T22:00:24.424Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -809,6 +809,14 @@
       "title": "The Fitbit Air is a good wearable weighed down by a chatty AI \"coach\"",
       "article_path": "content/articles/published/2026-06-06-629fc0ab-fitbit-air-google-ai-coach-too-chatty.md",
       "seen_at": "2026-06-05T21:01:16.691Z"
+    },
+    "f9000d7112ea1a1d94b83e763b3bd1c79b3b545314ff96928ba0a22223f0410e": {
+      "url": "https://news.ploradian.com/market/2026-06-06-미장-07/",
+      "canonical_url": "https://news.ploradian.com/market/2026-06-06-미장-07/",
+      "source_name": "The Ploradian 미장 마감 억지해석 데스크",
+      "title": "2026-06-06 미장 마감 억지해석",
+      "article_path": "content/articles/published/2026-06-06-f9000d71-market-2026-06-06-eb-af-b8-ec-9e-a5-07.md",
+      "seen_at": "2026-06-05T22:00:24.424Z"
     }
   }
 }
