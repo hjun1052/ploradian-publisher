@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-05T13:01:07.434Z",
+  "updated_at": "2026-06-05T14:00:41.614Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -737,6 +737,14 @@
       "title": "I customized a MacBook Neo with colorful spare parts",
       "article_path": "content/articles/published/2026-06-05-5b6fc817-macbook-neo-color-spare-parts-frankenlaptop.md",
       "seen_at": "2026-06-05T13:01:07.434Z"
+    },
+    "baae6c3245fbd0db9c5af4c158f3e350d0c74aa43e3b874f907c5cb6d225b583": {
+      "url": "https://www.theverge.com/ai-artificial-intelligence/943531/ai-script-quilty-simon-horsman-daniel-wood",
+      "canonical_url": "https://www.theverge.com/ai-artificial-intelligence/943531/ai-script-quilty-simon-horsman-daniel-wood",
+      "source_name": "The Verge",
+      "title": "Can AI tell if your script will make a hit film?",
+      "article_path": "content/articles/published/2026-06-05-baae6c32-quilty-ai-script-hit-film-prediction-skepticism-50-dollar-analysis.md",
+      "seen_at": "2026-06-05T14:00:41.614Z"
     }
   }
 }
