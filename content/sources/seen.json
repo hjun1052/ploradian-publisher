@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-06T19:00:47.324Z",
+  "updated_at": "2026-06-06T21:00:46.463Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -985,6 +985,14 @@
       "title": "GOG apologizes for emailing people Nazi symbols",
       "article_path": "content/articles/published/2026-06-07-8c7c29a9-gog-newsletter-ss-symbol-apology-bank-holiday-font-rendering.md",
       "seen_at": "2026-06-06T19:00:47.324Z"
+    },
+    "957b92cc109080708710a5b7fd0533305c7540ec9572aa073d9b13bd1e7ae380": {
+      "url": "https://www.theverge.com/games/944975/82-0-perfect-basketball-stats-game",
+      "canonical_url": "https://www.theverge.com/games/944975/82-0-perfect-basketball-stats-game",
+      "source_name": "The Verge",
+      "title": "82-0 is the best basketball game, to hell with NBA 2K",
+      "article_path": "content/articles/published/2026-06-07-957b92cc-82-0-clicks-perfect-season-nba2k-hell.md",
+      "seen_at": "2026-06-06T21:00:46.463Z"
     }
   }
 }
