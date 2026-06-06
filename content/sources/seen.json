@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-06T02:02:15.388Z",
+  "updated_at": "2026-06-06T03:02:52.221Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -849,6 +849,22 @@
       "title": "李대통령 &quot;주식시장 정상화, 고통없는 연금개혁&quot;",
       "article_path": "content/articles/published/2026-06-06-83d53428-pension-reform-by-stock-market-normalization.md",
       "seen_at": "2026-06-06T02:02:15.388Z"
+    },
+    "6bc4b3952b9511d920144ce0f2a2512565601622c2c8e87d99d8bceba0b25477": {
+      "url": "http://www.boannews.com/media/view.asp?idx=143985&kind=1&sub_kind=",
+      "canonical_url": "http://www.boannews.com/media/view.asp?idx=143985&kind=1&sub_kind=",
+      "source_name": "보안뉴스 사건사고",
+      "title": "CU 택배 전산망 뚫렸다... BGF네트웍스, 웹 취약점 해킹으로 CI 등 유출",
+      "article_path": "content/articles/published/2026-06-06-6bc4b395-cu-post-web-vuln-ci-breach-ploradian.md",
+      "seen_at": "2026-06-06T03:02:52.221Z"
+    },
+    "859fec90d3e6b33fa5f0a63b1305db67b5d4c4f5300fcc8349fc30cbf76b3743": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418582",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418582",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "건설업계, 역대급 폭염에 '스마트 안전·밀착 케어' 총력전",
+      "article_path": "content/articles/published/2026-06-06-859fec90-construction-heat-smart-safety-rest-reward.md",
+      "seen_at": "2026-06-06T03:02:52.221Z"
     }
   }
 }
