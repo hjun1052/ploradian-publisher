@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-06T04:00:26.978Z",
+  "updated_at": "2026-06-06T05:02:31.369Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -873,6 +873,14 @@
       "title": "탕비실 서랍 앞에서 출입문 손잡이가 확인되지 않은 필요성을 오래 보관했다",
       "article_path": "content/articles/published/2026-06-06-46910c4c-tangbisil-seorap-apeseo-chulibmun-sonjabbiga-hwagin-doeji-anheun-piryose.md",
       "seen_at": "2026-06-06T04:00:26.978Z"
+    },
+    "ed75d69e5791e47f958417c488759e679fa6f43254ff40a265131debb2bf1ab4": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418595",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418595",
+      "source_name": "연합인포맥스 증권",
+      "title": "미군, 호르무즈로 발사된 이란 드론·미사일 격추…충돌 격화(상보)",
+      "article_path": "content/articles/published/2026-06-06-ed75d69e-hormuz-deterrence-trailer-four-drones-seven-missiles.md",
+      "seen_at": "2026-06-06T05:02:31.369Z"
     }
   }
 }
