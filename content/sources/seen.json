@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-06T14:00:43.736Z",
+  "updated_at": "2026-06-06T15:00:48.705Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -945,6 +945,14 @@
       "title": "Kabuto Park captures the fleeting joy of summer vacation",
       "article_path": "content/articles/published/2026-06-06-2cd0d3ff-kabuto-park-summer-vacation-bug-battles-miniature-pokemon.md",
       "seen_at": "2026-06-06T14:00:43.736Z"
+    },
+    "6ab94589b1bf1c7acc9b07bbd2561b31e107ecaba3fb4941afda86a715b390a8": {
+      "url": "https://www.theverge.com/report/942609/benn-jordan-music-gear-cybersecurity-surveillance-questionnaire",
+      "canonical_url": "https://www.theverge.com/report/942609/benn-jordan-music-gear-cybersecurity-surveillance-questionnaire",
+      "source_name": "The Verge",
+      "title": "Benn Jordan longs for the days of tech that didn’t spy on you",
+      "article_path": "content/articles/published/2026-06-07-6ab94589-benn-jordan-music-gear-cybersecurity-surveillance-questionnaire.md",
+      "seen_at": "2026-06-06T15:00:48.705Z"
     }
   }
 }
