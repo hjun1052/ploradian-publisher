@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-06T10:00:33.591Z",
+  "updated_at": "2026-06-06T11:00:54.297Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -913,6 +913,14 @@
       "title": "More than a decade later, the team behind N++ is back with a multiplayer sequel",
       "article_path": "content/articles/published/2026-06-06-49a18803-metanet-n-plus-infinity-times-two-2027-multiplayer-sequel.md",
       "seen_at": "2026-06-06T10:00:33.591Z"
+    },
+    "aa212b2a6a295be6584715c276cb43b8e1e29c7ef8defeea4a0f12914dc9a28f": {
+      "url": "https://www.theverge.com/entertainment/944229/grand-theft-auto-6-release-calendar-summer-game-fest",
+      "canonical_url": "https://www.theverge.com/entertainment/944229/grand-theft-auto-6-release-calendar-summer-game-fest",
+      "source_name": "The Verge",
+      "title": "Grand Theft Auto VI is warping the video game release calendar",
+      "article_path": "content/articles/published/2026-06-06-aa212b2a-gta-vi-release-calendar-november-empty.md",
+      "seen_at": "2026-06-06T11:00:54.297Z"
     }
   }
 }
