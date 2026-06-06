@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-06T12:01:28.219Z",
+  "updated_at": "2026-06-06T13:00:41.849Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -929,6 +929,14 @@
       "title": "Final Fantasy VII&#8217;s remake trilogy will conclude with Revelation",
       "article_path": "content/articles/published/2026-06-06-f60fa7e1-ff7-revelation-remake-trilogy-third-game-2027-multiplatform.md",
       "seen_at": "2026-06-06T12:01:28.219Z"
+    },
+    "3687d5152fa699e5a1815d7d879464200077e20bdbfd8fc3ee0cbb15dbda880b": {
+      "url": "https://www.theverge.com/tech/944245/apple-wwdc-2026-ai-siri-gemini",
+      "canonical_url": "https://www.theverge.com/tech/944245/apple-wwdc-2026-ai-siri-gemini",
+      "source_name": "The Verge",
+      "title": "Here comes new Siri again",
+      "article_path": "content/articles/published/2026-06-06-3687d515-apple-wwdc-2026-new-siri-again.md",
+      "seen_at": "2026-06-06T13:00:41.849Z"
     }
   }
 }
