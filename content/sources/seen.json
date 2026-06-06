@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-06T00:01:22.931Z",
+  "updated_at": "2026-06-06T01:01:06.802Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -833,6 +833,14 @@
       "title": "젠슨 황도 반한 K-로봇…주요 기업 로보틱스 어디까지 왔나",
       "article_path": "content/articles/published/2026-06-06-f683377c-k-robotics-nvidia-alliance-hype-without-arrival.md",
       "seen_at": "2026-06-06T00:01:22.931Z"
+    },
+    "6b1d19512a6b1523f8fda3c5b25ca4e1404451386aad46f9c3e034aa84b023bd": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418585",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418585",
+      "source_name": "연합인포맥스 증권",
+      "title": "'베라 루빈 쇼크'에 흔들린 삼전닉스…&quot;노이즈일 뿐, 더 사라&quot; 이유는",
+      "article_path": "content/articles/published/2026-06-06-6b1d1951-memory-half-buy-more-samsung-skhynix-vera-rubin-noise.md",
+      "seen_at": "2026-06-06T01:01:06.802Z"
     }
   }
 }
