@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-06T16:00:44.726Z",
+  "updated_at": "2026-06-06T17:01:00.639Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -961,6 +961,14 @@
       "title": "The mayor of Shelbyville, Indiana, says only people who live in ‘shitty houses’ oppose data center",
       "article_path": "content/articles/published/2026-06-07-b1ec205c-shelbyville-mayor-shitty-houses-data-center.md",
       "seen_at": "2026-06-06T16:00:44.726Z"
+    },
+    "922a4400f5804ed134c3921a43b1b893bcc4f59d5bb7660909cc29196428acd6": {
+      "url": "https://www.theverge.com/entertainment/943977/wholesome-direct-2026-cute-games-trailers",
+      "canonical_url": "https://www.theverge.com/entertainment/943977/wholesome-direct-2026-cute-games-trailers",
+      "source_name": "The Verge",
+      "title": "The cutest games from the Wholesome Direct 2026 showcase",
+      "article_path": "content/articles/published/2026-06-07-922a4400-wholesome-direct-2026-cute-games-wholesome-overload.md",
+      "seen_at": "2026-06-06T17:01:00.639Z"
     }
   }
 }
