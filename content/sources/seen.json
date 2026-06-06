@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-06T22:00:24.322Z",
+  "updated_at": "2026-06-06T23:00:42.330Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -1001,6 +1001,14 @@
       "title": "2026-06-07 주말 우화",
       "article_path": "content/articles/published/2026-06-07-6f8d5b8e-bok-sagineun-wae-neul-meonjeo-gyujeongeul-gieokaneunga.md",
       "seen_at": "2026-06-06T22:00:24.322Z"
+    },
+    "b8a2263d2310c0d1dcb12a561326985c20b05155d61abf922f735cc39f2e02a5": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418594",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418594",
+      "source_name": "연합인포맥스 증권",
+      "title": "&quot;고용 '서프라이즈'로 연준 금리 인하 기대 사라져&quot;",
+      "article_path": "content/articles/published/2026-06-07-b8a2263d-jobs-surprise-fed-cuts-gone-fragile-faith.md",
+      "seen_at": "2026-06-06T23:00:42.330Z"
     }
   }
 }
