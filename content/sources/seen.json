@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-07T03:01:39.132Z",
+  "updated_at": "2026-06-07T04:00:34.404Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -1041,6 +1041,14 @@
       "title": "삼계탕 먹은 젠슨 황, 게임·야구 매개로 주말에도 비즈니스 행보",
       "article_path": "content/articles/published/2026-06-07-8b8ff0b0-jensen-huang-weekend-business-baseball-pcbang-korea.md",
       "seen_at": "2026-06-07T03:01:39.132Z"
+    },
+    "3779c4ea5991d8eb8a4c305ee8faff840cf260985ff12c1bb446c0b08af3f684": {
+      "url": "https://news.ploradian.com/nonsense/2026-06-07-13/",
+      "canonical_url": "https://news.ploradian.com/nonsense/2026-06-07-13/",
+      "source_name": "The Ploradian 헛소리 데스크",
+      "title": "비상구 안내등 아래에서 명함 한 장이 자기 업무 범위를 넘지 않는 침묵을 이어갔다",
+      "article_path": "content/articles/published/2026-06-07-3779c4ea-bisanggu-annaedeung-arae-ui-myeongham-han-jang-beom-wi-reul-jikimyeo-chi.md",
+      "seen_at": "2026-06-07T04:00:34.404Z"
     }
   }
 }
