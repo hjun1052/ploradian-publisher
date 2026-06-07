@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-07T01:00:33.020Z",
+  "updated_at": "2026-06-07T02:01:16.299Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -1025,6 +1025,14 @@
       "title": "레버리지 선행지표 美SOXL·KORU 최대 낙폭…韓투자자 '비상'",
       "article_path": "content/articles/published/2026-06-07-8eab6daf-soxl-koru-leverage-leading-indicator-crash-korean-investors.md",
       "seen_at": "2026-06-07T01:00:33.020Z"
+    },
+    "4887e96937ca8f0c8ab1d94461769c2d29e07c6bc937e241cf2dd837b8b8205f": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418614",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418614",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "'김범석 의장, 동일인 지정됐는데'…쿠팡, 공시 안 한 이유",
+      "article_path": "content/articles/published/2026-06-07-4887e969-coupang-invisible-controller-disclosure-suspension.md",
+      "seen_at": "2026-06-07T02:01:16.299Z"
     }
   }
 }
