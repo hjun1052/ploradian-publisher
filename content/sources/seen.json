@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-07T13:00:40.903Z",
+  "updated_at": "2026-06-07T14:01:22.507Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -1121,6 +1121,14 @@
       "title": "Some ancient microbes frozen with Ötzi the Iceman are still growing",
       "article_path": "content/articles/published/2026-06-07-3e069c01-otzi-microbes-still-growing-petri-dish-ecosystem.md",
       "seen_at": "2026-06-07T13:00:40.903Z"
+    },
+    "6b1fc6305cf59fee8f1ad780a7faf5fde0ea286720ae194f838a017ad76d6c92": {
+      "url": "https://arstechnica.com/health/2026/06/baby-botulism-outbreak-fda-still-doesnt-know-cause-or-how-to-prevent-it/",
+      "canonical_url": "https://arstechnica.com/health/2026/06/baby-botulism-outbreak-fda-still-doesnt-know-cause-or-how-to-prevent-it/",
+      "source_name": "Ars Technica",
+      "title": "Baby botulism outbreak: FDA still doesn't know cause—or how to prevent it",
+      "article_path": "content/articles/published/2026-06-07-6b1fc630-fda-baby-botulism-outbreak-still-doesnt-know-cause-prevention.md",
+      "seen_at": "2026-06-07T14:01:22.507Z"
     }
   }
 }
