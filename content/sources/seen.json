@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-07T14:31:04.788Z",
+  "updated_at": "2026-06-07T15:00:39.734Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -1137,6 +1137,14 @@
       "title": "JWST &#039;weighs&#039; dormant black hole 10 billion light-years away",
       "article_path": "content/articles/published/2026-06-07-a9f8a1ed-mrg-m0138-dormant-black-hole-jwst-stellar-dynamics.md",
       "seen_at": "2026-06-07T14:31:04.788Z"
+    },
+    "aae82d5b85e674f966af126c5b664aa7828a4e6302ea7719e103a2ee7971d9ee": {
+      "url": "https://www.theverge.com/tech/945246/virtual-os-museum-dos-windows-mac-os",
+      "canonical_url": "https://www.theverge.com/tech/945246/virtual-os-museum-dos-windows-mac-os",
+      "source_name": "The Verge",
+      "title": "The Virtual OS Museum lets you relive over 600 operating systems right on your desktop",
+      "article_path": "content/articles/published/2026-06-08-aae82d5b-virtual-os-museum-127gb-nostalgia-emulator.md",
+      "seen_at": "2026-06-07T15:00:39.734Z"
     }
   }
 }
