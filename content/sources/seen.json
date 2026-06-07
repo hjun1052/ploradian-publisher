@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-07T04:00:34.404Z",
+  "updated_at": "2026-06-07T05:01:11.576Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -1049,6 +1049,14 @@
       "title": "비상구 안내등 아래에서 명함 한 장이 자기 업무 범위를 넘지 않는 침묵을 이어갔다",
       "article_path": "content/articles/published/2026-06-07-3779c4ea-bisanggu-annaedeung-arae-ui-myeongham-han-jang-beom-wi-reul-jikimyeo-chi.md",
       "seen_at": "2026-06-07T04:00:34.404Z"
+    },
+    "d0e028c084790093de3e37de58781daeff8cf5436f88a8acc669240377b3519a": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418637",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418637",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "김정관 산업장관, 중동·카자흐 찾아 원유 공급망 논의한다",
+      "article_path": "content/articles/published/2026-06-07-d0e028c0-kim-junggwan-oil-supply-chain-kazakhstan-middle-east-czech-trip.md",
+      "seen_at": "2026-06-07T05:01:11.576Z"
     }
   }
 }
