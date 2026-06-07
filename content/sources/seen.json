@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-07T00:00:32.918Z",
+  "updated_at": "2026-06-07T01:00:33.020Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -1017,6 +1017,14 @@
       "title": "다시 불거진 'AI 거품론'…반도체주 폭락이 더 뼈아픈 이유",
       "article_path": "content/articles/published/2026-06-07-2dc149e2-ai-bubble-semiconductor-selloff-broadcom-guidance-rate-fear.md",
       "seen_at": "2026-06-07T00:00:32.918Z"
+    },
+    "8eab6dafe1ee0113486797693c208a686b561a150e8143b35a899963574e30c1": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418617",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418617",
+      "source_name": "연합인포맥스 증권",
+      "title": "레버리지 선행지표 美SOXL·KORU 최대 낙폭…韓투자자 '비상'",
+      "article_path": "content/articles/published/2026-06-07-8eab6daf-soxl-koru-leverage-leading-indicator-crash-korean-investors.md",
+      "seen_at": "2026-06-07T01:00:33.020Z"
     }
   }
 }
