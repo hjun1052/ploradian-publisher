@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-07T20:01:27.867Z",
+  "updated_at": "2026-06-07T21:01:24.276Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -1185,6 +1185,14 @@
       "title": "The Verge Weekend Questionnaire",
       "article_path": "content/articles/published/2026-06-08-ca640402-the-verge-weekend-questionnaire-app-tech-ceo-focus-satire.md",
       "seen_at": "2026-06-07T20:01:27.867Z"
+    },
+    "219398756357883050daf7c97f7e5a3728354983ae0c705fd24840ef9a10f288": {
+      "url": "https://arstechnica.com/security/2026/06/highly-reviewed-speaker-can-be-hacked-over-the-air-to-infect-connected-devices/",
+      "canonical_url": "https://arstechnica.com/security/2026/06/highly-reviewed-speaker-can-be-hacked-over-the-air-to-infect-connected-devices/",
+      "source_name": "Ars Technica",
+      "title": "How a USB-connected speaker can infect a PC without ever being touched",
+      "article_path": "content/articles/published/2026-06-08-21939875-sound-blaster-katana-v2x-usb-bluetooth-not-a-vulnerability.md",
+      "seen_at": "2026-06-07T21:01:24.276Z"
     }
   }
 }
