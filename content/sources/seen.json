@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-07T11:00:35.341Z",
+  "updated_at": "2026-06-07T12:00:36.388Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -1105,6 +1105,14 @@
       "title": "JMGO’s N3 Ultimate projector is the new portable 4K champ",
       "article_path": "content/articles/published/2026-06-07-c921f9ae-jmgo-n3-ultimate-portable-4k-champ-dimmer-than-promised.md",
       "seen_at": "2026-06-07T11:00:35.341Z"
+    },
+    "a493296ed8e6926888f0a4b66f0195880344f18a27ca5221ee799dd223eff374": {
+      "url": "https://arstechnica.com/tech-policy/2026/06/school-shooting-survivor-sues-ai-gun-detection-firm-after-system-failed-to-spot-weapon/",
+      "canonical_url": "https://arstechnica.com/tech-policy/2026/06/school-shooting-survivor-sues-ai-gun-detection-firm-after-system-failed-to-spot-weapon/",
+      "source_name": "Ars Technica",
+      "title": "School shooting survivor sues AI gun detection firm after system failed to spot weapon",
+      "article_path": "content/articles/published/2026-06-07-a493296e-omnilert-ai-gun-detection-lawsuit-missed-weapon-nashville-school.md",
+      "seen_at": "2026-06-07T12:00:36.388Z"
     }
   }
 }
