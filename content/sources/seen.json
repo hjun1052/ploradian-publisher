@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-07T09:00:56.284Z",
+  "updated_at": "2026-06-07T10:01:17.734Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -1089,6 +1089,14 @@
       "title": "박정원 두산 회장 만난 젠슨 황…소감 묻는 취재진에 &quot;매우 놀라워&quot;",
       "article_path": "content/articles/published/2026-06-07-2611417e-doosan-nvidia-jamsil-partnership-banner-photo-op.md",
       "seen_at": "2026-06-07T09:00:56.284Z"
+    },
+    "d8964241e1a8f032a904101e4ae0d139c65ce9379fa3d3f1fb933fb25a08183a": {
+      "url": "https://arstechnica.com/science/2026/06/scientists-ejected-from-diabetes-conference-for-distributing-journal-reprints/",
+      "canonical_url": "https://arstechnica.com/science/2026/06/scientists-ejected-from-diabetes-conference-for-distributing-journal-reprints/",
+      "source_name": "Ars Technica",
+      "title": "Scientists ejected from diabetes conference for distributing journal reprints",
+      "article_path": "content/articles/published/2026-06-07-d8964241-ada-conference-journal-reprints-ejection-satire.md",
+      "seen_at": "2026-06-07T10:01:17.734Z"
     }
   }
 }
