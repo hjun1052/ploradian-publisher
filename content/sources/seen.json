@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-07T12:00:36.388Z",
+  "updated_at": "2026-06-07T13:00:40.903Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -1113,6 +1113,14 @@
       "title": "School shooting survivor sues AI gun detection firm after system failed to spot weapon",
       "article_path": "content/articles/published/2026-06-07-a493296e-omnilert-ai-gun-detection-lawsuit-missed-weapon-nashville-school.md",
       "seen_at": "2026-06-07T12:00:36.388Z"
+    },
+    "3e069c013410b8d32719229b3e05e43777e4e7053930e60f898b54d6b84aa674": {
+      "url": "https://arstechnica.com/science/2026/06/otzis-mummified-body-is-home-to-ancient-strains-of-yeast-and-bacteria/",
+      "canonical_url": "https://arstechnica.com/science/2026/06/otzis-mummified-body-is-home-to-ancient-strains-of-yeast-and-bacteria/",
+      "source_name": "Ars Technica",
+      "title": "Some ancient microbes frozen with Ötzi the Iceman are still growing",
+      "article_path": "content/articles/published/2026-06-07-3e069c01-otzi-microbes-still-growing-petri-dish-ecosystem.md",
+      "seen_at": "2026-06-07T13:00:40.903Z"
     }
   }
 }
