@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-07T02:01:16.299Z",
+  "updated_at": "2026-06-07T03:01:39.132Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -1033,6 +1033,14 @@
       "title": "'김범석 의장, 동일인 지정됐는데'…쿠팡, 공시 안 한 이유",
       "article_path": "content/articles/published/2026-06-07-4887e969-coupang-invisible-controller-disclosure-suspension.md",
       "seen_at": "2026-06-07T02:01:16.299Z"
+    },
+    "8b8ff0b0f267196e7badd92492fd6765e6965a3f86aa39de3902f5b746b5bdb0": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418623",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418623",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "삼계탕 먹은 젠슨 황, 게임·야구 매개로 주말에도 비즈니스 행보",
+      "article_path": "content/articles/published/2026-06-07-8b8ff0b0-jensen-huang-weekend-business-baseball-pcbang-korea.md",
+      "seen_at": "2026-06-07T03:01:39.132Z"
     }
   }
 }
