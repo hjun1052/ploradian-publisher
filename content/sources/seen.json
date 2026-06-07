@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-07T07:00:36.662Z",
+  "updated_at": "2026-06-07T08:00:44.608Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -1073,6 +1073,14 @@
       "title": "2026-06-07 인공지능이 예측하는 다음 주",
       "article_path": "content/articles/published/2026-06-07-93481716-ai-predicts-next-week-satellites-hair-and-missiles.md",
       "seen_at": "2026-06-07T07:00:36.662Z"
+    },
+    "358e8c0c16ae0165307165871b9aaa5b46e59b7531b7aea8a64167969983831a": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418647",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418647",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "젠슨 황, NC·크래프톤과 'PC방 연쇄 회동'…&quot;RTX스파크로 PC 재발명&quot;",
+      "article_path": "content/articles/published/2026-06-07-358e8c0c-jensen-huang-pcbang-rtx-spark-pc-reinvention.md",
+      "seen_at": "2026-06-07T08:00:44.608Z"
     }
   }
 }
