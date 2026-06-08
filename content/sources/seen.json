@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-08T02:00:53.246Z",
+  "updated_at": "2026-06-08T03:01:31.261Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -1233,6 +1233,14 @@
       "title": "두산로보틱스, 만년 적자인데…젠슨 황 뭘 봤나",
       "article_path": "content/articles/published/2026-06-08-bb056ca6-doosan-robotics-jensen-hwang-what-did-he-see.md",
       "seen_at": "2026-06-08T02:00:53.246Z"
+    },
+    "fd643e11ecaebf7e95b7fbb03734a4c0336c04d197f26e03b13ad8a95c3562ec": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418816",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418816",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "젠슨 황, AI 수요 기대 높다는 우려에 &quot;동의하지 않아&quot;",
+      "article_path": "content/articles/published/2026-06-08-fd643e11-jensen-huang-ai-demand-concern-disagree-yes-stock.md",
+      "seen_at": "2026-06-08T03:01:31.261Z"
     }
   }
 }
