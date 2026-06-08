@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-08T03:01:31.261Z",
+  "updated_at": "2026-06-08T04:00:42.288Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -1241,6 +1241,14 @@
       "title": "젠슨 황, AI 수요 기대 높다는 우려에 &quot;동의하지 않아&quot;",
       "article_path": "content/articles/published/2026-06-08-fd643e11-jensen-huang-ai-demand-concern-disagree-yes-stock.md",
       "seen_at": "2026-06-08T03:01:31.261Z"
+    },
+    "e17948d818146c998eccedcbac8163988a99bcb03a8228fd4b574331734f12a1": {
+      "url": "https://news.ploradian.com/nonsense/2026-06-08-13/",
+      "canonical_url": "https://news.ploradian.com/nonsense/2026-06-08-13/",
+      "source_name": "The Ploradian 헛소리 데스크",
+      "title": "출입문 손잡이 아래에서 안내문 한 장이 방향 수정을 끝내 보류했다",
+      "article_path": "content/articles/published/2026-06-08-e17948d8-chulibmun-sonjab-i-arae-annaemun-banghyang-sujeong-eul-geutnae-bo-ryu.md",
+      "seen_at": "2026-06-08T04:00:42.288Z"
     }
   }
 }
