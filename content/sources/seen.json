@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-08T10:00:43.577Z",
+  "updated_at": "2026-06-08T11:03:02.183Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -1297,6 +1297,14 @@
       "title": "NASA will wear high-tech Prada long johns to the Moon",
       "article_path": "content/articles/published/2026-06-08-f5774410-prada-nasa-moon-lcvg-axiom-artemis-iv.md",
       "seen_at": "2026-06-08T10:00:43.577Z"
+    },
+    "573e0ea882765a9dcaaa5033e7d13e84d5ccbb0ee1f9d59524d213b6fc6b72ed": {
+      "url": "https://arstechnica.com/gadgets/2026/06/amd-radeon-rx-9070-gre-review-shrinkflation-isnt-just-for-groceries-anymore/",
+      "canonical_url": "https://arstechnica.com/gadgets/2026/06/amd-radeon-rx-9070-gre-review-shrinkflation-isnt-just-for-groceries-anymore/",
+      "source_name": "Ars Technica",
+      "title": "Review: AMD's Radeon RX 9070 GRE is a disappointing way to spend $549",
+      "article_path": "content/articles/published/2026-06-08-573e0ea8-amd-rx-9070-gre-549-shrinkflation.md",
+      "seen_at": "2026-06-08T11:03:02.183Z"
     }
   }
 }
