@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-07T23:00:40.233Z",
+  "updated_at": "2026-06-08T00:00:43.920Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -1209,6 +1209,14 @@
       "title": "'대왕고래' 딛고…동해 심해 가스전 우선 협상자에 英 BP 선정",
       "article_path": "content/articles/published/2026-06-08-e5a92798-east-sea-deep-gas-bp-preferred-bidder-after-daewanggorae.md",
       "seen_at": "2026-06-07T23:00:40.233Z"
+    },
+    "1b6d3e013c9f1ce894fa2e8a7e80e4b622edbb35c8f76e057a081fbcf61e0b9d": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418709",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418709",
+      "source_name": "연합인포맥스 증권",
+      "title": "AI 인프라주 과열 경고…&quot;네비우스·AMD 등 공매도&quot;",
+      "article_path": "content/articles/published/2026-06-08-1b6d3e01-ai-infra-shorts-nebius-amd-bloom-late-brake.md",
+      "seen_at": "2026-06-08T00:00:43.920Z"
     }
   }
 }
