@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-08T01:00:46.110Z",
+  "updated_at": "2026-06-08T02:00:53.246Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -1225,6 +1225,14 @@
       "title": "코스피, 서킷브레이커 이어 매도 사이드카 발동",
       "article_path": "content/articles/published/2026-06-08-fc713d12-kospi-circuit-breaker-sidecar-2026-06-08.md",
       "seen_at": "2026-06-08T01:00:46.110Z"
+    },
+    "bb056ca65597efaf6da747e97d4958b68249edc1edede5f5694393f7446ad3a9": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418786",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418786",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "두산로보틱스, 만년 적자인데…젠슨 황 뭘 봤나",
+      "article_path": "content/articles/published/2026-06-08-bb056ca6-doosan-robotics-jensen-hwang-what-did-he-see.md",
+      "seen_at": "2026-06-08T02:00:53.246Z"
     }
   }
 }
