@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-08T08:00:51.246Z",
+  "updated_at": "2026-06-08T09:01:34.516Z",
   "items": {
     "f344eb66cd19e1e33af5811d8eb54cc1f5d0ee6595279661bbc426e26e3f8949": {
       "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
@@ -1281,6 +1281,14 @@
       "title": "KB증권, 회사채 수요예측서 1.2조 모아…2년물 언더금리 형성",
       "article_path": "content/articles/published/2026-06-08-6d76a444-kbsec-bond-bookbuilding-1-2trn-2y-under-3y-over.md",
       "seen_at": "2026-06-08T08:00:51.246Z"
+    },
+    "c9b69798fa0c8303616edd9db5826f0dc4957f6b7a35084eea4062297ec5fa0f": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418916",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4418916",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "정의선-젠슨 황, 새만금에 AI 밸리 만든다…&quot;정주영 떠올라&quot;(종합)",
+      "article_path": "content/articles/published/2026-06-08-c9b69798-hyundai-nvidia-saemangeum-ai-valley-chung-ju-yung.md",
+      "seen_at": "2026-06-08T09:01:34.516Z"
     }
   }
 }
