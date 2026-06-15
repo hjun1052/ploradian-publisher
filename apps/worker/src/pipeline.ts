@@ -72,6 +72,8 @@ export async function runPublishingPipeline(
 
   try {
     const config = loadConfig(env);
+    const runNow = new Date(startedAt);
+    const scheduledHalfHourRun = options.trigger === "scheduled" && isHalfHourWake(runNow, config.siteTimezone);
     dryRun = options.dryRunOverride ?? config.dryRun;
     const githubTarget = dryRun && options.ignoreSeen ? null : requireGitHubTarget(config);
     const seen = githubTarget && !options.ignoreSeen ? await readSeenStore(githubTarget) : emptySeenStore();
@@ -81,15 +83,15 @@ export async function runPublishingPipeline(
     const seriousHistory = githubTarget && !options.ignoreSeen
       ? await readSeriousEditorialStore(githubTarget)
       : emptySeriousEditorialStore();
-    const specialOnlyRun = Boolean(options.forceSerious || options.forceStars);
+    const specialOnlyRun = Boolean(options.forceSerious || options.forceStars || scheduledHalfHourRun);
     const market = specialOnlyRun
       ? null
       : options.forceMarketHoliday
-      ? forcedMarketHolidayCandidate(options.forceMarketHoliday, new Date(startedAt), config.siteTimezone, marketHistory)
+      ? forcedMarketHolidayCandidate(options.forceMarketHoliday, runNow, config.siteTimezone, marketHistory)
       : options.forceMarket
-      ? await forcedMarketCandidate(options.forceMarket, new Date(startedAt), config.siteTimezone, marketHistory)
-      : await scheduledMarketCandidate(new Date(startedAt), config.siteTimezone, seen, marketHistory);
-    const nonsense = specialOnlyRun ? null : scheduledNonsenseCandidate(new Date(startedAt), config.siteTimezone);
+      ? await forcedMarketCandidate(options.forceMarket, runNow, config.siteTimezone, marketHistory)
+      : await scheduledMarketCandidate(runNow, config.siteTimezone, seen, marketHistory);
+    const nonsense = specialOnlyRun ? null : scheduledNonsenseCandidate(runNow, config.siteTimezone);
     const securitySelection = specialOnlyRun
       ? {
           source: null,
@@ -97,7 +99,7 @@ export async function runPublishingPipeline(
           topCandidates: [],
           reason: "skipped during special-only run"
         }
-      : await scheduledSecurityPreySelection(config, seen, new Date(startedAt), Boolean(options.forceSecurity));
+      : await scheduledSecurityPreySelection(config, seen, runNow, Boolean(options.forceSecurity));
     securityPrey = {
       selected: securitySelection.selected,
       top_candidates: securitySelection.topCandidates,
@@ -114,7 +116,7 @@ export async function runPublishingPipeline(
           config,
           seen,
           seriousHistory,
-          new Date(startedAt),
+          runNow,
           Boolean(options.forceSerious)
         );
     seriousEditorial = {
@@ -129,7 +131,7 @@ export async function runPublishingPipeline(
           topCandidates: [],
           reason: "skipped during serious-only run"
         }
-      : await scheduledAstronomySelection(config, seen, new Date(startedAt), Boolean(options.forceStars));
+      : await scheduledAstronomySelection(config, seen, runNow, Boolean(options.forceStars));
     starsWorld = {
       selected: astronomySelection.selected,
       top_candidates: astronomySelection.topCandidates,
@@ -137,13 +139,16 @@ export async function runPublishingPipeline(
     };
     const seriousOnlyRun = Boolean(options.forceSerious) || seriousSelection.reason !== "not serious desk slot";
     const starsOnlyRun = Boolean(options.forceStars) || astronomySelection.reason !== "not astronomy slot";
-    const scheduledFeeds = seriousOnlyRun || starsOnlyRun
+    const scheduledFeeds = seriousOnlyRun || starsOnlyRun || scheduledHalfHourRun
       ? []
-      : scheduledFeedSources(config.rssFeeds, new Date(startedAt), config.siteTimezone);
+      : scheduledFeedSources(config.rssFeeds, runNow, config.siteTimezone);
     if (!seriousOnlyRun && !starsOnlyRun) {
-      skipped.push(`rss window: ${feedWindowName(new Date(startedAt), config.siteTimezone)} (${scheduledFeeds.map((feed) => feed.name).join(", ") || "no rss"})`);
+      skipped.push(`rss window: ${feedWindowName(runNow, config.siteTimezone)} (${scheduledFeeds.map((feed) => feed.name).join(", ") || "no rss"})`);
       skipped.push(`security prey: ${securitySelection.reason}`);
       skipped.push(`stars world: ${astronomySelection.reason}`);
+      if (scheduledHalfHourRun) {
+        skipped.push("half-hour scheduler wake without a special desk slot");
+      }
     }
     const feedItems = scheduledFeeds.length === 0 ? [] : await fetchFeedItems(scheduledFeeds);
     const scheduledItems = [market, nonsense, securitySelection.source, seriousSelection.source, astronomySelection.source].filter((item): item is SourceItem => item !== null);
@@ -447,6 +452,11 @@ function isGlobalMarketFeed(feed: FeedSource): boolean {
   return feed.name.includes("해외주식") || feed.name.includes("국제뉴스");
 }
 
+function isHalfHourWake(now: Date, timeZone: string): boolean {
+  const minute = zonedMinute(now, timeZone);
+  return minute >= 20 && minute <= 40;
+}
+
 function zonedHour(now: Date, timeZone: string): number {
   const hour = new Intl.DateTimeFormat("en-US", {
     timeZone,
@@ -454,6 +464,14 @@ function zonedHour(now: Date, timeZone: string): number {
     hour12: false
   }).format(now);
   return Number(hour);
+}
+
+function zonedMinute(now: Date, timeZone: string): number {
+  const minute = new Intl.DateTimeFormat("en-US", {
+    timeZone,
+    minute: "2-digit"
+  }).format(now);
+  return Number(minute);
 }
 
 async function extractFactsWithFallback(
