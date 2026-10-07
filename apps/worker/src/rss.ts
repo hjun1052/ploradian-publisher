@@ -28,7 +28,7 @@ export interface FeedFetchOptions {
 
 const DEFAULT_FEED_FETCH_OPTIONS = {
   timeoutMs: 10000,
-  maxBytes: 262144,
+  maxBytes: 524288, // newsis economy.xml alone is ~370KB
   retries: 2
 } satisfies Required<FeedFetchOptions>;
 
@@ -368,6 +368,13 @@ function siteSpecificCandidates(html: string, source: SourceItem): TextCandidate
   } else if (hostname.endsWith("boannews.com")) {
     candidates.push(...attributeCandidates(html, /id=["']article-view-content-div["']/i, 34, "boannews:article-view-content-div"));
     candidates.push(...attributeCandidates(html, /id=["']articleViewCon["']/i, 20, "boannews:articleViewCon"));
+  } else if (hostname.endsWith("newsis.com")) {
+    // #textBody closes early on the malformed photo markup; the real body sits in <article>.
+    candidates.push(...tagCandidates(html, "article", 90, "newsis:article"));
+  } else if (hostname.endsWith("etnews.com")) {
+    candidates.push(...attributeCandidates(html, /id=["']articleBody["']/i, 34, "etnews:articleBody"));
+  } else if (hostname.endsWith("yna.co.kr")) {
+    candidates.push(...attributeCandidates(html, /class=["'][^"']*story-news[^"']*["']/i, 34, "yna:story-news"));
   } else if (/(?:korea|moel|fsc|nabo)\.go\.kr$/.test(hostname)) {
     candidates.push(...tagCandidates(html, "main", 22, "public:main"));
     candidates.push(...attributeCandidates(html, /id=["'](?:content|contents|container|main-container)["']/i, 18, "public:content"));

@@ -35,9 +35,16 @@ export function loadConfig(env: Env): RuntimeConfig {
   const openaiArticleModel = clean(values.OPENAI_ARTICLE_MODEL) ?? openaiModel;
   const openaiUtilityModel = clean(values.OPENAI_UTILITY_MODEL) ?? DEFAULT_UTILITY_MODEL;
   const openaiLightArticleModel = clean(values.OPENAI_LIGHT_ARTICLE_MODEL) ?? openaiUtilityModel;
+  const openrouterApiKey = clean(values.OPENROUTER_API_KEY) ?? null;
+  const satireGateMinScore = parseNumber(values.SATIRE_GATE_MIN_SCORE, 1.7, 0, 3, "SATIRE_GATE_MIN_SCORE");
   const workersAiModel = clean(values.WORKERS_AI_MODEL) ?? DEFAULT_WORKERS_AI_MODEL;
   const workersAi = aiProvider === "workers-ai" ? requireWorkersAiBinding(env) : null;
-  const generationModel = aiProvider === "workers-ai" ? `workers-ai:${workersAiModel}` : openaiArticleModel;
+  const generationModel =
+    aiProvider === "workers-ai"
+      ? `workers-ai:${workersAiModel}`
+      : openaiArticleModel.includes("/") && !clean(values.OPENROUTER_API_KEY)
+      ? openaiModel
+      : openaiArticleModel;
   const githubRepo = clean(values.GITHUB_REPO) ?? "";
   const githubBranch = clean(values.GITHUB_BRANCH) ?? DEFAULT_BRANCH;
   const githubToken = clean(values.GITHUB_TOKEN) ?? null;
@@ -62,6 +69,8 @@ export function loadConfig(env: Env): RuntimeConfig {
     openaiArticleModel,
     openaiUtilityModel,
     openaiLightArticleModel,
+    openrouterApiKey,
+    satireGateMinScore,
     workersAiModel,
     workersAi,
     generationModel,
@@ -246,6 +255,24 @@ function parseInteger(
     return fallback;
   }
   const parsed = Number.parseInt(value, 10);
+  if (!Number.isFinite(parsed) || parsed < min || parsed > max) {
+    throw new ConfigError(`${label} must be between ${min} and ${max}.`);
+  }
+  return parsed;
+}
+
+function parseNumber(
+  raw: string | undefined,
+  fallback: number,
+  min: number,
+  max: number,
+  label = "number value"
+): number {
+  const value = clean(raw);
+  if (!value) {
+    return fallback;
+  }
+  const parsed = Number(value);
   if (!Number.isFinite(parsed) || parsed < min || parsed > max) {
     throw new ConfigError(`${label} must be between ${min} and ${max}.`);
   }

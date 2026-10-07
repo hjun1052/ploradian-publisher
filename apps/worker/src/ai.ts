@@ -246,15 +246,59 @@ export async function extractFacts(
   );
 }
 
+// Blunt phrases rotated per article so the voice stays sharp without every piece reusing the same insult.
+const SPICE_INSULTS = [
+  "한심하다",
+  "어이가 없다",
+  "개판이다",
+  "거지같다",
+  "멍청하기 짝이 없다",
+  "등신 같은 짓",
+  "가관이다",
+  "꼴불견이다",
+  "엉터리다",
+  "기가 막힌다"
+] as const;
+
+function spiceOverride(): string {
+  const pool = [...SPICE_INSULTS];
+  const picks = [0, 1].map(() => pool.splice(Math.floor(Math.random() * pool.length), 1)[0]);
+  return `
+
+=== SPICE OVERRIDE (takes priority over anything above) ===
+Voice: a contemptuous, deadpan columnist who finds the target embarrassing and says so. Not an explainer, not a neutral analyst. Every paragraph must bite.
+
+Hard format rules (count before you answer; rewrite if violated):
+- 6-7 paragraphs. EVERY paragraph has at most 3 sentences. A paragraph with 4 or more sentences is a failure: split it or cut it. Short, rhythmic, punchy. Prefer 2 sentences.
+- Paragraph 1: plain factual summary naming the target, with NO meta commentary. Never write "조롱의 대상은", "대상은 분명하다", or any sentence that announces what is being mocked.
+- No hedging caveats like "보도된 발언에 나오지 않았다". State an omission flatly as the joke itself.
+- Use one or two of these blunt phrases, each inside your own sentence aimed at the product/company/policy/behavior (never at private people or protected groups): ${picks.join(", ")}. Do not use other stock insults.
+- Direct contempt: at least 3 sentences the target would hate to read, and 1-2 sentences of fake praise that curdles. Invent the wording from this article's facts; never use stock praise formulas.
+- Ending: the last sentence of the last paragraph removes the target's last excuse, in your own words each time.
+
+Originality rules (important):
+- Do NOT reuse any sentence or phrase from the style examples above, and do not write stock formulas such as "제품에서 제품을 구성하는…", "누구에게도 반박당하지 않는 깨끗한 상태", "실망도 공식적으로 시작되지 않았다", "마지막 변명", "대단하다. 정말 대단하다". Every joke must be built only from this article's own numbers, names, quotes, and omissions.
+- No two paragraphs may use the same joke structure. Vary: understatement, direct insult, absurd comparison with a concrete object, fake defense, flat restatement of an absurd fact.
+- Do not add details that are not in the source text (times, durations, motives, counts). If unsure, leave it out.
+
+Safety unchanged: ground every claim in the source text; never invent numbers, quotes, motives, crimes. Ridicule the reported facts, not the outlet or reporter.`;
+}
+
+const OPENROUTER_ARTICLE_SHAPE = `
+
+Return ONE strict JSON object with exactly these keys: title (string), subtitle (string), category (one of 기술, 비즈니스, 시장), slug (lowercase ascii-kebab, 3-8 words), satire_brief ({"target": string, "ridiculous_core": string, "straight_faced_defense": [2-3 strings], "must_include_jabs": [at least 4 strings], "analogies": [at least 2 strings]}), body (the article, paragraphs separated by one blank line), source_name (string), source_url (string), original_title (string). No text outside the JSON.`;
+
 export async function generateSatireArticle(
   config: RuntimeConfig,
   source: SourceItem,
   facts: FactSummary,
-  correction?: string
+  correction?: string,
+  pageText = ""
 ): Promise<GeneratedArticleJson> {
-  const prompt = articlePromptFor(source);
   const isSecurityPrey = Boolean(source.securityPreyEvaluation);
   const isRegularSatire = !source.synthetic;
+  const openRouterArticle = isRegularSatire && usesOpenRouterArticleModel(config);
+  const prompt = articlePromptFor(source) + (openRouterArticle && !isSecurityPrey ? spiceOverride() : "");
   const article = await callModelJson<GeneratedArticleJson>(
     config,
     "ploradian_satire_article",
@@ -262,7 +306,8 @@ export async function generateSatireArticle(
     [
       {
         role: "system",
-        content: isSecurityPrey
+        content:
+          (isSecurityPrey
           ? `${securityPreyPrompt(source.securityPreyEvaluation)}
 
 Strict JSON. Paragraph 1 must summarize the security incident, target, and why it deserves ridicule. Use supplied concrete details before any metaphor. The ridicule should sound incredulous: how did they fail at this, how much did they not care, how basic was the missed duty. Do not mock Boannews, the reporter, victims, or the article format. 5-7 tight paragraphs.`
@@ -270,7 +315,7 @@ Strict JSON. Paragraph 1 must summarize the security incident, target, and why i
           ? `${prompt}
 
 Final article now: sharp, funny, mean, rhythmic. Paragraph 1 plainly summarizes the source event and target before the jokes. Mock the facts being reported, not the source article/outlet/reporter/writing. Use concrete source details before metaphors. Keep 2-4 compact source-specific images or analogies across the body; for market/earnings stories, build them from numbers, timing, buybacks, cash, forecasts, company behavior, or investor mood. Mix direct ridicule with occasional fake defense; do not make every jab positive-sounding. 5-7 tight paragraphs, no repeated joke, no generic industry essay. Strict JSON.`
-          : `${prompt}\n\nOutput strict JSON matching the requested schema.`
+          : `${prompt}\n\nOutput strict JSON matching the requested schema.`) + (openRouterArticle ? OPENROUTER_ARTICLE_SHAPE : "")
       },
       {
         role: "user",
@@ -282,6 +327,7 @@ Final article now: sharp, funny, mean, rhythmic. Paragraph 1 plainly summarizes 
             category: source.category
           },
           extracted_facts: facts,
+          ...(openRouterArticle && pageText ? { source_text: pageText.slice(0, 14000) } : {}),
           correction
         })
       }
@@ -779,7 +825,67 @@ async function callModelJson<T>(
     return callWorkersAiJson<T>(config, schemaName, schema, input, maxOutputTokens);
   }
 
+  if (isOpenRouterModel(openaiModel)) {
+    if (config.openrouterApiKey) {
+      return callOpenRouterJson<T>(config, schemaName, input, maxOutputTokens, openaiModel);
+    }
+    console.warn(JSON.stringify({ event: "openrouter_key_missing_fallback", model: openaiModel }));
+    return callOpenAIJson<T>(config, schemaName, schema, input, maxOutputTokens, config.openaiModel);
+  }
+
   return callOpenAIJson<T>(config, schemaName, schema, input, maxOutputTokens, openaiModel);
+}
+
+// "vendor/model" ids (e.g. anthropic/claude-sonnet-5.5) are served through OpenRouter.
+function isOpenRouterModel(model: string): boolean {
+  return model.includes("/");
+}
+
+export function usesOpenRouterArticleModel(config: RuntimeConfig): boolean {
+  return config.aiProvider === "openai" && Boolean(config.openrouterApiKey) && isOpenRouterModel(config.openaiArticleModel);
+}
+
+const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
+
+async function callOpenRouterJson<T>(
+  config: RuntimeConfig,
+  schemaName: string,
+  input: Array<{ role: "system" | "user"; content: string }>,
+  maxOutputTokens: number,
+  model: string
+): Promise<T> {
+  const { response, text } = await fetchTextWithRetry(
+    OPENROUTER_URL,
+    {
+      method: "POST",
+      headers: { authorization: `Bearer ${config.openrouterApiKey}`, "content-type": "application/json" },
+      body: JSON.stringify({
+        model,
+        messages: input,
+        // Reasoning tokens count against max_tokens, so leave headroom beyond the visible article.
+        max_tokens: Math.max(maxOutputTokens, 9000),
+        response_format: { type: "json_object" }
+      })
+    },
+    { label: `OpenRouter ${schemaName}`, timeoutMs: 150000, maxBytes: 262144, retries: 0 }
+  );
+
+  if (!response.ok) {
+    throw new Error(`OpenRouter ${schemaName} failed with HTTP ${response.status}: ${text.slice(0, 600)}`);
+  }
+
+  const data = parseJson<{
+    choices?: Array<{ message?: { content?: string }; finish_reason?: string }>;
+    usage?: { cost?: number };
+    error?: unknown;
+  }>(text, "OpenRouter response");
+  if (data.error) {
+    throw new Error(`OpenRouter ${schemaName} returned error: ${JSON.stringify(data.error).slice(0, 400)}`);
+  }
+
+  const content = data.choices?.[0]?.message?.content ?? "";
+  console.log(JSON.stringify({ event: "openrouter_call", model, schemaName, cost: data.usage?.cost }));
+  return parseJson<T>(content.replace(/^\s*```(?:json)?\s*|\s*```\s*$/g, ""), `OpenRouter ${schemaName} JSON`);
 }
 
 async function callWorkersAiJson<T>(

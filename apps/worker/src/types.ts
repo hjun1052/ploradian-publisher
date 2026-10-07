@@ -32,6 +32,8 @@ export interface RuntimeConfig {
   openaiArticleModel: string;
   openaiUtilityModel: string;
   openaiLightArticleModel: string;
+  openrouterApiKey: string | null;
+  satireGateMinScore: number;
   workersAiModel: string;
   workersAi: WorkersAiBinding | null;
   generationModel: string;

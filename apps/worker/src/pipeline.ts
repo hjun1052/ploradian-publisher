@@ -20,7 +20,8 @@ import { scheduledNonsenseCandidate } from "./nonsense";
 import { scheduledSeriousSelection } from "./serious";
 import { scheduledSecurityPreySelection } from "./security";
 import { scheduledAstronomySelection } from "./astronomy";
-import { extractFacts, generateSatireArticle, generateSeriousArticle, generateStarsArticle, intensifySatireArticle } from "./ai";
+import { extractFacts, generateSatireArticle, generateSeriousArticle, generateStarsArticle, intensifySatireArticle, usesOpenRouterArticleModel } from "./ai";
+import { countPublishedInBlock, gateSatireCandidates, overlongParagraphs, satireBlock } from "./gate";
 import { fetchFeedItems, fetchSourcePageText, sourceHash } from "./rss";
 import { validateGeneratedArticle } from "./validation";
 import type {
@@ -139,21 +140,44 @@ export async function runPublishingPipeline(
     };
     const seriousOnlyRun = Boolean(options.forceSerious) || seriousSelection.reason !== "not serious desk slot";
     const starsOnlyRun = Boolean(options.forceStars) || astronomySelection.reason !== "not astronomy slot";
+    // With an OpenRouter key the Jev quality gate replaces the old per-hour feed windows.
+    const gateOn = Boolean(config.openrouterApiKey);
+    const block = gateOn ? satireBlock(zonedHour(runNow, config.siteTimezone)) : null;
     const scheduledFeeds = seriousOnlyRun || starsOnlyRun || scheduledHalfHourRun
       ? []
+      : gateOn
+      ? block ? config.rssFeeds : []
       : scheduledFeedSources(config.rssFeeds, runNow, config.siteTimezone);
     if (!seriousOnlyRun && !starsOnlyRun) {
-      skipped.push(`rss window: ${feedWindowName(runNow, config.siteTimezone)} (${scheduledFeeds.map((feed) => feed.name).join(", ") || "no rss"})`);
+      skipped.push(
+        gateOn
+          ? `satire block: ${block?.name ?? "none"} (${scheduledFeeds.length} feeds)`
+          : `rss window: ${feedWindowName(runNow, config.siteTimezone)} (${scheduledFeeds.map((feed) => feed.name).join(", ") || "no rss"})`
+      );
       skipped.push(`security prey: ${securitySelection.reason}`);
       skipped.push(`stars world: ${astronomySelection.reason}`);
       if (scheduledHalfHourRun) {
         skipped.push("half-hour scheduler wake without a special desk slot");
       }
     }
-    const feedItems = scheduledFeeds.length === 0 ? [] : await fetchFeedItems(scheduledFeeds);
+    let feedItems = scheduledFeeds.length === 0 ? [] : await fetchFeedItems(scheduledFeeds);
+    if (gateOn && block && feedItems.length > 0) {
+      const used = countPublishedInBlock(seen, runNow, config.siteTimezone, new Set(config.rssFeeds.map((feed) => feed.name)), block);
+      if (used >= block.cap) {
+        skipped.push(`satire block ${block.name} cap reached (${used}/${block.cap})`);
+        feedItems = [];
+      } else {
+        const fresh = await unseenCandidates(filterSourceCandidates(feedItems, skipped), seen);
+        const gate = await gateSatireCandidates(config, fresh, runNow, seen);
+        skipped.push(`satire gate: ${gate.passed.length}/${gate.evaluated} passed (min ${config.satireGateMinScore}, block ${block.name} ${used}/${block.cap})`);
+        skipped.push(...gate.notes.slice(0, 8));
+        feedItems = gate.passed.map((entry) => entry.item);
+      }
+    }
     const scheduledItems = [market, nonsense, securitySelection.source, seriousSelection.source, astronomySelection.source].filter((item): item is SourceItem => item !== null);
     const nonSecurityScheduledItems = [market, nonsense, seriousSelection.source, astronomySelection.source].filter((item): item is SourceItem => item !== null);
-    const sourceItems = prioritizeSourceItems([...scheduledItems, ...feedItems]);
+    // Gated feed items already arrive best-score-first; keep that order instead of the static priority sort.
+    const sourceItems = gateOn ? [...prioritizeSourceItems(scheduledItems), ...feedItems] : prioritizeSourceItems([...scheduledItems, ...feedItems]);
     const candidates = await unseenCandidates(filterSourceCandidates(sourceItems, skipped), seen);
     if (candidates.length === 0) {
       skipped.push("no unseen source candidates after filtering and seen-store dedupe");
@@ -515,7 +539,20 @@ async function generateAndValidate(
   const sourceText = [source.title, source.summary, pageText].join("\n");
   let draft: GeneratedArticleJson;
   try {
-    draft = await generateSatireArticle(config, source, facts);
+    draft = await generateSatireArticle(config, source, facts, undefined, pageText);
+    if (!source.synthetic && usesOpenRouterArticleModel(config) && overlongParagraphs(draft.body) > 0) {
+      try {
+        draft = await generateSatireArticle(
+          config,
+          source,
+          facts,
+          "The previous draft had paragraphs longer than three sentences. Rewrite so every paragraph has at most three sentences; split or cut, keep the jokes.",
+          pageText
+        );
+      } catch (retryError) {
+        console.warn(JSON.stringify({ event: "paragraph_retry_failed_kept_first", error: errorMessage(retryError) }));
+      }
+    }
   } catch (error) {
     const fallback = fallbackMarketArticle(source, error);
     if (fallback) {

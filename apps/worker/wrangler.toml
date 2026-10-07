@@ -31,7 +31,7 @@ crons = ["*/30 * * * *"]
 [vars]
 AI_PROVIDER = "openai"
 OPENAI_MODEL = "gpt-5.4"
-OPENAI_ARTICLE_MODEL = "gpt-5.4"
+OPENAI_ARTICLE_MODEL = "anthropic/claude-sonnet-5.5"
 OPENAI_UTILITY_MODEL = "gpt-5.4-mini"
 OPENAI_LIGHT_ARTICLE_MODEL = "gpt-5.4-mini"
 GITHUB_REPO = "hjun1052/ploradian-publisher"
@@ -58,29 +58,29 @@ RSS_FEEDS_JSON = """
     "category": "비즈니스"
   },
   {
-    "name": "연합인포맥스 증권",
-    "url": "https://news.einfomax.co.kr/rss/S1N2.xml",
-    "category": "시장"
-  },
-  {
     "name": "연합인포맥스 IB/기업",
     "url": "https://news.einfomax.co.kr/rss/S1N7.xml",
     "category": "비즈니스"
   },
   {
-    "name": "연합인포맥스 채권/외환",
-    "url": "https://news.einfomax.co.kr/rss/S1N16.xml",
-    "category": "시장"
+    "name": "뉴시스 경제",
+    "url": "https://www.newsis.com/RSS/economy.xml",
+    "category": "비즈니스"
   },
   {
-    "name": "연합인포맥스 해외주식",
-    "url": "https://news.einfomax.co.kr/rss/S1N21.xml",
-    "category": "시장"
+    "name": "전자신문",
+    "url": "http://rss.etnews.com/Section901.xml",
+    "category": "기술"
   },
   {
-    "name": "연합인포맥스 국제뉴스",
-    "url": "https://news.einfomax.co.kr/rss/S1N23.xml",
-    "category": "시장"
+    "name": "연합뉴스 경제",
+    "url": "https://www.yna.co.kr/rss/economy.xml",
+    "category": "비즈니스"
+  },
+  {
+    "name": "연합뉴스 산업",
+    "url": "https://www.yna.co.kr/rss/industry.xml",
+    "category": "비즈니스"
   }
 ]
 """
