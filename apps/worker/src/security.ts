@@ -4,7 +4,7 @@ import type { RuntimeConfig, SecurityPreyEvaluation, SeenStore, SourceItem } fro
 
 const BOANNEWS_FEED = {
   name: "보안뉴스 사건사고",
-  url: "http://www.boannews.com/media/news_rss.xml?kind=1",
+  url: "https://www.boannews.com/rss/S1N2.xml",
   category: "기술"
 } as const;
 
