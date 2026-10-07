@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T17:00:58.179Z",
+  "updated_at": "2026-10-07T18:00:54.597Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -49,6 +49,14 @@
       "title": "정부 1천조·기업 220조 'K-GX' 시동…李대통령 &quot;녹색시장 판 짜야&quot;",
       "article_path": "content/articles/published/2026-10-08-b832d623-k-gx-1000-trillion-green-market-designer.md",
       "seen_at": "2026-10-07T17:00:58.179Z"
+    },
+    "aed719af4bc9663e2efc039ce4c8af24103c35bd223d1fe52623830090374747": {
+      "url": "https://arstechnica.com/tech-policy/2026/10/trade-group-crunches-numbers-on-trumps-impossible-push-for-100-us-made-tech/",
+      "canonical_url": "https://arstechnica.com/tech-policy/2026/10/trade-group-crunches-numbers-on-trumps-impossible-push-for-100-us-made-tech/",
+      "source_name": "Ars Technica",
+      "title": "Trade group crunches numbers on Trump’s impossible push for 100% US-made tech",
+      "article_path": "content/articles/published/2026-10-08-aed719af-trump-100-percent-us-made-tech-cost.md",
+      "seen_at": "2026-10-07T18:00:54.597Z"
     }
   }
 }
