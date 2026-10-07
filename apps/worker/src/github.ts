@@ -38,6 +38,7 @@ interface GitHubContentFile {
 
 const API_ROOT = "https://api.github.com";
 const SEEN_PATH = "content/sources/seen.json";
+const SEEN_RETENTION_DAYS = 90;
 const SERIOUS_EDITORIAL_PATH = "content/sources/serious-editorial.json";
 const MARKET_HISTORY_PATH = "content/sources/market-history.json";
 
@@ -237,10 +238,14 @@ export function addSeenItems(
   articles: PreparedArticle[],
   now = new Date()
 ): SeenStore {
+  // ponytail: RSS feeds only list recent items, so entries older than this can't resurface; keeps seen.json bounded
+  const pruneBefore = now.getTime() - SEEN_RETENTION_DAYS * 86_400_000;
   const updated: SeenStore = {
     version: 1,
     updated_at: now.toISOString(),
-    items: { ...store.items }
+    items: Object.fromEntries(
+      Object.entries(store.items).filter(([, item]) => !(Date.parse(item.seen_at) < pruneBefore))
+    )
   };
 
   for (const article of articles) {
