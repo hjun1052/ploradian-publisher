@@ -1,6 +1,7 @@
 import type { SourceItem } from "./types";
 
-const NONSENSE_HOURS = new Set([13]);
+// 헛소리 desk retired: empty set disables the slot. Add an hour back to re-enable.
+const NONSENSE_HOURS = new Set<number>();
 
 interface NonsenseObject {
   subject: string;
