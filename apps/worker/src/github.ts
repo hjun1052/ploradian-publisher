@@ -340,7 +340,7 @@ async function githubJson<T>(
     {
       label,
       timeoutMs: 15000,
-      maxBytes: 131072,
+      maxBytes: 2097152, // ponytail: Contents API base64 inflates seen.json ~1.4x; prune seen.json before ~1MB
       retries: 2
     }
   );
