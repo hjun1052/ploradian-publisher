@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T15:02:03.436Z",
+  "updated_at": "2026-10-07T16:00:58.592Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -33,6 +33,14 @@
       "title": "장·차관 관사에 직원 수당까지…미래기금 40% '선심성' 논란",
       "article_path": "content/articles/published/2026-10-08-12c3aca6-view-nisx20261007-0003818201.md",
       "seen_at": "2026-10-07T15:02:03.436Z"
+    },
+    "04347efee76c2a01d52cd494479e828b7bb51ce92a51927959502cec953bae7a": {
+      "url": "https://www.theverge.com/tech/1006766/google-meta-biohub-investment-virtual-cell",
+      "canonical_url": "https://www.theverge.com/tech/1006766/google-meta-biohub-investment-virtual-cell",
+      "source_name": "The Verge",
+      "title": "Google invests millions in Mark Zuckerberg’s efforts to create a ‘virtual cell’",
+      "article_path": "content/articles/published/2026-10-08-04347efe-biohub-virtual-cell-google-meta-300m.md",
+      "seen_at": "2026-10-07T16:00:58.592Z"
     }
   }
 }
