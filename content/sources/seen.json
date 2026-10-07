@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T11:01:16.132Z",
+  "updated_at": "2026-10-07T12:01:01.577Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -17,6 +17,14 @@
       "title": "OpenAI drops another batch of mathematical breakthroughs",
       "article_path": "content/articles/published/2026-10-07-0e401bad-openai-math-release-github-unreleased-model-722-manuscripts-372-families.md",
       "seen_at": "2026-10-07T11:01:16.132Z"
+    },
+    "c0266492c7c41e60797cccf0fb58b1021700888a1715f3f387fc1b905b6a057c": {
+      "url": "https://www.theverge.com/transportation/1006585/samsung-wallet-now-unlocks-some-gm-cars",
+      "canonical_url": "https://www.theverge.com/transportation/1006585/samsung-wallet-now-unlocks-some-gm-cars",
+      "source_name": "The Verge",
+      "title": "Samsung Wallet now unlocks some GM cars",
+      "article_path": "content/articles/published/2026-10-07-c0266492-samsung-wallet-gm-cadillac-digital-key-select-models.md",
+      "seen_at": "2026-10-07T12:01:01.577Z"
     }
   }
 }
