@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T12:01:01.577Z",
+  "updated_at": "2026-10-07T15:02:03.436Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -25,6 +25,14 @@
       "title": "Samsung Wallet now unlocks some GM cars",
       "article_path": "content/articles/published/2026-10-07-c0266492-samsung-wallet-gm-cadillac-digital-key-select-models.md",
       "seen_at": "2026-10-07T12:01:01.577Z"
+    },
+    "12c3aca67885a3029d179485c363eeb3b87b449a614e818656d403079a94914c": {
+      "url": "https://www.newsis.com/view/NISX20261007_0003818201",
+      "canonical_url": "https://www.newsis.com/view/NISX20261007_0003818201",
+      "source_name": "뉴시스 경제",
+      "title": "장·차관 관사에 직원 수당까지…미래기금 40% '선심성' 논란",
+      "article_path": "content/articles/published/2026-10-08-12c3aca6-view-nisx20261007-0003818201.md",
+      "seen_at": "2026-10-07T15:02:03.436Z"
     }
   }
 }
