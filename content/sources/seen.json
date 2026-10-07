@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T18:00:54.597Z",
+  "updated_at": "2026-10-07T23:02:50.058Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -57,6 +57,14 @@
       "title": "Trade group crunches numbers on Trump’s impossible push for 100% US-made tech",
       "article_path": "content/articles/published/2026-10-08-aed719af-trump-100-percent-us-made-tech-cost.md",
       "seen_at": "2026-10-07T18:00:54.597Z"
+    },
+    "85e0e62c4275d7c311a382ce2bef3e6fe4ecfcaca638068abf94c8993142ca70": {
+      "url": "https://www.newsis.com/view/NISX20261007_0003817970",
+      "canonical_url": "https://www.newsis.com/view/NISX20261007_0003817970",
+      "source_name": "뉴시스 경제",
+      "title": "동탄 갭투자 막히자…사내대출·사채 자금 3배로 늘어",
+      "article_path": "content/articles/published/2026-10-08-85e0e62c-dongtan-gap-investment-company-loan-surge.md",
+      "seen_at": "2026-10-07T23:02:50.058Z"
     }
   }
 }
