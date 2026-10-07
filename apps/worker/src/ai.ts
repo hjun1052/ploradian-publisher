@@ -280,6 +280,7 @@ Originality rules (important):
 - Do NOT reuse any sentence or phrase from the style examples above, and do not write stock formulas such as "제품에서 제품을 구성하는…", "누구에게도 반박당하지 않는 깨끗한 상태", "실망도 공식적으로 시작되지 않았다", "마지막 변명", "대단하다. 정말 대단하다". Every joke must be built only from this article's own numbers, names, quotes, and omissions.
 - No two paragraphs may use the same joke structure. Vary: understatement, direct insult, absurd comparison with a concrete object, fake defense, flat restatement of an absurd fact.
 - Do not add details that are not in the source text (times, durations, motives, counts). If unsure, leave it out.
+- Never reuse more than about 7 consecutive words of the source text verbatim, quotes included; paraphrase, or quote only a short fragment.
 
 Safety unchanged: ground every claim in the source text; never invent numbers, quotes, motives, crimes. Ridicule the reported facts, not the outlet or reporter.`;
 }
@@ -516,7 +517,7 @@ Strict JSON. Use editorial judgment as structure, not metadata. Hide scoring. 5-
       }
     ],
     2600,
-    config.openaiArticleModel
+    config.openaiModel // not the Sonnet article model: serious/stars prompts expect the OpenAI JSON schema
   );
 
   return {
@@ -564,7 +565,7 @@ Strict JSON. Use the astronomy evaluation as the spine, not as visible metadata.
       }
     ],
     2700,
-    config.openaiArticleModel
+    config.openaiModel // not the Sonnet article model: serious/stars prompts expect the OpenAI JSON schema
   );
 
   return {

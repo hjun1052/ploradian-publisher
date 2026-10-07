@@ -9,7 +9,7 @@ import { pathToFileURL } from "node:url";
 const dir = mkdtempSync(join(tmpdir(), "gate-check-"));
 const outfile = join(dir, "gate.mjs");
 await build({ entryPoints: ["src/gate.ts"], bundle: true, platform: "node", format: "esm", outfile, logLevel: "error" });
-const { satireBlock, titleSimilarity, sameStory, dedupeByTitle, overlongParagraphs, countPublishedInBlock } = await import(pathToFileURL(outfile).href);
+const { satireBlock, titleSimilarity, sameStory, dedupeByTitle, overlongParagraphs, splitOverlongParagraphs, countPublishedInBlock } = await import(pathToFileURL(outfile).href);
 
 // blocks: 7/16 belong to the market desks and 12/17 to security, so they must not map to a satire block
 const names = Array.from({ length: 24 }, (_, h) => satireBlock(h)?.name ?? "-");
@@ -36,6 +36,14 @@ const ok = "하나다. 둘이다. 셋이다.\n\n수치는 1,284.5퍼센트다. �
 const bad = "하나다. 둘이다. 셋이다. 넷이다.\n\n짧다.";
 assert.equal(overlongParagraphs(ok), 0);
 assert.equal(overlongParagraphs(bad), 1);
+
+// splitting: a 7-sentence paragraph becomes 3+2+2 style chunks, short paragraphs and decimals stay intact
+const seven = "일이다. 이다. 삼이다. 사다. 오다. 육이다. 칠이다.";
+const split = splitOverlongParagraphs(seven + "\n\n짧다. 7.5억이다.");
+assert.equal(overlongParagraphs(split), 0);
+assert.equal(split.split("\n\n").length, 4);
+assert.ok(split.endsWith("짧다. 7.5억이다."));
+assert.equal(split.replace(/\s+/g, ""), (seven + "짧다. 7.5억이다.").replace(/\s+/g, ""));
 
 // daily cap counting: only today's items from general feeds inside the block hours
 const now = new Date("2026-10-07T12:00:00Z"); // 21:00 KST -> evening block

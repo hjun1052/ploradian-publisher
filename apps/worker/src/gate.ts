@@ -104,6 +104,30 @@ function coveredRecently(item: SourceItem, seen: SeenStore, now: Date): boolean 
   );
 }
 
+// Split any paragraph with more than `max` sentences into balanced chunks (no extra model call).
+export function splitOverlongParagraphs(body: string, max = 3): string {
+  return body
+    .split(/\n\s*\n/)
+    .flatMap((paragraph) => {
+      const cuts = [...paragraph.matchAll(/[.!?。…]["'”’)\]]*(?=\s|$)/g)].map((match) => (match.index ?? 0) + match[0].length);
+      if (cuts.length <= max) return [paragraph];
+      const sentences: string[] = [];
+      let start = 0;
+      for (const cut of cuts) {
+        sentences.push(paragraph.slice(start, cut).trim());
+        start = cut;
+      }
+      const tail = paragraph.slice(start).trim();
+      if (tail) sentences.push(tail);
+      const chunks = Math.ceil(sentences.length / max);
+      const size = Math.ceil(sentences.length / chunks);
+      const out: string[] = [];
+      for (let i = 0; i < sentences.length; i += size) out.push(sentences.slice(i, i + size).join(" "));
+      return out;
+    })
+    .join("\n\n");
+}
+
 // Paragraphs longer than `max` sentences (the spice prompt asks for at most three).
 export function overlongParagraphs(body: string, max = 3): number {
   return body

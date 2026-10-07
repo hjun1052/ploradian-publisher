@@ -21,7 +21,7 @@ import { scheduledSeriousSelection } from "./serious";
 import { scheduledSecurityPreySelection } from "./security";
 import { scheduledAstronomySelection } from "./astronomy";
 import { extractFacts, generateSatireArticle, generateSeriousArticle, generateStarsArticle, intensifySatireArticle, usesOpenRouterArticleModel } from "./ai";
-import { countPublishedInBlock, gateSatireCandidates, overlongParagraphs, satireBlock } from "./gate";
+import { countPublishedInBlock, gateSatireCandidates, satireBlock, splitOverlongParagraphs } from "./gate";
 import { fetchFeedItems, fetchSourcePageText, sourceHash } from "./rss";
 import { validateGeneratedArticle } from "./validation";
 import type {
@@ -540,18 +540,9 @@ async function generateAndValidate(
   let draft: GeneratedArticleJson;
   try {
     draft = await generateSatireArticle(config, source, facts, undefined, pageText);
-    if (!source.synthetic && usesOpenRouterArticleModel(config) && overlongParagraphs(draft.body) > 0) {
-      try {
-        draft = await generateSatireArticle(
-          config,
-          source,
-          facts,
-          "The previous draft had paragraphs longer than three sentences. Rewrite so every paragraph has at most three sentences; split or cut, keep the jokes.",
-          pageText
-        );
-      } catch (retryError) {
-        console.warn(JSON.stringify({ event: "paragraph_retry_failed_kept_first", error: errorMessage(retryError) }));
-      }
+    if (!source.synthetic && usesOpenRouterArticleModel(config)) {
+      // Sonnet often runs past three sentences per paragraph; split locally instead of paying for a rewrite.
+      draft = { ...draft, body: splitOverlongParagraphs(draft.body) };
     }
   } catch (error) {
     const fallback = fallbackMarketArticle(source, error);
@@ -573,6 +564,27 @@ async function generateAndValidate(
       );
     }
     return draft;
+  }
+
+  if (!source.synthetic) {
+    console.warn(JSON.stringify({ event: "draft_validation_hard_failure", title: source.title, reasons: draftValidation.reasons }));
+  }
+
+  // The legacy intensify pass rewrites with the old engine prompt (stock example sentences, no JSON
+  // shape for non-OpenAI models), so Sonnet drafts get one targeted regeneration instead.
+  if (!source.synthetic && usesOpenRouterArticleModel(config)) {
+    const retry = await generateSatireArticle(
+      config,
+      source,
+      facts,
+      `The previous draft failed validation for: ${draftValidation.reasons.join("; ")}. Rewrite the JSON article to fix exactly these issues, keeping the sharp voice.`,
+      pageText
+    );
+    const retryValidation = validateGeneratedArticle(retry, source, facts, sourceText);
+    if (retryValidation.ok || isSoftSatireValidationFailure(retryValidation.reasons)) {
+      return retry;
+    }
+    throw new Error(`validation failed after retry: ${retryValidation.reasons.join("; ")}`);
   }
 
   let first: GeneratedArticleJson;
