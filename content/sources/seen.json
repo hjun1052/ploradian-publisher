@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T10:01:19.495Z",
+  "updated_at": "2026-10-07T11:01:16.132Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -9,6 +9,14 @@
       "title": "ChatGPT for Teens is an ‘unacceptable risk,’ says Common Sense Media",
       "article_path": "content/articles/published/2026-10-07-651e2d56-chatgpt-for-teens-common-sense-media-unacceptable-risk.md",
       "seen_at": "2026-10-07T10:01:19.495Z"
+    },
+    "0e401bad0dd434d616eaa7e606ae0820b63af0cdae6961e8cec8c146626c4f0a": {
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1005004/openai-math-release-github",
+      "canonical_url": "https://www.theverge.com/ai-artificial-intelligence/1005004/openai-math-release-github",
+      "source_name": "The Verge",
+      "title": "OpenAI drops another batch of mathematical breakthroughs",
+      "article_path": "content/articles/published/2026-10-07-0e401bad-openai-math-release-github-unreleased-model-722-manuscripts-372-families.md",
+      "seen_at": "2026-10-07T11:01:16.132Z"
     }
   }
 }
