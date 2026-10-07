@@ -24,7 +24,7 @@ export function prepareMarkdownArticle(
     source_name: source.feedName,
     source_url: source.url,
     original_title: source.title,
-    generated_by: articleGenerationModel(config, source),
+    generated_by: generated.model ?? articleGenerationModel(config, source),
     status: "published",
     ...(image
       ? {

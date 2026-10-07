@@ -6,6 +6,7 @@ import {
   STARS_ENGINE_PROMPT
 } from "./generated/satire-engine";
 import { fetchTextWithRetry } from "./http";
+import { satireTier } from "./gate";
 import type {
   FactSummary,
   GeneratedArticleJson,
@@ -260,9 +261,13 @@ const SPICE_INSULTS = [
   "기가 막힌다"
 ] as const;
 
-function spiceOverride(): string {
+function pickInsults(): string[] {
   const pool = [...SPICE_INSULTS];
-  const picks = [0, 1].map(() => pool.splice(Math.floor(Math.random() * pool.length), 1)[0]);
+  return [0, 1].map(() => pool.splice(Math.floor(Math.random() * pool.length), 1)[0] as string);
+}
+
+function spiceOverride(): string {
+  const picks = pickInsults();
   return `
 
 === SPICE OVERRIDE (takes priority over anything above) ===
@@ -285,6 +290,47 @@ Originality rules (important):
 Safety unchanged: ground every claim in the source text; never invent numbers, quotes, motives, crimes. Ridicule the reported facts, not the outlet or reporter.`;
 }
 
+// Variant for the cheaper standard-tier model: explicit process and checklist, because it follows
+// loose style guidance less reliably than Sonnet does.
+function spiceOverrideStandard(): string {
+  const picks = pickInsults();
+  return `
+
+=== SPICE V3B (overrides everything above where they conflict) ===
+You are a columnist who is personally offended by this story and cannot hide it. Deadpan grammar, open contempt. You are not explaining the news, you are prosecuting it.
+
+PROCESS (do it silently before writing):
+1. List the 5 most absurd concrete facts in the source: numbers, direct quotes, omissions, contradictions.
+2. For each, invent the most surprising comparison to a small, petty, physical everyday thing (a receipt, a fridge, a school desk, a parking ticket) — never a business or tech metaphor, never a cliche.
+3. Keep the 4 sharpest. Write so every paragraph hits harder than the one before; the second-to-last paragraph is the cruelest.
+4. Run the CHECKLIST. Rewrite silently until every line is true.
+
+TECHNIQUES (use at least four, each in a different paragraph):
+- Quote a short fragment (max 7 words) of what the target said and attack it literally.
+- A fake defense that collapses in its own last clause.
+- Say the dumbest decision in plain words, in paragraph 2, with the number attached.
+- A deadpan hypothetical ("만약 ~였다면 …") that exposes the absurdity.
+- A flat restatement of an absurd fact with no adjectives, as if reading a receipt.
+- A rhetorical question the target cannot answer.
+- Turn the target's own word against it (the word they chose is the joke).
+- Do the arithmetic the target avoided (a ratio, a per-unit amount, a comparison of its own numbers) and state the result flatly.
+
+CHECKLIST (all must be true):
+[ ] 6-7 paragraphs, EVERY paragraph at most 3 sentences.
+[ ] Paragraph 1 is a plain factual summary naming the target, with NO insults and no commentary.
+[ ] The article contains these two blunt phrases, each inside a sentence naming a specific stupid act of the target (never a private person): ${picks.join(" / ")}. Use each exactly once, and not in paragraph 1.
+[ ] At least 3 sentences the target would hate to read.
+[ ] At least 4 concrete numbers or quotes from the source are used.
+[ ] Comparison sentences ("~와 같다", "~다를 바 없다", "~격이다", "~셈이다") appear at most TWICE in the whole article. Every other joke uses a different form: flat restatement, quote attack, hypothetical, direct accusation, rhetorical question.
+[ ] The last sentence of the last paragraph removes the target's final excuse, in fresh and unambiguous wording.
+[ ] Never write 원문, 기사, 보도, 리뷰, 발표문, 자료 as something that says or leaves things out. State an omission as a plain fact about the target ("투자 금액은 없다"), never as a gap in a text.
+[ ] Do not label the target's speech with motive words (변명, 자백, 고백, 농담, 핑계) unless the source itself uses that word; describe what they did.
+[ ] None of these appear: 마지막 변명, 제품에서 제품을 구성하는, 누구에게도 반박당하지 않는 깨끗한 상태, 대단하다. 정말 대단하다, 조롱의 대상은.
+[ ] No detail that is not in the source (times, motives, counts, photos, jokes).
+[ ] Never reuse more than 7 consecutive source words verbatim.
+Safety unchanged: ground every claim in the source; never invent crimes, motives, quotes, numbers. Ridicule the reported facts, not the outlet or reporter.`;
+}
+
 const OPENROUTER_ARTICLE_SHAPE = `
 
 Return ONE strict JSON object with exactly these keys: title (string), subtitle (string), category (one of 기술, 비즈니스, 시장), slug (lowercase ascii-kebab, 3-8 words), satire_brief ({"target": string, "ridiculous_core": string, "straight_faced_defense": [2-3 strings], "must_include_jabs": [at least 4 strings], "analogies": [at least 2 strings]}), body (the article, paragraphs separated by one blank line), source_name (string), source_url (string), original_title (string). No text outside the JSON.`;
@@ -298,8 +344,12 @@ export async function generateSatireArticle(
 ): Promise<GeneratedArticleJson> {
   const isSecurityPrey = Boolean(source.securityPreyEvaluation);
   const isRegularSatire = !source.synthetic;
-  const openRouterArticle = isRegularSatire && usesOpenRouterArticleModel(config);
-  const prompt = articlePromptFor(source) + (openRouterArticle && !isSecurityPrey ? spiceOverride() : "");
+  const articleModel = isRegularSatire ? satireModelFor(config, source) : config.openaiLightArticleModel;
+  const openRouterArticle = isRegularSatire && usesOpenRouterForSatire(config, source);
+  const standardTier = openRouterArticle && !isSecurityPrey && articleModel !== config.openaiArticleModel;
+  const prompt =
+    articlePromptFor(source) +
+    (openRouterArticle && !isSecurityPrey ? (standardTier ? spiceOverrideStandard() : spiceOverride()) : "");
   const article = await callModelJson<GeneratedArticleJson>(
     config,
     "ploradian_satire_article",
@@ -334,11 +384,12 @@ Final article now: sharp, funny, mean, rhythmic. Paragraph 1 plainly summarizes 
       }
     ],
     isRegularSatire ? 2700 : syntheticOutputTokens(source),
-    isRegularSatire ? config.openaiArticleModel : config.openaiLightArticleModel
+    articleModel
   );
 
   return {
     ...article,
+    model: effectiveModel(config, articleModel),
     source_name: source.feedName,
     source_url: source.url,
     original_title: source.title,
@@ -842,8 +893,32 @@ function isOpenRouterModel(model: string): boolean {
   return model.includes("/");
 }
 
-export function usesOpenRouterArticleModel(config: RuntimeConfig): boolean {
-  return config.aiProvider === "openai" && Boolean(config.openrouterApiKey) && isOpenRouterModel(config.openaiArticleModel);
+// Regular satire: items the gate scored below the premium threshold use the cheaper standard model.
+// Everything else (premium items, security prey, ungated runs) uses the article model.
+export function satireModelFor(config: RuntimeConfig, source: SourceItem): string {
+  if (
+    config.satireStandardModel &&
+    config.openrouterApiKey &&
+    !source.securityPreyEvaluation &&
+    satireTier(source.satireScore, config.satirePremiumMinScore) === "standard"
+  ) {
+    return config.satireStandardModel;
+  }
+  return config.openaiArticleModel;
+}
+
+export function usesOpenRouterForSatire(config: RuntimeConfig, source: SourceItem): boolean {
+  return (
+    config.aiProvider === "openai" &&
+    Boolean(config.openrouterApiKey) &&
+    !source.synthetic &&
+    isOpenRouterModel(satireModelFor(config, source))
+  );
+}
+
+// The model that actually serves a request: OpenRouter ids fall back to the OpenAI model without a key.
+function effectiveModel(config: RuntimeConfig, model: string): string {
+  return isOpenRouterModel(model) && !config.openrouterApiKey ? config.openaiModel : model;
 }
 
 const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
@@ -864,7 +939,7 @@ async function callOpenRouterJson<T>(
         model,
         messages: input,
         // Reasoning tokens count against max_tokens, so leave headroom beyond the visible article.
-        max_tokens: Math.max(maxOutputTokens, 9000),
+        max_tokens: Math.max(maxOutputTokens, 16000),
         response_format: { type: "json_object" }
       })
     },

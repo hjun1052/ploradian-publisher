@@ -20,7 +20,7 @@ import { scheduledNonsenseCandidate } from "./nonsense";
 import { scheduledSeriousSelection } from "./serious";
 import { scheduledSecurityPreySelection } from "./security";
 import { scheduledAstronomySelection } from "./astronomy";
-import { extractFacts, generateSatireArticle, generateSeriousArticle, generateStarsArticle, intensifySatireArticle, usesOpenRouterArticleModel } from "./ai";
+import { extractFacts, generateSatireArticle, generateSeriousArticle, generateStarsArticle, intensifySatireArticle, usesOpenRouterForSatire } from "./ai";
 import { countPublishedInBlock, gateSatireCandidates, satireBlock, splitOverlongParagraphs } from "./gate";
 import { fetchFeedItems, fetchSourcePageText, sourceHash } from "./rss";
 import { validateGeneratedArticle } from "./validation";
@@ -540,7 +540,7 @@ async function generateAndValidate(
   let draft: GeneratedArticleJson;
   try {
     draft = await generateSatireArticle(config, source, facts, undefined, pageText);
-    if (!source.synthetic && usesOpenRouterArticleModel(config)) {
+    if (usesOpenRouterForSatire(config, source)) {
       // Sonnet often runs past three sentences per paragraph; split locally instead of paying for a rewrite.
       draft = { ...draft, body: splitOverlongParagraphs(draft.body) };
     }
@@ -572,7 +572,7 @@ async function generateAndValidate(
 
   // The legacy intensify pass rewrites with the old engine prompt (stock example sentences, no JSON
   // shape for non-OpenAI models), so Sonnet drafts get one targeted regeneration instead.
-  if (!source.synthetic && usesOpenRouterArticleModel(config)) {
+  if (usesOpenRouterForSatire(config, source)) {
     const retry = await generateSatireArticle(
       config,
       source,

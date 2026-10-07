@@ -169,8 +169,9 @@ export function validateGeneratedArticle(
   }
 
   for (const word of BANNED_HYPE_WORDS) {
-    if (title.includes(word) || body.includes(word)) {
-      reasons.push(`contains banned cheap-hype word: ${word}`);
+    const hit = findBannedHype(`${title}\n${body}`, word);
+    if (hit) {
+      reasons.push(`contains banned cheap-hype word: ${word} (…${hit}…)`);
     }
   }
 
@@ -226,6 +227,14 @@ export function validateGeneratedArticle(
     ok: reasons.length === 0,
     reasons
   };
+}
+
+// "미쳤다" is a banned hype word, but "영향을 미쳤다" / "기대에 못 미쳤다" are ordinary verbs, so those
+// uses are scrubbed before matching. Returns a short context snippet for the log, or null.
+export function findBannedHype(text: string, word: string): string | null {
+  const scrubbed = text.replace(/(?:영향(?:을|이)?|파장을|여파를|효과를|못)\s*미쳤다/g, "");
+  const index = scrubbed.indexOf(word);
+  return index === -1 ? null : scrubbed.slice(Math.max(0, index - 12), index + word.length + 8).replace(/\s+/g, " ");
 }
 
 function validateStarsArticle(

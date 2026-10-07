@@ -192,6 +192,11 @@ const QUESTIONS = {
   }
 } as const;
 
+// Items scoring at or above the premium threshold get the stronger (pricier) model.
+export function satireTier(score: number | undefined, premiumMin: number): "premium" | "standard" {
+  return score !== undefined && score < premiumMin ? "standard" : "premium";
+}
+
 export interface ScoredCandidate {
   item: SourceItem;
   score: number;
@@ -272,5 +277,7 @@ async function scoreOne(config: RuntimeConfig, item: SourceItem): Promise<Scored
     (answers.real_safety_harm?.noul ?? 1) >= 0.5 ||
     (answers.politician_centered?.noul ?? 1) >= 0.5 ||
     allowed < 0.6;
-  return blocked ? null : { item, score: answers.satire_potential?.score ?? 0 };
+  if (blocked) return null;
+  const score = answers.satire_potential?.score ?? 0;
+  return { item: { ...item, satireScore: score }, score };
 }

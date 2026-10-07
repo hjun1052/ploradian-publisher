@@ -34,6 +34,8 @@ export interface RuntimeConfig {
   openaiLightArticleModel: string;
   openrouterApiKey: string | null;
   satireGateMinScore: number;
+  satireStandardModel: string | null;
+  satirePremiumMinScore: number;
   workersAiModel: string;
   workersAi: WorkersAiBinding | null;
   generationModel: string;
@@ -68,6 +70,7 @@ export interface SourceItem {
   seriousEvaluation?: SeriousCandidateEvaluation;
   securityPreyEvaluation?: SecurityPreyEvaluation;
   astronomyEvaluation?: AstronomyCandidateEvaluation;
+  satireScore?: number;
 }
 
 export interface AstronomyCandidateEvaluation {
@@ -134,6 +137,7 @@ export interface GeneratedArticleJson {
   source_name: string;
   source_url: string;
   original_title: string;
+  model?: string;
 }
 
 export interface SatireBrief {

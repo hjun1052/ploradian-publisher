@@ -7,9 +7,14 @@ import { join } from "node:path";
 import { pathToFileURL } from "node:url";
 
 const dir = mkdtempSync(join(tmpdir(), "gate-check-"));
-const outfile = join(dir, "gate.mjs");
-await build({ entryPoints: ["src/gate.ts"], bundle: true, platform: "node", format: "esm", outfile, logLevel: "error" });
-const { satireBlock, titleSimilarity, sameStory, dedupeByTitle, overlongParagraphs, splitOverlongParagraphs, countPublishedInBlock } = await import(pathToFileURL(outfile).href);
+async function bundle(entry, name) {
+  const out = join(dir, name);
+  await build({ entryPoints: [entry], bundle: true, platform: "node", format: "esm", outfile: out, logLevel: "error" });
+  return out;
+}
+const outfile = await bundle("src/gate.ts", "gate.mjs");
+const { findBannedHype } = await import(pathToFileURL(await bundle("src/validation.ts", "validation.mjs")).href);
+const { satireBlock, titleSimilarity, sameStory, dedupeByTitle, overlongParagraphs, splitOverlongParagraphs, satireTier, countPublishedInBlock } = await import(pathToFileURL(outfile).href);
 
 // blocks: 7/16 belong to the market desks and 12/17 to security, so they must not map to a satire block
 const names = Array.from({ length: 24 }, (_, h) => satireBlock(h)?.name ?? "-");
@@ -44,6 +49,18 @@ assert.equal(overlongParagraphs(split), 0);
 assert.equal(split.split("\n\n").length, 4);
 assert.ok(split.endsWith("짧다. 7.5억이다."));
 assert.equal(split.replace(/\s+/g, ""), (seven + "짧다. 7.5억이다.").replace(/\s+/g, ""));
+
+// banned hype word: ordinary verb uses of 미쳤다 are not flagged, the slang use is
+assert.equal(findBannedHype("금리가 시장에 영향을 미쳤다. 실적이 기대에 못 미쳤다.", "미쳤다"), null);
+assert.ok(findBannedHype("가격표가 미쳤다", "미쳤다"));
+assert.equal(findBannedHype("충격 없는 문장", "충격") !== null, true);
+
+// tiers: below the premium threshold -> standard (cheap) model; unscored items stay premium
+assert.equal(satireTier(1.7, 2.3), "standard");
+assert.equal(satireTier(2.29, 2.3), "standard");
+assert.equal(satireTier(2.3, 2.3), "premium");
+assert.equal(satireTier(2.74, 2.3), "premium");
+assert.equal(satireTier(undefined, 2.3), "premium");
 
 // daily cap counting: only today's items from general feeds inside the block hours
 const now = new Date("2026-10-07T12:00:00Z"); // 21:00 KST -> evening block

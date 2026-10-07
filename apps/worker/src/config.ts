@@ -37,6 +37,8 @@ export function loadConfig(env: Env): RuntimeConfig {
   const openaiLightArticleModel = clean(values.OPENAI_LIGHT_ARTICLE_MODEL) ?? openaiUtilityModel;
   const openrouterApiKey = clean(values.OPENROUTER_API_KEY) ?? null;
   const satireGateMinScore = parseNumber(values.SATIRE_GATE_MIN_SCORE, 1.7, 0, 3, "SATIRE_GATE_MIN_SCORE");
+  const satireStandardModel = clean(values.SATIRE_STANDARD_MODEL) ?? null;
+  const satirePremiumMinScore = parseNumber(values.SATIRE_PREMIUM_MIN_SCORE, 2.3, 0, 4, "SATIRE_PREMIUM_MIN_SCORE");
   const workersAiModel = clean(values.WORKERS_AI_MODEL) ?? DEFAULT_WORKERS_AI_MODEL;
   const workersAi = aiProvider === "workers-ai" ? requireWorkersAiBinding(env) : null;
   const generationModel =
@@ -71,6 +73,8 @@ export function loadConfig(env: Env): RuntimeConfig {
     openaiLightArticleModel,
     openrouterApiKey,
     satireGateMinScore,
+    satireStandardModel,
+    satirePremiumMinScore,
     workersAiModel,
     workersAi,
     generationModel,
