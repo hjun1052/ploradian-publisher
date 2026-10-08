@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-08T20:02:06.342Z",
+  "updated_at": "2026-10-08T23:01:01.912Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -169,6 +169,14 @@
       "title": "Older Pixel watches are losing free cellular access to several safety features",
       "article_path": "content/articles/published/2026-10-09-d94ef5a7-google-pixel-watch-lte-safety-signal-ends.md",
       "seen_at": "2026-10-08T20:02:06.342Z"
+    },
+    "40acd84f6f63ec6698f9454ce0451c2efa5d7e84c1f4ce2cdc01093497c74ca7": {
+      "url": "https://www.yna.co.kr/view/AKR20261008206900001",
+      "canonical_url": "https://www.yna.co.kr/view/AKR20261008206900001",
+      "source_name": "연합뉴스 산업",
+      "title": "與김병주 \"방산5사 영업이익 2.7조인데…사회공헌 지출은 1% 미만\"",
+      "article_path": "content/articles/published/2026-10-09-40acd84f-defense-five-firms-social-contribution-share.md",
+      "seen_at": "2026-10-08T23:01:01.912Z"
     }
   }
 }
