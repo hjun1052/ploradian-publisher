@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-08T18:02:03.044Z",
+  "updated_at": "2026-10-08T19:00:52.521Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -153,6 +153,14 @@
       "title": "Trump administration says Microsoft &#8216;abused&#8217; worker visa program and is cutting off access",
       "article_path": "content/articles/published/2026-10-09-503e3af6-trump-administration-suspends-microsoft-h1b-program.md",
       "seen_at": "2026-10-08T18:02:03.044Z"
+    },
+    "9b144d58de64884fde4fe9f3771b5a859140f3ea7977bf89f1f31085820e0831": {
+      "url": "https://www.theverge.com/tech/1008148/spacexai-omarchy-grok-david-heinemeier-hansson",
+      "canonical_url": "https://www.theverge.com/tech/1008148/spacexai-omarchy-grok-david-heinemeier-hansson",
+      "source_name": "The Verge",
+      "title": "SpaceXAI backs Omarchy, the controversial Linux distro, with $1.5 million in compute",
+      "article_path": "content/articles/published/2026-10-09-9b144d58-spacexai-omarchy-grok-token-patron.md",
+      "seen_at": "2026-10-08T19:00:52.521Z"
     }
   }
 }
