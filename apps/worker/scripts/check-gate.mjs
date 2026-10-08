@@ -13,7 +13,7 @@ async function bundle(entry, name) {
   return out;
 }
 const outfile = await bundle("src/gate.ts", "gate.mjs");
-const { findBannedHype } = await import(pathToFileURL(await bundle("src/validation.ts", "validation.mjs")).href);
+const { findBannedHype, containsAccusationTerm } = await import(pathToFileURL(await bundle("src/validation.ts", "validation.mjs")).href);
 const { satireBlock, titleSimilarity, sameStory, dedupeByTitle, overlongParagraphs, splitOverlongParagraphs, satireTier, countPublishedInBlock } = await import(pathToFileURL(outfile).href);
 
 // blocks: 7/16 belong to the market desks and 12/17 to security, so they must not map to a satire block
@@ -54,6 +54,11 @@ assert.equal(split.replace(/\s+/g, ""), (seven + "짧다. 7.5억이다.").replac
 assert.equal(findBannedHype("금리가 시장에 영향을 미쳤다. 실적이 기대에 못 미쳤다.", "미쳤다"), null);
 assert.ok(findBannedHype("가격표가 미쳤다", "미쳤다"));
 assert.equal(findBannedHype("충격 없는 문장", "충격") !== null, true);
+
+// accusation terms: benign compounds are not flagged, real uses are
+assert.equal(containsAccusationTerm("복사기를 돌린 쪽은 따로 찾을 필요도 없다", "사기"), false);
+assert.equal(containsAccusationTerm("수사학적 표현이다", "수사"), false);
+assert.equal(containsAccusationTerm("회사가 사기를 쳤다", "사기"), true);
 
 // tiers: below the premium threshold -> standard (cheap) model; unscored items stay premium
 assert.equal(satireTier(1.7, 2.3), "standard");

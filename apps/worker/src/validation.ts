@@ -212,7 +212,7 @@ export function validateGeneratedArticle(
   );
   const generated = normalizeForSearch(`${title} ${body}`);
   for (const term of CRIMINAL_TERMS) {
-    if (generated.includes(term) && !factualBasis.includes(term)) {
+    if (containsAccusationTerm(generated, term) && !factualBasis.includes(term)) {
       reasons.push(`adds unsupported criminal/legal accusation term: ${term}`);
     }
   }
@@ -227,6 +227,11 @@ export function validateGeneratedArticle(
     ok: reasons.length === 0,
     reasons
   };
+}
+
+// Plain substring matching flags ordinary words ("복사기" contains "사기"), so scrub those first.
+export function containsAccusationTerm(text: string, term: string): boolean {
+  return text.replace(/복사기|수사학|조작법/g, "").includes(term);
 }
 
 // "미쳤다" is a banned hype word, but "영향을 미쳤다" / "기대에 못 미쳤다" are ordinary verbs, so those

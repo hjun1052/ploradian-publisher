@@ -258,13 +258,39 @@ const SPICE_INSULTS = [
   "가관이다",
   "꼴불견이다",
   "엉터리다",
-  "기가 막힌다"
+  "기가 막힌다",
+  "뻔뻔하기 그지없다",
+  "코미디다",
+  "촌극이다",
+  "웃음밖에 안 나온다",
+  "바보 취급이다",
+  "가소롭다",
+  "한심의 극치다",
+  "졸속이다",
+  "무능의 전시다"
 ] as const;
 
-function pickInsults(): string[] {
+function pickInsults(count = 3): string[] {
   const pool = [...SPICE_INSULTS];
-  return [0, 1].map(() => pool.splice(Math.floor(Math.random() * pool.length), 1)[0] as string);
+  return Array.from({ length: count }, () => pool.splice(Math.floor(Math.random() * pool.length), 1)[0] as string);
 }
+
+// Shared heat dial for every satire prompt: as harsh as possible, but the target is always the
+// organization's decisions, words and numbers, never a person's traits, and never an unsupported accusation.
+const HEAT_BLOCK = `
+
+HEAT (turn the contempt up as far as it goes, inside the LINES below):
+- Ridicule is rampant: every paragraph contains at least one open sneer or insult aimed at the organization's decision, logic or competence. Short, flat, merciless sentences that sting.
+- Sarcastic congratulations that curdle; repeat the target's own quoted words back with open disbelief; treat its explanations as an insult to the reader's intelligence; escalate paragraph by paragraph to a final contemptuous verdict.
+- Name how the target treats the people it serves (customers, citizens, employees, users) as fools, and say so plainly. Mock the stupidity of the decision, not the people it hurts.
+LINES NOT TO CROSS:
+- Ridicule decisions, statements, numbers and institutions. Never a person's looks, age, gender, health, family, nationality or intelligence. Named executives and officials are mocked only through what they did or said.
+- No slurs and no profanity beyond the supplied phrases.
+- No accusation of crime, fraud, intent, bad faith or illegality; do not use the words 사기, 조작, 불법, 횡령, 고의로, 일부러, 은폐 at all.
+- Never mock victims, customers or ordinary users; they are who the organization is insulting.
+- Every sting is anchored in a fact, quote or number from the source. No invented details.
+- Quotation marks only around words the source actually quotes; never invent a quote, not even a mocking one, and never in the title or subtitle.
+- Do not assert how the target stores, secures, decides or feels about anything the source does not state (no "자랑스럽게", no guessed internals); mock what is reported.`;
 
 function spiceOverride(): string {
   const picks = pickInsults();
@@ -277,7 +303,7 @@ Hard format rules (count before you answer; rewrite if violated):
 - 6-7 paragraphs. EVERY paragraph has at most 3 sentences. A paragraph with 4 or more sentences is a failure: split it or cut it. Short, rhythmic, punchy. Prefer 2 sentences.
 - Paragraph 1: plain factual summary naming the target, with NO meta commentary. Never write "조롱의 대상은", "대상은 분명하다", or any sentence that announces what is being mocked.
 - No hedging caveats like "보도된 발언에 나오지 않았다". State an omission flatly as the joke itself.
-- Use one or two of these blunt phrases, each inside your own sentence aimed at the product/company/policy/behavior (never at private people or protected groups): ${picks.join(", ")}. Do not use other stock insults.
+- Use all three of these blunt phrases, each inside your own sentence aimed at the product/company/policy/behavior (never at private people or protected groups): ${picks.join(", ")}. Do not use other stock insults.
 - Direct contempt: at least 3 sentences the target would hate to read, and 1-2 sentences of fake praise that curdles. Invent the wording from this article's facts; never use stock praise formulas.
 - Ending: the last sentence of the last paragraph removes the target's last excuse, in your own words each time.
 
@@ -288,7 +314,7 @@ Originality rules (important):
 - Attribute only what the target itself said or did. A headline or framing like "예상치 두 배" belongs to the news outlet, so never present it as the target's claim. If the target already disclosed something unflattering itself, acknowledge that in one clause before attacking what is still absurd.
 - Never reuse more than about 7 consecutive words of the source text verbatim, quotes included; paraphrase, or quote only a short fragment.
 
-Safety unchanged: ground every claim in the source text; never invent numbers, quotes, motives, crimes. Ridicule the reported facts, not the outlet or reporter.`;
+Safety unchanged: ground every claim in the source text; never invent numbers, quotes, motives, crimes. Ridicule the reported facts, not the outlet or reporter.${HEAT_BLOCK}`;
 }
 
 // Variant for the cheaper standard-tier model: explicit process and checklist, because it follows
@@ -319,7 +345,7 @@ TECHNIQUES (use at least four, each in a different paragraph):
 CHECKLIST (all must be true):
 [ ] 6-7 paragraphs, EVERY paragraph at most 3 sentences.
 [ ] Paragraph 1 is a plain factual summary naming the target, with NO insults and no commentary.
-[ ] The article contains these two blunt phrases, each inside a sentence naming a specific stupid act of the target (never a private person): ${picks.join(" / ")}. Use each exactly once, and not in paragraph 1.
+[ ] The article contains these three blunt phrases, each inside a sentence naming a specific stupid act of the target (never a private person): ${picks.join(" / ")}. Use each exactly once, and not in paragraph 1.
 [ ] At least 3 sentences the target would hate to read.
 [ ] At least 4 concrete numbers or quotes from the source are used, and every number in the text is either in the source or a simple, correct calculation from source numbers. No hypothetical or made-up amounts ("만약 ~가 N억이었다면").
 [ ] Comparison sentences ("~와 같다", "~다를 바 없다", "~격이다", "~셈이다") appear at most TWICE in the whole article. Every other joke uses a different form: flat restatement, quote attack, hypothetical, direct accusation, rhetorical question.
@@ -330,7 +356,7 @@ CHECKLIST (all must be true):
 [ ] None of these appear: 마지막 변명, 제품에서 제품을 구성하는, 누구에게도 반박당하지 않는 깨끗한 상태, 대단하다. 정말 대단하다, 조롱의 대상은.
 [ ] No detail that is not in the source (times, motives, counts, photos, jokes).
 [ ] Never reuse more than 7 consecutive source words verbatim.
-Safety unchanged: ground every claim in the source; never invent crimes, motives, quotes, numbers. Ridicule the reported facts, not the outlet or reporter.`;
+Safety unchanged: ground every claim in the source; never invent crimes, motives, quotes, numbers. Ridicule the reported facts, not the outlet or reporter.${HEAT_BLOCK}`;
 }
 
 // Security prey articles: the base prompt tells the model to "keep asking the missing duty", which Sonnet
@@ -343,12 +369,12 @@ function spiceOverrideSecurity(): string {
 You are the security desk's most contemptuous columnist. The organization's failure is so basic you can barely keep a straight face: deadpan grammar, open scorn. You are mocking, not auditing.
 - Where the brief says to "ask" about missing duties, STATE them as flat accusations ("로그는 보지 않았다", "개인정보는 한곳에 쌓아 뒀다"). At most ONE rhetorical question in the whole article. Never end a sentence with demands like "~해야 한다", "~답해야 한다", "~설명해야 한다", "~밝혀야 한다".
 - 6-7 paragraphs, EVERY paragraph at most 3 sentences, and each paragraph ends on its sharpest sentence. Paragraph 1 is a plain factual summary with no insults.
-- Use these two blunt phrases, each exactly once, each inside a sentence naming a specific failure of the organization (not in paragraph 1): ${picks.join(" / ")}.
+- Use these three blunt phrases, each exactly once, each inside a sentence naming a specific failure of the organization (not in paragraph 1): ${picks.join(" / ")}.
 - At least 3 sentences the organization would hate to read, and at least 4 concrete facts used (numbers, data types, dates, product names, counts).
 - Use at least three of: a flat restatement of an absurd fact as if reading a receipt; the organization's own word turned against it; timeline arithmetic (months or days between the breach and the admission) stated flatly from source dates only; a fake defense that collapses in its last clause; a deadpan hypothetical ("만약 ~였다면") that exposes the gap. Comparison sentences ("~와 같다", "~다를 바 없다", "~격이다", "~셈이다") at most twice in the article.
 - Never mock the people whose data leaked or who were harmed; their stake is what makes the organization's delay contemptible.
 - The last sentence plainly states what the organization did or failed to do and removes its last excuse. It is never about what a document, disclosure or notice lacks.
-- Never write 원문, 기사, 보도, 공시, 문서, 보도자료 as the thing that omits. Attribute only what the organization itself said or did. No invented facts, numbers, motives or hypothetical figures; never reuse more than about 7 consecutive source words.`;
+- Never write 원문, 기사, 보도, 공시, 문서, 보도자료 as the thing that omits. Attribute only what the organization itself said or did. No invented facts, numbers, motives or hypothetical figures; never reuse more than about 7 consecutive source words.${HEAT_BLOCK}`;
 }
 
 const OPENROUTER_ARTICLE_SHAPE = `
