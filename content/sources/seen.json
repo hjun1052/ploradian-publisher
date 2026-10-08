@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-08T00:03:14.950Z",
+  "updated_at": "2026-10-08T03:02:10.864Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -73,6 +73,14 @@
       "title": "LG엔솔, 3Q 영업익 7천560억…美보조금 덕에 예상치 두배 훌쩍(종합)",
       "article_path": "content/articles/published/2026-10-08-25b5f711-lg-energy-solution-q3-subsidy-profit-gap.md",
       "seen_at": "2026-10-08T00:03:14.950Z"
+    },
+    "ae3fdcff6eb636db695787ae16b29174cbbe85f3df6e107ea1bdb8f9979217d4": {
+      "url": "https://www.boannews.com/news/articleView.html?idxno=146251",
+      "canonical_url": "https://www.boannews.com/news/articleView.html?idxno=146251",
+      "source_name": "보안뉴스 사건사고",
+      "title": "삼성·인텔 납품 업체 어드밴테스트, 랜섬웨어 공격 몇 달 뒤 개인정보 유출 인정",
+      "article_path": "content/articles/published/2026-10-08-ae3fdcff-advantest-ransomware-personal-data-breach-late-admission.md",
+      "seen_at": "2026-10-08T03:02:10.864Z"
     }
   }
 }
