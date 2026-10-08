@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-08T13:04:16.201Z",
+  "updated_at": "2026-10-08T17:01:49.164Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -137,6 +137,14 @@
       "title": "국감 출석한 테슬라코리아 &quot;국내 FSD 검증, 적극 협조할 것&quot;",
       "article_path": "content/articles/published/2026-10-08-9cb8c9fe-tesla-korea-fsd-verification-cooperation-without-request.md",
       "seen_at": "2026-10-08T13:04:16.201Z"
+    },
+    "5eb8e1079527cef84c712b261a9b1041641952ae8e4235d884da29d919fdd0df": {
+      "url": "https://www.theverge.com/tech/1008059/amazon-phasing-out-fire-tablet-panos-panay",
+      "canonical_url": "https://www.theverge.com/tech/1008059/amazon-phasing-out-fire-tablet-panos-panay",
+      "source_name": "The Verge",
+      "title": "Amazon is phasing out Fire Tablets because they weren&#8217;t &#8216;giving customers what they were asking for&#8217;",
+      "article_path": "content/articles/published/2026-10-09-5eb8e107-amazon-fire-tablet-brand-replaced-alexa-tablets.md",
+      "seen_at": "2026-10-08T17:01:49.164Z"
     }
   }
 }
