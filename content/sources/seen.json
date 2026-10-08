@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-08T17:01:49.164Z",
+  "updated_at": "2026-10-08T18:02:03.044Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -145,6 +145,14 @@
       "title": "Amazon is phasing out Fire Tablets because they weren&#8217;t &#8216;giving customers what they were asking for&#8217;",
       "article_path": "content/articles/published/2026-10-09-5eb8e107-amazon-fire-tablet-brand-replaced-alexa-tablets.md",
       "seen_at": "2026-10-08T17:01:49.164Z"
+    },
+    "503e3af601667a39f68253fcce0f6b2e85b354b8970d6483060451d521557802": {
+      "url": "https://www.theverge.com/policy/1008115/trump-microsoft-worker-visa-program-vance",
+      "canonical_url": "https://www.theverge.com/policy/1008115/trump-microsoft-worker-visa-program-vance",
+      "source_name": "The Verge",
+      "title": "Trump administration says Microsoft &#8216;abused&#8217; worker visa program and is cutting off access",
+      "article_path": "content/articles/published/2026-10-09-503e3af6-trump-administration-suspends-microsoft-h1b-program.md",
+      "seen_at": "2026-10-08T18:02:03.044Z"
     }
   }
 }
