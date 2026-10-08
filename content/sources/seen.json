@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-08T08:01:20.586Z",
+  "updated_at": "2026-10-08T09:01:51.266Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -113,6 +113,14 @@
       "title": "금융권 이어 부킹앱도 뚫렸다... 골프몬, 2년 만에 또 개인정보 유출",
       "article_path": "content/articles/published/2026-10-08-c5c14e8e-golfmon-repeat-leak-two-years-name-phone.md",
       "seen_at": "2026-10-08T08:01:20.586Z"
+    },
+    "f9b31821fc767bae053c3491425a234c275f1a6f01624e8d64716ee58cd268df": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4438367",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4438367",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "'콘텐츠 1.4조 베팅' 신세계프라퍼티, 메리츠서 1조 조달",
+      "article_path": "content/articles/published/2026-10-08-f9b31821-shinsegae-property-warner-bid-bond-debt.md",
+      "seen_at": "2026-10-08T09:01:51.266Z"
     }
   }
 }
