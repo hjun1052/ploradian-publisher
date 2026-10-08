@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-08T12:06:06.125Z",
+  "updated_at": "2026-10-08T13:04:16.201Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -129,6 +129,14 @@
       "title": "'유가 담합 혐의' SK에너지, 가격 투명성 등 4대 방안 발표",
       "article_path": "content/articles/published/2026-10-08-a2d196e7-sk-energy-apology-four-plans-cartel-probe.md",
       "seen_at": "2026-10-08T12:06:06.125Z"
+    },
+    "9cb8c9fe5148fb95b88e8e5d89f45ef825f8bf7b1305e488562546d6c660c4de": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4438430",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4438430",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "국감 출석한 테슬라코리아 &quot;국내 FSD 검증, 적극 협조할 것&quot;",
+      "article_path": "content/articles/published/2026-10-08-9cb8c9fe-tesla-korea-fsd-verification-cooperation-without-request.md",
+      "seen_at": "2026-10-08T13:04:16.201Z"
     }
   }
 }
