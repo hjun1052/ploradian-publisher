@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-08T03:02:10.864Z",
+  "updated_at": "2026-10-08T04:02:05.392Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -81,6 +81,14 @@
       "title": "삼성·인텔 납품 업체 어드밴테스트, 랜섬웨어 공격 몇 달 뒤 개인정보 유출 인정",
       "article_path": "content/articles/published/2026-10-08-ae3fdcff-advantest-ransomware-personal-data-breach-late-admission.md",
       "seen_at": "2026-10-08T03:02:10.864Z"
+    },
+    "f2fa7b0b592c34809ec756b4a3f464712844eb705d470bf5ad37a8a458a456f2": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4438298",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4438298",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "FSD 기대에 테슬라 차량 구매했는데…24만 대 중 78%는 이용 못 해",
+      "article_path": "content/articles/published/2026-10-08-f2fa7b0b-tesla-fsd-78-percent-blocked-korea.md",
+      "seen_at": "2026-10-08T04:02:05.392Z"
     }
   }
 }
