@@ -333,6 +333,24 @@ CHECKLIST (all must be true):
 Safety unchanged: ground every claim in the source; never invent crimes, motives, quotes, numbers. Ridicule the reported facts, not the outlet or reporter.`;
 }
 
+// Security prey articles: the base prompt tells the model to "keep asking the missing duty", which Sonnet
+// turns into a list of demands ("~해야 한다"). This override swaps that for flat accusations and scorn.
+function spiceOverrideSecurity(): string {
+  const picks = pickInsults();
+  return `
+
+=== SECURITY SPICE OVERRIDE (overrides everything above where they conflict) ===
+You are the security desk's most contemptuous columnist. The organization's failure is so basic you can barely keep a straight face: deadpan grammar, open scorn. You are mocking, not auditing.
+- Where the brief says to "ask" about missing duties, STATE them as flat accusations ("로그는 보지 않았다", "개인정보는 한곳에 쌓아 뒀다"). At most ONE rhetorical question in the whole article. Never end a sentence with demands like "~해야 한다", "~답해야 한다", "~설명해야 한다", "~밝혀야 한다".
+- 6-7 paragraphs, EVERY paragraph at most 3 sentences, and each paragraph ends on its sharpest sentence. Paragraph 1 is a plain factual summary with no insults.
+- Use these two blunt phrases, each exactly once, each inside a sentence naming a specific failure of the organization (not in paragraph 1): ${picks.join(" / ")}.
+- At least 3 sentences the organization would hate to read, and at least 4 concrete facts used (numbers, data types, dates, product names, counts).
+- Use at least three of: a flat restatement of an absurd fact as if reading a receipt; the organization's own word turned against it; timeline arithmetic (months or days between the breach and the admission) stated flatly from source dates only; a fake defense that collapses in its last clause; a deadpan hypothetical ("만약 ~였다면") that exposes the gap. Comparison sentences ("~와 같다", "~다를 바 없다", "~격이다", "~셈이다") at most twice in the article.
+- Never mock the people whose data leaked or who were harmed; their stake is what makes the organization's delay contemptible.
+- The last sentence plainly states what the organization did or failed to do and removes its last excuse. It is never about what a document, disclosure or notice lacks.
+- Never write 원문, 기사, 보도, 공시, 문서, 보도자료 as the thing that omits. Attribute only what the organization itself said or did. No invented facts, numbers, motives or hypothetical figures; never reuse more than about 7 consecutive source words.`;
+}
+
 const OPENROUTER_ARTICLE_SHAPE = `
 
 Return ONE strict JSON object with exactly these keys: title (string), subtitle (string), category (one of 기술, 비즈니스, 시장), slug (lowercase ascii-kebab, 3-8 words), satire_brief ({"target": string, "ridiculous_core": string, "straight_faced_defense": [2-3 strings], "must_include_jabs": [at least 4 strings], "analogies": [at least 2 strings]}), body (the article, paragraphs separated by one blank line), source_name (string), source_url (string), original_title (string). No text outside the JSON.`;
@@ -351,7 +369,13 @@ export async function generateSatireArticle(
   const standardTier = openRouterArticle && !isSecurityPrey && articleModel !== config.openaiArticleModel;
   const prompt =
     articlePromptFor(source) +
-    (openRouterArticle && !isSecurityPrey ? (standardTier ? spiceOverrideStandard() : spiceOverride()) : "");
+    (openRouterArticle
+      ? isSecurityPrey
+        ? spiceOverrideSecurity()
+        : standardTier
+        ? spiceOverrideStandard()
+        : spiceOverride()
+      : "");
   const article = await callModelJson<GeneratedArticleJson>(
     config,
     "ploradian_satire_article",
