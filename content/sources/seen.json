@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-08T04:02:05.392Z",
+  "updated_at": "2026-10-08T05:05:30.549Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -89,6 +89,14 @@
       "title": "FSD 기대에 테슬라 차량 구매했는데…24만 대 중 78%는 이용 못 해",
       "article_path": "content/articles/published/2026-10-08-f2fa7b0b-tesla-fsd-78-percent-blocked-korea.md",
       "seen_at": "2026-10-08T04:02:05.392Z"
+    },
+    "d2f377efcb9282e2fa7de8f474be0569aea6f080325049fba443fec0f3b714ce": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4438270",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4438270",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "추억의 '그 양주' 돌아왔다…롯데칠성 ㅤㅋㅐㅍ틴큐 재출시",
+      "article_path": "content/articles/published/2026-10-08-d2f377ef-lotte-chilsung-kchaptinq-nostalgia-relaunch.md",
+      "seen_at": "2026-10-08T05:05:30.549Z"
     }
   }
 }
