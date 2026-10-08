@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-08T19:00:52.521Z",
+  "updated_at": "2026-10-08T20:02:06.342Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -161,6 +161,14 @@
       "title": "SpaceXAI backs Omarchy, the controversial Linux distro, with $1.5 million in compute",
       "article_path": "content/articles/published/2026-10-09-9b144d58-spacexai-omarchy-grok-token-patron.md",
       "seen_at": "2026-10-08T19:00:52.521Z"
+    },
+    "d94ef5a7a7eb5f5ff0c529232597cd63733cf185a8e7500a1bb0b00d7a11d54f": {
+      "url": "https://www.theverge.com/tech/1008145/google-pixel-watch-1-2-free-safety-signal-emergency-access-ending",
+      "canonical_url": "https://www.theverge.com/tech/1008145/google-pixel-watch-1-2-free-safety-signal-emergency-access-ending",
+      "source_name": "The Verge",
+      "title": "Older Pixel watches are losing free cellular access to several safety features",
+      "article_path": "content/articles/published/2026-10-09-d94ef5a7-google-pixel-watch-lte-safety-signal-ends.md",
+      "seen_at": "2026-10-08T20:02:06.342Z"
     }
   }
 }
