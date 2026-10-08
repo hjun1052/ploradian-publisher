@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T23:02:50.058Z",
+  "updated_at": "2026-10-08T00:03:14.950Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -65,6 +65,14 @@
       "title": "동탄 갭투자 막히자…사내대출·사채 자금 3배로 늘어",
       "article_path": "content/articles/published/2026-10-08-85e0e62c-dongtan-gap-investment-company-loan-surge.md",
       "seen_at": "2026-10-07T23:02:50.058Z"
+    },
+    "25b5f7116e57dd4b1512cf7b5fc8ff428d43908325b41cb16c00c79542d1ff53": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4438256",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4438256",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "LG엔솔, 3Q 영업익 7천560억…美보조금 덕에 예상치 두배 훌쩍(종합)",
+      "article_path": "content/articles/published/2026-10-08-25b5f711-lg-energy-solution-q3-subsidy-profit-gap.md",
+      "seen_at": "2026-10-08T00:03:14.950Z"
     }
   }
 }
