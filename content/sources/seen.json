@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-08T09:01:51.266Z",
+  "updated_at": "2026-10-08T12:06:06.125Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -121,6 +121,14 @@
       "title": "'콘텐츠 1.4조 베팅' 신세계프라퍼티, 메리츠서 1조 조달",
       "article_path": "content/articles/published/2026-10-08-f9b31821-shinsegae-property-warner-bid-bond-debt.md",
       "seen_at": "2026-10-08T09:01:51.266Z"
+    },
+    "a2d196e776861a2394b2158c82f4a28edde121b06094ff6c07e8e23ed54e7f18": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4438333",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4438333",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "'유가 담합 혐의' SK에너지, 가격 투명성 등 4대 방안 발표",
+      "article_path": "content/articles/published/2026-10-08-a2d196e7-sk-energy-apology-four-plans-cartel-probe.md",
+      "seen_at": "2026-10-08T12:06:06.125Z"
     }
   }
 }
