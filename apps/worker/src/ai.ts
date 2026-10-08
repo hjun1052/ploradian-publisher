@@ -285,6 +285,7 @@ Originality rules (important):
 - Do NOT reuse any sentence or phrase from the style examples above, and do not write stock formulas such as "제품에서 제품을 구성하는…", "누구에게도 반박당하지 않는 깨끗한 상태", "실망도 공식적으로 시작되지 않았다", "마지막 변명", "대단하다. 정말 대단하다". Every joke must be built only from this article's own numbers, names, quotes, and omissions.
 - No two paragraphs may use the same joke structure. Vary: understatement, direct insult, absurd comparison with a concrete object, fake defense, flat restatement of an absurd fact.
 - Do not add details that are not in the source text (times, durations, motives, counts). If unsure, leave it out.
+- Attribute only what the target itself said or did. A headline or framing like "예상치 두 배" belongs to the news outlet, so never present it as the target's claim. If the target already disclosed something unflattering itself, acknowledge that in one clause before attacking what is still absurd.
 - Never reuse more than about 7 consecutive words of the source text verbatim, quotes included; paraphrase, or quote only a short fragment.
 
 Safety unchanged: ground every claim in the source text; never invent numbers, quotes, motives, crimes. Ridicule the reported facts, not the outlet or reporter.`;
@@ -313,17 +314,18 @@ TECHNIQUES (use at least four, each in a different paragraph):
 - A flat restatement of an absurd fact with no adjectives, as if reading a receipt.
 - A rhetorical question the target cannot answer.
 - Turn the target's own word against it (the word they chose is the joke).
-- Do the arithmetic the target avoided (a ratio, a per-unit amount, a comparison of its own numbers) and state the result flatly.
+- Do the arithmetic the target avoided (a ratio, a per-unit amount, a difference between two of its own numbers) and state the result flatly. Use only numbers that appear in the source and show the operation once; never invent a hypothetical amount or scenario figure.
 
 CHECKLIST (all must be true):
 [ ] 6-7 paragraphs, EVERY paragraph at most 3 sentences.
 [ ] Paragraph 1 is a plain factual summary naming the target, with NO insults and no commentary.
 [ ] The article contains these two blunt phrases, each inside a sentence naming a specific stupid act of the target (never a private person): ${picks.join(" / ")}. Use each exactly once, and not in paragraph 1.
 [ ] At least 3 sentences the target would hate to read.
-[ ] At least 4 concrete numbers or quotes from the source are used.
+[ ] At least 4 concrete numbers or quotes from the source are used, and every number in the text is either in the source or a simple, correct calculation from source numbers. No hypothetical or made-up amounts ("만약 ~가 N억이었다면").
 [ ] Comparison sentences ("~와 같다", "~다를 바 없다", "~격이다", "~셈이다") appear at most TWICE in the whole article. Every other joke uses a different form: flat restatement, quote attack, hypothetical, direct accusation, rhetorical question.
-[ ] The last sentence of the last paragraph removes the target's final excuse, in fresh and unambiguous wording.
-[ ] Never write 원문, 기사, 보도, 리뷰, 발표문, 자료 as something that says or leaves things out. State an omission as a plain fact about the target ("투자 금액은 없다"), never as a gap in a text.
+[ ] The last paragraph has at least two sentences, and its last sentence is a plain statement about what the target did or failed to do (an action, a number, a decision) that removes its final excuse. It must NOT be about what a document, disclosure or text lacks.
+[ ] Never write 원문, 기사, 보도, 리뷰, 발표문, 자료, 공시, 공고, 문서, 보도자료, 설명자료 as something that says or leaves things out. State an omission as a plain fact about the target ("투자 금액은 없다"), never as a gap in a text.
+[ ] Attribute only what the target itself said or did. A headline, a "종합" tagline or a framing like "예상치 두 배" belongs to the news outlet, so never present it as the target's claim. If the target already disclosed something unflattering itself, say so in one clause before attacking what is still absurd.
 [ ] Do not label the target's speech with motive words (변명, 자백, 고백, 농담, 핑계) unless the source itself uses that word; describe what they did.
 [ ] None of these appear: 마지막 변명, 제품에서 제품을 구성하는, 누구에게도 반박당하지 않는 깨끗한 상태, 대단하다. 정말 대단하다, 조롱의 대상은.
 [ ] No detail that is not in the source (times, motives, counts, photos, jokes).
