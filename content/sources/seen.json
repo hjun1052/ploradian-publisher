@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-09T09:01:14.730Z",
+  "updated_at": "2026-10-09T10:02:47.273Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -217,6 +217,14 @@
       "title": "美 재정 적자 2조 달러 눈앞…\"2021년 이후 최대\"",
       "article_path": "content/articles/published/2026-10-09-2c923887-us-deficit-near-two-trillion-in-boom.md",
       "seen_at": "2026-10-09T09:01:14.730Z"
+    },
+    "c156dfaa7de8ee11538eac13221220e50e988a06ffea6234b79104f263eda8f1": {
+      "url": "https://www.newsis.com/view/NISX20261008_0003818792",
+      "canonical_url": "https://www.newsis.com/view/NISX20261008_0003818792",
+      "source_name": "뉴시스 경제",
+      "title": "세종 국평 3억원대 아파트 1가구 줍줍…시세보다 4억 저렴",
+      "article_path": "content/articles/published/2026-10-09-c156dfaa-sejong-nareup-resupply-price-gap.md",
+      "seen_at": "2026-10-09T10:02:47.273Z"
     }
   }
 }
