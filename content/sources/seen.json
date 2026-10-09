@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-09T04:04:48.557Z",
+  "updated_at": "2026-10-09T05:02:22.553Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -193,6 +193,14 @@
       "title": "양양 송이 ㎏당 171만원 돌파 …역대가 경신으로 공판 마감",
       "article_path": "content/articles/published/2026-10-09-468b7914-yangyang-songi-auction-early-close-record-price.md",
       "seen_at": "2026-10-09T04:04:48.557Z"
+    },
+    "777daca79e76ff3e816417cac43fec737402dd4f5ba406125cc9715f915078ee": {
+      "url": "https://www.newsis.com/view/NISX20261008_0003819243",
+      "canonical_url": "https://www.newsis.com/view/NISX20261008_0003819243",
+      "source_name": "뉴시스 경제",
+      "title": "영통 집값 올해만 4억 뛰었다…삼전 대출이 불쏘시개",
+      "article_path": "content/articles/published/2026-10-09-777daca7-samsung-internal-loan-yeongtong-apartment-prices.md",
+      "seen_at": "2026-10-09T05:02:22.553Z"
     }
   }
 }
