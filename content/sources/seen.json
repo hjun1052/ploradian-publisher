@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-09T00:02:15.299Z",
+  "updated_at": "2026-10-09T04:04:48.557Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -185,6 +185,14 @@
       "title": "15년 버틴 '선박왕' 결국 백기…떨고있는 제2의 체납왕들",
       "article_path": "content/articles/published/2026-10-09-0aa13fa1-kwon-hyuk-tax-arrears-surrender.md",
       "seen_at": "2026-10-09T00:02:15.299Z"
+    },
+    "468b7914fde9d70252588f23dc725a7ccb4360d1bd79b82b30cfecc33b293ddb": {
+      "url": "https://www.yna.co.kr/view/AKR20261009029700062",
+      "canonical_url": "https://www.yna.co.kr/view/AKR20261009029700062",
+      "source_name": "연합뉴스 산업",
+      "title": "양양 송이 ㎏당 171만원 돌파 …역대가 경신으로 공판 마감",
+      "article_path": "content/articles/published/2026-10-09-468b7914-yangyang-songi-auction-early-close-record-price.md",
+      "seen_at": "2026-10-09T04:04:48.557Z"
     }
   }
 }
