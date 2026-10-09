@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-09T11:02:31.194Z",
+  "updated_at": "2026-10-09T14:31:28.538Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -233,6 +233,14 @@
       "title": "쿠팡, 전산장애로 2시간반 먹통…고객보상 진행",
       "article_path": "content/articles/published/2026-10-09-b57b7a77-coupang-outage-5000-won-cash-compensation.md",
       "seen_at": "2026-10-09T11:02:31.194Z"
+    },
+    "4d018e88d74bd3f6c2f5ad550bdbcc4fd0fe158194dc0b06275c371d1de630fb": {
+      "url": "https://www.esa.int/ESA_Multimedia/Images/2026/09/Galaxies_in_a_cosmic_house_of_mirrors",
+      "canonical_url": "https://www.esa.int/ESA_Multimedia/Images/2026/09/Galaxies_in_a_cosmic_house_of_mirrors",
+      "source_name": "ESA Space Science",
+      "title": "Galaxies in a cosmic house of mirrors",
+      "article_path": "content/articles/published/2026-10-09-4d018e88-macs-j0454-1-0300-gravitational-lensing-webb-essay.md",
+      "seen_at": "2026-10-09T14:31:28.538Z"
     }
   }
 }
