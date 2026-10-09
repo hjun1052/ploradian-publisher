@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-09T05:02:22.553Z",
+  "updated_at": "2026-10-09T07:02:00.608Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -201,6 +201,14 @@
       "title": "영통 집값 올해만 4억 뛰었다…삼전 대출이 불쏘시개",
       "article_path": "content/articles/published/2026-10-09-777daca7-samsung-internal-loan-yeongtong-apartment-prices.md",
       "seen_at": "2026-10-09T05:02:22.553Z"
+    },
+    "a79a340d4b265b236c176b527f1018e36b466230ef0488f1d8972f4fb0d91460": {
+      "url": "https://news.ploradian.com/market/2026-10-09-korea-holiday-holder-status/",
+      "canonical_url": "https://news.ploradian.com/market/2026-10-09-korea-holiday-holder-status/",
+      "source_name": "The Ploradian 국장 휴장 관찰 데스크",
+      "title": "2026-10-09 국장 휴장일 주주 근황",
+      "article_path": "content/articles/published/2026-10-09-a79a340d-2026-10-09-holiday-holder-status-korea.md",
+      "seen_at": "2026-10-09T07:02:00.608Z"
     }
   }
 }
