@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-09T10:02:47.273Z",
+  "updated_at": "2026-10-09T11:02:31.194Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -225,6 +225,14 @@
       "title": "세종 국평 3억원대 아파트 1가구 줍줍…시세보다 4억 저렴",
       "article_path": "content/articles/published/2026-10-09-c156dfaa-sejong-nareup-resupply-price-gap.md",
       "seen_at": "2026-10-09T10:02:47.273Z"
+    },
+    "b57b7a77dd1fcc3294d89009109a7283cedeeaa53f81f06c6ee3e4405ad317e3": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4438489",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4438489",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "쿠팡, 전산장애로 2시간반 먹통…고객보상 진행",
+      "article_path": "content/articles/published/2026-10-09-b57b7a77-coupang-outage-5000-won-cash-compensation.md",
+      "seen_at": "2026-10-09T11:02:31.194Z"
     }
   }
 }
