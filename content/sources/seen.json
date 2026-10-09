@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-09T14:31:28.538Z",
+  "updated_at": "2026-10-09T15:01:22.039Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -241,6 +241,14 @@
       "title": "Galaxies in a cosmic house of mirrors",
       "article_path": "content/articles/published/2026-10-09-4d018e88-macs-j0454-1-0300-gravitational-lensing-webb-essay.md",
       "seen_at": "2026-10-09T14:31:28.538Z"
+    },
+    "d55dd9b285d68fe312ff945b1d180df65645bfa05ebdc977b0298de70d47c910": {
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1008604/openai-defends-decision-fire-safety-researchers",
+      "canonical_url": "https://www.theverge.com/ai-artificial-intelligence/1008604/openai-defends-decision-fire-safety-researchers",
+      "source_name": "The Verge",
+      "title": "OpenAI doubles down on decision to fire three AI safety researchers",
+      "article_path": "content/articles/published/2026-10-10-d55dd9b2-openai-firings-three-safety-researchers-one-line-reason.md",
+      "seen_at": "2026-10-09T15:01:22.039Z"
     }
   }
 }
