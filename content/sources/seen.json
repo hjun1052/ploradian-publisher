@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-08T23:01:01.912Z",
+  "updated_at": "2026-10-09T00:02:15.299Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -177,6 +177,14 @@
       "title": "與김병주 \"방산5사 영업이익 2.7조인데…사회공헌 지출은 1% 미만\"",
       "article_path": "content/articles/published/2026-10-09-40acd84f-defense-five-firms-social-contribution-share.md",
       "seen_at": "2026-10-08T23:01:01.912Z"
+    },
+    "0aa13fa11207ef41bdcc84911ef14eadbbcc9bf67f94819b1ee67e5ddf358aeb": {
+      "url": "https://www.newsis.com/view/NISX20261008_0003819735",
+      "canonical_url": "https://www.newsis.com/view/NISX20261008_0003819735",
+      "source_name": "뉴시스 경제",
+      "title": "15년 버틴 '선박왕' 결국 백기…떨고있는 제2의 체납왕들",
+      "article_path": "content/articles/published/2026-10-09-0aa13fa1-kwon-hyuk-tax-arrears-surrender.md",
+      "seen_at": "2026-10-09T00:02:15.299Z"
     }
   }
 }
