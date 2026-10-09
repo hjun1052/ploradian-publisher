@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-09T16:01:26.914Z",
+  "updated_at": "2026-10-09T19:01:31.041Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -257,6 +257,14 @@
       "title": "\"도쿄는 매년 10만채 짓는데 서울은 3만채…이 시스템 못 깨면 집값 상승 불가피\"",
       "article_path": "content/articles/published/2026-10-10-cc22d951-seoul-housing-supply-drop-heart-solution.md",
       "seen_at": "2026-10-09T16:01:26.914Z"
+    },
+    "fea4556f5676dba258e47ddc20be3afab7e4a775a360b8bbbaef66ee22ba8026": {
+      "url": "https://www.theverge.com/tech/1008833/amazon-kindle-light-leak",
+      "canonical_url": "https://www.theverge.com/tech/1008833/amazon-kindle-light-leak",
+      "source_name": "The Verge",
+      "title": "Amazon’s new Kindles appear to have a light leak problem",
+      "article_path": "content/articles/published/2026-10-10-fea4556f-amazon-new-kindle-light-leak-dark-mode.md",
+      "seen_at": "2026-10-09T19:01:31.041Z"
     }
   }
 }
