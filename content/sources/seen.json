@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-09T07:02:00.608Z",
+  "updated_at": "2026-10-09T09:01:14.730Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -209,6 +209,14 @@
       "title": "2026-10-09 국장 휴장일 주주 근황",
       "article_path": "content/articles/published/2026-10-09-a79a340d-2026-10-09-holiday-holder-status-korea.md",
       "seen_at": "2026-10-09T07:02:00.608Z"
+    },
+    "2c92388794e73aad6cb0987c408973ff8b02251fb63c6401927d57698ab21b11": {
+      "url": "https://www.newsis.com/view/NISX20261009_0003820205",
+      "canonical_url": "https://www.newsis.com/view/NISX20261009_0003820205",
+      "source_name": "뉴시스 경제",
+      "title": "美 재정 적자 2조 달러 눈앞…\"2021년 이후 최대\"",
+      "article_path": "content/articles/published/2026-10-09-2c923887-us-deficit-near-two-trillion-in-boom.md",
+      "seen_at": "2026-10-09T09:01:14.730Z"
     }
   }
 }
