@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-09T19:01:31.041Z",
+  "updated_at": "2026-10-09T20:01:42.775Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -265,6 +265,14 @@
       "title": "Amazon’s new Kindles appear to have a light leak problem",
       "article_path": "content/articles/published/2026-10-10-fea4556f-amazon-new-kindle-light-leak-dark-mode.md",
       "seen_at": "2026-10-09T19:01:31.041Z"
+    },
+    "57fe1472ddc36d4e4fa2579025b86b825a049b646d0427b9018095510241148d": {
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1008930/nikon-small-world-in-motion-winner-ai",
+      "canonical_url": "https://www.theverge.com/ai-artificial-intelligence/1008930/nikon-small-world-in-motion-winner-ai",
+      "source_name": "The Verge",
+      "title": "Nikon microscopic video competition winner disqualified for using generative AI",
+      "article_path": "content/articles/published/2026-10-10-57fe1472-nikon-small-world-ai-winner-disqualified.md",
+      "seen_at": "2026-10-09T20:01:42.775Z"
     }
   }
 }
