@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-09T15:01:22.039Z",
+  "updated_at": "2026-10-09T16:01:26.914Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -249,6 +249,14 @@
       "title": "OpenAI doubles down on decision to fire three AI safety researchers",
       "article_path": "content/articles/published/2026-10-10-d55dd9b2-openai-firings-three-safety-researchers-one-line-reason.md",
       "seen_at": "2026-10-09T15:01:22.039Z"
+    },
+    "cc22d951697af03f3d678b2ee3780127760bc2288c889dd668c26631decf1917": {
+      "url": "https://www.newsis.com/view/NISX20261008_0003818396",
+      "canonical_url": "https://www.newsis.com/view/NISX20261008_0003818396",
+      "source_name": "뉴시스 경제",
+      "title": "\"도쿄는 매년 10만채 짓는데 서울은 3만채…이 시스템 못 깨면 집값 상승 불가피\"",
+      "article_path": "content/articles/published/2026-10-10-cc22d951-seoul-housing-supply-drop-heart-solution.md",
+      "seen_at": "2026-10-09T16:01:26.914Z"
     }
   }
 }
