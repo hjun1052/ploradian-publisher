@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-10T00:03:29.586Z",
+  "updated_at": "2026-10-10T04:02:10.726Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -289,6 +289,14 @@
       "title": "올해만 3억 올랐다…길음·청량리 국평 줄줄이 20억 넘어",
       "article_path": "content/articles/published/2026-10-10-cd31cec1-seoul-84sqm-apartment-prices-cross-2-billion-won.md",
       "seen_at": "2026-10-10T00:03:29.586Z"
+    },
+    "2d5a73f3bc3e56b159ae94d070c03b9cb4f6e474cdc6543e759d6c0dbc00a2a7": {
+      "url": "https://www.etnews.com/20261009000025",
+      "canonical_url": "https://www.etnews.com/20261009000025",
+      "source_name": "전자신문",
+      "title": "“삼성전자 들어온게 인생 최대 업적”…성과급 30억 부부 “진지하게 서민 탈출한 것 같다”",
+      "article_path": "content/articles/published/2026-10-10-2d5a73f3-samsung-bonus-30-billion-couple.md",
+      "seen_at": "2026-10-10T04:02:10.726Z"
     }
   }
 }
