@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-10T18:02:12.587Z",
+  "updated_at": "2026-10-10T19:02:05.619Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -345,6 +345,14 @@
       "title": "LG’s RGB LED TV is good for certain situations, but an OLED is better",
       "article_path": "content/articles/published/2026-10-11-9799c9f1-lg-mrgb95b-rgb-led-tv-value-verdict.md",
       "seen_at": "2026-10-10T18:02:12.587Z"
+    },
+    "6d57a260d9ad3ce2f42a8b41b0722b530fc4629438ef24a3112bd8b878e1f2ee": {
+      "url": "https://www.theverge.com/entertainment/1009309/distrokid-take-down-songs-umg-lawsuit",
+      "canonical_url": "https://www.theverge.com/entertainment/1009309/distrokid-take-down-songs-umg-lawsuit",
+      "source_name": "The Verge",
+      "title": "DistroKid has been quietly taking down songs in response to UMG lawsuit",
+      "article_path": "content/articles/published/2026-10-11-6d57a260-distrokid-quietly-removes-songs-umg-lawsuit.md",
+      "seen_at": "2026-10-10T19:02:05.619Z"
     }
   }
 }
