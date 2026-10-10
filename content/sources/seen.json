@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-10T07:01:07.905Z",
+  "updated_at": "2026-10-10T08:00:42.264Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -305,6 +305,14 @@
       "title": "2026-10-10 이번 주의 범행 기록",
       "article_path": "content/articles/published/2026-10-10-cd5f1626-ibeon-juyi-beomeong-girok-gagyeokpyowa-gongmunseoga-seoro-reul-deulgo-dd.md",
       "seen_at": "2026-10-10T07:01:07.905Z"
+    },
+    "ef9ba5e2a3cec29b9b7eee74cf4619e3ba338af452b742070ef90cde10098f2f": {
+      "url": "https://www.boannews.com/news/articleView.html?idxno=146294",
+      "canonical_url": "https://www.boannews.com/news/articleView.html?idxno=146294",
+      "source_name": "보안뉴스 사건사고",
+      "title": "[은행이 뚫린다] 예가람저축은행, 고객 주민등록번호·계좌번호 유출됐는데 고지 안했다 슬그머니 수정",
+      "article_path": "content/articles/published/2026-10-10-ef9ba5e2-yegaram-savings-bank-leak-notice-edited.md",
+      "seen_at": "2026-10-10T08:00:42.264Z"
     }
   }
 }
