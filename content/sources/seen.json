@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-10T16:03:01.965Z",
+  "updated_at": "2026-10-10T18:02:12.587Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -337,6 +337,14 @@
       "title": "AI agent makers are promising privacy — will they deliver?",
       "article_path": "content/articles/published/2026-10-11-c9390824-meta-muse-privacy-promises-data-access.md",
       "seen_at": "2026-10-10T16:03:01.965Z"
+    },
+    "9799c9f156a3395cb47142a904b8f0adf0c9a69c5a75e25877604d02cededb37": {
+      "url": "https://www.theverge.com/tech/1008957/lg-mrgb95b-rgb-led-tv-review",
+      "canonical_url": "https://www.theverge.com/tech/1008957/lg-mrgb95b-rgb-led-tv-review",
+      "source_name": "The Verge",
+      "title": "LG’s RGB LED TV is good for certain situations, but an OLED is better",
+      "article_path": "content/articles/published/2026-10-11-9799c9f1-lg-mrgb95b-rgb-led-tv-value-verdict.md",
+      "seen_at": "2026-10-10T18:02:12.587Z"
     }
   }
 }
