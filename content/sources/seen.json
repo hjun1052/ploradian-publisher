@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-10T08:00:42.264Z",
+  "updated_at": "2026-10-10T14:00:40.695Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -313,6 +313,14 @@
       "title": "[은행이 뚫린다] 예가람저축은행, 고객 주민등록번호·계좌번호 유출됐는데 고지 안했다 슬그머니 수정",
       "article_path": "content/articles/published/2026-10-10-ef9ba5e2-yegaram-savings-bank-leak-notice-edited.md",
       "seen_at": "2026-10-10T08:00:42.264Z"
+    },
+    "ee9d80d87caf43d4ff39a83324399db73c8305d0bb083e42cd6d530c46fe09b1": {
+      "url": "https://www.etnews.com/20261010000024",
+      "canonical_url": "https://www.etnews.com/20261010000024",
+      "source_name": "전자신문",
+      "title": "“군고구마, 담배 냄새 나서 버렸다”…담배 상자에 넣어 배달한 편의점",
+      "article_path": "content/articles/published/2026-10-10-ee9d80d8-sweet-potato-delivered-in-e-cigarette-box.md",
+      "seen_at": "2026-10-10T14:00:40.695Z"
     }
   }
 }
