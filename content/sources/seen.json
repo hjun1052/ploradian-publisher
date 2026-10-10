@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-10T04:02:10.726Z",
+  "updated_at": "2026-10-10T07:01:07.905Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -297,6 +297,14 @@
       "title": "“삼성전자 들어온게 인생 최대 업적”…성과급 30억 부부 “진지하게 서민 탈출한 것 같다”",
       "article_path": "content/articles/published/2026-10-10-2d5a73f3-samsung-bonus-30-billion-couple.md",
       "seen_at": "2026-10-10T04:02:10.726Z"
+    },
+    "cd5f162681a98915bf0af91dc7eda66dadfd04a77a6e71a129bc8700f9f1f66d": {
+      "url": "https://news.ploradian.com/weekend/2026-10-10-weekly-incident-log/",
+      "canonical_url": "https://news.ploradian.com/weekend/2026-10-10-weekly-incident-log/",
+      "source_name": "The Ploradian 주말 결산 데스크",
+      "title": "2026-10-10 이번 주의 범행 기록",
+      "article_path": "content/articles/published/2026-10-10-cd5f1626-ibeon-juyi-beomeong-girok-gagyeokpyowa-gongmunseoga-seoro-reul-deulgo-dd.md",
+      "seen_at": "2026-10-10T07:01:07.905Z"
     }
   }
 }
