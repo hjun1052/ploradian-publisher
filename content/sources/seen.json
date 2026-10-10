@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-10T22:01:18.897Z",
+  "updated_at": "2026-10-10T23:01:50.264Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -361,6 +361,14 @@
       "title": "2026-10-11 주말 우화",
       "article_path": "content/articles/published/2026-10-11-7c5852c6-elevator-copier-office-objects-weekend-fable-2026-10-11.md",
       "seen_at": "2026-10-10T22:01:18.897Z"
+    },
+    "aa0d94c011939b187325f115fab7ebc730f969bfc3faaa8c09930b380ff90ace": {
+      "url": "https://www.yna.co.kr/view/AKR20261009059600017",
+      "canonical_url": "https://www.yna.co.kr/view/AKR20261009059600017",
+      "source_name": "연합뉴스 산업",
+      "title": "허위조작정보 신고 2천732건…구글·메타는 현황조차 '깜깜'",
+      "article_path": "content/articles/published/2026-10-11-aa0d94c0-false-info-law-overseas-platforms-no-reply.md",
+      "seen_at": "2026-10-10T23:01:50.264Z"
     }
   }
 }
