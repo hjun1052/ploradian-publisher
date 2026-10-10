@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-10T15:02:15.367Z",
+  "updated_at": "2026-10-10T16:03:01.965Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -329,6 +329,14 @@
       "title": "Anthropic is cutting off its internal evaluations from the internet",
       "article_path": "content/articles/published/2026-10-11-818f4dcf-anthropic-cuts-internal-evaluations-internet-access.md",
       "seen_at": "2026-10-10T15:02:15.367Z"
+    },
+    "c9390824224ecd5bf3e13e60b809593a5cbf1325a3e21894a054f7a97ccf89cf": {
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1009051/privacy-ai-agent-promises-openai-meta-muse-dots",
+      "canonical_url": "https://www.theverge.com/ai-artificial-intelligence/1009051/privacy-ai-agent-promises-openai-meta-muse-dots",
+      "source_name": "The Verge",
+      "title": "AI agent makers are promising privacy — will they deliver?",
+      "article_path": "content/articles/published/2026-10-11-c9390824-meta-muse-privacy-promises-data-access.md",
+      "seen_at": "2026-10-10T16:03:01.965Z"
     }
   }
 }
