@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-10T19:02:05.619Z",
+  "updated_at": "2026-10-10T22:01:18.897Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -353,6 +353,14 @@
       "title": "DistroKid has been quietly taking down songs in response to UMG lawsuit",
       "article_path": "content/articles/published/2026-10-11-6d57a260-distrokid-quietly-removes-songs-umg-lawsuit.md",
       "seen_at": "2026-10-10T19:02:05.619Z"
+    },
+    "7c5852c6af2a000359db838a623ed987225d6630a4b941f07ec24af9f9bdf91a": {
+      "url": "https://news.ploradian.com/weekend/2026-10-11-weekend-fable-us-2026-10-10/",
+      "canonical_url": "https://news.ploradian.com/weekend/2026-10-11-weekend-fable-us-2026-10-10/",
+      "source_name": "The Ploradian 주말 우화 투고란",
+      "title": "2026-10-11 주말 우화",
+      "article_path": "content/articles/published/2026-10-11-7c5852c6-elevator-copier-office-objects-weekend-fable-2026-10-11.md",
+      "seen_at": "2026-10-10T22:01:18.897Z"
     }
   }
 }
