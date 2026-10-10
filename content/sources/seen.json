@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-10T14:00:40.695Z",
+  "updated_at": "2026-10-10T15:02:15.367Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -321,6 +321,14 @@
       "title": "“군고구마, 담배 냄새 나서 버렸다”…담배 상자에 넣어 배달한 편의점",
       "article_path": "content/articles/published/2026-10-10-ee9d80d8-sweet-potato-delivered-in-e-cigarette-box.md",
       "seen_at": "2026-10-10T14:00:40.695Z"
+    },
+    "818f4dcf830d117b3a347d0a3a3a39c38d7d63192aa9f53b8c2bc606210898be": {
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1009286/anthropic-is-cutting-off-its-internal-evaluations-from-the-internet",
+      "canonical_url": "https://www.theverge.com/ai-artificial-intelligence/1009286/anthropic-is-cutting-off-its-internal-evaluations-from-the-internet",
+      "source_name": "The Verge",
+      "title": "Anthropic is cutting off its internal evaluations from the internet",
+      "article_path": "content/articles/published/2026-10-11-818f4dcf-anthropic-cuts-internal-evaluations-internet-access.md",
+      "seen_at": "2026-10-10T15:02:15.367Z"
     }
   }
 }
