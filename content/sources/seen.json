@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-11T10:02:12.821Z",
+  "updated_at": "2026-10-11T12:02:15.961Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -417,6 +417,14 @@
       "title": "소상공인 \"손실보상\" 쿠팡이츠 \"취소주문 100% 보상\"(종합)",
       "article_path": "content/articles/published/2026-10-11-d6ef8f7c-coupang-eats-outage-cancelled-orders-compensation.md",
       "seen_at": "2026-10-11T10:02:12.821Z"
+    },
+    "0b4d425a4030d9ecf02e7c51d47f455acdc3fbc597461bf844f19a9b85d37a05": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4438555",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4438555",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "김승연, 한화그룹 74주년 기념사서 &quot;낙관주의는 설 자리 없다&quot;",
+      "article_path": "content/articles/published/2026-10-11-0b4d425a-hanwha-optimism-no-place-100-years.md",
+      "seen_at": "2026-10-11T12:02:15.961Z"
     }
   }
 }
