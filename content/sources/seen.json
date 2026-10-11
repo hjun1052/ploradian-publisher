@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-11T12:02:15.961Z",
+  "updated_at": "2026-10-11T14:31:37.184Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -425,6 +425,14 @@
       "title": "김승연, 한화그룹 74주년 기념사서 &quot;낙관주의는 설 자리 없다&quot;",
       "article_path": "content/articles/published/2026-10-11-0b4d425a-hanwha-optimism-no-place-100-years.md",
       "seen_at": "2026-10-11T12:02:15.961Z"
+    },
+    "883e55f985c841ba19a9692f2c64457aa56c4122aed3e5a7acb46b65db16b730": {
+      "url": "https://phys.org/news/2026-10-discovery-variable-clouds-solar.html",
+      "canonical_url": "https://phys.org/news/2026-10-discovery-variable-clouds-solar.html",
+      "source_name": "Phys.org Astronomy",
+      "title": "Discovery marks the first detection of variable water clouds outside of the solar system",
+      "article_path": "content/articles/published/2026-10-11-883e55f9-wise-0855-variable-water-clouds-jwst-7-5-light-years.md",
+      "seen_at": "2026-10-11T14:31:37.184Z"
     }
   }
 }
