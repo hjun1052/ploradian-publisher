@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-10T23:01:50.264Z",
+  "updated_at": "2026-10-11T00:04:20.964Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -369,6 +369,14 @@
       "title": "허위조작정보 신고 2천732건…구글·메타는 현황조차 '깜깜'",
       "article_path": "content/articles/published/2026-10-11-aa0d94c0-false-info-law-overseas-platforms-no-reply.md",
       "seen_at": "2026-10-10T23:01:50.264Z"
+    },
+    "2314fab30694be474c9d21779b9c62234fdf9caff4714dfc4460fd0b3bccffa2": {
+      "url": "https://www.yna.co.kr/view/AKR20261010019400062",
+      "canonical_url": "https://www.yna.co.kr/view/AKR20261010019400062",
+      "source_name": "연합뉴스 산업",
+      "title": "강원 햇빛소득마을 42곳 선정…'즉시 사업 추진'은 단 1곳뿐",
+      "article_path": "content/articles/published/2026-10-11-2314fab3-gangwon-sunlight-village-42-selected-one-ready.md",
+      "seen_at": "2026-10-11T00:04:20.964Z"
     }
   }
 }
