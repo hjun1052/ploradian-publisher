@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-11T07:00:19.929Z",
+  "updated_at": "2026-10-11T09:00:50.576Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -401,6 +401,14 @@
       "title": "2026-10-11 인공지능이 예측하는 다음 주",
       "article_path": "content/articles/published/2026-10-11-5b71ecbf-ai-next-week-prophecy-absurd-cosmic-corporate-week.md",
       "seen_at": "2026-10-11T07:00:19.929Z"
+    },
+    "bd3f9411ecd6c4c0318af2f8218a8e30812deed18f8dcf98c71f1d4481870d51": {
+      "url": "https://www.etnews.com/20261008000270",
+      "canonical_url": "https://www.etnews.com/20261008000270",
+      "source_name": "전자신문",
+      "title": "히트펌프, 산업현장·인증 엇박자",
+      "article_path": "content/articles/published/2026-10-11-bd3f9411-heatpump-kgx-test-standard-gap.md",
+      "seen_at": "2026-10-11T09:00:50.576Z"
     }
   }
 }
