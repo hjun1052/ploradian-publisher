@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-11T15:01:49.478Z",
+  "updated_at": "2026-10-11T17:01:49.995Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -441,6 +441,14 @@
       "title": "무보 '떼인 돈' 3.8조원…남은 채권 절반은 10년 이상 미회수",
       "article_path": "content/articles/published/2026-10-12-2b37e55c-korea-trade-insurance-written-off-claims-rise.md",
       "seen_at": "2026-10-11T15:01:49.478Z"
+    },
+    "fe263ac41ec22a7734aee9ad54ceca1b26920f631f74798355197c5dc1c0fa38": {
+      "url": "https://www.etnews.com/20261011000093",
+      "canonical_url": "https://www.etnews.com/20261011000093",
+      "source_name": "전자신문",
+      "title": "매월 50만원 넣고 2255만원…내일부터 딱 닷새간 '연 최대 19.4% 금리' 적금 가입 효과",
+      "article_path": "content/articles/published/2026-10-12-fe263ac4-youth-future-savings-second-round-open-to-all.md",
+      "seen_at": "2026-10-11T17:01:49.995Z"
     }
   }
 }
