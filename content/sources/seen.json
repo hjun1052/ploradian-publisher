@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-11T05:02:22.571Z",
+  "updated_at": "2026-10-11T06:02:01.815Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -385,6 +385,14 @@
       "title": "LGD, 궁극기 꺼냈다…&quot;新기술 '플립', 산업 패러다임 바꿀 것&quot;",
       "article_path": "content/articles/published/2026-10-11-b31b24ec-lgd-flip-ultimate-tech-no-mass-production-date.md",
       "seen_at": "2026-10-11T05:02:22.571Z"
+    },
+    "462850aed271d611f69d79b5b5c6eae38ab1db2ef495116efbe14b023af91057": {
+      "url": "https://www.etnews.com/20261011000070",
+      "canonical_url": "https://www.etnews.com/20261011000070",
+      "source_name": "전자신문",
+      "title": "앤트로픽, AI 모욕하면 대화 종료한다…이용 정책 개정",
+      "article_path": "content/articles/published/2026-10-11-462850ae-anthropic-claude-insult-policy-chat-ending.md",
+      "seen_at": "2026-10-11T06:02:01.815Z"
     }
   }
 }
