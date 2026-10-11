@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-11T17:01:49.995Z",
+  "updated_at": "2026-10-11T21:02:23.330Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -449,6 +449,14 @@
       "title": "매월 50만원 넣고 2255만원…내일부터 딱 닷새간 '연 최대 19.4% 금리' 적금 가입 효과",
       "article_path": "content/articles/published/2026-10-12-fe263ac4-youth-future-savings-second-round-open-to-all.md",
       "seen_at": "2026-10-11T17:01:49.995Z"
+    },
+    "df2d9d2630f430640297ae2bf8a7a2275f6750bdcbc2108092d28bd25a7a73c1": {
+      "url": "https://www.yna.co.kr/view/AKR20261009026700002",
+      "canonical_url": "https://www.yna.co.kr/view/AKR20261009026700002",
+      "source_name": "연합뉴스 경제",
+      "title": "보험광고 규정위반 4년반에 4.7만건…협회 제재금 부과 10건뿐",
+      "article_path": "content/articles/published/2026-10-12-df2d9d26-insurance-ad-violations-47078-only-ten-fines.md",
+      "seen_at": "2026-10-11T21:02:23.330Z"
     }
   }
 }
