@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-11T06:02:01.815Z",
+  "updated_at": "2026-10-11T07:00:19.929Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -393,6 +393,14 @@
       "title": "앤트로픽, AI 모욕하면 대화 종료한다…이용 정책 개정",
       "article_path": "content/articles/published/2026-10-11-462850ae-anthropic-claude-insult-policy-chat-ending.md",
       "seen_at": "2026-10-11T06:02:01.815Z"
+    },
+    "5b71ecbf38085a6352d1f6eeb2f614a9eb43fed6ea779f42d2804f66724f6ffe": {
+      "url": "https://news.ploradian.com/weekend/2026-10-11-ai-next-week-prophecy/",
+      "canonical_url": "https://news.ploradian.com/weekend/2026-10-11-ai-next-week-prophecy/",
+      "source_name": "The Ploradian 다음 주 예언 데스크",
+      "title": "2026-10-11 인공지능이 예측하는 다음 주",
+      "article_path": "content/articles/published/2026-10-11-5b71ecbf-ai-next-week-prophecy-absurd-cosmic-corporate-week.md",
+      "seen_at": "2026-10-11T07:00:19.929Z"
     }
   }
 }
