@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-11T09:00:50.576Z",
+  "updated_at": "2026-10-11T10:02:12.821Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -409,6 +409,14 @@
       "title": "히트펌프, 산업현장·인증 엇박자",
       "article_path": "content/articles/published/2026-10-11-bd3f9411-heatpump-kgx-test-standard-gap.md",
       "seen_at": "2026-10-11T09:00:50.576Z"
+    },
+    "d6ef8f7cae164024c05cf278064bafd613800fb4c619648a39f3beb21f2a9c02": {
+      "url": "https://www.yna.co.kr/view/AKR20261011034151030",
+      "canonical_url": "https://www.yna.co.kr/view/AKR20261011034151030",
+      "source_name": "연합뉴스 산업",
+      "title": "소상공인 \"손실보상\" 쿠팡이츠 \"취소주문 100% 보상\"(종합)",
+      "article_path": "content/articles/published/2026-10-11-d6ef8f7c-coupang-eats-outage-cancelled-orders-compensation.md",
+      "seen_at": "2026-10-11T10:02:12.821Z"
     }
   }
 }
