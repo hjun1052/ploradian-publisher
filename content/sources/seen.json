@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-11T14:31:37.184Z",
+  "updated_at": "2026-10-11T15:01:49.478Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -433,6 +433,14 @@
       "title": "Discovery marks the first detection of variable water clouds outside of the solar system",
       "article_path": "content/articles/published/2026-10-11-883e55f9-wise-0855-variable-water-clouds-jwst-7-5-light-years.md",
       "seen_at": "2026-10-11T14:31:37.184Z"
+    },
+    "2b37e55ceedd34d2fa706615675b0b76e95f163c3e650c66c58a2331089ec475": {
+      "url": "https://www.yna.co.kr/view/AKR20261011042200003",
+      "canonical_url": "https://www.yna.co.kr/view/AKR20261011042200003",
+      "source_name": "연합뉴스 경제",
+      "title": "무보 '떼인 돈' 3.8조원…남은 채권 절반은 10년 이상 미회수",
+      "article_path": "content/articles/published/2026-10-12-2b37e55c-korea-trade-insurance-written-off-claims-rise.md",
+      "seen_at": "2026-10-11T15:01:49.478Z"
     }
   }
 }
