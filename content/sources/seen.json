@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-12T16:01:54.229Z",
+  "updated_at": "2026-10-12T17:01:43.659Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -537,6 +537,14 @@
       "title": "KT, 태블릿 주문플랫폼 시장서 지위 남용 의혹에 '시정 의지'",
       "article_path": "content/articles/published/2026-10-13-780849fb-kt-tablet-order-platform-dominance-probe.md",
       "seen_at": "2026-10-12T16:01:54.229Z"
+    },
+    "9501f5d90949ec9d1913ec604c68ed73abfc1b6e025a9c978d5997ee579221a6": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4438795",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4438795",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "SK에너지 김종화 대표, 석유제품 가격 담합의혹에 &quot;죄송하다…소명할 것&quot;",
+      "article_path": "content/articles/published/2026-10-13-9501f5d9-sk-energy-ceo-apology-fuel-price-probe.md",
+      "seen_at": "2026-10-12T17:01:43.659Z"
     }
   }
 }
