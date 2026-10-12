@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-12T07:00:46.748Z",
+  "updated_at": "2026-10-12T09:01:30.381Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -505,6 +505,14 @@
       "title": "2026-10-12 국장 마감 억지해석",
       "article_path": "content/articles/published/2026-10-12-c1b96082-market-2026-10-12-ea-b5-ad-ec-9e-a5-16.md",
       "seen_at": "2026-10-12T07:00:46.748Z"
+    },
+    "afd582f5a743740de34fc7ef80cda668e96ea8b6e96b5e8fea6ce2aaafb75a05": {
+      "url": "https://www.newsis.com/view/NISX20261012_0003822628",
+      "canonical_url": "https://www.newsis.com/view/NISX20261012_0003822628",
+      "source_name": "뉴시스 경제",
+      "title": "2.6평짜리 LH 전세임대도…최저주거면적 미달 1618가구",
+      "article_path": "content/articles/published/2026-10-12-afd582f5-lh-jeonse-rental-below-minimum-area.md",
+      "seen_at": "2026-10-12T09:01:30.381Z"
     }
   }
 }
