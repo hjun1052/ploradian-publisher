@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-12T17:01:43.659Z",
+  "updated_at": "2026-10-12T19:02:37.763Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -545,6 +545,14 @@
       "title": "SK에너지 김종화 대표, 석유제품 가격 담합의혹에 &quot;죄송하다…소명할 것&quot;",
       "article_path": "content/articles/published/2026-10-13-9501f5d9-sk-energy-ceo-apology-fuel-price-probe.md",
       "seen_at": "2026-10-12T17:01:43.659Z"
+    },
+    "8e0792c3c20a8b3a3b9ee38205d5180fd71e2cc28d9555ea29d10e7ba3305fc4": {
+      "url": "https://www.newsis.com/view/NISX20261013_0003823001",
+      "canonical_url": "https://www.newsis.com/view/NISX20261013_0003823001",
+      "source_name": "뉴시스 경제",
+      "title": "저커버그 \"메타 AI, 오픈AI·앤트로픽 따라잡았다\"",
+      "article_path": "content/articles/published/2026-10-13-8e0792c3-meta-muse-wonder-catch-up-claim.md",
+      "seen_at": "2026-10-12T19:02:37.763Z"
     }
   }
 }
