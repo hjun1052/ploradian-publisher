@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-12T10:05:24.085Z",
+  "updated_at": "2026-10-12T11:01:47.578Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -521,6 +521,14 @@
       "title": "삼성전자, 임직원 보상용 15조원 자사주 취득 마무리",
       "article_path": "content/articles/published/2026-10-12-8aa737f4-samsung-treasury-stock-employee-compensation-completion.md",
       "seen_at": "2026-10-12T10:05:24.085Z"
+    },
+    "71d7250f042af2ad20d64b82fa71078ae8b5cfd79bc80cd97d4dd6275045dde9": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4438806",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4438806",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "김동철 사장 &quot;한전채 한도 줄면 전기요금 인상 필요&quot;(종합)",
+      "article_path": "content/articles/published/2026-10-12-71d7250f-kepco-bond-limit-electricity-price-hike-remark.md",
+      "seen_at": "2026-10-12T11:01:47.578Z"
     }
   }
 }
