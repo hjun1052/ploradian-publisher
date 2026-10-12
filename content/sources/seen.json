@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-12T21:03:06.968Z",
+  "updated_at": "2026-10-12T23:01:59.852Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -561,6 +561,14 @@
       "title": "4개월째 묶인 기름값 상한…16일 11차 최고가격 동결 '촉각'",
       "article_path": "content/articles/published/2026-10-13-086ac69f-oil-price-cap-same-number-again.md",
       "seen_at": "2026-10-12T21:03:06.968Z"
+    },
+    "8336a717b31e4e6677189e34e83a5b43cbd9486ff81172e966226cdf8c731999": {
+      "url": "https://www.yna.co.kr/view/AKR20261012148000530",
+      "canonical_url": "https://www.yna.co.kr/view/AKR20261012148000530",
+      "source_name": "연합뉴스 경제",
+      "title": "K-뉴딜 아카데미 훈련생 목표 절반도 못 채워…내년 예산은 5배",
+      "article_path": "content/articles/published/2026-10-13-8336a717-knew-deal-academy-budget-five-times.md",
+      "seen_at": "2026-10-12T23:01:59.852Z"
     }
   }
 }
