@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-12T00:01:43.185Z",
+  "updated_at": "2026-10-12T04:01:40.252Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -481,6 +481,14 @@
       "title": "바이어 10명 중 8명 수도권行인데…KOTRA 지방이전에 '기능론'",
       "article_path": "content/articles/published/2026-10-12-ba2101d5-kotra-union-hq-capital-region-argument.md",
       "seen_at": "2026-10-12T00:01:43.185Z"
+    },
+    "550dccbd117f34815540a42862322cd54375e71a467680b40e4669982a184f27": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4438648",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4438648",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "&quot;광주 군공항 부지 반도체 산단 사업비 9조…입주기업 부담 커질 수도&quot;",
+      "article_path": "content/articles/published/2026-10-12-550dccbd-gwangju-air-base-chip-complex-price-tag.md",
+      "seen_at": "2026-10-12T04:01:40.252Z"
     }
   }
 }
