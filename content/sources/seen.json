@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-12T04:01:40.252Z",
+  "updated_at": "2026-10-12T05:02:19.886Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -489,6 +489,14 @@
       "title": "&quot;광주 군공항 부지 반도체 산단 사업비 9조…입주기업 부담 커질 수도&quot;",
       "article_path": "content/articles/published/2026-10-12-550dccbd-gwangju-air-base-chip-complex-price-tag.md",
       "seen_at": "2026-10-12T04:01:40.252Z"
+    },
+    "79309e26fdeed057a47ac75d031f8718d92ecb3f839214c60034dc75969f8db7": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4438642",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4438642",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "김동선, 한화M&amp;S 지분 19% 공개매수…1천285억원 투입",
+      "article_path": "content/articles/published/2026-10-12-79309e26-kim-dong-seon-hanwha-ms-tender-offer.md",
+      "seen_at": "2026-10-12T05:02:19.886Z"
     }
   }
 }
