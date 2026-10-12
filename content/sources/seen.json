@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-12T09:01:30.381Z",
+  "updated_at": "2026-10-12T10:05:24.085Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -513,6 +513,14 @@
       "title": "2.6평짜리 LH 전세임대도…최저주거면적 미달 1618가구",
       "article_path": "content/articles/published/2026-10-12-afd582f5-lh-jeonse-rental-below-minimum-area.md",
       "seen_at": "2026-10-12T09:01:30.381Z"
+    },
+    "8aa737f4bba287709c5bf65bae0d6d9bbd5fd9b84194f9184a3a3168d810f138": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4438793",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4438793",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "삼성전자, 임직원 보상용 15조원 자사주 취득 마무리",
+      "article_path": "content/articles/published/2026-10-12-8aa737f4-samsung-treasury-stock-employee-compensation-completion.md",
+      "seen_at": "2026-10-12T10:05:24.085Z"
     }
   }
 }
