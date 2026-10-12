@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-11T23:01:52.328Z",
+  "updated_at": "2026-10-12T00:01:43.185Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -473,6 +473,14 @@
       "title": "\"중기부 핵심기술 연구에 외국인 2천여명 참여…검증은 단 3명\"",
       "article_path": "content/articles/published/2026-10-12-8e9b7374-sme-agency-security-review-three-of-2161.md",
       "seen_at": "2026-10-11T23:01:52.328Z"
+    },
+    "ba2101d5399d0c7ffb04d717a9c7eeac31bf7faba87ee32a576758e4dd867068": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4438602",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4438602",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "바이어 10명 중 8명 수도권行인데…KOTRA 지방이전에 '기능론'",
+      "article_path": "content/articles/published/2026-10-12-ba2101d5-kotra-union-hq-capital-region-argument.md",
+      "seen_at": "2026-10-12T00:01:43.185Z"
     }
   }
 }
