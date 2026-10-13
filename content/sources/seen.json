@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-13T17:02:03.552Z",
+  "updated_at": "2026-10-13T18:02:03.553Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -657,6 +657,14 @@
       "title": "Epic shifts to &#8216;AI-accelerated development&#8217; for upcoming Disney game",
       "article_path": "content/articles/published/2026-10-14-ce8b8b48-epic-games-disney-game-ai-acceleration.md",
       "seen_at": "2026-10-13T17:02:03.552Z"
+    },
+    "16810b93abf06f4e4390c42e52eb5dfb04ca7a2a61e05678e76c19eafe9cb134": {
+      "url": "https://arstechnica.com/ai/2026/10/gemini-4-argon-begins-rolling-out-in-gemini-app-and-antigravity-but-only-if-you-pay/",
+      "canonical_url": "https://arstechnica.com/ai/2026/10/gemini-4-argon-begins-rolling-out-in-gemini-app-and-antigravity-but-only-if-you-pay/",
+      "source_name": "Ars Technica",
+      "title": "Gemini 4 Argon begins rolling out in Gemini app and Antigravity, but only if you pay",
+      "article_path": "content/articles/published/2026-10-14-16810b93-gemini-4-argon-paid-rollout-discount.md",
+      "seen_at": "2026-10-13T18:02:03.553Z"
     }
   }
 }
