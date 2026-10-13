@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-13T10:03:01.935Z",
+  "updated_at": "2026-10-13T12:32:22.839Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -617,6 +617,14 @@
       "title": "홍라희 여사, 이재용 회장에 삼성전자 주식 1천115만8천주 증여",
       "article_path": "content/articles/published/2026-10-13-16281432-lee-jae-yong-samsung-stake-0-17-point.md",
       "seen_at": "2026-10-13T10:03:01.935Z"
+    },
+    "6d4b1e921e2ed8fbe410be6882cdf3ef1d629a062024672962da941ca70c51b8": {
+      "url": "https://www.nabo.go.kr/ko/notice/releasesView.do?key=2507040045&idx=9252",
+      "canonical_url": "https://www.nabo.go.kr/ko/notice/releasesView.do?key=2507040045&idx=9252",
+      "source_name": "국회예산정책처 보도자료",
+      "title": "국회예산정책처, 「공공기관 상생협력사업의 문제점과 개선과제」 발간",
+      "article_path": "content/articles/published/2026-10-13-6d4b1e92-public-cooperation-loan-missed-target-suppliers.md",
+      "seen_at": "2026-10-13T12:32:22.839Z"
     }
   }
 }
