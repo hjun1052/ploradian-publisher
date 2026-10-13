@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-13T16:01:44.244Z",
+  "updated_at": "2026-10-13T17:02:03.552Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -649,6 +649,14 @@
       "title": "Buying Apple’s wall-mounted HomeView? The mount costs extra",
       "article_path": "content/articles/published/2026-10-14-ab5fa5e7-apple-homeview-wall-mount-sold-separately.md",
       "seen_at": "2026-10-13T16:01:44.244Z"
+    },
+    "ce8b8b48b5a890c3bb0d10c3bc8cc9f9083317cbc4eb094f43058f8cc87bb188": {
+      "url": "https://www.theverge.com/games/1010097/epic-games-disney-project-ai-coding-art",
+      "canonical_url": "https://www.theverge.com/games/1010097/epic-games-disney-project-ai-coding-art",
+      "source_name": "The Verge",
+      "title": "Epic shifts to &#8216;AI-accelerated development&#8217; for upcoming Disney game",
+      "article_path": "content/articles/published/2026-10-14-ce8b8b48-epic-games-disney-game-ai-acceleration.md",
+      "seen_at": "2026-10-13T17:02:03.552Z"
     }
   }
 }
