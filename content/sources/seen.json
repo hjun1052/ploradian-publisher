@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-13T03:01:53.957Z",
+  "updated_at": "2026-10-13T05:02:46.385Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -585,6 +585,14 @@
       "title": "심장 박동 감지 센서기업 아이리듬, 6월 공격으로 최소 36만명 유출 신고",
       "article_path": "content/articles/published/2026-10-13-fbe18a9e-irhythm-zio-patch-data-breach-hosted-app.md",
       "seen_at": "2026-10-13T03:01:53.957Z"
+    },
+    "049bd803b41ab8bec65d3d9922da0b808cac46e26138eb207299c864f638d0c8": {
+      "url": "https://www.yna.co.kr/view/AKR20261013108800054",
+      "canonical_url": "https://www.yna.co.kr/view/AKR20261013108800054",
+      "source_name": "연합뉴스 경제",
+      "title": "어민지원 수산발전기금, 25년간 기업 기부금 한 푼도 없어",
+      "article_path": "content/articles/published/2026-10-13-049bd803-fisheries-fund-zero-corporate-donations-25-years.md",
+      "seen_at": "2026-10-13T05:02:46.385Z"
     }
   }
 }
