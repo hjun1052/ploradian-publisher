@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-13T00:02:14.034Z",
+  "updated_at": "2026-10-13T03:01:53.957Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -577,6 +577,14 @@
       "title": "136억 들인 농업기상재해 조기경보서비스 가입률 5％뿐",
       "article_path": "content/articles/published/2026-10-13-ac23d016-nongjinchung-early-warning-5-percent-signup.md",
       "seen_at": "2026-10-13T00:02:14.034Z"
+    },
+    "fbe18a9ea3cd88f20933b05c3ea5e5dd3da06a78e4460dbb36e574b45afdae80": {
+      "url": "https://www.boannews.com/news/articleView.html?idxno=146303",
+      "canonical_url": "https://www.boannews.com/news/articleView.html?idxno=146303",
+      "source_name": "보안뉴스 사건사고",
+      "title": "심장 박동 감지 센서기업 아이리듬, 6월 공격으로 최소 36만명 유출 신고",
+      "article_path": "content/articles/published/2026-10-13-fbe18a9e-irhythm-zio-patch-data-breach-hosted-app.md",
+      "seen_at": "2026-10-13T03:01:53.957Z"
     }
   }
 }
