@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-12T23:01:59.852Z",
+  "updated_at": "2026-10-13T00:02:14.034Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -569,6 +569,14 @@
       "title": "K-뉴딜 아카데미 훈련생 목표 절반도 못 채워…내년 예산은 5배",
       "article_path": "content/articles/published/2026-10-13-8336a717-knew-deal-academy-budget-five-times.md",
       "seen_at": "2026-10-12T23:01:59.852Z"
+    },
+    "ac23d0162aeebf851028ff7435fb25af4a5a58c9676a598833b8dcdd898383a9": {
+      "url": "https://www.yna.co.kr/view/AKR20261013024400001",
+      "canonical_url": "https://www.yna.co.kr/view/AKR20261013024400001",
+      "source_name": "연합뉴스 산업",
+      "title": "136억 들인 농업기상재해 조기경보서비스 가입률 5％뿐",
+      "article_path": "content/articles/published/2026-10-13-ac23d016-nongjinchung-early-warning-5-percent-signup.md",
+      "seen_at": "2026-10-13T00:02:14.034Z"
     }
   }
 }
