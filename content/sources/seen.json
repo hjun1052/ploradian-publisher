@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-13T12:32:22.839Z",
+  "updated_at": "2026-10-13T14:02:21.683Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -625,6 +625,14 @@
       "title": "국회예산정책처, 「공공기관 상생협력사업의 문제점과 개선과제」 발간",
       "article_path": "content/articles/published/2026-10-13-6d4b1e92-public-cooperation-loan-missed-target-suppliers.md",
       "seen_at": "2026-10-13T12:32:22.839Z"
+    },
+    "7a844a813e581002f0e5ec4211a22a57ccc5f17fcac52aa0ab3396767d149f5c": {
+      "url": "https://www.theverge.com/news/1009904/dlss-5-hogwarts-legacy-changes-improvements",
+      "canonical_url": "https://www.theverge.com/news/1009904/dlss-5-hogwarts-legacy-changes-improvements",
+      "source_name": "The Verge",
+      "title": "DLSS 5 gets toned down for its Hogwarts Legacy debut next month",
+      "article_path": "content/articles/published/2026-10-13-7a844a81-nvidia-dlss-5-hogwarts-legacy-toned-down.md",
+      "seen_at": "2026-10-13T14:02:21.683Z"
     }
   }
 }
