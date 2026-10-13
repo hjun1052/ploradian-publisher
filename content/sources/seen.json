@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-13T15:01:59.682Z",
+  "updated_at": "2026-10-13T16:01:44.244Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -641,6 +641,14 @@
       "title": "Apple announces the HomePod Mini 2, but it isn&#8217;t ready for Siri AI at launch",
       "article_path": "content/articles/published/2026-10-14-308ef7f0-apple-homepod-mini-2-siri-ai-later-update.md",
       "seen_at": "2026-10-13T15:01:59.682Z"
+    },
+    "ab5fa5e72dc77464c56dc479ab666152bcb3e4c2e55236342e92ed4f316ad7ea": {
+      "url": "https://www.theverge.com/tech/1010164/apple-homeview-wall-mounted-sold-separately",
+      "canonical_url": "https://www.theverge.com/tech/1010164/apple-homeview-wall-mounted-sold-separately",
+      "source_name": "The Verge",
+      "title": "Buying Apple’s wall-mounted HomeView? The mount costs extra",
+      "article_path": "content/articles/published/2026-10-14-ab5fa5e7-apple-homeview-wall-mount-sold-separately.md",
+      "seen_at": "2026-10-13T16:01:44.244Z"
     }
   }
 }
