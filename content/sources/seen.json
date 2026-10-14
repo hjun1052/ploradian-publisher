@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-14T10:02:07.603Z",
+  "updated_at": "2026-10-14T11:04:34.008Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -729,6 +729,14 @@
       "title": "The skincare scheme that led to consumer complaints, lawsuits and a federal investigation",
       "article_path": "content/articles/published/2026-10-14-ed9cbc12-skincare-free-samples-50000-bill.md",
       "seen_at": "2026-10-14T10:02:07.603Z"
+    },
+    "09f9aa6188d9d249029096b15b1bad3db731018dcf5e3f1e793c638d00573ce0": {
+      "url": "https://www.yna.co.kr/view/AKR20261014172600003",
+      "canonical_url": "https://www.yna.co.kr/view/AKR20261014172600003",
+      "source_name": "연합뉴스 산업",
+      "title": "LG엔솔 전 임원, 업무상 배임 혐의로 피소…75억원 이상 규모",
+      "article_path": "content/articles/published/2026-10-14-09f9aa61-lg-energy-solution-ex-executive-consulting-fee-probe.md",
+      "seen_at": "2026-10-14T11:04:34.008Z"
     }
   }
 }
