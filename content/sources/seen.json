@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-14T15:03:36.611Z",
+  "updated_at": "2026-10-14T16:02:35.599Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -753,6 +753,14 @@
       "title": "Epic&#8217;s new games launcher is ‘vibe coded’",
       "article_path": "content/articles/published/2026-10-15-ef87b05d-epic-launcher-vibe-coded-programming-is-hard.md",
       "seen_at": "2026-10-14T15:03:36.611Z"
+    },
+    "f646aef71abc7abc2389b965119dea6cd3fc22b9760ad388538815ad7e5d344e": {
+      "url": "https://www.theverge.com/tech/1011062/apple-homeview-airplay-apps-streaming",
+      "canonical_url": "https://www.theverge.com/tech/1011062/apple-homeview-airplay-apps-streaming",
+      "source_name": "The Verge",
+      "title": "HomeView doesn’t natively support any video apps yet — not even Apple’s",
+      "article_path": "content/articles/published/2026-10-15-f646aef7-apple-homeview-no-native-video-apps.md",
+      "seen_at": "2026-10-14T16:02:35.599Z"
     }
   }
 }
