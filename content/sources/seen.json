@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-14T14:32:02.463Z",
+  "updated_at": "2026-10-14T15:03:36.611Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -745,6 +745,14 @@
       "title": "New evidence points to two feeding black holes just 175 parsecs apart lurking in the early universe",
       "article_path": "content/articles/published/2026-10-14-137779a9-mg-b2016-112-dual-agn-175-parsecs-early-universe.md",
       "seen_at": "2026-10-14T14:32:02.463Z"
+    },
+    "ef87b05ded13b11f7ce0ed4a53e6b0099db0deaf2ce53937760cb28604f32083": {
+      "url": "https://www.theverge.com/games/1010751/epic-games-launcher-vibe-coded-ai-linux",
+      "canonical_url": "https://www.theverge.com/games/1010751/epic-games-launcher-vibe-coded-ai-linux",
+      "source_name": "The Verge",
+      "title": "Epic&#8217;s new games launcher is ‘vibe coded’",
+      "article_path": "content/articles/published/2026-10-15-ef87b05d-epic-launcher-vibe-coded-programming-is-hard.md",
+      "seen_at": "2026-10-14T15:03:36.611Z"
     }
   }
 }
