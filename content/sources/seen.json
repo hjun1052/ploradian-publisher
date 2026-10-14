@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-14T17:02:33.320Z",
+  "updated_at": "2026-10-14T18:04:14.457Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -769,6 +769,14 @@
       "title": "Repairing the iPhone Duo&#8217;s folding screen costs as much as a new iPhone",
       "article_path": "content/articles/published/2026-10-15-4b2d544d-iphone-duo-repair-costs-applecare.md",
       "seen_at": "2026-10-14T17:02:33.320Z"
+    },
+    "8b9a62b75ad914552113f3f5bae12d5a31f2c4ed4627f6b6453a0a9f4df3d64b": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4439210",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4439210",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "카카오 '모두의 AI' MAU 500만 목표…과업 완료율로 성과 평가",
+      "article_path": "content/articles/published/2026-10-15-8b9a62b7-kakao-modu-ai-500-man-mau-scorecard.md",
+      "seen_at": "2026-10-14T18:04:14.457Z"
     }
   }
 }
