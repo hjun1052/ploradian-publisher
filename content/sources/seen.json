@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-14T05:01:56.906Z",
+  "updated_at": "2026-10-14T07:01:05.970Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -705,6 +705,14 @@
       "title": "밀가루 부산물 1.4조 담합…공정위 심의 착수",
       "article_path": "content/articles/published/2026-10-14-cac848af-flour-byproduct-price-collusion-probe-six-firms.md",
       "seen_at": "2026-10-14T05:01:56.906Z"
+    },
+    "9ebe239d28a71304c9daaad55b6c963c786ff7feeeccfc5f221f8f4e6dfb5d87": {
+      "url": "https://news.ploradian.com/market/2026-10-14-국장-16/",
+      "canonical_url": "https://news.ploradian.com/market/2026-10-14-국장-16/",
+      "source_name": "The Ploradian 국장 마감 억지해석 데스크",
+      "title": "2026-10-14 국장 마감 억지해석",
+      "article_path": "content/articles/published/2026-10-14-9ebe239d-market-2026-10-14-ea-b5-ad-ec-9e-a5-16.md",
+      "seen_at": "2026-10-14T07:01:05.970Z"
     }
   }
 }
