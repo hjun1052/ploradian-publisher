@@ -388,9 +388,30 @@ export async function generateSatireArticle(
   correction?: string,
   pageText = ""
 ): Promise<GeneratedArticleJson> {
+  try {
+    return await generateSatireArticleOnce(config, source, facts, correction, pageText);
+  } catch (error) {
+    // The cheap standard model sometimes truncates or breaks JSON; retry the same candidate once on the article model
+    // instead of waiting for the next slot to fail the same way.
+    if (!source.synthetic && satireModelFor(config, source) !== config.openaiArticleModel) {
+      console.warn(JSON.stringify({ event: "standard_model_failed_fallback", title: source.title, error: String(error).slice(0, 200) }));
+      return generateSatireArticleOnce(config, source, facts, correction, pageText, config.openaiArticleModel);
+    }
+    throw error;
+  }
+}
+
+async function generateSatireArticleOnce(
+  config: RuntimeConfig,
+  source: SourceItem,
+  facts: FactSummary,
+  correction?: string,
+  pageText = "",
+  forceModel?: string
+): Promise<GeneratedArticleJson> {
   const isSecurityPrey = Boolean(source.securityPreyEvaluation);
   const isRegularSatire = !source.synthetic;
-  const articleModel = isRegularSatire ? satireModelFor(config, source) : config.openaiLightArticleModel;
+  const articleModel = isRegularSatire ? (forceModel ?? satireModelFor(config, source)) : config.openaiLightArticleModel;
   const openRouterArticle = isRegularSatire && usesOpenRouterForSatire(config, source);
   const standardTier = openRouterArticle && !isSecurityPrey && articleModel !== config.openaiArticleModel;
   const prompt =
@@ -990,8 +1011,10 @@ async function callOpenRouterJson<T>(
       body: JSON.stringify({
         model,
         messages: input,
-        // Reasoning tokens count against max_tokens, so leave headroom beyond the visible article.
-        max_tokens: Math.max(maxOutputTokens, 16000),
+        // Reasoning tokens count against max_tokens, so leave headroom beyond the visible article. Haiku 5.5
+        // thinks for 10-17k tokens on these prompts (3 of 8 samples passed 16k) and the reasoning cap
+        // parameters do not limit it, so it gets a larger budget; turning reasoning off drops the style rules.
+        max_tokens: Math.max(maxOutputTokens, model === config.satireStandardModel ? 32000 : 16000),
         response_format: { type: "json_object" }
       })
     },
@@ -1004,7 +1027,7 @@ async function callOpenRouterJson<T>(
 
   const data = parseJson<{
     choices?: Array<{ message?: { content?: string }; finish_reason?: string }>;
-    usage?: { cost?: number };
+    usage?: { cost?: number; completion_tokens?: number };
     error?: unknown;
   }>(text, "OpenRouter response");
   if (data.error) {
@@ -1012,7 +1035,20 @@ async function callOpenRouterJson<T>(
   }
 
   const content = data.choices?.[0]?.message?.content ?? "";
-  console.log(JSON.stringify({ event: "openrouter_call", model, schemaName, cost: data.usage?.cost }));
+  const finishReason = data.choices?.[0]?.finish_reason;
+  console.log(
+    JSON.stringify({
+      event: "openrouter_call",
+      model,
+      schemaName,
+      cost: data.usage?.cost,
+      completionTokens: data.usage?.completion_tokens,
+      finishReason
+    })
+  );
+  if (finishReason === "length") {
+    throw new Error(`OpenRouter ${schemaName} hit the token limit (completion_tokens=${data.usage?.completion_tokens}); output truncated`);
+  }
   return parseJson<T>(content.replace(/^\s*```(?:json)?\s*|\s*```\s*$/g, ""), `OpenRouter ${schemaName} JSON`);
 }
 
