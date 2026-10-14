@@ -277,7 +277,17 @@ function pickInsults(count = 3): string[] {
 
 // Shared heat dial for every satire prompt: as harsh as possible, but the target is always the
 // organization's decisions, words and numbers, never a person's traits, and never an unsupported accusation.
-const HEAT_BLOCK = `
+// Crude Korean idioms, allowed at most once per article and only with the organization as the subject.
+const CRUDE_IDIOMS = ["지랄 발광", "지랄도 풍년", "발광을 떤다", "난리 블루스", "생쇼를 한다"] as const;
+
+function heatBlock(): string {
+  // Optional wording gets ignored, so roughly half of the articles are told to use one idiom exactly once.
+  const idiom = CRUDE_IDIOMS[Math.floor(Math.random() * CRUDE_IDIOMS.length)];
+  const crude =
+    Math.random() < 0.5
+      ? `- Use this crude idiom exactly once, in the paragraph where it fits best: ${idiom}. The organization or its decision is the grammatical subject ("그 회사의 해명은 지랄 발광이다" style). Never in the title or subtitle, never aimed at a person, a victim, a customer or a user. If it cannot be used without a stretch, skip it.`
+      : "";
+  return `
 
 HEAT (turn the contempt up as far as it goes, inside the LINES below):
 - Ridicule is rampant: every paragraph contains at least one open sneer or insult aimed at the organization's decision, logic or competence. Short, flat, merciless sentences that sting.
@@ -290,7 +300,9 @@ LINES NOT TO CROSS:
 - Never mock victims, customers or ordinary users; they are who the organization is insulting.
 - Every sting is anchored in a fact, quote or number from the source. No invented details.
 - Quotation marks only around words the source actually quotes; never invent a quote, not even a mocking one, and never in the title or subtitle.
-- Do not assert how the target stores, secures, decides or feels about anything the source does not state (no "자랑스럽게", no guessed internals); mock what is reported.`;
+- Do not assert how the target stores, secures, decides or feels about anything the source does not state (no "자랑스럽게", no guessed internals); mock what is reported.
+${crude}`;
+}
 
 function spiceOverride(): string {
   const picks = pickInsults();
@@ -314,7 +326,7 @@ Originality rules (important):
 - Attribute only what the target itself said or did. A headline or framing like "예상치 두 배" belongs to the news outlet, so never present it as the target's claim. If the target already disclosed something unflattering itself, acknowledge that in one clause before attacking what is still absurd.
 - Never reuse more than about 7 consecutive words of the source text verbatim, quotes included; paraphrase, or quote only a short fragment.
 
-Safety unchanged: ground every claim in the source text; never invent numbers, quotes, motives, crimes. Ridicule the reported facts, not the outlet or reporter.${HEAT_BLOCK}`;
+Safety unchanged: ground every claim in the source text; never invent numbers, quotes, motives, crimes. Ridicule the reported facts, not the outlet or reporter.${heatBlock()}`;
 }
 
 // Variant for the cheaper standard-tier model: explicit process and checklist, because it follows
@@ -356,7 +368,7 @@ CHECKLIST (all must be true):
 [ ] None of these appear: 마지막 변명, 제품에서 제품을 구성하는, 누구에게도 반박당하지 않는 깨끗한 상태, 대단하다. 정말 대단하다, 조롱의 대상은.
 [ ] No detail that is not in the source (times, motives, counts, photos, jokes).
 [ ] Never reuse more than 7 consecutive source words verbatim.
-Safety unchanged: ground every claim in the source; never invent crimes, motives, quotes, numbers. Ridicule the reported facts, not the outlet or reporter.${HEAT_BLOCK}`;
+Safety unchanged: ground every claim in the source; never invent crimes, motives, quotes, numbers. Ridicule the reported facts, not the outlet or reporter.${heatBlock()}`;
 }
 
 // Security prey articles: the base prompt tells the model to "keep asking the missing duty", which Sonnet
@@ -374,7 +386,7 @@ You are the security desk's most contemptuous columnist. The organization's fail
 - Use at least three of: a flat restatement of an absurd fact as if reading a receipt; the organization's own word turned against it; timeline arithmetic (months or days between the breach and the admission) stated flatly from source dates only; a fake defense that collapses in its last clause; a deadpan hypothetical ("만약 ~였다면") that exposes the gap. Comparison sentences ("~와 같다", "~다를 바 없다", "~격이다", "~셈이다") at most twice in the article.
 - Never mock the people whose data leaked or who were harmed; their stake is what makes the organization's delay contemptible.
 - The last sentence plainly states what the organization did or failed to do and removes its last excuse. It is never about what a document, disclosure or notice lacks.
-- Never write 원문, 기사, 보도, 공시, 문서, 보도자료 as the thing that omits. Attribute only what the organization itself said or did. No invented facts, numbers, motives or hypothetical figures; never reuse more than about 7 consecutive source words.${HEAT_BLOCK}`;
+- Never write 원문, 기사, 보도, 공시, 문서, 보도자료 as the thing that omits. Attribute only what the organization itself said or did. No invented facts, numbers, motives or hypothetical figures; never reuse more than about 7 consecutive source words.${heatBlock()}`;
 }
 
 const OPENROUTER_ARTICLE_SHAPE = `
