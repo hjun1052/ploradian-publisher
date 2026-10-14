@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-14T07:01:05.970Z",
+  "updated_at": "2026-10-14T09:02:32.554Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -713,6 +713,14 @@
       "title": "2026-10-14 국장 마감 억지해석",
       "article_path": "content/articles/published/2026-10-14-9ebe239d-market-2026-10-14-ea-b5-ad-ec-9e-a5-16.md",
       "seen_at": "2026-10-14T07:01:05.970Z"
+    },
+    "357bba6c7185889db6959f1d9deb3b35b7e5c9cd0cd1a859253f31089f6075ea": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4439221",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4439221",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "최태원, SK 지분 9천440억 매각 계약…델 일가에 5천440억",
+      "article_path": "content/articles/published/2026-10-14-357bba6c-choi-tae-won-sk-stake-sale-prs.md",
+      "seen_at": "2026-10-14T09:02:32.554Z"
     }
   }
 }
