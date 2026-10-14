@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-14T04:02:34.148Z",
+  "updated_at": "2026-10-14T05:01:56.906Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -697,6 +697,14 @@
       "title": "경찰, LG엔솔 전 사장 '100억 배임 의혹' 수사…가족 연계 업체에 자문료",
       "article_path": "content/articles/published/2026-10-14-57475934-lg-energy-ex-ceo-consulting-fee-police-probe.md",
       "seen_at": "2026-10-14T04:02:34.148Z"
+    },
+    "cac848af91b56d0b35f4b9e7c506a35d5095fd5ea1c64ac832da3cbc19193dee": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4439178",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4439178",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "밀가루 부산물 1.4조 담합…공정위 심의 착수",
+      "article_path": "content/articles/published/2026-10-14-cac848af-flour-byproduct-price-collusion-probe-six-firms.md",
+      "seen_at": "2026-10-14T05:01:56.906Z"
     }
   }
 }
