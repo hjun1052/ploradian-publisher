@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-14T00:01:45.054Z",
+  "updated_at": "2026-10-14T03:01:23.181Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -681,6 +681,14 @@
       "title": "농진청, 5년간 기술이전 6천여건…제품화 성공률은 40%대 불과",
       "article_path": "content/articles/published/2026-10-14-e7cf2539-nongjincheong-tech-transfer-40-percent.md",
       "seen_at": "2026-10-14T00:01:45.054Z"
+    },
+    "270f693d1968ce62307e1d2a1f0b7e256fef2e762eb64ea4ec3131bfdf869e08": {
+      "url": "https://www.boannews.com/news/articleView.html?idxno=146361",
+      "canonical_url": "https://www.boannews.com/news/articleView.html?idxno=146361",
+      "source_name": "보안뉴스 사건사고",
+      "title": "맑은소프트 개인정보 유출 규모 237만건... 고객사 22곳 불똥",
+      "article_path": "content/articles/published/2026-10-14-270f693d-malgeunsoft-lms-237man-leak-eight-measures.md",
+      "seen_at": "2026-10-14T03:01:23.181Z"
     }
   }
 }
