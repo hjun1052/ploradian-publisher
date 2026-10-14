@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-14T16:02:35.599Z",
+  "updated_at": "2026-10-14T17:02:33.320Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -761,6 +761,14 @@
       "title": "HomeView doesn’t natively support any video apps yet — not even Apple’s",
       "article_path": "content/articles/published/2026-10-15-f646aef7-apple-homeview-no-native-video-apps.md",
       "seen_at": "2026-10-14T16:02:35.599Z"
+    },
+    "4b2d544d56832edfe1e7cdeeed836a9239cce6747ec197495d6859695de15557": {
+      "url": "https://www.theverge.com/tech/1011245/iphone-duo-repair-costs-applecare",
+      "canonical_url": "https://www.theverge.com/tech/1011245/iphone-duo-repair-costs-applecare",
+      "source_name": "The Verge",
+      "title": "Repairing the iPhone Duo&#8217;s folding screen costs as much as a new iPhone",
+      "article_path": "content/articles/published/2026-10-15-4b2d544d-iphone-duo-repair-costs-applecare.md",
+      "seen_at": "2026-10-14T17:02:33.320Z"
     }
   }
 }
