@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-14T11:04:34.008Z",
+  "updated_at": "2026-10-14T14:32:02.463Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -737,6 +737,14 @@
       "title": "LG엔솔 전 임원, 업무상 배임 혐의로 피소…75억원 이상 규모",
       "article_path": "content/articles/published/2026-10-14-09f9aa61-lg-energy-solution-ex-executive-consulting-fee-probe.md",
       "seen_at": "2026-10-14T11:04:34.008Z"
+    },
+    "137779a99eaf04ee7861311c2f3d4245149bc8d1790bcd90d4af6f1e395d679f": {
+      "url": "https://phys.org/news/2026-10-evidence-black-holes-parsecs-lurking.html",
+      "canonical_url": "https://phys.org/news/2026-10-evidence-black-holes-parsecs-lurking.html",
+      "source_name": "Phys.org Astronomy",
+      "title": "New evidence points to two feeding black holes just 175 parsecs apart lurking in the early universe",
+      "article_path": "content/articles/published/2026-10-14-137779a9-mg-b2016-112-dual-agn-175-parsecs-early-universe.md",
+      "seen_at": "2026-10-14T14:32:02.463Z"
     }
   }
 }
