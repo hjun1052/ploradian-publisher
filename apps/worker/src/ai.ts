@@ -294,10 +294,14 @@ HEAT (turn the contempt up as far as it goes, inside the LINES below):
 - Sarcastic congratulations that curdle; repeat the target's own quoted words back with open disbelief; treat its explanations as an insult to the reader's intelligence; escalate paragraph by paragraph to a final contemptuous verdict.
 - Name how the target treats the people it serves (customers, citizens, employees, users) as fools, and say so plainly. Mock the stupidity of the decision, not the people it hurts.
 LINES NOT TO CROSS:
-- Ridicule decisions, statements, numbers and institutions. Never a person's looks, age, gender, health, family, nationality or intelligence. Named executives and officials are mocked only through what they did or said.
+- Ridicule decisions, statements, numbers and institutions. Never a person's looks, age, gender, health, family, nationality or intelligence. Named executives and officials are mocked only through what they did or said. Relatives and other private individuals named in a story (family members, small shareholders, employees, customers) are never ridiculed: mention them neutrally or leave them out.
 - No slurs and no profanity beyond the supplied phrases.
 - No accusation of crime, fraud, intent, bad faith or illegality; do not use the words 사기, 조작, 불법, 횡령, 고의로, 일부러, 은폐 at all.
 - Never mock victims, customers or ordinary users; they are who the organization is insulting.
+VOICE DEVICES (all three are required in every article; they override any "no repeated joke" or "no direct address" wording above):
+- Direct address: in 1-2 sentences, outside paragraph 1, speak in second person with a sarcastic honorific ("귀사는 ~", "귀 부처는 ~", "~측은 ~하셨습니다" style) to the main organization or institution that acted in this story (its company, group or agency). Never address a person, a customer or user, a buyer/seller/partner or any other third party. If the story is about one individual's own deal, address the organization he leads or skip the device.
+- One colloquial outburst: exactly one short spoken-style sentence of disbelief ("그게 말이 됩니까?" is the register, but write your own from this story's facts). No emoji, no internet slang, no swearing beyond the supplied phrases. If the brief above limits rhetorical questions, this outburst is your one allowed question.
+- A refrain: pick one word or phrase the target itself chose (taken from the source, e.g. its euphemism or its headline word), then echo it in at least three different paragraphs, giving it a crueler meaning each time, with the last echo in the article's closing sentence. This overrides any "no repeated joke" wording.
 - Every sting is anchored in a fact, quote or number from the source. No invented details.
 - Quotation marks only around words the source actually quotes; never invent a quote, not even a mocking one, and never in the title or subtitle.
 - Do not assert how the target stores, secures, decides or feels about anything the source does not state (no "자랑스럽게", no guessed internals); mock what is reported.
