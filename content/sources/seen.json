@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-13T23:01:58.762Z",
+  "updated_at": "2026-10-14T00:01:45.054Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -673,6 +673,14 @@
       "title": "강원랜드 출입금지 고객 86% 급증…출입제한 해제 절차 '허점'",
       "article_path": "content/articles/published/2026-10-14-dc49d430-gangwonland-ban-86-percent-four-counselors.md",
       "seen_at": "2026-10-13T23:01:58.762Z"
+    },
+    "e7cf2539897eb078f8a519d545b9b10232ca550888bd22bbcf098a303cec044f": {
+      "url": "https://www.yna.co.kr/view/AKR20261014030900055",
+      "canonical_url": "https://www.yna.co.kr/view/AKR20261014030900055",
+      "source_name": "연합뉴스 경제",
+      "title": "농진청, 5년간 기술이전 6천여건…제품화 성공률은 40%대 불과",
+      "article_path": "content/articles/published/2026-10-14-e7cf2539-nongjincheong-tech-transfer-40-percent.md",
+      "seen_at": "2026-10-14T00:01:45.054Z"
     }
   }
 }
