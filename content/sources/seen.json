@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-14T09:02:32.554Z",
+  "updated_at": "2026-10-14T10:02:07.603Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -721,6 +721,14 @@
       "title": "최태원, SK 지분 9천440억 매각 계약…델 일가에 5천440억",
       "article_path": "content/articles/published/2026-10-14-357bba6c-choi-tae-won-sk-stake-sale-prs.md",
       "seen_at": "2026-10-14T09:02:32.554Z"
+    },
+    "ed9cbc1269ba9db404b4e6a4b805b1abdccddf7bd522f2f90ee7a9ce2b77301c": {
+      "url": "https://www.npr.org/2026/10/14/nx-s1-5550974/skincare-scheme-mazal-group-investigation",
+      "canonical_url": "https://www.npr.org/2026/10/14/nx-s1-5550974/skincare-scheme-mazal-group-investigation",
+      "source_name": "NPR Business",
+      "title": "The skincare scheme that led to consumer complaints, lawsuits and a federal investigation",
+      "article_path": "content/articles/published/2026-10-14-ed9cbc12-skincare-free-samples-50000-bill.md",
+      "seen_at": "2026-10-14T10:02:07.603Z"
     }
   }
 }
