@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-14T03:01:23.181Z",
+  "updated_at": "2026-10-14T04:02:34.148Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -689,6 +689,14 @@
       "title": "맑은소프트 개인정보 유출 규모 237만건... 고객사 22곳 불똥",
       "article_path": "content/articles/published/2026-10-14-270f693d-malgeunsoft-lms-237man-leak-eight-measures.md",
       "seen_at": "2026-10-14T03:01:23.181Z"
+    },
+    "574759342450ffd1b6a8dd83a38c43345c5d8476a6e1d1dbc41b99131c8f565a": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4439151",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4439151",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "경찰, LG엔솔 전 사장 '100억 배임 의혹' 수사…가족 연계 업체에 자문료",
+      "article_path": "content/articles/published/2026-10-14-57475934-lg-energy-ex-ceo-consulting-fee-police-probe.md",
+      "seen_at": "2026-10-14T04:02:34.148Z"
     }
   }
 }
