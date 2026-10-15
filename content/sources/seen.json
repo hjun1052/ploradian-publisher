@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-15T07:01:15.080Z",
+  "updated_at": "2026-10-15T08:01:49.170Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -825,6 +825,14 @@
       "title": "2026-10-15 국장 마감 억지해석",
       "article_path": "content/articles/published/2026-10-15-9c896c43-market-2026-10-15-ea-b5-ad-ec-9e-a5-16.md",
       "seen_at": "2026-10-15T07:01:15.080Z"
+    },
+    "842cc27dff5e232ae1fdad023aec7edb083fc8f7e65460ae04c788834c0203ae": {
+      "url": "https://www.boannews.com/news/articleView.html?idxno=146364",
+      "canonical_url": "https://www.boannews.com/news/articleView.html?idxno=146364",
+      "source_name": "보안뉴스 사건사고",
+      "title": "새마을금고 400명대 개인정보 유출... 계좌정보도 포함",
+      "article_path": "content/articles/published/2026-10-15-842cc27d-saemaeul-geumgo-400-leak-balance-ip-block.md",
+      "seen_at": "2026-10-15T08:01:49.170Z"
     }
   }
 }
