@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-15T18:01:38.551Z",
+  "updated_at": "2026-10-15T19:01:23.059Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -881,6 +881,14 @@
       "title": "Sony made a $5,900 gold-plated Walkman MP3 player",
       "article_path": "content/articles/published/2026-10-16-18177a48-sony-gold-plated-walkman-5899.md",
       "seen_at": "2026-10-15T18:01:38.551Z"
+    },
+    "a4dc299544df68f2cb5ed32f87c137228d43bfec7db4772da5163db36038e83f": {
+      "url": "https://www.theverge.com/news/1012293/meta-apple-muse-spark-open-ai-model-mlx",
+      "canonical_url": "https://www.theverge.com/news/1012293/meta-apple-muse-spark-open-ai-model-mlx",
+      "source_name": "The Verge",
+      "title": "Meta and Apple team up to make Muse AI models run better on Macs",
+      "article_path": "content/articles/published/2026-10-16-a4dc2995-meta-muse-spark-open-two-mac-studios.md",
+      "seen_at": "2026-10-15T19:01:23.059Z"
     }
   }
 }
