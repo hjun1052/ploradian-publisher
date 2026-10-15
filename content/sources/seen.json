@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-15T15:01:34.303Z",
+  "updated_at": "2026-10-15T16:01:33.569Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -865,6 +865,14 @@
       "title": "삼전 9% 폭락했는데 “주식 더 받게 10만원까지 떨어져라”…직원 익명글에 주주들 발끈",
       "article_path": "content/articles/published/2026-10-16-56a9f9d1-samsung-stock-bonus-rewards-price-drop.md",
       "seen_at": "2026-10-15T15:01:34.303Z"
+    },
+    "864ab69b0810bbc60507e7f180eccdc89246e5b7b291d69112e6e94e2cee8e76": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4439438",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4439438",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "인도에 21兆 투입하는 현대차…정의선 &quot;현지화율 높일 것&quot;",
+      "article_path": "content/articles/published/2026-10-16-864ab69b-hyundai-india-21-trillion-localization-plan.md",
+      "seen_at": "2026-10-15T16:01:33.569Z"
     }
   }
 }
