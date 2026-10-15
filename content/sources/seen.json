@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-15T00:05:16.905Z",
+  "updated_at": "2026-10-15T03:02:37.704Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -793,6 +793,14 @@
       "title": "[정신아의 약속 1년②] 카카오 주가 반토막에 인적분할 승부수",
       "article_path": "content/articles/published/2026-10-15-50d1d97c-kakao-split-market-cap-promise-year.md",
       "seen_at": "2026-10-15T00:05:16.905Z"
+    },
+    "a27b5750ce539a02af1a8449df29f35b6e523de1d630b17baf83aa685e1091a9": {
+      "url": "https://www.boannews.com/news/articleView.html?idxno=146331",
+      "canonical_url": "https://www.boannews.com/news/articleView.html?idxno=146331",
+      "source_name": "보안뉴스 사건사고",
+      "title": "러시아어권 해커, 클로드 코드로 우크라이나 기관 털어",
+      "article_path": "content/articles/published/2026-10-15-a27b5750-cyberxero-open-folder-claude-code-leak.md",
+      "seen_at": "2026-10-15T03:02:37.704Z"
     }
   }
 }
