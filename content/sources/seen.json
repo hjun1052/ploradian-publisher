@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-15T04:01:58.719Z",
+  "updated_at": "2026-10-15T05:02:30.970Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -809,6 +809,14 @@
       "title": "값은 더 받고 속은 덜 채웠다…편의점 김밥의 민낯",
       "article_path": "content/articles/published/2026-10-15-478c99f7-gs25-kimbap-pricey-but-less-filling.md",
       "seen_at": "2026-10-15T04:01:58.719Z"
+    },
+    "b8b673cfec46c49e0243f77de0cbb95d523a276a3042094c95ddbae238d83a52": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4439302",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4439302",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "[정신아의 약속 1년①] 5천만 카톡 AI 에이전트로…수익화는 이제부터",
+      "article_path": "content/articles/published/2026-10-15-b8b673cf-kakao-talk-ai-agent-one-year-promise.md",
+      "seen_at": "2026-10-15T05:02:30.970Z"
     }
   }
 }
