@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-15T19:01:23.059Z",
+  "updated_at": "2026-10-15T23:03:01.192Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -889,6 +889,14 @@
       "title": "Meta and Apple team up to make Muse AI models run better on Macs",
       "article_path": "content/articles/published/2026-10-16-a4dc2995-meta-muse-spark-open-two-mac-studios.md",
       "seen_at": "2026-10-15T19:01:23.059Z"
+    },
+    "ff8d67d785b6aadd097b3823f8ec509ed8a1d48e5cb12fc18219e93607572868": {
+      "url": "https://www.yna.co.kr/view/AKR20261015160100001",
+      "canonical_url": "https://www.yna.co.kr/view/AKR20261015160100001",
+      "source_name": "연합뉴스 산업",
+      "title": "농·축협, 퇴직자 모임에 6년간 12억 지원…윤준병 \"부당 관행\"",
+      "article_path": "content/articles/published/2026-10-16-ff8d67d7-nonghyup-retiree-group-12-billion.md",
+      "seen_at": "2026-10-15T23:03:01.192Z"
     }
   }
 }
