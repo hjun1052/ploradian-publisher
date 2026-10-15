@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-15T10:01:24.723Z",
+  "updated_at": "2026-10-15T11:05:42.063Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -849,6 +849,14 @@
       "title": "'수의계약·가격비교 면제'…조달청 '우수제품'이 뭐길래",
       "article_path": "content/articles/published/2026-10-15-ee9b8d63-josaecheong-excellent-product-price-gap.md",
       "seen_at": "2026-10-15T10:01:24.723Z"
+    },
+    "4694af143a02ec40b058b068025751f53a1d143330fc4cb0d3a8b0dcd15ae880": {
+      "url": "https://www.theverge.com/games/1011785/big-walk-house-house-microsoft-xbox-bds-boycott",
+      "canonical_url": "https://www.theverge.com/games/1011785/big-walk-house-house-microsoft-xbox-bds-boycott",
+      "source_name": "The Verge",
+      "title": "Big Walk skipped Xbox to boycott Microsoft’s involvement with Israel",
+      "article_path": "content/articles/published/2026-10-15-4694af14-big-walk-xbox-boycott-windows-steam-open.md",
+      "seen_at": "2026-10-15T11:05:42.063Z"
     }
   }
 }
