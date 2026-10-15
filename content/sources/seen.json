@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-15T05:02:30.970Z",
+  "updated_at": "2026-10-15T07:01:15.080Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -817,6 +817,14 @@
       "title": "[정신아의 약속 1년①] 5천만 카톡 AI 에이전트로…수익화는 이제부터",
       "article_path": "content/articles/published/2026-10-15-b8b673cf-kakao-talk-ai-agent-one-year-promise.md",
       "seen_at": "2026-10-15T05:02:30.970Z"
+    },
+    "9c896c4371da6a47d1ef5da28ac8d81ad6fb61667679172493f1f7de87b076c7": {
+      "url": "https://news.ploradian.com/market/2026-10-15-국장-16/",
+      "canonical_url": "https://news.ploradian.com/market/2026-10-15-국장-16/",
+      "source_name": "The Ploradian 국장 마감 억지해석 데스크",
+      "title": "2026-10-15 국장 마감 억지해석",
+      "article_path": "content/articles/published/2026-10-15-9c896c43-market-2026-10-15-ea-b5-ad-ec-9e-a5-16.md",
+      "seen_at": "2026-10-15T07:01:15.080Z"
     }
   }
 }
