@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-15T11:05:42.063Z",
+  "updated_at": "2026-10-15T15:01:34.303Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -857,6 +857,14 @@
       "title": "Big Walk skipped Xbox to boycott Microsoft’s involvement with Israel",
       "article_path": "content/articles/published/2026-10-15-4694af14-big-walk-xbox-boycott-windows-steam-open.md",
       "seen_at": "2026-10-15T11:05:42.063Z"
+    },
+    "56a9f9d1881b26986651d918d986dfd3afdca65d8884e8fc420e33dbc61f5dbd": {
+      "url": "https://www.etnews.com/20261015000472",
+      "canonical_url": "https://www.etnews.com/20261015000472",
+      "source_name": "전자신문",
+      "title": "삼전 9% 폭락했는데 “주식 더 받게 10만원까지 떨어져라”…직원 익명글에 주주들 발끈",
+      "article_path": "content/articles/published/2026-10-16-56a9f9d1-samsung-stock-bonus-rewards-price-drop.md",
+      "seen_at": "2026-10-15T15:01:34.303Z"
     }
   }
 }
