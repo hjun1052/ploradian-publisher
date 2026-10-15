@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-15T09:02:15.660Z",
+  "updated_at": "2026-10-15T10:01:24.723Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -841,6 +841,14 @@
       "title": "公기관 임원 57자리 후임 인선 지연…10곳은 아예 공석",
       "article_path": "content/articles/published/2026-10-15-4da1f9b6-public-agency-57-vacant-seats-audit.md",
       "seen_at": "2026-10-15T09:02:15.660Z"
+    },
+    "ee9b8d6328addc6f339653ec91640018d1c3f66b078349b919def37f6f1df215": {
+      "url": "https://www.yna.co.kr/view/AKR20261015164600063",
+      "canonical_url": "https://www.yna.co.kr/view/AKR20261015164600063",
+      "source_name": "연합뉴스 경제",
+      "title": "'수의계약·가격비교 면제'…조달청 '우수제품'이 뭐길래",
+      "article_path": "content/articles/published/2026-10-15-ee9b8d63-josaecheong-excellent-product-price-gap.md",
+      "seen_at": "2026-10-15T10:01:24.723Z"
     }
   }
 }
