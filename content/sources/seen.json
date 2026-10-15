@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-14T23:01:41.950Z",
+  "updated_at": "2026-10-15T00:05:16.905Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -785,6 +785,14 @@
       "title": "AI 투자 '빚더미' 경고등…코어위브 주가 15.5% 폭락",
       "article_path": "content/articles/published/2026-10-15-7404108a-coreweave-plunge-ceo-blames-market-misunderstanding.md",
       "seen_at": "2026-10-14T23:01:41.950Z"
+    },
+    "50d1d97c5d0167252286c4911174b444ad5085dcd81ec4c750c8d452f5a833a1": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4439303",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4439303",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "[정신아의 약속 1년②] 카카오 주가 반토막에 인적분할 승부수",
+      "article_path": "content/articles/published/2026-10-15-50d1d97c-kakao-split-market-cap-promise-year.md",
+      "seen_at": "2026-10-15T00:05:16.905Z"
     }
   }
 }
