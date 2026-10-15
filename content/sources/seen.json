@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-15T03:02:37.704Z",
+  "updated_at": "2026-10-15T04:01:58.719Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -801,6 +801,14 @@
       "title": "러시아어권 해커, 클로드 코드로 우크라이나 기관 털어",
       "article_path": "content/articles/published/2026-10-15-a27b5750-cyberxero-open-folder-claude-code-leak.md",
       "seen_at": "2026-10-15T03:02:37.704Z"
+    },
+    "478c99f7f6a2bd8079f9dd4cbd91a861cbbd4d9f9c25f0e7e0842cc3f80b768a": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4439402",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4439402",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "값은 더 받고 속은 덜 채웠다…편의점 김밥의 민낯",
+      "article_path": "content/articles/published/2026-10-15-478c99f7-gs25-kimbap-pricey-but-less-filling.md",
+      "seen_at": "2026-10-15T04:01:58.719Z"
     }
   }
 }
