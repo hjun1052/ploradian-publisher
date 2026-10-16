@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-15T23:03:01.192Z",
+  "updated_at": "2026-10-16T00:01:06.425Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -897,6 +897,14 @@
       "title": "농·축협, 퇴직자 모임에 6년간 12억 지원…윤준병 \"부당 관행\"",
       "article_path": "content/articles/published/2026-10-16-ff8d67d7-nonghyup-retiree-group-12-billion.md",
       "seen_at": "2026-10-15T23:03:01.192Z"
+    },
+    "4b023ed000c5b35f16ee8f026d8023f2e22466b36bd32d7daf4a321fa733149f": {
+      "url": "https://www.newsis.com/view/NISX20261016_0003828404",
+      "canonical_url": "https://www.newsis.com/view/NISX20261016_0003828404",
+      "source_name": "뉴시스 경제",
+      "title": "1차 이전 공공기관 40%는 수도권에 인력 잔류…\"기준 보완해야\"",
+      "article_path": "content/articles/published/2026-10-16-4b023ed0-public-agency-relocation-residual-2321.md",
+      "seen_at": "2026-10-16T00:01:06.425Z"
     }
   }
 }
