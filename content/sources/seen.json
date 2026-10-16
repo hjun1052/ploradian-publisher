@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-16T14:31:49.497Z",
+  "updated_at": "2026-10-16T15:01:06.325Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -969,6 +969,14 @@
       "title": "Webb spots possible early-universe supernova just days after it happened",
       "article_path": "content/articles/published/2026-10-16-0c155ba5-at-2026abck-webb-early-universe-supernova-days.md",
       "seen_at": "2026-10-16T14:31:49.497Z"
+    },
+    "8753c3420820c4882715952203a27c5ecb81d0dcb9b209e2bcdb53dd40a848ab": {
+      "url": "https://www.theverge.com/transportation/1012783/tesla-roadster-flying-stunt-production-reality-musk",
+      "canonical_url": "https://www.theverge.com/transportation/1012783/tesla-roadster-flying-stunt-production-reality-musk",
+      "source_name": "The Verge",
+      "title": "The incredible flying Tesla Roadster is just for show",
+      "article_path": "content/articles/published/2026-10-17-8753c342-tesla-roadster-flying-stunt-no-price.md",
+      "seen_at": "2026-10-16T15:01:06.325Z"
     }
   }
 }
