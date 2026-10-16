@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-16T08:00:49.355Z",
+  "updated_at": "2026-10-16T09:01:58.160Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -937,6 +937,14 @@
       "title": "[카드뉴스] \"차 한 번 빌렸을 뿐인데\"… 렌터카 플랫폼 털려 면허증 160만 장 유출된 전말",
       "article_path": "content/articles/published/2026-10-16-a5dfa8be-car-sharing-license-copy-leak-1-6-million.md",
       "seen_at": "2026-10-16T08:00:49.355Z"
+    },
+    "550fc8152cdb5f54038645c6de15a64909cbc2a8c86441efa89f08a077516f1d": {
+      "url": "https://www.newsis.com/view/NISX20261016_0003829365",
+      "canonical_url": "https://www.newsis.com/view/NISX20261016_0003829365",
+      "source_name": "뉴시스 경제",
+      "title": "앤트로픽, 신용등급 'BB+' 획득…투자 적격 바로 아래",
+      "article_path": "content/articles/published/2026-10-16-550fc815-anthropic-bb-plus-rating-late-disclosure.md",
+      "seen_at": "2026-10-16T09:01:58.160Z"
     }
   }
 }
