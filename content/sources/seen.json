@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-16T17:02:04.806Z",
+  "updated_at": "2026-10-16T18:02:19.118Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -993,6 +993,14 @@
       "title": "The Sony Xperia 10 VI won’t be getting a promised update to Android 17",
       "article_path": "content/articles/published/2026-10-17-58007dde-sony-xperia-10-vi-android-17-update-dropped.md",
       "seen_at": "2026-10-16T17:02:04.806Z"
+    },
+    "ca580b1475b7847a1b70cd0acc279b029b315ee708cea4f4be2fa3cae1b4ac52": {
+      "url": "https://www.theverge.com/tech/1012846/meta-business-terms-scrape-news-publishers",
+      "canonical_url": "https://www.theverge.com/tech/1012846/meta-business-terms-scrape-news-publishers",
+      "source_name": "The Verge",
+      "title": "Meta’s new terms may allow it to train AI on news sites for free",
+      "article_path": "content/articles/published/2026-10-17-ca580b14-meta-business-terms-news-sites-ai-training.md",
+      "seen_at": "2026-10-16T18:02:19.118Z"
     }
   }
 }
