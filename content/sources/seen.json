@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-16T05:01:22.180Z",
+  "updated_at": "2026-10-16T07:00:45.910Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -921,6 +921,14 @@
       "title": "서울시 주택정책 20년백서…\"박원순 재임때 43만호 기획 사라져\"(종합)",
       "article_path": "content/articles/published/2026-10-16-84e38fd1-seoul-white-paper-430k-lost-chances.md",
       "seen_at": "2026-10-16T05:01:22.180Z"
+    },
+    "29d77e37ba41d06e0cf717ab90b0737cef935c146ae7f19f7d0ac25484b0a7c1": {
+      "url": "https://news.ploradian.com/market/2026-10-16-국장-16/",
+      "canonical_url": "https://news.ploradian.com/market/2026-10-16-국장-16/",
+      "source_name": "The Ploradian 국장 마감 억지해석 데스크",
+      "title": "2026-10-16 국장 마감 억지해석",
+      "article_path": "content/articles/published/2026-10-16-29d77e37-2026-10-16-kospi-close-nonsense.md",
+      "seen_at": "2026-10-16T07:00:45.910Z"
     }
   }
 }
