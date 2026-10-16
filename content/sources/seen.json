@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-16T07:00:45.910Z",
+  "updated_at": "2026-10-16T08:00:49.355Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -929,6 +929,14 @@
       "title": "2026-10-16 국장 마감 억지해석",
       "article_path": "content/articles/published/2026-10-16-29d77e37-2026-10-16-kospi-close-nonsense.md",
       "seen_at": "2026-10-16T07:00:45.910Z"
+    },
+    "a5dfa8be05890af3aa2fbd49be46225a78f40ede73fd711577b0d4e89440193d": {
+      "url": "https://www.boannews.com/news/articleView.html?idxno=146454",
+      "canonical_url": "https://www.boannews.com/news/articleView.html?idxno=146454",
+      "source_name": "보안뉴스 사건사고",
+      "title": "[카드뉴스] \"차 한 번 빌렸을 뿐인데\"… 렌터카 플랫폼 털려 면허증 160만 장 유출된 전말",
+      "article_path": "content/articles/published/2026-10-16-a5dfa8be-car-sharing-license-copy-leak-1-6-million.md",
+      "seen_at": "2026-10-16T08:00:49.355Z"
     }
   }
 }
