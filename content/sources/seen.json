@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-16T09:01:58.160Z",
+  "updated_at": "2026-10-16T10:01:51.970Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -945,6 +945,14 @@
       "title": "앤트로픽, 신용등급 'BB+' 획득…투자 적격 바로 아래",
       "article_path": "content/articles/published/2026-10-16-550fc815-anthropic-bb-plus-rating-late-disclosure.md",
       "seen_at": "2026-10-16T09:01:58.160Z"
+    },
+    "cd94070f7bca84f4b7a00038f8c6edfe0ce5e5747f48eed5c7e2037df2819338": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4439583",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4439583",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "공정위, 결혼서비스 17개 사업자에 과태료 부과…&quot;중요정보 고시 안해&quot;",
+      "article_path": "content/articles/published/2026-10-16-cd94070f-wedding-service-operators-fined-important-info-omission.md",
+      "seen_at": "2026-10-16T10:01:51.970Z"
     }
   }
 }
