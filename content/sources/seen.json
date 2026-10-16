@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-16T11:02:42.315Z",
+  "updated_at": "2026-10-16T14:31:49.497Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -961,6 +961,14 @@
       "title": "관광객 늘자 방긋?…호텔신라, 면세에 발목 잡힐 3분기",
       "article_path": "content/articles/published/2026-10-16-fafc881d-hotel-shilla-q3-profit-forecast-satire.md",
       "seen_at": "2026-10-16T11:02:42.315Z"
+    },
+    "0c155ba54f38bae72d3d1615589392fae8cc27005780bb5e6f337ffd4fcaa5ea": {
+      "url": "https://phys.org/news/2026-10-webb-early-universe-supernova-days.html",
+      "canonical_url": "https://phys.org/news/2026-10-webb-early-universe-supernova-days.html",
+      "source_name": "Phys.org Astronomy",
+      "title": "Webb spots possible early-universe supernova just days after it happened",
+      "article_path": "content/articles/published/2026-10-16-0c155ba5-at-2026abck-webb-early-universe-supernova-days.md",
+      "seen_at": "2026-10-16T14:31:49.497Z"
     }
   }
 }
