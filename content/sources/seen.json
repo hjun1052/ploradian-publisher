@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-16T18:02:19.118Z",
+  "updated_at": "2026-10-16T23:01:09.754Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1001,6 +1001,14 @@
       "title": "Meta’s new terms may allow it to train AI on news sites for free",
       "article_path": "content/articles/published/2026-10-17-ca580b14-meta-business-terms-news-sites-ai-training.md",
       "seen_at": "2026-10-16T18:02:19.118Z"
+    },
+    "9b7d5baeb8da4ec89ab526401738b47f3a54723faf22ce4e0f7ba4d7380e67a6": {
+      "url": "https://www.newsis.com/view/NISX20261016_0003829067",
+      "canonical_url": "https://www.newsis.com/view/NISX20261016_0003829067",
+      "source_name": "뉴시스 경제",
+      "title": "공급대책 쏟아냈는데…집은 왜 부족할까[공급의 역설①]",
+      "article_path": "content/articles/published/2026-10-17-9b7d5bae-government-housing-supply-target-completion-drop.md",
+      "seen_at": "2026-10-16T23:01:09.754Z"
     }
   }
 }
