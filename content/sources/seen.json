@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-16T04:02:48.798Z",
+  "updated_at": "2026-10-16T05:01:22.180Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -913,6 +913,14 @@
       "title": "테슬라, 하늘 나는 2세대 스포츠카 공개…\"공중 회전도\"",
       "article_path": "content/articles/published/2026-10-16-cb0709f7-tesla-roadster-flying-demo-no-driver.md",
       "seen_at": "2026-10-16T04:02:48.798Z"
+    },
+    "84e38fd187bde37b423c23a931fdeaf776bbb99ca147e2981b3acbb0579ba877": {
+      "url": "https://www.yna.co.kr/view/AKR20261016037451004",
+      "canonical_url": "https://www.yna.co.kr/view/AKR20261016037451004",
+      "source_name": "연합뉴스 경제",
+      "title": "서울시 주택정책 20년백서…\"박원순 재임때 43만호 기획 사라져\"(종합)",
+      "article_path": "content/articles/published/2026-10-16-84e38fd1-seoul-white-paper-430k-lost-chances.md",
+      "seen_at": "2026-10-16T05:01:22.180Z"
     }
   }
 }
