@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-16T15:01:06.325Z",
+  "updated_at": "2026-10-16T16:01:33.242Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -977,6 +977,14 @@
       "title": "The incredible flying Tesla Roadster is just for show",
       "article_path": "content/articles/published/2026-10-17-8753c342-tesla-roadster-flying-stunt-no-price.md",
       "seen_at": "2026-10-16T15:01:06.325Z"
+    },
+    "22aca6448df508fee6fd8a435f6592ba0221da387a88e241478d9ad4e0aee437": {
+      "url": "https://www.theverge.com/tech/1012805/apple-iphone-duo-preorder-delay",
+      "canonical_url": "https://www.theverge.com/tech/1012805/apple-iphone-duo-preorder-delay",
+      "source_name": "The Verge",
+      "title": "iPhone Duo orders are already delayed into 2027",
+      "article_path": "content/articles/published/2026-10-17-22aca644-apple-iphone-duo-preorder-delivery-slips-2027.md",
+      "seen_at": "2026-10-16T16:01:33.242Z"
     }
   }
 }
