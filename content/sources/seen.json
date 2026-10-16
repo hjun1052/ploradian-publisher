@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-16T16:01:33.242Z",
+  "updated_at": "2026-10-16T17:02:04.806Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -985,6 +985,14 @@
       "title": "iPhone Duo orders are already delayed into 2027",
       "article_path": "content/articles/published/2026-10-17-22aca644-apple-iphone-duo-preorder-delivery-slips-2027.md",
       "seen_at": "2026-10-16T16:01:33.242Z"
+    },
+    "58007dde935411572fe8f3927ca4d2ea290b5c630d2b89207570470820a14fe8": {
+      "url": "https://www.theverge.com/tech/1012789/sony-xperia-10-vi-smartphone-android-17-update-security",
+      "canonical_url": "https://www.theverge.com/tech/1012789/sony-xperia-10-vi-smartphone-android-17-update-security",
+      "source_name": "The Verge",
+      "title": "The Sony Xperia 10 VI won’t be getting a promised update to Android 17",
+      "article_path": "content/articles/published/2026-10-17-58007dde-sony-xperia-10-vi-android-17-update-dropped.md",
+      "seen_at": "2026-10-16T17:02:04.806Z"
     }
   }
 }
