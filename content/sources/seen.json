@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-17T07:00:32.032Z",
+  "updated_at": "2026-10-17T09:01:08.151Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1049,6 +1049,14 @@
       "title": "2026-10-17 이번 주의 범행 기록",
       "article_path": "content/articles/published/2026-10-17-a369ede5-2026-10-17-weekly-incident-log.md",
       "seen_at": "2026-10-17T07:00:32.032Z"
+    },
+    "d6e0367bf9830c266fd4b1cbb4c7fcdc38838dc806dc179666f5c4d9604d4114": {
+      "url": "https://www.newsis.com/view/NISX20261017_0003829976",
+      "canonical_url": "https://www.newsis.com/view/NISX20261017_0003829976",
+      "source_name": "뉴시스 경제",
+      "title": "\"빚투할 때는 어디 있었나?\"…美 CNBC 앵커, 韓 금융당국에 일침",
+      "article_path": "content/articles/published/2026-10-17-d6e0367b-fsc-investor-protection-cnbc-late-response.md",
+      "seen_at": "2026-10-17T09:01:08.151Z"
     }
   }
 }
