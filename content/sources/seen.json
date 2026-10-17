@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-17T04:05:02.555Z",
+  "updated_at": "2026-10-17T05:01:54.579Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1033,6 +1033,14 @@
       "title": "석유개발 광구 확보 무산됐는데…지질연 28억 환수 불투명",
       "article_path": "content/articles/published/2026-10-17-8a44aa79-geojil-canada-oil-fund-recovery-dispute.md",
       "seen_at": "2026-10-17T04:05:02.555Z"
+    },
+    "70f55530702cc60c0123ef03aa9f0e9471d28aa6c5b323d5bf084f9f1f823966": {
+      "url": "https://www.yna.co.kr/view/AKR20261017020600005",
+      "canonical_url": "https://www.yna.co.kr/view/AKR20261017020600005",
+      "source_name": "연합뉴스 산업",
+      "title": "앤트로픽, 한국 작가 책 21종 무단으로 AI 학습 활용",
+      "article_path": "content/articles/published/2026-10-17-70f55530-anthropic-korean-author-books-21-compensation-list.md",
+      "seen_at": "2026-10-17T05:01:54.579Z"
     }
   }
 }
