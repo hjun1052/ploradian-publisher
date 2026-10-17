@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-17T03:00:53.011Z",
+  "updated_at": "2026-10-17T04:05:02.555Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1025,6 +1025,14 @@
       "title": "OK저축은행, 계좌번호 등 고객 268명 정보 추가 유출",
       "article_path": "content/articles/published/2026-10-17-1c3d5433-ok-savings-bank-second-leak-three-days.md",
       "seen_at": "2026-10-17T03:00:53.011Z"
+    },
+    "8a44aa797937f4c8a41e0003d9c9a83f2f64ab564eeee87f231d365e66b36582": {
+      "url": "https://www.yna.co.kr/view/AKR20261016130800017",
+      "canonical_url": "https://www.yna.co.kr/view/AKR20261016130800017",
+      "source_name": "연합뉴스 산업",
+      "title": "석유개발 광구 확보 무산됐는데…지질연 28억 환수 불투명",
+      "article_path": "content/articles/published/2026-10-17-8a44aa79-geojil-canada-oil-fund-recovery-dispute.md",
+      "seen_at": "2026-10-17T04:05:02.555Z"
     }
   }
 }
