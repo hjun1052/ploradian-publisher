@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-17T10:04:30.471Z",
+  "updated_at": "2026-10-17T11:02:58.647Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1065,6 +1065,14 @@
       "title": "화천 파크골프장 입장료 1만5천원으로 인상…만원 지역화폐 환급",
       "article_path": "content/articles/published/2026-10-17-c7f01148-hwacheon-park-golf-fee-voucher-refund.md",
       "seen_at": "2026-10-17T10:04:30.471Z"
+    },
+    "27cf17229d9a723500a37513f465bdc7ccedf16f7b26596f7e071e814902c9b8": {
+      "url": "https://www.etnews.com/20261016000244",
+      "canonical_url": "https://www.etnews.com/20261016000244",
+      "source_name": "전자신문",
+      "title": "공중으로 뜨고 거꾸로 달린다…소름 돋는 테슬라 신차",
+      "article_path": "content/articles/published/2026-10-17-27cf1722-tesla-roadster-upside-down-demo-2028.md",
+      "seen_at": "2026-10-17T11:02:58.647Z"
     }
   }
 }
