@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-17T00:00:58.661Z",
+  "updated_at": "2026-10-17T03:00:53.011Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1017,6 +1017,14 @@
       "title": "[26년 만의 재통합①] 그때는 맞고, 지금은 틀리다…발전 5사 합치는 이유",
       "article_path": "content/articles/published/2026-10-17-150a88d4-power-five-merge-hanguk-baljeon-competition.md",
       "seen_at": "2026-10-17T00:00:58.661Z"
+    },
+    "1c3d543338668c96b5de715d6bffd9f8f140eca29e80b25176da76c49e753544": {
+      "url": "https://www.boannews.com/news/articleView.html?idxno=146469",
+      "canonical_url": "https://www.boannews.com/news/articleView.html?idxno=146469",
+      "source_name": "보안뉴스 사건사고",
+      "title": "OK저축은행, 계좌번호 등 고객 268명 정보 추가 유출",
+      "article_path": "content/articles/published/2026-10-17-1c3d5433-ok-savings-bank-second-leak-three-days.md",
+      "seen_at": "2026-10-17T03:00:53.011Z"
     }
   }
 }
