@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-17T05:01:54.579Z",
+  "updated_at": "2026-10-17T07:00:32.032Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1041,6 +1041,14 @@
       "title": "앤트로픽, 한국 작가 책 21종 무단으로 AI 학습 활용",
       "article_path": "content/articles/published/2026-10-17-70f55530-anthropic-korean-author-books-21-compensation-list.md",
       "seen_at": "2026-10-17T05:01:54.579Z"
+    },
+    "a369ede540aa44c7399d4c57deb7eec0cfedfb4d2ba0b1649f568f5cee11e784": {
+      "url": "https://news.ploradian.com/weekend/2026-10-17-weekly-incident-log/",
+      "canonical_url": "https://news.ploradian.com/weekend/2026-10-17-weekly-incident-log/",
+      "source_name": "The Ploradian 주말 결산 데스크",
+      "title": "2026-10-17 이번 주의 범행 기록",
+      "article_path": "content/articles/published/2026-10-17-a369ede5-2026-10-17-weekly-incident-log.md",
+      "seen_at": "2026-10-17T07:00:32.032Z"
     }
   }
 }
