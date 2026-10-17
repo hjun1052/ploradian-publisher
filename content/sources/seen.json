@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-17T11:02:58.647Z",
+  "updated_at": "2026-10-17T15:01:44.386Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1073,6 +1073,14 @@
       "title": "공중으로 뜨고 거꾸로 달린다…소름 돋는 테슬라 신차",
       "article_path": "content/articles/published/2026-10-17-27cf1722-tesla-roadster-upside-down-demo-2028.md",
       "seen_at": "2026-10-17T11:02:58.647Z"
+    },
+    "46d8db9caa03fa1e146c1e111c3312f5597fe05cb1e8c5cbedf566373e3d4bf8": {
+      "url": "https://www.etnews.com/20261015000418",
+      "canonical_url": "https://www.etnews.com/20261015000418",
+      "source_name": "전자신문",
+      "title": "신입 면접에 AI 고객 도입…“10분간 대화하는 능력 보고 뽑는다”",
+      "article_path": "content/articles/published/2026-10-18-46d8db9c-mckinsey-ai-virtual-customer-interview-hiring-pilot.md",
+      "seen_at": "2026-10-17T15:01:44.386Z"
     }
   }
 }
