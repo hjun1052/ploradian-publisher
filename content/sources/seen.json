@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-17T15:01:44.386Z",
+  "updated_at": "2026-10-17T16:01:40.315Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1081,6 +1081,14 @@
       "title": "신입 면접에 AI 고객 도입…“10분간 대화하는 능력 보고 뽑는다”",
       "article_path": "content/articles/published/2026-10-18-46d8db9c-mckinsey-ai-virtual-customer-interview-hiring-pilot.md",
       "seen_at": "2026-10-17T15:01:44.386Z"
+    },
+    "ccef49bb2a02aca3f8837f7dc003e30810e782cd45a85a755aefdb027350c860": {
+      "url": "https://www.newsis.com/view/NISX20261013_0003823852",
+      "canonical_url": "https://www.newsis.com/view/NISX20261013_0003823852",
+      "source_name": "뉴시스 경제",
+      "title": "\"주식은 안 내는데 코인은 왜?\"…2030 분노 키운 가상자산 과세 형평성 논란",
+      "article_path": "content/articles/published/2026-10-18-ccef49bb-virtual-asset-tax-fairness-2027-plan.md",
+      "seen_at": "2026-10-17T16:01:40.315Z"
     }
   }
 }
