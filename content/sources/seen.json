@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-17T17:02:14.882Z",
+  "updated_at": "2026-10-17T18:03:00.503Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1097,6 +1097,14 @@
       "title": "中창신메모리, 3Q 매출 600% 폭증 전망…\"최대 4000억원 자사주 매입\"",
       "article_path": "content/articles/published/2026-10-18-767dd97f-changxin-memory-q3-buyback-earnings-satire.md",
       "seen_at": "2026-10-17T17:02:14.882Z"
+    },
+    "de0cce47f02c45d948f6b05ab3fe2cab655e8049bef2b2325da03ec3ea6d5dc5": {
+      "url": "https://www.theverge.com/transportation/1013088/mercedes-amg-gt-suv-price-specs-performance",
+      "canonical_url": "https://www.theverge.com/transportation/1013088/mercedes-amg-gt-suv-price-specs-performance",
+      "source_name": "The Verge",
+      "title": "Mercedes-AMG’s first ground-up SUV is a 1,150hp electric beast",
+      "article_path": "content/articles/published/2026-10-18-de0cce47-mercedes-amg-gt-suv-recorded-engine-sound.md",
+      "seen_at": "2026-10-17T18:03:00.503Z"
     }
   }
 }
