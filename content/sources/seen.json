@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-16T23:01:09.754Z",
+  "updated_at": "2026-10-17T00:00:58.661Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1009,6 +1009,14 @@
       "title": "공급대책 쏟아냈는데…집은 왜 부족할까[공급의 역설①]",
       "article_path": "content/articles/published/2026-10-17-9b7d5bae-government-housing-supply-target-completion-drop.md",
       "seen_at": "2026-10-16T23:01:09.754Z"
+    },
+    "150a88d42cf2cfc3a032cbe0b2062e52cac2da485b30970d2a13c7eb5897a70d": {
+      "url": "https://www.newsis.com/view/NISX20261016_0003829606",
+      "canonical_url": "https://www.newsis.com/view/NISX20261016_0003829606",
+      "source_name": "뉴시스 경제",
+      "title": "[26년 만의 재통합①] 그때는 맞고, 지금은 틀리다…발전 5사 합치는 이유",
+      "article_path": "content/articles/published/2026-10-17-150a88d4-power-five-merge-hanguk-baljeon-competition.md",
+      "seen_at": "2026-10-17T00:00:58.661Z"
     }
   }
 }
