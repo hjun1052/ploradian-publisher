@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-17T09:01:08.151Z",
+  "updated_at": "2026-10-17T10:04:30.471Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1057,6 +1057,14 @@
       "title": "\"빚투할 때는 어디 있었나?\"…美 CNBC 앵커, 韓 금융당국에 일침",
       "article_path": "content/articles/published/2026-10-17-d6e0367b-fsc-investor-protection-cnbc-late-response.md",
       "seen_at": "2026-10-17T09:01:08.151Z"
+    },
+    "c7f011485e2fb4cb63aee9b4c534a45f1968f7e3e9b4878d14f0c9bc62669aca": {
+      "url": "https://www.yna.co.kr/view/AKR20261016118900062",
+      "canonical_url": "https://www.yna.co.kr/view/AKR20261016118900062",
+      "source_name": "연합뉴스 산업",
+      "title": "화천 파크골프장 입장료 1만5천원으로 인상…만원 지역화폐 환급",
+      "article_path": "content/articles/published/2026-10-17-c7f01148-hwacheon-park-golf-fee-voucher-refund.md",
+      "seen_at": "2026-10-17T10:04:30.471Z"
     }
   }
 }
