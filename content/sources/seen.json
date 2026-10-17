@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-17T22:00:28.829Z",
+  "updated_at": "2026-10-17T23:03:05.786Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1113,6 +1113,14 @@
       "title": "2026-10-18 주말 우화",
       "article_path": "content/articles/published/2026-10-18-e79b1c12-ellibeiteoga-annaemuneul-ilgo-naseoya-umjiggin-iyu.md",
       "seen_at": "2026-10-17T22:00:28.829Z"
+    },
+    "5a4c754d17c711fad19a4ba522738c58906e04b62b29cf9b17f8cfeb8b424050": {
+      "url": "https://www.yna.co.kr/view/AKR20261016164600008",
+      "canonical_url": "https://www.yna.co.kr/view/AKR20261016164600008",
+      "source_name": "연합뉴스 경제",
+      "title": "신한증권, 추천 안한 주식에도 '종목추천 이용료'…금감원 지적",
+      "article_path": "content/articles/published/2026-10-18-5a4c754d-shinhan-recommendation-fee-free-claim.md",
+      "seen_at": "2026-10-17T23:03:05.786Z"
     }
   }
 }
