@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-17T18:03:00.503Z",
+  "updated_at": "2026-10-17T22:00:28.829Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1105,6 +1105,14 @@
       "title": "Mercedes-AMG’s first ground-up SUV is a 1,150hp electric beast",
       "article_path": "content/articles/published/2026-10-18-de0cce47-mercedes-amg-gt-suv-recorded-engine-sound.md",
       "seen_at": "2026-10-17T18:03:00.503Z"
+    },
+    "e79b1c12e3510e9871037cb990dfa6f8b25171f9a454221e06a01f25119a0bca": {
+      "url": "https://news.ploradian.com/weekend/2026-10-18-weekend-fable-us-2026-10-17/",
+      "canonical_url": "https://news.ploradian.com/weekend/2026-10-18-weekend-fable-us-2026-10-17/",
+      "source_name": "The Ploradian 주말 우화 투고란",
+      "title": "2026-10-18 주말 우화",
+      "article_path": "content/articles/published/2026-10-18-e79b1c12-ellibeiteoga-annaemuneul-ilgo-naseoya-umjiggin-iyu.md",
+      "seen_at": "2026-10-17T22:00:28.829Z"
     }
   }
 }
