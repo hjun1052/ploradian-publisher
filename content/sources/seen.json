@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-17T16:01:40.315Z",
+  "updated_at": "2026-10-17T17:02:14.882Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1089,6 +1089,14 @@
       "title": "\"주식은 안 내는데 코인은 왜?\"…2030 분노 키운 가상자산 과세 형평성 논란",
       "article_path": "content/articles/published/2026-10-18-ccef49bb-virtual-asset-tax-fairness-2027-plan.md",
       "seen_at": "2026-10-17T16:01:40.315Z"
+    },
+    "767dd97fea426d50ac75902835caa6e582684b8f1ab4b6e4966dadba260f5e07": {
+      "url": "https://www.newsis.com/view/NISX20261017_0003830135",
+      "canonical_url": "https://www.newsis.com/view/NISX20261017_0003830135",
+      "source_name": "뉴시스 경제",
+      "title": "中창신메모리, 3Q 매출 600% 폭증 전망…\"최대 4000억원 자사주 매입\"",
+      "article_path": "content/articles/published/2026-10-18-767dd97f-changxin-memory-q3-buyback-earnings-satire.md",
+      "seen_at": "2026-10-17T17:02:14.882Z"
     }
   }
 }
