@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-18T05:01:45.566Z",
+  "updated_at": "2026-10-18T07:00:25.205Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1145,6 +1145,14 @@
       "title": "\"감정가 50억 아파트, 40억에 낙찰\"…전문가가 본 서울 부동산의 이상 징후",
       "article_path": "content/articles/published/2026-10-18-7318e3d4-gamjeongga-warning-yeouido-apartment-auction-advice.md",
       "seen_at": "2026-10-18T05:01:45.566Z"
+    },
+    "43c9fbb8c9cb2e25bca29c64d3c05f429ac841a4e6f19b7f3d7808c68482cac4": {
+      "url": "https://news.ploradian.com/weekend/2026-10-18-ai-next-week-prophecy/",
+      "canonical_url": "https://news.ploradian.com/weekend/2026-10-18-ai-next-week-prophecy/",
+      "source_name": "The Ploradian 다음 주 예언 데스크",
+      "title": "2026-10-18 인공지능이 예측하는 다음 주",
+      "article_path": "content/articles/published/2026-10-18-43c9fbb8-ai-predicts-next-week-ufo-satellite-defense-chaos.md",
+      "seen_at": "2026-10-18T07:00:25.205Z"
     }
   }
 }
