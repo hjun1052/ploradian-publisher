@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-18T04:02:18.385Z",
+  "updated_at": "2026-10-18T05:01:45.566Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1137,6 +1137,14 @@
       "title": "[해외 자회사 IPO①] 솔리다임 美 상장…SK하이닉스 이사회 책임은",
       "article_path": "content/articles/published/2026-10-18-04da39ef-solidigm-ipo-sk-hynix-board-shareholder-duty.md",
       "seen_at": "2026-10-18T04:02:18.385Z"
+    },
+    "7318e3d4a9968bb5db406cbaf60f88f1fd7b91a8a233af547de09640178995d7": {
+      "url": "https://www.newsis.com/view/NISX20261018_0003830257",
+      "canonical_url": "https://www.newsis.com/view/NISX20261018_0003830257",
+      "source_name": "뉴시스 경제",
+      "title": "\"감정가 50억 아파트, 40억에 낙찰\"…전문가가 본 서울 부동산의 이상 징후",
+      "article_path": "content/articles/published/2026-10-18-7318e3d4-gamjeongga-warning-yeouido-apartment-auction-advice.md",
+      "seen_at": "2026-10-18T05:01:45.566Z"
     }
   }
 }
