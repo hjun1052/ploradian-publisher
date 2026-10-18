@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-18T17:03:14.468Z",
+  "updated_at": "2026-10-18T21:01:22.657Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1209,6 +1209,14 @@
       "title": "최태원, '한일 경제연대' 또 제안…&quot;6조달러 시장 형성 가능&quot;",
       "article_path": "content/articles/published/2026-10-19-97012758-choi-korea-japan-economic-bloc-claim.md",
       "seen_at": "2026-10-18T17:03:14.468Z"
+    },
+    "4f5e45c1c55f7b2b4d39f134e0e56a6e7fa54869b0846df8257970a6b11a8f37": {
+      "url": "https://www.yna.co.kr/view/AKR20261018027100002",
+      "canonical_url": "https://www.yna.co.kr/view/AKR20261018027100002",
+      "source_name": "연합뉴스 경제",
+      "title": "339조 굴리는 국부펀드, 사내AI 핵심은 중국산…\"보안의식 허술\"",
+      "article_path": "content/articles/published/2026-10-19-4f5e45c1-kic-inhouse-ai-chinese-model-gpu.md",
+      "seen_at": "2026-10-18T21:01:22.657Z"
     }
   }
 }
