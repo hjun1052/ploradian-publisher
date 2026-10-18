@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-18T00:01:14.944Z",
+  "updated_at": "2026-10-18T04:02:18.385Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1129,6 +1129,14 @@
       "title": "AI주 급락 뒤엔 '빚 부담'…데이터센터 위기 오나",
       "article_path": "content/articles/published/2026-10-18-54bce9b3-ai-stock-selloff-youtube-finance-blame.md",
       "seen_at": "2026-10-18T00:01:14.944Z"
+    },
+    "04da39ef15e0a868523115609b194f4e9f21d7a7bccb6c05bdbe17d1cb20f611": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4439764",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4439764",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "[해외 자회사 IPO①] 솔리다임 美 상장…SK하이닉스 이사회 책임은",
+      "article_path": "content/articles/published/2026-10-18-04da39ef-solidigm-ipo-sk-hynix-board-shareholder-duty.md",
+      "seen_at": "2026-10-18T04:02:18.385Z"
     }
   }
 }
