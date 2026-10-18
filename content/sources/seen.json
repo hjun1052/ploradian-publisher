@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-18T07:00:25.205Z",
+  "updated_at": "2026-10-18T09:01:52.595Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1153,6 +1153,14 @@
       "title": "2026-10-18 인공지능이 예측하는 다음 주",
       "article_path": "content/articles/published/2026-10-18-43c9fbb8-ai-predicts-next-week-ufo-satellite-defense-chaos.md",
       "seen_at": "2026-10-18T07:00:25.205Z"
+    },
+    "a1bbc3ca88741ba2dfef1c25e4da468aff6efc08e88932a638b8361709525294": {
+      "url": "https://www.etnews.com/20261016000228",
+      "canonical_url": "https://www.etnews.com/20261016000228",
+      "source_name": "전자신문",
+      "title": "[단독] 네이버, 멤버십 '무료배송' 기준 바꾼다…'최종 결제 1만원 이상'으로",
+      "article_path": "content/articles/published/2026-10-18-a1bbc3ca-naver-plus-free-shipping-instant-discount-rule.md",
+      "seen_at": "2026-10-18T09:01:52.595Z"
     }
   }
 }
