@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-18T15:01:20.167Z",
+  "updated_at": "2026-10-18T16:01:30.968Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1193,6 +1193,14 @@
       "title": "신세계백화점 강남점 출차 지연…\"5시간째 제자리, 지옥 같아\"",
       "article_path": "content/articles/published/2026-10-19-a3fcf0d3-shinsegae-gangnam-parking-exit-delay-five-hours.md",
       "seen_at": "2026-10-18T15:01:20.167Z"
+    },
+    "73fac5b90e74dff9552ff4af47f74253aabb2bc7bf18e7de68d07b4bf19d85a9": {
+      "url": "https://www.etnews.com/20261016000332",
+      "canonical_url": "https://www.etnews.com/20261016000332",
+      "source_name": "전자신문",
+      "title": "사람과 무술 대결하는 로봇…공중제비에 발차기까지",
+      "article_path": "content/articles/published/2026-10-19-73fac5b9-ajibot-a3-kung-fu-video-action-actors.md",
+      "seen_at": "2026-10-18T16:01:30.968Z"
     }
   }
 }
