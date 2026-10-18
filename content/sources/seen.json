@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-18T11:01:33.798Z",
+  "updated_at": "2026-10-18T14:31:01.225Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1177,6 +1177,14 @@
       "title": "'가성비' 벗은 中 화장품…K뷰티 색조부터 파고든다",
       "article_path": "content/articles/published/2026-10-18-d71aff8f-flower-nose-blusher-price-china-cosmetics.md",
       "seen_at": "2026-10-18T11:01:33.798Z"
+    },
+    "2f2b2409b053709ab8fa165436dcabd069a517483b418447179ee67d07944c1f": {
+      "url": "https://phys.org/news/2026-10-shredded-star-reveals-massive-black.html",
+      "canonical_url": "https://phys.org/news/2026-10-shredded-star-reveals-massive-black.html",
+      "source_name": "Phys.org Astronomy",
+      "title": "Shredded star reveals a massive black hole wandering far from its galaxy&#039;s center",
+      "article_path": "content/articles/published/2026-10-18-2f2b2409-tde-2023mfm-wandering-black-hole-off-center-galaxy.md",
+      "seen_at": "2026-10-18T14:31:01.225Z"
     }
   }
 }
