@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-18T22:00:25.888Z",
+  "updated_at": "2026-10-18T23:01:26.260Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1225,6 +1225,14 @@
       "title": "2026-10-19 새 한 주를 맞이하는 비장한 각오의 주주들",
       "article_path": "content/articles/published/2026-10-19-c04a21d2-2026-10-19-shareholder-rally.md",
       "seen_at": "2026-10-18T22:00:25.888Z"
+    },
+    "c2929bb0a822ca4d963dd0b7d8a9e8c9fc98d2a0734f7d6893cff8b8070f6568": {
+      "url": "https://www.yna.co.kr/view/AKR20261016137600017",
+      "canonical_url": "https://www.yna.co.kr/view/AKR20261016137600017",
+      "source_name": "연합뉴스 산업",
+      "title": "최고 위험등급 해킹 취약점도 점검 안했다…과기부 관리 허점",
+      "article_path": "content/articles/published/2026-10-19-c2929bb0-msit-security-guidelines-18-unchecked.md",
+      "seen_at": "2026-10-18T23:01:26.260Z"
     }
   }
 }
