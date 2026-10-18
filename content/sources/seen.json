@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-18T21:01:22.657Z",
+  "updated_at": "2026-10-18T22:00:25.888Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1217,6 +1217,14 @@
       "title": "339조 굴리는 국부펀드, 사내AI 핵심은 중국산…\"보안의식 허술\"",
       "article_path": "content/articles/published/2026-10-19-4f5e45c1-kic-inhouse-ai-chinese-model-gpu.md",
       "seen_at": "2026-10-18T21:01:22.657Z"
+    },
+    "c04a21d2eb541e99fdc84dc95d280dde7b17a2b73b259d61e52a7a69ca1c6662": {
+      "url": "https://news.ploradian.com/market/2026-10-19-shareholder-rally/",
+      "canonical_url": "https://news.ploradian.com/market/2026-10-19-shareholder-rally/",
+      "source_name": "The Ploradian 비장한 주주 데스크",
+      "title": "2026-10-19 새 한 주를 맞이하는 비장한 각오의 주주들",
+      "article_path": "content/articles/published/2026-10-19-c04a21d2-2026-10-19-shareholder-rally.md",
+      "seen_at": "2026-10-18T22:00:25.888Z"
     }
   }
 }
