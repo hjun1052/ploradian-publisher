@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-17T23:03:05.786Z",
+  "updated_at": "2026-10-18T00:01:14.944Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1121,6 +1121,14 @@
       "title": "신한증권, 추천 안한 주식에도 '종목추천 이용료'…금감원 지적",
       "article_path": "content/articles/published/2026-10-18-5a4c754d-shinhan-recommendation-fee-free-claim.md",
       "seen_at": "2026-10-17T23:03:05.786Z"
+    },
+    "54bce9b3bd8fc7eb4ae45c835bcec700b49694e26b40a2c335abcfe58f1ce938": {
+      "url": "https://www.newsis.com/view/NISX20261017_0003830039",
+      "canonical_url": "https://www.newsis.com/view/NISX20261017_0003830039",
+      "source_name": "뉴시스 경제",
+      "title": "AI주 급락 뒤엔 '빚 부담'…데이터센터 위기 오나",
+      "article_path": "content/articles/published/2026-10-18-54bce9b3-ai-stock-selloff-youtube-finance-blame.md",
+      "seen_at": "2026-10-18T00:01:14.944Z"
     }
   }
 }
