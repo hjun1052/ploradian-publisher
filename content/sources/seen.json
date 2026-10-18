@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-18T16:01:30.968Z",
+  "updated_at": "2026-10-18T17:03:14.468Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1201,6 +1201,14 @@
       "title": "사람과 무술 대결하는 로봇…공중제비에 발차기까지",
       "article_path": "content/articles/published/2026-10-19-73fac5b9-ajibot-a3-kung-fu-video-action-actors.md",
       "seen_at": "2026-10-18T16:01:30.968Z"
+    },
+    "9701275885e30b7c4602bb37d37a14dfd3773f275ae99d715c48c9be1107b808": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4439781",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4439781",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "최태원, '한일 경제연대' 또 제안…&quot;6조달러 시장 형성 가능&quot;",
+      "article_path": "content/articles/published/2026-10-19-97012758-choi-korea-japan-economic-bloc-claim.md",
+      "seen_at": "2026-10-18T17:03:14.468Z"
     }
   }
 }
