@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-18T14:31:01.225Z",
+  "updated_at": "2026-10-18T15:01:20.167Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1185,6 +1185,14 @@
       "title": "Shredded star reveals a massive black hole wandering far from its galaxy&#039;s center",
       "article_path": "content/articles/published/2026-10-18-2f2b2409-tde-2023mfm-wandering-black-hole-off-center-galaxy.md",
       "seen_at": "2026-10-18T14:31:01.225Z"
+    },
+    "a3fcf0d3530b81fadf39a12a60ae134e700cc3fe00ac100709d6c618791915ac": {
+      "url": "https://www.yna.co.kr/view/AKR20261018060200004",
+      "canonical_url": "https://www.yna.co.kr/view/AKR20261018060200004",
+      "source_name": "연합뉴스 산업",
+      "title": "신세계백화점 강남점 출차 지연…\"5시간째 제자리, 지옥 같아\"",
+      "article_path": "content/articles/published/2026-10-19-a3fcf0d3-shinsegae-gangnam-parking-exit-delay-five-hours.md",
+      "seen_at": "2026-10-18T15:01:20.167Z"
     }
   }
 }
