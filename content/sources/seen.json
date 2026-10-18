@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-18T09:01:52.595Z",
+  "updated_at": "2026-10-18T10:02:58.664Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1161,6 +1161,14 @@
       "title": "[단독] 네이버, 멤버십 '무료배송' 기준 바꾼다…'최종 결제 1만원 이상'으로",
       "article_path": "content/articles/published/2026-10-18-a1bbc3ca-naver-plus-free-shipping-instant-discount-rule.md",
       "seen_at": "2026-10-18T09:01:52.595Z"
+    },
+    "a5ac77ff715e319d25b1f8ed2b985e44185ddf92c90e6c9dc410b58851e3f07b": {
+      "url": "https://www.newsis.com/view/NISX20261018_0003830526",
+      "canonical_url": "https://www.newsis.com/view/NISX20261018_0003830526",
+      "source_name": "뉴시스 경제",
+      "title": "국토부 \"강남 집값 떨어지고 매물 쌓여…시장 하향 안정 신호\"",
+      "article_path": "content/articles/published/2026-10-18-a5ac77ff-gangnam-prices-fall-ministry-calls-stable.md",
+      "seen_at": "2026-10-18T10:02:58.664Z"
     }
   }
 }
