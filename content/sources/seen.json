@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-19T09:03:38.805Z",
+  "updated_at": "2026-10-19T10:03:16.171Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1281,6 +1281,14 @@
       "title": "오리온 중앙일보 인수 추진에 행동주의 펀드들 '제동'(종합)",
       "article_path": "content/articles/published/2026-10-19-59feb9f2-orion-joongang-ilbo-activist-funds-letter.md",
       "seen_at": "2026-10-19T09:03:38.805Z"
+    },
+    "a990eda818c0f84a893315203673c3b0b4599e6208420f97ea6da5fdc3604c8c": {
+      "url": "https://www.newsis.com/view/NISX20261019_0003831979",
+      "canonical_url": "https://www.newsis.com/view/NISX20261019_0003831979",
+      "source_name": "뉴시스 경제",
+      "title": "美정부, 올해 순이자비용 1417조원 넘어…국방비보다 많아",
+      "article_path": "content/articles/published/2026-10-19-a990eda8-us-net-interest-cost-exceeds-defense-spending.md",
+      "seen_at": "2026-10-19T10:03:16.171Z"
     }
   }
 }
