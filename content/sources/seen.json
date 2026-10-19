@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-19T07:00:30.673Z",
+  "updated_at": "2026-10-19T09:03:38.805Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1273,6 +1273,14 @@
       "title": "2026-10-19 국장 마감 억지해석",
       "article_path": "content/articles/published/2026-10-19-01a0f7bb-market-2026-10-19-ea-b5-ad-ec-9e-a5-16.md",
       "seen_at": "2026-10-19T07:00:30.673Z"
+    },
+    "59feb9f2ea22e896a5149d62e09ad77dd87a4ae58bfd234427326f0a0ec1d35e": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4439958",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4439958",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "오리온 중앙일보 인수 추진에 행동주의 펀드들 '제동'(종합)",
+      "article_path": "content/articles/published/2026-10-19-59feb9f2-orion-joongang-ilbo-activist-funds-letter.md",
+      "seen_at": "2026-10-19T09:03:38.805Z"
     }
   }
 }
