@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-19T11:01:26.562Z",
+  "updated_at": "2026-10-19T15:01:26.822Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1297,6 +1297,14 @@
       "title": "“주차장에 5시간째 갇혀 못나가”…신세계百 강남점에 뭔일이?",
       "article_path": "content/articles/published/2026-10-19-53faa2cd-shinsegae-gangnam-parking-exit-delay-rain.md",
       "seen_at": "2026-10-19T11:01:26.562Z"
+    },
+    "2ded42e4dab2b0f7f0a86116814dd719c878eaa1c01731cc255bed6151eadbb3": {
+      "url": "https://www.theverge.com/tech/1013667/elon-musk-space-x-shares-us-children",
+      "canonical_url": "https://www.theverge.com/tech/1013667/elon-musk-space-x-shares-us-children",
+      "source_name": "The Verge",
+      "title": "Elon Musk promises to give one SpaceX share to every child in the US",
+      "article_path": "content/articles/published/2026-10-20-2ded42e4-musk-spacex-one-share-every-child.md",
+      "seen_at": "2026-10-19T15:01:26.822Z"
     }
   }
 }
