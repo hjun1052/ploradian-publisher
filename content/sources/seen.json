@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-19T00:04:58.782Z",
+  "updated_at": "2026-10-19T03:00:51.798Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1241,6 +1241,14 @@
       "title": "셀트리온 &quot;4분기 영업익 6천억 목표 달성 가능&quot;",
       "article_path": "content/articles/published/2026-10-19-eb8528ba-celltrion-q4-operating-profit-target-claim.md",
       "seen_at": "2026-10-19T00:04:58.782Z"
+    },
+    "9eebe0fcd788d1ac63b282634824a799e365ad048be21daa1732fab4a3e2b247": {
+      "url": "https://www.boannews.com/news/articleView.html?idxno=146479",
+      "canonical_url": "https://www.boannews.com/news/articleView.html?idxno=146479",
+      "source_name": "보안뉴스 사건사고",
+      "title": "커피전문점 ‘할리스’ 해킹으로 고객 개인정보 유출... 비밀번호까지 포함",
+      "article_path": "content/articles/published/2026-10-19-9eebe0fc-hollys-membership-35-days-breach-notice.md",
+      "seen_at": "2026-10-19T03:00:51.798Z"
     }
   }
 }
