@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-19T17:03:31.008Z",
+  "updated_at": "2026-10-19T18:01:53.907Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1321,6 +1321,14 @@
       "title": "A hacker broke into John Deere and SharkNinja with an army of AI agents",
       "article_path": "content/articles/published/2026-10-20-c161d6ba-cairn-ai-agents-breach-100-websites.md",
       "seen_at": "2026-10-19T17:03:31.008Z"
+    },
+    "b0ef1cc24d7131641e5d589b8ea4f280391b21e7d02798eca0c3942af2dab018": {
+      "url": "https://www.theverge.com/tech/1013735/amazon-x-energy-aep-nuclear-indiana",
+      "canonical_url": "https://www.theverge.com/tech/1013735/amazon-x-energy-aep-nuclear-indiana",
+      "source_name": "The Verge",
+      "title": "Amazon is funding a new nuclear plant in Indiana",
+      "article_path": "content/articles/published/2026-10-20-b0ef1cc2-amazon-indiana-nuclear-plant-no-construction-date.md",
+      "seen_at": "2026-10-19T18:01:53.907Z"
     }
   }
 }
