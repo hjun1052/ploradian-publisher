@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-19T03:00:51.798Z",
+  "updated_at": "2026-10-19T04:03:03.407Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1249,6 +1249,14 @@
       "title": "커피전문점 ‘할리스’ 해킹으로 고객 개인정보 유출... 비밀번호까지 포함",
       "article_path": "content/articles/published/2026-10-19-9eebe0fc-hollys-membership-35-days-breach-notice.md",
       "seen_at": "2026-10-19T03:00:51.798Z"
+    },
+    "a3a55d11d6be9fbcd1af0434b22ef270420139f4c73013affc94db57dec4f757": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4439906",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4439906",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "담합 걸렸는데 반복…한샘 7년간 20건·현대리바트 18건 적발",
+      "article_path": "content/articles/published/2026-10-19-a3a55d11-hanssem-collusion-twenty-cases-attendance.md",
+      "seen_at": "2026-10-19T04:03:03.407Z"
     }
   }
 }
