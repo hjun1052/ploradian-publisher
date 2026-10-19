@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-19T04:03:03.407Z",
+  "updated_at": "2026-10-19T05:01:10.069Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1257,6 +1257,14 @@
       "title": "담합 걸렸는데 반복…한샘 7년간 20건·현대리바트 18건 적발",
       "article_path": "content/articles/published/2026-10-19-a3a55d11-hanssem-collusion-twenty-cases-attendance.md",
       "seen_at": "2026-10-19T04:03:03.407Z"
+    },
+    "da26f0ceca73072b776398c9801718c328b93cce4cf3712b7cee0f9ac49ed9f9": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4439880",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4439880",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "행동주의펀드, 오리온에 &quot;중앙일보 인수 중단·오너일가 이사회 참여&quot; 요구",
+      "article_path": "content/articles/published/2026-10-19-da26f0ce-orion-fcp-joongang-dividend-owner-family.md",
+      "seen_at": "2026-10-19T05:01:10.069Z"
     }
   }
 }
