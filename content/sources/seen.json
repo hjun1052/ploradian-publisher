@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-19T15:01:26.822Z",
+  "updated_at": "2026-10-19T16:01:53.742Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1305,6 +1305,14 @@
       "title": "Elon Musk promises to give one SpaceX share to every child in the US",
       "article_path": "content/articles/published/2026-10-20-2ded42e4-musk-spacex-one-share-every-child.md",
       "seen_at": "2026-10-19T15:01:26.822Z"
+    },
+    "51bdd869f22df93b2ce0b57874eae59bee30e3ea610d5f231ede985f4cac8ef0": {
+      "url": "https://www.etnews.com/20261019000200",
+      "canonical_url": "https://www.etnews.com/20261019000200",
+      "source_name": "전자신문",
+      "title": "공중 나는 '로드스터'…테슬라 전용 루프 트랙 만든다",
+      "article_path": "content/articles/published/2026-10-20-51bdd869-tesla-roadster-loop-track-hotwheels.md",
+      "seen_at": "2026-10-19T16:01:53.742Z"
     }
   }
 }
