@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-19T16:01:53.742Z",
+  "updated_at": "2026-10-19T17:03:31.008Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1313,6 +1313,14 @@
       "title": "공중 나는 '로드스터'…테슬라 전용 루프 트랙 만든다",
       "article_path": "content/articles/published/2026-10-20-51bdd869-tesla-roadster-loop-track-hotwheels.md",
       "seen_at": "2026-10-19T16:01:53.742Z"
+    },
+    "c161d6bab52698d147d96d8270f9f9a06fb286e215e75c8380743b6568f25a75": {
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1013643/ai-agents-hack-john-deere-shark-ninja-cummins",
+      "canonical_url": "https://www.theverge.com/ai-artificial-intelligence/1013643/ai-agents-hack-john-deere-shark-ninja-cummins",
+      "source_name": "The Verge",
+      "title": "A hacker broke into John Deere and SharkNinja with an army of AI agents",
+      "article_path": "content/articles/published/2026-10-20-c161d6ba-cairn-ai-agents-breach-100-websites.md",
+      "seen_at": "2026-10-19T17:03:31.008Z"
     }
   }
 }
