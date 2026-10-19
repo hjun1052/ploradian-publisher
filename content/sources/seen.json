@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-19T10:03:16.171Z",
+  "updated_at": "2026-10-19T11:01:26.562Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1289,6 +1289,14 @@
       "title": "美정부, 올해 순이자비용 1417조원 넘어…국방비보다 많아",
       "article_path": "content/articles/published/2026-10-19-a990eda8-us-net-interest-cost-exceeds-defense-spending.md",
       "seen_at": "2026-10-19T10:03:16.171Z"
+    },
+    "53faa2cdce04f2ed9bb0aac5d80ef71dc17bd249881a4574113000423e8c3fc2": {
+      "url": "https://www.etnews.com/20261019000418",
+      "canonical_url": "https://www.etnews.com/20261019000418",
+      "source_name": "전자신문",
+      "title": "“주차장에 5시간째 갇혀 못나가”…신세계百 강남점에 뭔일이?",
+      "article_path": "content/articles/published/2026-10-19-53faa2cd-shinsegae-gangnam-parking-exit-delay-rain.md",
+      "seen_at": "2026-10-19T11:01:26.562Z"
     }
   }
 }
