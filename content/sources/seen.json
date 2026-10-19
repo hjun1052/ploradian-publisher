@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-18T23:01:26.260Z",
+  "updated_at": "2026-10-19T00:04:58.782Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1233,6 +1233,14 @@
       "title": "최고 위험등급 해킹 취약점도 점검 안했다…과기부 관리 허점",
       "article_path": "content/articles/published/2026-10-19-c2929bb0-msit-security-guidelines-18-unchecked.md",
       "seen_at": "2026-10-18T23:01:26.260Z"
+    },
+    "eb8528bab87f0e213fa91282d31c9ba67b086d81ddab5ddd09ac78687504ca2c": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4439817",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4439817",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "셀트리온 &quot;4분기 영업익 6천억 목표 달성 가능&quot;",
+      "article_path": "content/articles/published/2026-10-19-eb8528ba-celltrion-q4-operating-profit-target-claim.md",
+      "seen_at": "2026-10-19T00:04:58.782Z"
     }
   }
 }
