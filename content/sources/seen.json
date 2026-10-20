@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-20T07:00:38.942Z",
+  "updated_at": "2026-10-20T09:16:31.357Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1377,6 +1377,14 @@
       "title": "2026-10-20 국장 마감 억지해석",
       "article_path": "content/articles/published/2026-10-20-22740d87-market-2026-10-20-ea-b5-ad-ec-9e-a5-16.md",
       "seen_at": "2026-10-20T07:00:38.942Z"
+    },
+    "2b336f4dcd6f62a7e3d661f2a70d6f092d4151ae92573db4d3cf3a4e920af46a": {
+      "url": "https://www.newsis.com/view/NISX20261020_0003833863",
+      "canonical_url": "https://www.newsis.com/view/NISX20261020_0003833863",
+      "source_name": "뉴시스 경제",
+      "title": "외신 \"한국 엘리스, 상장 첫날 30% 폭락…AI 기업, 재평가 이뤄져\"",
+      "article_path": "content/articles/published/2026-10-20-2b336f4d-ellis-ipo-first-day-plunge.md",
+      "seen_at": "2026-10-20T09:16:31.357Z"
     }
   }
 }
