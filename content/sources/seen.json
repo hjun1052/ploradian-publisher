@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-20T15:02:26.143Z",
+  "updated_at": "2026-10-20T16:02:34.991Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1409,6 +1409,14 @@
       "title": "모두 다 던진 날, “470만닉스 간다”는 노무라…“67만전자” 파격 제시",
       "article_path": "content/articles/published/2026-10-21-aca17990-nomura-skhynix-470-target-price.md",
       "seen_at": "2026-10-20T15:02:26.143Z"
+    },
+    "5e7904b482c89d20aa06772a1f89099d96c8a3734dbedbdd037f20dae50a45db": {
+      "url": "https://www.etnews.com/20261020000291",
+      "canonical_url": "https://www.etnews.com/20261020000291",
+      "source_name": "전자신문",
+      "title": "9일째 러닝머신 걷는 로봇…560km·120만 걸음 돌파",
+      "article_path": "content/articles/published/2026-10-21-5e7904b4-figure-03-treadmill-walk-560km-1-2m-steps.md",
+      "seen_at": "2026-10-20T16:02:34.991Z"
     }
   }
 }
