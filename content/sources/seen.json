@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-20T11:01:40.901Z",
+  "updated_at": "2026-10-20T15:02:26.143Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1401,6 +1401,14 @@
       "title": "Some Google Home Speakers caught downloading hundreds of gigs of data",
       "article_path": "content/articles/published/2026-10-20-c7fa16bc-google-home-speaker-200gb-download-bug.md",
       "seen_at": "2026-10-20T11:01:40.901Z"
+    },
+    "aca179909ae1d637227e8683e8ac5b2d882c2b96521fe4a9af4c94a1a53d950a": {
+      "url": "https://www.etnews.com/20261020000418",
+      "canonical_url": "https://www.etnews.com/20261020000418",
+      "source_name": "전자신문",
+      "title": "모두 다 던진 날, “470만닉스 간다”는 노무라…“67만전자” 파격 제시",
+      "article_path": "content/articles/published/2026-10-21-aca17990-nomura-skhynix-470-target-price.md",
+      "seen_at": "2026-10-20T15:02:26.143Z"
     }
   }
 }
