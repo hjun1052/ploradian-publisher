@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-20T03:00:55.927Z",
+  "updated_at": "2026-10-20T04:01:14.371Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1353,6 +1353,14 @@
       "title": "[은행이 뚫린다] “보조자에서 지휘관으로”... 바이브 해킹과 28초 침투가 무너뜨린 골든타임",
       "article_path": "content/articles/published/2026-10-20-ce45f39b-sixteen-financial-firms-forgotten-edge-assets-breach.md",
       "seen_at": "2026-10-20T03:00:55.927Z"
+    },
+    "f198997274d4f862dba6fd7866a60bcf734f3436cbc4161165ffdda11a221d3b": {
+      "url": "https://www.yna.co.kr/view/AKR20261020086500063",
+      "canonical_url": "https://www.yna.co.kr/view/AKR20261020086500063",
+      "source_name": "연합뉴스 산업",
+      "title": "\"대형산불진화 헬기, 신품 계약해놓고 중고 바꾸고 18개월 뒤 납기?\"",
+      "article_path": "content/articles/published/2026-10-20-f1989972-forest-service-new-helicopter-used-parts.md",
+      "seen_at": "2026-10-20T04:01:14.371Z"
     }
   }
 }
