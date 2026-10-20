@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-20T18:01:45.943Z",
+  "updated_at": "2026-10-20T23:01:58.371Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1433,6 +1433,14 @@
       "title": "The $20,000 Voxel bot will help you find misplaced things around your home",
       "article_path": "content/articles/published/2026-10-21-3bfbd750-tuesday-labs-voxel-series-1-preorder.md",
       "seen_at": "2026-10-20T18:01:45.943Z"
+    },
+    "d8d19eb7ba6f4e10c37af8942dad0f1bcb7035520a98a61238e6b8a1d6deeee3": {
+      "url": "https://www.yna.co.kr/view/AKR20261020175900061",
+      "canonical_url": "https://www.yna.co.kr/view/AKR20261020175900061",
+      "source_name": "연합뉴스 경제",
+      "title": "[무늬만 국가직 소방] ② 지역별 인력·예산 격차에 소방서비스도 편차",
+      "article_path": "content/articles/published/2026-10-21-d8d19eb7-national-fire-service-uniform-allowance-gap-korea.md",
+      "seen_at": "2026-10-20T23:01:58.371Z"
     }
   }
 }
