@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-20T09:16:31.357Z",
+  "updated_at": "2026-10-20T10:01:57.737Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1385,6 +1385,14 @@
       "title": "외신 \"한국 엘리스, 상장 첫날 30% 폭락…AI 기업, 재평가 이뤄져\"",
       "article_path": "content/articles/published/2026-10-20-2b336f4d-ellis-ipo-first-day-plunge.md",
       "seen_at": "2026-10-20T09:16:31.357Z"
+    },
+    "feec77c3f9e876729f349e2317be3aaa21d5ae6f9028331b283a5e8a13673fbe": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4440170",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4440170",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "서경배 회장, 친인척 5명에 아모레퍼시픽 주식 45억원어치 증여(종합)",
+      "article_path": "content/articles/published/2026-10-20-feec77c3-amorepacific-chairman-share-gift-relatives.md",
+      "seen_at": "2026-10-20T10:01:57.737Z"
     }
   }
 }
