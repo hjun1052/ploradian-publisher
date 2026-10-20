@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-20T04:01:14.371Z",
+  "updated_at": "2026-10-20T05:01:53.010Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1361,6 +1361,14 @@
       "title": "\"대형산불진화 헬기, 신품 계약해놓고 중고 바꾸고 18개월 뒤 납기?\"",
       "article_path": "content/articles/published/2026-10-20-f1989972-forest-service-new-helicopter-used-parts.md",
       "seen_at": "2026-10-20T04:01:14.371Z"
+    },
+    "38ffd7ad35e6d9b4fdf678144e03449289d4f150e44a933511de66d399e6a262": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4440063",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4440063",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "한화오션, 3Q 영업익 76%↑ 전망에도 목표주가 낮아지는 이유",
+      "article_path": "content/articles/published/2026-10-20-38ffd7ad-hanwha-ocean-q3-profit-target-cut.md",
+      "seen_at": "2026-10-20T05:01:53.010Z"
     }
   }
 }
