@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-20T00:01:34.766Z",
+  "updated_at": "2026-10-20T03:00:55.927Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1345,6 +1345,14 @@
       "title": "소나무재선충병 감염목 66만 그루 '방치'…방제예산은 제자리",
       "article_path": "content/articles/published/2026-10-20-e0075aa4-pine-wilt-control-budget-frozen-forest-service.md",
       "seen_at": "2026-10-20T00:01:34.766Z"
+    },
+    "ce45f39bc6107e10a7d704e32a0a538dd6fce481bf816a9e5b66e53dccbd8130": {
+      "url": "https://www.boannews.com/news/articleView.html?idxno=146493",
+      "canonical_url": "https://www.boannews.com/news/articleView.html?idxno=146493",
+      "source_name": "보안뉴스 사건사고",
+      "title": "[은행이 뚫린다] “보조자에서 지휘관으로”... 바이브 해킹과 28초 침투가 무너뜨린 골든타임",
+      "article_path": "content/articles/published/2026-10-20-ce45f39b-sixteen-financial-firms-forgotten-edge-assets-breach.md",
+      "seen_at": "2026-10-20T03:00:55.927Z"
     }
   }
 }
