@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-20T10:01:57.737Z",
+  "updated_at": "2026-10-20T11:01:40.901Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1393,6 +1393,14 @@
       "title": "서경배 회장, 친인척 5명에 아모레퍼시픽 주식 45억원어치 증여(종합)",
       "article_path": "content/articles/published/2026-10-20-feec77c3-amorepacific-chairman-share-gift-relatives.md",
       "seen_at": "2026-10-20T10:01:57.737Z"
+    },
+    "c7fa16bcc73cb08000d7ad31f4b02a40db69cd537056e8bd17ed5b391ebcefaa": {
+      "url": "https://www.theverge.com/tech/1014209/google-home-speaker-bug-continuous-download",
+      "canonical_url": "https://www.theverge.com/tech/1014209/google-home-speaker-bug-continuous-download",
+      "source_name": "The Verge",
+      "title": "Some Google Home Speakers caught downloading hundreds of gigs of data",
+      "article_path": "content/articles/published/2026-10-20-c7fa16bc-google-home-speaker-200gb-download-bug.md",
+      "seen_at": "2026-10-20T11:01:40.901Z"
     }
   }
 }
