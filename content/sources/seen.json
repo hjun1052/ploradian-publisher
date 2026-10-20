@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-20T16:02:34.991Z",
+  "updated_at": "2026-10-20T17:02:03.969Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1417,6 +1417,14 @@
       "title": "9일째 러닝머신 걷는 로봇…560km·120만 걸음 돌파",
       "article_path": "content/articles/published/2026-10-21-5e7904b4-figure-03-treadmill-walk-560km-1-2m-steps.md",
       "seen_at": "2026-10-20T16:02:34.991Z"
+    },
+    "7a091aa12d54f3f37fcd7ec133bd6c7f8135974a0b5cd6ab1bdca378985cdd6c": {
+      "url": "https://www.theverge.com/entertainment/1014284/spotify-ai-slop-spam-songs-removed",
+      "canonical_url": "https://www.theverge.com/entertainment/1014284/spotify-ai-slop-spam-songs-removed",
+      "source_name": "The Verge",
+      "title": "Spotify pulled 50 million AI slop and spam tracks from its recommendations",
+      "article_path": "content/articles/published/2026-10-21-7a091aa1-spotify-removes-50-million-ai-slop-songs.md",
+      "seen_at": "2026-10-20T17:02:03.969Z"
     }
   }
 }
