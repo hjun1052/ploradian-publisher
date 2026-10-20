@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-19T23:01:55.093Z",
+  "updated_at": "2026-10-20T00:01:34.766Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1337,6 +1337,14 @@
       "title": "CoreWeave&#8217;s debt is becoming the whole AI industry&#8217;s problem",
       "article_path": "content/articles/published/2026-10-20-85ed6973-coreweave-debt-unlimited-insurer-funding.md",
       "seen_at": "2026-10-19T23:01:55.093Z"
+    },
+    "e0075aa46ac07463816ba804e05d744b041d139d67c3c911d774013f9d65a57c": {
+      "url": "https://www.yna.co.kr/view/AKR20261020032700055",
+      "canonical_url": "https://www.yna.co.kr/view/AKR20261020032700055",
+      "source_name": "연합뉴스 산업",
+      "title": "소나무재선충병 감염목 66만 그루 '방치'…방제예산은 제자리",
+      "article_path": "content/articles/published/2026-10-20-e0075aa4-pine-wilt-control-budget-frozen-forest-service.md",
+      "seen_at": "2026-10-20T00:01:34.766Z"
     }
   }
 }
