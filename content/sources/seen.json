@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-20T17:02:03.969Z",
+  "updated_at": "2026-10-20T18:01:45.943Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1425,6 +1425,14 @@
       "title": "Spotify pulled 50 million AI slop and spam tracks from its recommendations",
       "article_path": "content/articles/published/2026-10-21-7a091aa1-spotify-removes-50-million-ai-slop-songs.md",
       "seen_at": "2026-10-20T17:02:03.969Z"
+    },
+    "3bfbd750aa63ca4a9641529ce5936f8648aef2335ef5b7f8da02462ae86ba08f": {
+      "url": "https://www.theverge.com/tech/1014533/tuesday-labs-voxel-series-1-home-robot-reservation",
+      "canonical_url": "https://www.theverge.com/tech/1014533/tuesday-labs-voxel-series-1-home-robot-reservation",
+      "source_name": "The Verge",
+      "title": "The $20,000 Voxel bot will help you find misplaced things around your home",
+      "article_path": "content/articles/published/2026-10-21-3bfbd750-tuesday-labs-voxel-series-1-preorder.md",
+      "seen_at": "2026-10-20T18:01:45.943Z"
     }
   }
 }
