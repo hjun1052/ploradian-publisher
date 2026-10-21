@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-21T17:01:41.116Z",
+  "updated_at": "2026-10-21T18:02:58.126Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1537,6 +1537,14 @@
       "title": "Supernatural’s comeback starts today, with more music and VR workouts coming soon",
       "article_path": "content/articles/published/2026-10-22-b50226f5-supernatural-independent-app-costs-more.md",
       "seen_at": "2026-10-21T17:01:41.116Z"
+    },
+    "25b2428c48d90bfe39f171cc5681059e808ec2a46b49fefec7d47e09da8d666a": {
+      "url": "https://arstechnica.com/ai/2026/10/the-15-billion-ad-powered-ai-startup-your-doctor-may-already-be-using/",
+      "canonical_url": "https://arstechnica.com/ai/2026/10/the-15-billion-ad-powered-ai-startup-your-doctor-may-already-be-using/",
+      "source_name": "Ars Technica",
+      "title": "The $15 billion ad-powered AI startup your doctor may already be using",
+      "article_path": "content/articles/published/2026-10-22-25b2428c-openevidence-ad-powered-ai-valuation-doctors.md",
+      "seen_at": "2026-10-21T18:02:58.126Z"
     }
   }
 }
