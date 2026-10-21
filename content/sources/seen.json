@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-21T16:01:31.343Z",
+  "updated_at": "2026-10-21T17:01:41.116Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1529,6 +1529,14 @@
       "title": "뉴욕증시, 美기업 실적 호조에 상승 출발…나스닥 0.45%↑",
       "article_path": "content/articles/published/2026-10-22-4cd02fe6-musk-spacex-tesla-merger-committee-market-open.md",
       "seen_at": "2026-10-21T16:01:31.343Z"
+    },
+    "b50226f50ba8eaf1acf7463bcabdd1e5ecbf32c73a27a09efb412cfc02c9a31f": {
+      "url": "https://www.theverge.com/tech/1015550/supernatural-vr-workout-app-relaunch",
+      "canonical_url": "https://www.theverge.com/tech/1015550/supernatural-vr-workout-app-relaunch",
+      "source_name": "The Verge",
+      "title": "Supernatural’s comeback starts today, with more music and VR workouts coming soon",
+      "article_path": "content/articles/published/2026-10-22-b50226f5-supernatural-independent-app-costs-more.md",
+      "seen_at": "2026-10-21T17:01:41.116Z"
     }
   }
 }
