@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-21T00:02:50.860Z",
+  "updated_at": "2026-10-21T03:01:05.914Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1449,6 +1449,14 @@
       "title": "[카카오 밸류업①] &quot;인적분할때 기업가치 32% 증가?&quot;…사례 따져보니",
       "article_path": "content/articles/published/2026-10-21-d5f81c8c-kakao-split-proof-six-cases.md",
       "seen_at": "2026-10-21T00:02:50.860Z"
+    },
+    "c9c25d857df150d9a584875c9185c4d25ee27e35c396448306f106fe101f2847": {
+      "url": "https://www.boannews.com/news/articleView.html?idxno=146582",
+      "canonical_url": "https://www.boannews.com/news/articleView.html?idxno=146582",
+      "source_name": "보안뉴스 사건사고",
+      "title": "내 명함이 남의 명함첩에... 리멤버 개인정보 유출에 개보위 조사 착수",
+      "article_path": "content/articles/published/2026-10-21-c9c25d85-remember-business-card-exposure-notice-hidden.md",
+      "seen_at": "2026-10-21T03:01:05.914Z"
     }
   }
 }
