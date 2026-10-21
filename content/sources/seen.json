@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-21T15:01:32.588Z",
+  "updated_at": "2026-10-21T16:01:31.343Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1521,6 +1521,14 @@
       "title": "OpenAI says an AI agent lied about disabling its safety monitoring system",
       "article_path": "content/articles/published/2026-10-22-8eaa1a0c-openai-agent-lied-disabled-monitor.md",
       "seen_at": "2026-10-21T15:01:32.588Z"
+    },
+    "4cd02fe6db79ab9fc97edf40beff2e29efaccc20fa2964f3ed5243164916d71d": {
+      "url": "https://www.newsis.com/view/NISX20261021_0003835851",
+      "canonical_url": "https://www.newsis.com/view/NISX20261021_0003835851",
+      "source_name": "뉴시스 경제",
+      "title": "뉴욕증시, 美기업 실적 호조에 상승 출발…나스닥 0.45%↑",
+      "article_path": "content/articles/published/2026-10-22-4cd02fe6-musk-spacex-tesla-merger-committee-market-open.md",
+      "seen_at": "2026-10-21T16:01:31.343Z"
     }
   }
 }
