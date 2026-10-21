@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-21T10:02:01.136Z",
+  "updated_at": "2026-10-21T11:01:38.930Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1505,6 +1505,14 @@
       "title": "한경록 한솔제지 대표, 제지사 가격담합에 &quot;재발방지 대책 이행&quot;",
       "article_path": "content/articles/published/2026-10-21-e541453f-hansol-paper-apology-two-cases-parliament.md",
       "seen_at": "2026-10-21T10:02:01.136Z"
+    },
+    "bf94d59ae50e2dddde8b43c9f760148487a80a499f408f92ccacbf1d6ee440fa": {
+      "url": "https://www.yna.co.kr/view/AKR20261021168100054",
+      "canonical_url": "https://www.yna.co.kr/view/AKR20261021168100054",
+      "source_name": "연합뉴스 산업",
+      "title": "천일염 값 3년 새 3분의 1로 폭락…수입산 단속은 허술",
+      "article_path": "content/articles/published/2026-10-21-bf94d59a-sea-salt-price-drop-one-enforcement-case.md",
+      "seen_at": "2026-10-21T11:01:38.930Z"
     }
   }
 }
