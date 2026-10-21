@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-21T04:03:12.576Z",
+  "updated_at": "2026-10-21T05:02:11.337Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1465,6 +1465,14 @@
       "title": "상장 첫날 폭락한 엘리스그룹은 어떤 회사",
       "article_path": "content/articles/published/2026-10-21-96a6d5a2-ellis-group-ipo-plunge-limit-up.md",
       "seen_at": "2026-10-21T04:03:12.576Z"
+    },
+    "cf88c3ffb08fcc01d49a958ef0b70b132cca4dc5e76170793497dc98266c2b8c": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4440303",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4440303",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "인천공항, 면세점 임대료 수입 3천300억↓",
+      "article_path": "content/articles/published/2026-10-21-cf88c3ff-incheon-airport-duty-free-rent-cut.md",
+      "seen_at": "2026-10-21T05:02:11.337Z"
     }
   }
 }
