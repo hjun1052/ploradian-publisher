@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-21T05:02:11.337Z",
+  "updated_at": "2026-10-21T07:00:42.064Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1473,6 +1473,14 @@
       "title": "인천공항, 면세점 임대료 수입 3천300억↓",
       "article_path": "content/articles/published/2026-10-21-cf88c3ff-incheon-airport-duty-free-rent-cut.md",
       "seen_at": "2026-10-21T05:02:11.337Z"
+    },
+    "6d8f4e75a88bf1ece4d4fabea41ddcb39769d3d5daf2641d7b2633071b8258d5": {
+      "url": "https://news.ploradian.com/market/2026-10-21-국장-16/",
+      "canonical_url": "https://news.ploradian.com/market/2026-10-21-국장-16/",
+      "source_name": "The Ploradian 국장 마감 억지해석 데스크",
+      "title": "2026-10-21 국장 마감 억지해석",
+      "article_path": "content/articles/published/2026-10-21-6d8f4e75-market-2026-10-21-ea-b5-ad-ec-9e-a5-16.md",
+      "seen_at": "2026-10-21T07:00:42.064Z"
     }
   }
 }
