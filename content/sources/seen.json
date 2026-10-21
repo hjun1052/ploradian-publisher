@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-20T23:01:58.371Z",
+  "updated_at": "2026-10-21T00:02:50.860Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1441,6 +1441,14 @@
       "title": "[무늬만 국가직 소방] ② 지역별 인력·예산 격차에 소방서비스도 편차",
       "article_path": "content/articles/published/2026-10-21-d8d19eb7-national-fire-service-uniform-allowance-gap-korea.md",
       "seen_at": "2026-10-20T23:01:58.371Z"
+    },
+    "d5f81c8cccafba8f7dc5c795a308ace7f2dd95c1f2adeed5158d45a9e8586979": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4440266",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4440266",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "[카카오 밸류업①] &quot;인적분할때 기업가치 32% 증가?&quot;…사례 따져보니",
+      "article_path": "content/articles/published/2026-10-21-d5f81c8c-kakao-split-proof-six-cases.md",
+      "seen_at": "2026-10-21T00:02:50.860Z"
     }
   }
 }
