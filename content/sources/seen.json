@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-21T08:01:00.479Z",
+  "updated_at": "2026-10-21T09:05:21.557Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1489,6 +1489,14 @@
       "title": "키즈 플랫폼 ‘놀이의발견’, 관리 시스템 해킹으로 회원 개인정보 유출",
       "article_path": "content/articles/published/2026-10-21-b10919d7-nori-balgyeon-backoffice-breach-mfa-after.md",
       "seen_at": "2026-10-21T08:01:00.479Z"
+    },
+    "b433f50905deb20c834b3e5e84d2cab28a75648e0a391363e849465192711cbf": {
+      "url": "https://www.newsis.com/view/NISX20261021_0003834882",
+      "canonical_url": "https://www.newsis.com/view/NISX20261021_0003834882",
+      "source_name": "뉴시스 경제",
+      "title": "용산 아세아아파트 공사 무기한 중단…연내 분양 차질",
+      "article_path": "content/articles/published/2026-10-21-b433f509-yongsan-asea-apartment-work-halted-undated.md",
+      "seen_at": "2026-10-21T09:05:21.557Z"
     }
   }
 }
