@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-21T03:01:05.914Z",
+  "updated_at": "2026-10-21T04:03:12.576Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1457,6 +1457,14 @@
       "title": "내 명함이 남의 명함첩에... 리멤버 개인정보 유출에 개보위 조사 착수",
       "article_path": "content/articles/published/2026-10-21-c9c25d85-remember-business-card-exposure-notice-hidden.md",
       "seen_at": "2026-10-21T03:01:05.914Z"
+    },
+    "96a6d5a2a5edf37e9076fdc5b2f73b33fae470fe7faa5f192daad1ab8d58c4ef": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4440331",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4440331",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "상장 첫날 폭락한 엘리스그룹은 어떤 회사",
+      "article_path": "content/articles/published/2026-10-21-96a6d5a2-ellis-group-ipo-plunge-limit-up.md",
+      "seen_at": "2026-10-21T04:03:12.576Z"
     }
   }
 }
