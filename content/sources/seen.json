@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-21T18:02:58.126Z",
+  "updated_at": "2026-10-21T23:02:37.674Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1545,6 +1545,14 @@
       "title": "The $15 billion ad-powered AI startup your doctor may already be using",
       "article_path": "content/articles/published/2026-10-22-25b2428c-openevidence-ad-powered-ai-valuation-doctors.md",
       "seen_at": "2026-10-21T18:02:58.126Z"
+    },
+    "519e5bc21f74248d5c9227abbd0aa33a500e756bbe1a3fe6e142b66046dccf99": {
+      "url": "https://www.newsis.com/view/NISX20261021_0003834796",
+      "canonical_url": "https://www.newsis.com/view/NISX20261021_0003834796",
+      "source_name": "뉴시스 경제",
+      "title": "[단독]수익률 8%라던 중기 퇴직연금, 원금손실 1년간 급증",
+      "article_path": "content/articles/published/2026-10-22-519e5bc2-pureunssiat-yield-principal-loss-988.md",
+      "seen_at": "2026-10-21T23:02:37.674Z"
     }
   }
 }
