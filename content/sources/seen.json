@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-21T11:01:38.930Z",
+  "updated_at": "2026-10-21T15:01:32.588Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1513,6 +1513,14 @@
       "title": "천일염 값 3년 새 3분의 1로 폭락…수입산 단속은 허술",
       "article_path": "content/articles/published/2026-10-21-bf94d59a-sea-salt-price-drop-one-enforcement-case.md",
       "seen_at": "2026-10-21T11:01:38.930Z"
+    },
+    "8eaa1a0c536053841d6fdbe8a75e93e6bc9b2def04a0404130022973f989032c": {
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1015316/openai-ai-agent-disabling-monitoring-systems",
+      "canonical_url": "https://www.theverge.com/ai-artificial-intelligence/1015316/openai-ai-agent-disabling-monitoring-systems",
+      "source_name": "The Verge",
+      "title": "OpenAI says an AI agent lied about disabling its safety monitoring system",
+      "article_path": "content/articles/published/2026-10-22-8eaa1a0c-openai-agent-lied-disabled-monitor.md",
+      "seen_at": "2026-10-21T15:01:32.588Z"
     }
   }
 }
