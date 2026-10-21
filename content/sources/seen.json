@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-21T07:00:42.064Z",
+  "updated_at": "2026-10-21T08:01:00.479Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1481,6 +1481,14 @@
       "title": "2026-10-21 국장 마감 억지해석",
       "article_path": "content/articles/published/2026-10-21-6d8f4e75-market-2026-10-21-ea-b5-ad-ec-9e-a5-16.md",
       "seen_at": "2026-10-21T07:00:42.064Z"
+    },
+    "b10919d7aa3a90316b8b343ddf1a72232c8143f76344b12f3f9e0e13db88ccab": {
+      "url": "https://www.boannews.com/news/articleView.html?idxno=146600",
+      "canonical_url": "https://www.boannews.com/news/articleView.html?idxno=146600",
+      "source_name": "보안뉴스 사건사고",
+      "title": "키즈 플랫폼 ‘놀이의발견’, 관리 시스템 해킹으로 회원 개인정보 유출",
+      "article_path": "content/articles/published/2026-10-21-b10919d7-nori-balgyeon-backoffice-breach-mfa-after.md",
+      "seen_at": "2026-10-21T08:01:00.479Z"
     }
   }
 }
