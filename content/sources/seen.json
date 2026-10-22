@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-22T00:01:25.379Z",
+  "updated_at": "2026-10-22T03:01:01.172Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1561,6 +1561,14 @@
       "title": "삼성 합병 '2조 시너지' 조작이 결정타…엘리엇 ISDS 판정문 뜯어보니",
       "article_path": "content/articles/published/2026-10-22-b12aae02-korea-govt-elliott-isds-synergy-loss.md",
       "seen_at": "2026-10-22T00:01:25.379Z"
+    },
+    "b483484f9208a119dd38b797a7ccc8d0f91e5818d46efb982b8e0b8067472f9f": {
+      "url": "https://www.boannews.com/news/articleView.html?idxno=146629",
+      "canonical_url": "https://www.boannews.com/news/articleView.html?idxno=146629",
+      "source_name": "보안뉴스 사건사고",
+      "title": "연세대 포털 서비스 해킹... 재학생 등 1만여명 개인정보 유출",
+      "article_path": "content/articles/published/2026-10-22-b483484f-yonsei-portal-breach-ten-thousand-students.md",
+      "seen_at": "2026-10-22T03:01:01.172Z"
     }
   }
 }
