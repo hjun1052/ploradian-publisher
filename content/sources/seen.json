@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-22T09:01:27.952Z",
+  "updated_at": "2026-10-22T10:04:23.915Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1601,6 +1601,14 @@
       "title": "법원 &quot;고려아연 자사주 매수 정당했다&quot;…영풍 8천300억 소송 패소",
       "article_path": "content/articles/published/2026-10-22-8a6c12dc-youngpoong-loses-8370-billion-suit-korea-zinc.md",
       "seen_at": "2026-10-22T09:01:27.952Z"
+    },
+    "7abf5579e70d987f3724d5c3ebe0aa0c1c896763a92db6e1e4ed9e0631787d14": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4440683",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4440683",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "주주대표소송 승소한 고려아연 &quot;기업가치 훼손·자본시장 교란 그만&quot;(종합)",
+      "article_path": "content/articles/published/2026-10-22-7abf5579-korea-zinc-buyback-suit-pressure-demand.md",
+      "seen_at": "2026-10-22T10:04:23.915Z"
     }
   }
 }
