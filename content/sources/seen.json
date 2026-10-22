@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-22T16:04:22.988Z",
+  "updated_at": "2026-10-22T17:01:35.941Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1633,6 +1633,14 @@
       "title": "Apple’s Magic Keyboards for iPad are about half off, with a small catch",
       "article_path": "content/articles/published/2026-10-23-13c0bbc0-woot-apple-magic-keyboard-ipad-discount-warranty.md",
       "seen_at": "2026-10-22T16:04:22.988Z"
+    },
+    "348150209e6764b1db84b0ffc5abc08d713c437392882ed197d3b5ae2bcad781": {
+      "url": "https://www.theverge.com/gadgets/1016626/samsung-galaxy-used-amazon",
+      "canonical_url": "https://www.theverge.com/gadgets/1016626/samsung-galaxy-used-amazon",
+      "source_name": "The Verge",
+      "title": "You could just get a refurbished Samsung phone on Amazon",
+      "article_path": "content/articles/published/2026-10-23-34815020-samsung-certified-renewed-phones-amazon-price-gap.md",
+      "seen_at": "2026-10-22T17:01:35.941Z"
     }
   }
 }
