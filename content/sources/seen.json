@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-22T04:01:45.532Z",
+  "updated_at": "2026-10-22T05:02:48.267Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1577,6 +1577,14 @@
       "title": "김포·지방공항 최근 4년 도입한 엑스선 검색장비 92%가 중국산",
       "article_path": "content/articles/published/2026-10-22-ac1baa81-airport-xray-scanners-chinese-share-disclosure.md",
       "seen_at": "2026-10-22T04:01:45.532Z"
+    },
+    "777d0af3f24487377d48656ed7eea52a1b800406f652e4a0efbf51f021479a93": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4440498",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4440498",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "삼성바이오, 매출은 날았는데 이익은 제자리…새 공장 '성장통'",
+      "article_path": "content/articles/published/2026-10-22-777d0af3-samsung-biologics-q3-revenue-profit-guidance-raise.md",
+      "seen_at": "2026-10-22T05:02:48.267Z"
     }
   }
 }
