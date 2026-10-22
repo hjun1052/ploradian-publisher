@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-22T11:03:46.063Z",
+  "updated_at": "2026-10-22T15:01:44.803Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1617,6 +1617,14 @@
       "title": "롯데지주, 2029년까지 주주환원정책 지속…&quot;주주환원율 35% 이상&quot;",
       "article_path": "content/articles/published/2026-10-22-e533c4c7-lotte-holdings-shareholder-return-target-2029.md",
       "seen_at": "2026-10-22T11:03:46.063Z"
+    },
+    "8d50f69f0b6ae8a19b5de8224b8d0c3017977336d4541676c6b436a3c436f686": {
+      "url": "https://www.theverge.com/tech/1016481/atari-vcs-console-shutting-down-software-store-2027",
+      "canonical_url": "https://www.theverge.com/tech/1016481/atari-vcs-console-shutting-down-software-store-2027",
+      "source_name": "The Verge",
+      "title": "The Atari VCS saga will come to an end next year when its software store closes",
+      "article_path": "content/articles/published/2026-10-23-8d50f69f-atari-vcs-software-store-shutdown-2027.md",
+      "seen_at": "2026-10-22T15:01:44.803Z"
     }
   }
 }
