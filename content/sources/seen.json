@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-22T17:01:35.941Z",
+  "updated_at": "2026-10-22T18:01:25.940Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1641,6 +1641,14 @@
       "title": "You could just get a refurbished Samsung phone on Amazon",
       "article_path": "content/articles/published/2026-10-23-34815020-samsung-certified-renewed-phones-amazon-price-gap.md",
       "seen_at": "2026-10-22T17:01:35.941Z"
+    },
+    "daebb3af16f48890ff847e128606db5842d4b92db9d814a9a6e53a75dd31b3e7": {
+      "url": "https://www.theverge.com/transportation/1016055/elon-musk-tesla-5-million-cars-2030-reality-check",
+      "canonical_url": "https://www.theverge.com/transportation/1016055/elon-musk-tesla-5-million-cars-2030-reality-check",
+      "source_name": "The Verge",
+      "title": "Elon Musk says Tesla will sell 5 million cars by 2030 — math says otherwise",
+      "article_path": "content/articles/published/2026-10-23-daebb3af-musk-tesla-5-million-2030-target.md",
+      "seen_at": "2026-10-22T18:01:25.940Z"
     }
   }
 }
