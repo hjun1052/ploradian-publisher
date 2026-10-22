@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-22T18:01:25.940Z",
+  "updated_at": "2026-10-22T23:02:06.427Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1649,6 +1649,14 @@
       "title": "Elon Musk says Tesla will sell 5 million cars by 2030 — math says otherwise",
       "article_path": "content/articles/published/2026-10-23-daebb3af-musk-tesla-5-million-2030-target.md",
       "seen_at": "2026-10-22T18:01:25.940Z"
+    },
+    "81ba8aebe06aa453e73ff26e31936391c02d1c998704a41e356407ec29b922cd": {
+      "url": "https://www.yna.co.kr/view/AKR20261022160400530",
+      "canonical_url": "https://www.yna.co.kr/view/AKR20261022160400530",
+      "source_name": "연합뉴스 경제",
+      "title": "폴리텍대, 직업훈련 예산으로 홍보비 펑펑…텀블러 등 사재기도",
+      "article_path": "content/articles/published/2026-10-23-81ba8aeb-polytech-training-budget-promotional-spending-year-end.md",
+      "seen_at": "2026-10-22T23:02:06.427Z"
     }
   }
 }
