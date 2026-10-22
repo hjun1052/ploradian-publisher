@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-22T03:01:01.172Z",
+  "updated_at": "2026-10-22T04:01:45.532Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1569,6 +1569,14 @@
       "title": "연세대 포털 서비스 해킹... 재학생 등 1만여명 개인정보 유출",
       "article_path": "content/articles/published/2026-10-22-b483484f-yonsei-portal-breach-ten-thousand-students.md",
       "seen_at": "2026-10-22T03:01:01.172Z"
+    },
+    "ac1baa8166e6517fc5c6fdc595c5783b23b5f5c8c2868285630c979d17bb75ff": {
+      "url": "https://www.yna.co.kr/view/AKR20261022103000004",
+      "canonical_url": "https://www.yna.co.kr/view/AKR20261022103000004",
+      "source_name": "연합뉴스 산업",
+      "title": "김포·지방공항 최근 4년 도입한 엑스선 검색장비 92%가 중국산",
+      "article_path": "content/articles/published/2026-10-22-ac1baa81-airport-xray-scanners-chinese-share-disclosure.md",
+      "seen_at": "2026-10-22T04:01:45.532Z"
     }
   }
 }
