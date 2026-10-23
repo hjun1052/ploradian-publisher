@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-23T00:02:00.835Z",
+  "updated_at": "2026-10-23T03:03:51.383Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1665,6 +1665,14 @@
       "title": "SK하이닉스, 솔리다임 IPO 왜 접었나…주가 급락·주주 반발에 부담",
       "article_path": "content/articles/published/2026-10-23-7f54432c-sk-hynix-solidigm-ipo-halt-satire.md",
       "seen_at": "2026-10-23T00:02:00.835Z"
+    },
+    "ae92466560d12bd7c8cd61a1a024b4c280e39f50ba691a7cdca7c31edf74a404": {
+      "url": "https://www.boannews.com/news/articleView.html?idxno=146680",
+      "canonical_url": "https://www.boannews.com/news/articleView.html?idxno=146680",
+      "source_name": "보안뉴스 사건사고",
+      "title": "\"3시간 만에 관리자 권한 탈취\"…중국 해커, 韓 금융권 공격 AI 도구로 클라우드 침투",
+      "article_path": "content/articles/published/2026-10-23-ae924665-connectwise-storm-0940-artex-backup-app-admin.md",
+      "seen_at": "2026-10-23T03:03:51.383Z"
     }
   }
 }
