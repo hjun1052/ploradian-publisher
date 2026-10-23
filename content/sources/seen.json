@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-23T16:01:51.659Z",
+  "updated_at": "2026-10-23T17:01:54.229Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1745,6 +1745,14 @@
       "title": "SpaceX’s mobile carrier push reportedly involves tapping into 80,000 cell sites",
       "article_path": "content/articles/published/2026-10-24-49ed1c10-spacex-cell-sites-major-carrier-push.md",
       "seen_at": "2026-10-23T16:01:51.659Z"
+    },
+    "a9526976eeebfbfe11f723ec9d420402046ad8a284b661480087bc896dcebdb4": {
+      "url": "https://www.theverge.com/tech/1017600/google-personal-intelligence-privacy-policy-ads-update",
+      "canonical_url": "https://www.theverge.com/tech/1017600/google-personal-intelligence-privacy-policy-ads-update",
+      "source_name": "The Verge",
+      "title": "Now Google says it might use your Gmail and Google Photos data to target ads",
+      "article_path": "content/articles/published/2026-10-24-a9526976-google-personal-intelligence-ads-exception-clause.md",
+      "seen_at": "2026-10-23T17:01:54.229Z"
     }
   }
 }
