@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-23T18:05:41.241Z",
+  "updated_at": "2026-10-23T23:03:35.104Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1761,6 +1761,14 @@
       "title": "Knicks sent employees fake offer of championship rings in phishing test: Report",
       "article_path": "content/articles/published/2026-10-24-8b0b484a-knicks-fake-championship-ring-phishing-test.md",
       "seen_at": "2026-10-23T18:05:41.241Z"
+    },
+    "c43cba795d73369423299fbff87d74a997657c510cab2a0dd3a64b2f3a718e6c": {
+      "url": "https://www.newsis.com/view/NISX20261023_0003838772",
+      "canonical_url": "https://www.newsis.com/view/NISX20261023_0003838772",
+      "source_name": "뉴시스 경제",
+      "title": "국내 경유 판매 7.6% 줄자…정부, 수출 빗장 먼저 푼다",
+      "article_path": "content/articles/published/2026-10-24-c43cba79-diesel-export-cap-loosened-government-ministry.md",
+      "seen_at": "2026-10-23T23:03:35.104Z"
     }
   }
 }
