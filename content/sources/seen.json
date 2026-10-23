@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-22T23:02:06.427Z",
+  "updated_at": "2026-10-23T00:02:00.835Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1657,6 +1657,14 @@
       "title": "폴리텍대, 직업훈련 예산으로 홍보비 펑펑…텀블러 등 사재기도",
       "article_path": "content/articles/published/2026-10-23-81ba8aeb-polytech-training-budget-promotional-spending-year-end.md",
       "seen_at": "2026-10-22T23:02:06.427Z"
+    },
+    "7f54432ccd5f6f0190195cb19bacf86b006feeb729eeb62274ed7162b3d523c8": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4440744",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4440744",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "SK하이닉스, 솔리다임 IPO 왜 접었나…주가 급락·주주 반발에 부담",
+      "article_path": "content/articles/published/2026-10-23-7f54432c-sk-hynix-solidigm-ipo-halt-satire.md",
+      "seen_at": "2026-10-23T00:02:00.835Z"
     }
   }
 }
