@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-23T07:00:33.640Z",
+  "updated_at": "2026-10-23T08:03:52.676Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1697,6 +1697,14 @@
       "title": "2026-10-23 국장 마감 억지해석",
       "article_path": "content/articles/published/2026-10-23-d9b3b46a-market-2026-10-23-ea-b5-ad-ec-9e-a5-16.md",
       "seen_at": "2026-10-23T07:00:33.640Z"
+    },
+    "971fca881b7be010170223c8041b5fb13aa409e84e27432f0586d7043f657dc6": {
+      "url": "https://www.boannews.com/news/articleView.html?idxno=146703",
+      "canonical_url": "https://www.boannews.com/news/articleView.html?idxno=146703",
+      "source_name": "보안뉴스 사건사고",
+      "title": "오라클 치명적 수준 취약점 긴급 패치... “신뢰 깨진 인증서가 백엔드 노린다”",
+      "article_path": "content/articles/published/2026-10-23-971fca88-oracle-java-jsse-cacerts-emudhra-distrust.md",
+      "seen_at": "2026-10-23T08:03:52.676Z"
     }
   }
 }
