@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-23T08:03:52.676Z",
+  "updated_at": "2026-10-23T11:01:19.579Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1705,6 +1705,14 @@
       "title": "오라클 치명적 수준 취약점 긴급 패치... “신뢰 깨진 인증서가 백엔드 노린다”",
       "article_path": "content/articles/published/2026-10-23-971fca88-oracle-java-jsse-cacerts-emudhra-distrust.md",
       "seen_at": "2026-10-23T08:03:52.676Z"
+    },
+    "23569ccbc4af09aaf170e6217107be6bd4ee0b296361c87fd2c1ef134409b989": {
+      "url": "https://www.theverge.com/tech/1017343/warhound-palmer-luckey-anduril-colossal-war-dogs",
+      "canonical_url": "https://www.theverge.com/tech/1017343/warhound-palmer-luckey-anduril-colossal-war-dogs",
+      "source_name": "The Verge",
+      "title": "Startup equips genetically enhanced dogs with Palmer Luckey&#8217;s military tech",
+      "article_path": "content/articles/published/2026-10-23-23569ccb-warhound-genetically-enhanced-war-dogs-funding.md",
+      "seen_at": "2026-10-23T11:01:19.579Z"
     }
   }
 }
