@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-23T13:01:40.372Z",
+  "updated_at": "2026-10-23T15:04:21.771Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1729,6 +1729,14 @@
       "title": "Brick’s new app blocker is designed for bedtime doomscrolling",
       "article_path": "content/articles/published/2026-10-23-f934fe64-brick-night-129-dollar-bedtime-blocker.md",
       "seen_at": "2026-10-23T13:01:40.372Z"
+    },
+    "c1fe178486987bed375e1cc925cc83643dde8699e8ecb97494f667cca329b61a": {
+      "url": "https://www.theverge.com/streaming/1017304/netflix-layoffs-bela-bajaria-peter-rice-dan-lin-doug-belgrad",
+      "canonical_url": "https://www.theverge.com/streaming/1017304/netflix-layoffs-bela-bajaria-peter-rice-dan-lin-doug-belgrad",
+      "source_name": "The Verge",
+      "title": "Netflix can’t fire its way out of this downward spiral",
+      "article_path": "content/articles/published/2026-10-24-c1fe1784-netflix-layoffs-nothing-to-worry-about.md",
+      "seen_at": "2026-10-23T15:04:21.771Z"
     }
   }
 }
