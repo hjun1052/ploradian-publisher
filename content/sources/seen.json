@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-23T15:04:21.771Z",
+  "updated_at": "2026-10-23T16:01:51.659Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1737,6 +1737,14 @@
       "title": "Netflix can’t fire its way out of this downward spiral",
       "article_path": "content/articles/published/2026-10-24-c1fe1784-netflix-layoffs-nothing-to-worry-about.md",
       "seen_at": "2026-10-23T15:04:21.771Z"
+    },
+    "49ed1c1053b02f84e0cf65f8181ad4d11d6264edaf5cedbe667df27430e2083e": {
+      "url": "https://www.theverge.com/science/1017477/spacex-cell-sites-major-us-carrier",
+      "canonical_url": "https://www.theverge.com/science/1017477/spacex-cell-sites-major-us-carrier",
+      "source_name": "The Verge",
+      "title": "SpaceX’s mobile carrier push reportedly involves tapping into 80,000 cell sites",
+      "article_path": "content/articles/published/2026-10-24-49ed1c10-spacex-cell-sites-major-carrier-push.md",
+      "seen_at": "2026-10-23T16:01:51.659Z"
     }
   }
 }
