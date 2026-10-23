@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-23T17:01:54.229Z",
+  "updated_at": "2026-10-23T18:05:41.241Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1753,6 +1753,14 @@
       "title": "Now Google says it might use your Gmail and Google Photos data to target ads",
       "article_path": "content/articles/published/2026-10-24-a9526976-google-personal-intelligence-ads-exception-clause.md",
       "seen_at": "2026-10-23T17:01:54.229Z"
+    },
+    "8b0b484a58d8b4ae4295494018699d8fc0dfbc164d4bd9b39e3adf9f94474cb5": {
+      "url": "https://arstechnica.com/tech-policy/2026/10/knicks-sent-employees-fake-offer-of-championship-rings-in-phishing-test-report/",
+      "canonical_url": "https://arstechnica.com/tech-policy/2026/10/knicks-sent-employees-fake-offer-of-championship-rings-in-phishing-test-report/",
+      "source_name": "Ars Technica",
+      "title": "Knicks sent employees fake offer of championship rings in phishing test: Report",
+      "article_path": "content/articles/published/2026-10-24-8b0b484a-knicks-fake-championship-ring-phishing-test.md",
+      "seen_at": "2026-10-23T18:05:41.241Z"
     }
   }
 }
