@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-23T12:05:52.893Z",
+  "updated_at": "2026-10-23T13:01:40.372Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1721,6 +1721,14 @@
       "title": "No, the iPhone Duo isn’t a small phone",
       "article_path": "content/articles/published/2026-10-23-b942f039-iphone-duo-5-4-inch-mini-size-claim.md",
       "seen_at": "2026-10-23T12:05:52.893Z"
+    },
+    "f934fe64859bc83c4c7eac5fbe10748b78fa67dbb1baea65bbe6fbaa23644260": {
+      "url": "https://www.theverge.com/gadgets/1017383/brick-night-app-blocker-gadget-bluetooth-launch",
+      "canonical_url": "https://www.theverge.com/gadgets/1017383/brick-night-app-blocker-gadget-bluetooth-launch",
+      "source_name": "The Verge",
+      "title": "Brick’s new app blocker is designed for bedtime doomscrolling",
+      "article_path": "content/articles/published/2026-10-23-f934fe64-brick-night-129-dollar-bedtime-blocker.md",
+      "seen_at": "2026-10-23T13:01:40.372Z"
     }
   }
 }
