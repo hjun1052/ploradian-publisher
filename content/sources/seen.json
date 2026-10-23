@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-23T11:01:19.579Z",
+  "updated_at": "2026-10-23T12:05:52.893Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1713,6 +1713,14 @@
       "title": "Startup equips genetically enhanced dogs with Palmer Luckey&#8217;s military tech",
       "article_path": "content/articles/published/2026-10-23-23569ccb-warhound-genetically-enhanced-war-dogs-funding.md",
       "seen_at": "2026-10-23T11:01:19.579Z"
+    },
+    "b942f0399e0eb8dfc4f728ad262d75ba76215bf5ff48594a5208f30a26053a4a": {
+      "url": "https://www.theverge.com/tech/1017090/iphone-duo-screen-size-mini",
+      "canonical_url": "https://www.theverge.com/tech/1017090/iphone-duo-screen-size-mini",
+      "source_name": "The Verge",
+      "title": "No, the iPhone Duo isn’t a small phone",
+      "article_path": "content/articles/published/2026-10-23-b942f039-iphone-duo-5-4-inch-mini-size-claim.md",
+      "seen_at": "2026-10-23T12:05:52.893Z"
     }
   }
 }
