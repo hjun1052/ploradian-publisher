@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-23T03:03:51.383Z",
+  "updated_at": "2026-10-23T04:01:28.285Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1673,6 +1673,14 @@
       "title": "\"3시간 만에 관리자 권한 탈취\"…중국 해커, 韓 금융권 공격 AI 도구로 클라우드 침투",
       "article_path": "content/articles/published/2026-10-23-ae924665-connectwise-storm-0940-artex-backup-app-admin.md",
       "seen_at": "2026-10-23T03:03:51.383Z"
+    },
+    "40521b34740411c34cd5bc7be8ad85a285e42ae01a51309e4f7f4d62fe3adcba": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4440793",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4440793",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "키옥시아 지분가치 41조 급감…&quot;SK하이닉스, 왜 팔지 않았나&quot;",
+      "article_path": "content/articles/published/2026-10-23-40521b34-skhynix-kioxia-stake-strategic-spectating.md",
+      "seen_at": "2026-10-23T04:01:28.285Z"
     }
   }
 }
