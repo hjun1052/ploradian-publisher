@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-24T07:00:34.689Z",
+  "updated_at": "2026-10-24T09:02:08.917Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1801,6 +1801,14 @@
       "title": "2026-10-24 이번 주의 범행 기록",
       "article_path": "content/articles/published/2026-10-24-9a6bd1dd-ibeon-juui-beomheng-girok-seoryu-pachi-jeonmangi-jeojireun-joyonghan-nan.md",
       "seen_at": "2026-10-24T07:00:34.689Z"
+    },
+    "9d91324739f4d7af2d10340835f56087ea1a1cda9c119ce828ca8afeb9789ddc": {
+      "url": "https://www.newsis.com/view/NISX20261024_0003839607",
+      "canonical_url": "https://www.newsis.com/view/NISX20261024_0003839607",
+      "source_name": "뉴시스 경제",
+      "title": "서울 중저가 아파트 초강세…부동산 전문가 \"금리 오르면 꺾일 수도\"",
+      "article_path": "content/articles/published/2026-10-24-9d913247-seoul-mid-price-apartments-superstrong-rates.md",
+      "seen_at": "2026-10-24T09:02:08.917Z"
     }
   }
 }
