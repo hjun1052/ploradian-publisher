@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-24T04:01:34.456Z",
+  "updated_at": "2026-10-24T05:03:18.121Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1785,6 +1785,14 @@
       "title": "2조4000억 비용 어디서…말뿐인 경마공원 이전",
       "article_path": "content/articles/published/2026-10-24-aef2203c-gwacheon-racecourse-relocation-draft.md",
       "seen_at": "2026-10-24T04:01:34.456Z"
+    },
+    "22184567993ce316a579b7c0cc9039fafd5c62865557f5c6934e0f9ba4bb9995": {
+      "url": "https://www.etnews.com/20261024000001",
+      "canonical_url": "https://www.etnews.com/20261024000001",
+      "source_name": "전자신문",
+      "title": "상장 첫날 32% 폭락하더니 이틀 만에 시총 1조 회복…외신도 주목한 종목, 뭔데?",
+      "article_path": "content/articles/published/2026-10-24-22184567-elice-listing-rebound-trillion-won-market-cap.md",
+      "seen_at": "2026-10-24T05:03:18.121Z"
     }
   }
 }
