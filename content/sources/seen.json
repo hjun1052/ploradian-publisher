@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-24T16:01:38.241Z",
+  "updated_at": "2026-10-24T17:02:57.834Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1841,6 +1841,14 @@
       "title": "'美 제재' 러 에너지기업, 알래스카 LNG 사업에 비밀 자금 지원 의혹",
       "article_path": "content/articles/published/2026-10-25-d69b2f2a-novatek-polarlng-alaska-lng-sanction-money.md",
       "seen_at": "2026-10-24T16:01:38.241Z"
+    },
+    "23333a58a0582eac2538e4d068f1b423213c9779b412098326530f50b0993557": {
+      "url": "https://www.etnews.com/20261024000019",
+      "canonical_url": "https://www.etnews.com/20261024000019",
+      "source_name": "전자신문",
+      "title": "'월매출 4억' 횟집사장 정준하도 적자 걱정…“자영업자, 남는게 없다” 왜?",
+      "article_path": "content/articles/published/2026-10-25-23333a58-jeong-junha-4eok-sushi-profit-math.md",
+      "seen_at": "2026-10-24T17:02:57.834Z"
     }
   }
 }
