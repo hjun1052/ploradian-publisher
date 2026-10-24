@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-24T05:03:18.121Z",
+  "updated_at": "2026-10-24T07:00:34.689Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1793,6 +1793,14 @@
       "title": "상장 첫날 32% 폭락하더니 이틀 만에 시총 1조 회복…외신도 주목한 종목, 뭔데?",
       "article_path": "content/articles/published/2026-10-24-22184567-elice-listing-rebound-trillion-won-market-cap.md",
       "seen_at": "2026-10-24T05:03:18.121Z"
+    },
+    "9a6bd1dd2641caf187bea2df0e13fe179dd8fd764e7dbaa1daeabee6ebe21fd3": {
+      "url": "https://news.ploradian.com/weekend/2026-10-24-weekly-incident-log/",
+      "canonical_url": "https://news.ploradian.com/weekend/2026-10-24-weekly-incident-log/",
+      "source_name": "The Ploradian 주말 결산 데스크",
+      "title": "2026-10-24 이번 주의 범행 기록",
+      "article_path": "content/articles/published/2026-10-24-9a6bd1dd-ibeon-juui-beomheng-girok-seoryu-pachi-jeonmangi-jeojireun-joyonghan-nan.md",
+      "seen_at": "2026-10-24T07:00:34.689Z"
     }
   }
 }
