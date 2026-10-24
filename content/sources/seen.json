@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-24T11:03:11.610Z",
+  "updated_at": "2026-10-24T15:02:17.170Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1825,6 +1825,14 @@
       "title": "포스코이앤씨, 5260억원 규모 '이수신동아4차' 리모델링 수주",
       "article_path": "content/articles/published/2026-10-24-6163ad8e-posco-enc-isu-sindonga-4-remodeling.md",
       "seen_at": "2026-10-24T11:03:11.610Z"
+    },
+    "7900ddd0f868f0fad5169ba78a123d6a5b15e01e277d212d21b5d65b96754e8f": {
+      "url": "https://www.etnews.com/20261024000038",
+      "canonical_url": "https://www.etnews.com/20261024000038",
+      "source_name": "전자신문",
+      "title": "'오픈런' 부른 330만원짜리가 6시간 만에 '쩍'…“아이폰 듀오 20번도 안펼쳤는데 화면 파손”",
+      "article_path": "content/articles/published/2026-10-25-7900ddd0-apple-iphone-duo-screen-cracked-six-hours.md",
+      "seen_at": "2026-10-24T15:02:17.170Z"
     }
   }
 }
