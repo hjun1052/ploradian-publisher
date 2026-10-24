@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-23T23:03:35.104Z",
+  "updated_at": "2026-10-24T00:03:24.483Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1769,6 +1769,14 @@
       "title": "국내 경유 판매 7.6% 줄자…정부, 수출 빗장 먼저 푼다",
       "article_path": "content/articles/published/2026-10-24-c43cba79-diesel-export-cap-loosened-government-ministry.md",
       "seen_at": "2026-10-23T23:03:35.104Z"
+    },
+    "068db6b4354eae37c67715ef45984a765cae0c70d670ede323504c072d91ac2d": {
+      "url": "https://www.newsis.com/view/NISX20261023_0003838086",
+      "canonical_url": "https://www.newsis.com/view/NISX20261023_0003838086",
+      "source_name": "뉴시스 경제",
+      "title": "\"집값 2035년까지 오른다…지금이라도 내집마련 해야\" 대학교수의 조언",
+      "article_path": "content/articles/published/2026-10-24-068db6b4-professor-2035-rent-advice-buy-now.md",
+      "seen_at": "2026-10-24T00:03:24.483Z"
     }
   }
 }
