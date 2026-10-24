@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-24T17:02:57.834Z",
+  "updated_at": "2026-10-24T18:01:37.683Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1849,6 +1849,14 @@
       "title": "'월매출 4억' 횟집사장 정준하도 적자 걱정…“자영업자, 남는게 없다” 왜?",
       "article_path": "content/articles/published/2026-10-25-23333a58-jeong-junha-4eok-sushi-profit-math.md",
       "seen_at": "2026-10-24T17:02:57.834Z"
+    },
+    "d81aab35827a8ae91eb809f43e27fca12b9512ccd1d54a784f6ac3751030ac3d": {
+      "url": "https://www.newsis.com/view/NISX20261024_0003839662",
+      "canonical_url": "https://www.newsis.com/view/NISX20261024_0003839662",
+      "source_name": "뉴시스 경제",
+      "title": "삼성물산, 반포푸르지오 리모델링 수주…'넥스트 리모델링' 첫 성과",
+      "article_path": "content/articles/published/2026-10-25-d81aab35-samsung-banpo-next-remodeling-first-contract.md",
+      "seen_at": "2026-10-24T18:01:37.683Z"
     }
   }
 }
