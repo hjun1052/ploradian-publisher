@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-24T15:02:17.170Z",
+  "updated_at": "2026-10-24T16:01:38.241Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1833,6 +1833,14 @@
       "title": "'오픈런' 부른 330만원짜리가 6시간 만에 '쩍'…“아이폰 듀오 20번도 안펼쳤는데 화면 파손”",
       "article_path": "content/articles/published/2026-10-25-7900ddd0-apple-iphone-duo-screen-cracked-six-hours.md",
       "seen_at": "2026-10-24T15:02:17.170Z"
+    },
+    "d69b2f2a1ca30cb072340d77b7a027e9a898b1aa9c7f3147ce3e7e6f04a83498": {
+      "url": "https://www.newsis.com/view/NISX20261024_0003839706",
+      "canonical_url": "https://www.newsis.com/view/NISX20261024_0003839706",
+      "source_name": "뉴시스 경제",
+      "title": "'美 제재' 러 에너지기업, 알래스카 LNG 사업에 비밀 자금 지원 의혹",
+      "article_path": "content/articles/published/2026-10-25-d69b2f2a-novatek-polarlng-alaska-lng-sanction-money.md",
+      "seen_at": "2026-10-24T16:01:38.241Z"
     }
   }
 }
