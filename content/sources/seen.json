@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-24T09:02:08.917Z",
+  "updated_at": "2026-10-24T10:02:02.921Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1809,6 +1809,14 @@
       "title": "서울 중저가 아파트 초강세…부동산 전문가 \"금리 오르면 꺾일 수도\"",
       "article_path": "content/articles/published/2026-10-24-9d913247-seoul-mid-price-apartments-superstrong-rates.md",
       "seen_at": "2026-10-24T09:02:08.917Z"
+    },
+    "a352395711e7daf4e6de39d6b772c8f682d09db0375d23dcbb47a24b11943be0": {
+      "url": "https://www.newsis.com/view/NISX20261023_0003839264",
+      "canonical_url": "https://www.newsis.com/view/NISX20261023_0003839264",
+      "source_name": "뉴시스 경제",
+      "title": "[반등의 조건①]반도체가 멈춰세운 잠재성장률 추락…'반짝 반등' 안되려면",
+      "article_path": "content/articles/published/2026-10-24-a3523957-potential-growth-rebound-rests-on-possibility.md",
+      "seen_at": "2026-10-24T10:02:02.921Z"
     }
   }
 }
