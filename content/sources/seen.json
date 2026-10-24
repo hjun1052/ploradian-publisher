@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-24T18:01:37.683Z",
+  "updated_at": "2026-10-24T22:00:29.478Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1857,6 +1857,14 @@
       "title": "삼성물산, 반포푸르지오 리모델링 수주…'넥스트 리모델링' 첫 성과",
       "article_path": "content/articles/published/2026-10-25-d81aab35-samsung-banpo-next-remodeling-first-contract.md",
       "seen_at": "2026-10-24T18:01:37.683Z"
+    },
+    "919b932e85797b790a82df77448e93296a4d3c2ea5b4d0ce41b76554c2a5c56f": {
+      "url": "https://news.ploradian.com/weekend/2026-10-25-weekend-fable-us-2026-10-24/",
+      "canonical_url": "https://news.ploradian.com/weekend/2026-10-25-weekend-fable-us-2026-10-24/",
+      "source_name": "The Ploradian 주말 우화 투고란",
+      "title": "2026-10-25 주말 우화",
+      "article_path": "content/articles/published/2026-10-25-919b932e-an-nae-mun-i-do-chak-hagi-jeon-e-meon-jeo-neul-geo-beo-rin-bok-sa-gi.md",
+      "seen_at": "2026-10-24T22:00:29.478Z"
     }
   }
 }
