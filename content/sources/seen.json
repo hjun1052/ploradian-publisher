@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-24T00:03:24.483Z",
+  "updated_at": "2026-10-24T04:01:34.456Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1777,6 +1777,14 @@
       "title": "\"집값 2035년까지 오른다…지금이라도 내집마련 해야\" 대학교수의 조언",
       "article_path": "content/articles/published/2026-10-24-068db6b4-professor-2035-rent-advice-buy-now.md",
       "seen_at": "2026-10-24T00:03:24.483Z"
+    },
+    "aef2203cb22bbcfd7a0b01a95839d4ea17af0a8e38fe31afb3a3884ade488038": {
+      "url": "https://www.newsis.com/view/NISX20261023_0003837752",
+      "canonical_url": "https://www.newsis.com/view/NISX20261023_0003837752",
+      "source_name": "뉴시스 경제",
+      "title": "2조4000억 비용 어디서…말뿐인 경마공원 이전",
+      "article_path": "content/articles/published/2026-10-24-aef2203c-gwacheon-racecourse-relocation-draft.md",
+      "seen_at": "2026-10-24T04:01:34.456Z"
     }
   }
 }
