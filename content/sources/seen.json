@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-24T10:02:02.921Z",
+  "updated_at": "2026-10-24T11:03:11.610Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1817,6 +1817,14 @@
       "title": "[반등의 조건①]반도체가 멈춰세운 잠재성장률 추락…'반짝 반등' 안되려면",
       "article_path": "content/articles/published/2026-10-24-a3523957-potential-growth-rebound-rests-on-possibility.md",
       "seen_at": "2026-10-24T10:02:02.921Z"
+    },
+    "6163ad8ef54b6d75b982357d802d2c20f2b5b04c647d215bb07094bfa1e5063f": {
+      "url": "https://www.newsis.com/view/NISX20261024_0003839667",
+      "canonical_url": "https://www.newsis.com/view/NISX20261024_0003839667",
+      "source_name": "뉴시스 경제",
+      "title": "포스코이앤씨, 5260억원 규모 '이수신동아4차' 리모델링 수주",
+      "article_path": "content/articles/published/2026-10-24-6163ad8e-posco-enc-isu-sindonga-4-remodeling.md",
+      "seen_at": "2026-10-24T11:03:11.610Z"
     }
   }
 }
