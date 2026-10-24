@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-24T22:00:29.478Z",
+  "updated_at": "2026-10-24T23:01:29.662Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1865,6 +1865,14 @@
       "title": "2026-10-25 주말 우화",
       "article_path": "content/articles/published/2026-10-25-919b932e-an-nae-mun-i-do-chak-hagi-jeon-e-meon-jeo-neul-geo-beo-rin-bok-sa-gi.md",
       "seen_at": "2026-10-24T22:00:29.478Z"
+    },
+    "4bc1f71938cef32cbc2ce08cec3eac233c542e86d57a7821f2e9530382a4b352": {
+      "url": "https://www.yna.co.kr/view/AKR20261024041400003",
+      "canonical_url": "https://www.yna.co.kr/view/AKR20261024041400003",
+      "source_name": "연합뉴스 경제",
+      "title": "올해 아파트 관리비 '비리 경보' 7천851곳…처분 결과는 '모름'",
+      "article_path": "content/articles/published/2026-10-25-4bc1f719-apartment-fee-alarm-7851-no-follow-up.md",
+      "seen_at": "2026-10-24T23:01:29.662Z"
     }
   }
 }
