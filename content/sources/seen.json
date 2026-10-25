@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-25T10:01:22.785Z",
+  "updated_at": "2026-10-25T11:01:26.770Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1913,6 +1913,14 @@
       "title": "'먹튀 의료' 막았더니, 외국인 건보 첫 1조 흑자…중국인은 1년 만에 409억 적자",
       "article_path": "content/articles/published/2026-10-25-607d098b-foreign-nhis-surplus-china-deficit-policy.md",
       "seen_at": "2026-10-25T10:01:22.785Z"
+    },
+    "7d322532ab2538e825f36915661ebe8fbcc3d82e3549244c3e5d1a16426520d4": {
+      "url": "https://www.etnews.com/20261023000224",
+      "canonical_url": "https://www.etnews.com/20261023000224",
+      "source_name": "전자신문",
+      "title": "“좌석 양보하면 800만원”…'오버부킹' 파격 제안에도 아무도 안 나선 사연",
+      "article_path": "content/articles/published/2026-10-25-7d322532-delta-overbooking-6000-dollar-offer.md",
+      "seen_at": "2026-10-25T11:01:26.770Z"
     }
   }
 }
