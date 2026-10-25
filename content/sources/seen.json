@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-25T09:01:43.980Z",
+  "updated_at": "2026-10-25T10:01:22.785Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1905,6 +1905,14 @@
       "title": "청와대, 내년 가상자산 과세 '유예' 가닥…\"검토중\"(종합)",
       "article_path": "content/articles/published/2026-10-25-e598a012-cheong-wa-dae-crypto-tax-delay-review.md",
       "seen_at": "2026-10-25T09:01:43.980Z"
+    },
+    "607d098b67f493370db0e166cca10b4340e531718581bf8a63cb0ea3267c78fd": {
+      "url": "https://www.etnews.com/20261025000082",
+      "canonical_url": "https://www.etnews.com/20261025000082",
+      "source_name": "전자신문",
+      "title": "'먹튀 의료' 막았더니, 외국인 건보 첫 1조 흑자…중국인은 1년 만에 409억 적자",
+      "article_path": "content/articles/published/2026-10-25-607d098b-foreign-nhis-surplus-china-deficit-policy.md",
+      "seen_at": "2026-10-25T10:01:22.785Z"
     }
   }
 }
