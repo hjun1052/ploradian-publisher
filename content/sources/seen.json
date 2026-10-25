@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-25T11:01:26.770Z",
+  "updated_at": "2026-10-25T15:02:04.342Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1921,6 +1921,14 @@
       "title": "“좌석 양보하면 800만원”…'오버부킹' 파격 제안에도 아무도 안 나선 사연",
       "article_path": "content/articles/published/2026-10-25-7d322532-delta-overbooking-6000-dollar-offer.md",
       "seen_at": "2026-10-25T11:01:26.770Z"
+    },
+    "398922f325454862bdd921017b75568bf6bcfeaf68fdbfbcf2f022d37f4f3faf": {
+      "url": "https://www.newsis.com/view/NISX20261025_0003840248",
+      "canonical_url": "https://www.newsis.com/view/NISX20261025_0003840248",
+      "source_name": "뉴시스 경제",
+      "title": "골드만, 코스피 목표 1만2000→9000으로 낮췄지만…\"상승 여력 60%\"",
+      "article_path": "content/articles/published/2026-10-26-398922f3-goldman-kospi-target-cut-60-percent-upside.md",
+      "seen_at": "2026-10-25T15:02:04.342Z"
     }
   }
 }
