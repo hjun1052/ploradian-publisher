@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-25T04:02:44.080Z",
+  "updated_at": "2026-10-25T05:01:16.849Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1889,6 +1889,14 @@
       "title": "공정위, KPIC코포레이션에 과징금 3100만원…금융사 주식보유 위반",
       "article_path": "content/articles/published/2026-10-25-84290f6e-kpic-holding-financial-stake-fine.md",
       "seen_at": "2026-10-25T04:02:44.080Z"
+    },
+    "66ae994c8608ee6b80a2722619a6bf18be67f3544d3425b8ccace21cd627c938": {
+      "url": "https://www.newsis.com/view/NISX20261025_0003839973",
+      "canonical_url": "https://www.newsis.com/view/NISX20261025_0003839973",
+      "source_name": "뉴시스 경제",
+      "title": "靑, 가상자산 과세 재유예 잠정 결론…청년 여론·제도 미비 등 고려",
+      "article_path": "content/articles/published/2026-10-25-66ae994c-cheongwadae-crypto-tax-fourth-delay.md",
+      "seen_at": "2026-10-25T05:01:16.849Z"
     }
   }
 }
