@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-25T18:01:26.774Z",
+  "updated_at": "2026-10-25T19:03:07.771Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1945,6 +1945,14 @@
       "title": "“갤럭시A 20% 감산”…삼성, 칩플레이션 대응",
       "article_path": "content/articles/published/2026-10-26-ba8f7e0d-galaxy-a-production-cut-chipflation.md",
       "seen_at": "2026-10-25T18:01:26.774Z"
+    },
+    "d3b4eb404c21b23c99d2d0486bd5fb08c530b916a5a703192743a1c35f6ae4e3": {
+      "url": "https://www.newsis.com/view/NISX20261026_0003840269",
+      "canonical_url": "https://www.newsis.com/view/NISX20261026_0003840269",
+      "source_name": "뉴시스 경제",
+      "title": "\"테슬라·스페이스X, 내년 말까지 합병 확률 90%\"…월가 전망",
+      "article_path": "content/articles/published/2026-10-26-d3b4eb40-tesla-spacex-merger-odds-before-merger.md",
+      "seen_at": "2026-10-25T19:03:07.771Z"
     }
   }
 }
