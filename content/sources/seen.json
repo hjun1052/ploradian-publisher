@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-25T00:01:28.740Z",
+  "updated_at": "2026-10-25T04:02:44.080Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1881,6 +1881,14 @@
       "title": "'자취생 필수' 햇반 출시 30주년…&quot;2028년 연매출 1조5천억원 시대 열 것&quot;",
       "article_path": "content/articles/published/2026-10-25-6ba9c792-cj-haetbap-30th-anniversary-2028-sales-target.md",
       "seen_at": "2026-10-25T00:01:28.740Z"
+    },
+    "84290f6ee94c275128c0cb2c197b23d5bb613c0a26f93d6579e95ed55160dce0": {
+      "url": "https://www.newsis.com/view/NISX20261025_0003839784",
+      "canonical_url": "https://www.newsis.com/view/NISX20261025_0003839784",
+      "source_name": "뉴시스 경제",
+      "title": "공정위, KPIC코포레이션에 과징금 3100만원…금융사 주식보유 위반",
+      "article_path": "content/articles/published/2026-10-25-84290f6e-kpic-holding-financial-stake-fine.md",
+      "seen_at": "2026-10-25T04:02:44.080Z"
     }
   }
 }
