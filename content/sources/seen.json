@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-25T05:01:16.849Z",
+  "updated_at": "2026-10-25T09:01:43.980Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1897,6 +1897,14 @@
       "title": "靑, 가상자산 과세 재유예 잠정 결론…청년 여론·제도 미비 등 고려",
       "article_path": "content/articles/published/2026-10-25-66ae994c-cheongwadae-crypto-tax-fourth-delay.md",
       "seen_at": "2026-10-25T05:01:16.849Z"
+    },
+    "e598a0128c752e685f15ca6957ed378c01168cf0a1eaf62f3a264f9f1a2fe9de": {
+      "url": "https://www.newsis.com/view/NISX20261025_0003840109",
+      "canonical_url": "https://www.newsis.com/view/NISX20261025_0003840109",
+      "source_name": "뉴시스 경제",
+      "title": "청와대, 내년 가상자산 과세 '유예' 가닥…\"검토중\"(종합)",
+      "article_path": "content/articles/published/2026-10-25-e598a012-cheong-wa-dae-crypto-tax-delay-review.md",
+      "seen_at": "2026-10-25T09:01:43.980Z"
     }
   }
 }
