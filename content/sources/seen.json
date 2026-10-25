@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-25T22:01:18.918Z",
+  "updated_at": "2026-10-25T23:07:21.133Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1961,6 +1961,14 @@
       "title": "2026-10-26 새 한 주를 맞이하는 비장한 각오의 주주들",
       "article_path": "content/articles/published/2026-10-26-93ad3883-2026-10-26-new-week-shareholder-rally.md",
       "seen_at": "2026-10-25T22:01:18.918Z"
+    },
+    "7bd27d1e18a717d7730eedd33120492ac3f5bf3b3ba2d8def48a67459dd88c2a": {
+      "url": "https://www.newsis.com/view/NISX20261026_0003840328",
+      "canonical_url": "https://www.newsis.com/view/NISX20261026_0003840328",
+      "source_name": "뉴시스 경제",
+      "title": "머스크 \"스페이스X, GPU용 53조원 확보…기존 사업 매출 덕분\"",
+      "article_path": "content/articles/published/2026-10-26-7bd27d1e-spacex-53-trillion-won-gpu-debt.md",
+      "seen_at": "2026-10-25T23:07:21.133Z"
     }
   }
 }
