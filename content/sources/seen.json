@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-25T17:19:45.879Z",
+  "updated_at": "2026-10-25T18:01:26.774Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1937,6 +1937,14 @@
       "title": "'오리온 7% 주주' 실체스터 &quot;주주 배당 늘려야…불응시 지지 잃을 것&quot;",
       "article_path": "content/articles/published/2026-10-26-8f83c08c-orion-silchester-dividend-demand-support-threat.md",
       "seen_at": "2026-10-25T17:19:45.879Z"
+    },
+    "ba8f7e0d66cb9ff09ac1e55f6624236360e9429358cf1f8095ad73873090944b": {
+      "url": "https://www.etnews.com/20261023000235",
+      "canonical_url": "https://www.etnews.com/20261023000235",
+      "source_name": "전자신문",
+      "title": "“갤럭시A 20% 감산”…삼성, 칩플레이션 대응",
+      "article_path": "content/articles/published/2026-10-26-ba8f7e0d-galaxy-a-production-cut-chipflation.md",
+      "seen_at": "2026-10-25T18:01:26.774Z"
     }
   }
 }
