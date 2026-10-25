@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-25T15:02:04.342Z",
+  "updated_at": "2026-10-25T17:19:45.879Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1929,6 +1929,14 @@
       "title": "골드만, 코스피 목표 1만2000→9000으로 낮췄지만…\"상승 여력 60%\"",
       "article_path": "content/articles/published/2026-10-26-398922f3-goldman-kospi-target-cut-60-percent-upside.md",
       "seen_at": "2026-10-25T15:02:04.342Z"
+    },
+    "8f83c08ce4d4b85b98730fe642569d4a446617e67f19230533ad581b0a22ab89": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4440975",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4440975",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "'오리온 7% 주주' 실체스터 &quot;주주 배당 늘려야…불응시 지지 잃을 것&quot;",
+      "article_path": "content/articles/published/2026-10-26-8f83c08c-orion-silchester-dividend-demand-support-threat.md",
+      "seen_at": "2026-10-25T17:19:45.879Z"
     }
   }
 }
