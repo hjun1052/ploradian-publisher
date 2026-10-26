@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-26T15:01:29.077Z",
+  "updated_at": "2026-10-26T16:03:40.996Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -2041,6 +2041,14 @@
       "title": "메타, AI 투자재원 마련 위해 125조원 자본조달… 주식공모 46조원등",
       "article_path": "content/articles/published/2026-10-27-b2e6ac1b-meta-raises-125-trillion-won-capital.md",
       "seen_at": "2026-10-26T15:01:29.077Z"
+    },
+    "b57ca80a4f464d6bae7310b1fcf4c5de8e124833c084ad4f166bd29858160a55": {
+      "url": "https://www.newsis.com/view/NISX20261026_0003841949",
+      "canonical_url": "https://www.newsis.com/view/NISX20261026_0003841949",
+      "source_name": "뉴시스 경제",
+      "title": "앤트로픽, 나스닥 상장 위한 IPO 신청…AI 산업 수익성 시험대",
+      "article_path": "content/articles/published/2026-10-27-b57ca80a-anthropic-ipo-filing-loss-revenue-gap.md",
+      "seen_at": "2026-10-26T16:03:40.996Z"
     }
   }
 }
