@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-26T04:02:20.343Z",
+  "updated_at": "2026-10-26T05:02:21.095Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -1985,6 +1985,14 @@
       "title": "관할청 인허가 안 받았는데도 임차인 모집…공정위 제재",
       "article_path": "content/articles/published/2026-10-26-cd2ab1a9-unapproved-apartment-ads-deadline-kftc-sanction.md",
       "seen_at": "2026-10-26T04:02:20.343Z"
+    },
+    "66519ddb4038d1cb54a89614203bdfb64b107613f1faa2ab722522766a18e8a1": {
+      "url": "https://www.yna.co.kr/view/AKR20261026089500055",
+      "canonical_url": "https://www.yna.co.kr/view/AKR20261026089500055",
+      "source_name": "연합뉴스 경제",
+      "title": "전주마이스복합단지 1년간 공정률 2.5%…시의원 \"매몰비용 우려\"",
+      "article_path": "content/articles/published/2026-10-26-66519ddb-jeonju-mice-complex-progress-stalled-after-groundbreaking.md",
+      "seen_at": "2026-10-26T05:02:21.095Z"
     }
   }
 }
