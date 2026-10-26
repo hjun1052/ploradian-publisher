@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-26T18:04:39.422Z",
+  "updated_at": "2026-10-26T23:01:26.399Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -2065,6 +2065,14 @@
       "title": "일본계 투자사 \"JYP 지분 25∼50% 인수추진\"…JYP \"제안 無\"",
       "article_path": "content/articles/published/2026-10-27-232252c6-jyp-stake-acquisition-claim-stock-jump.md",
       "seen_at": "2026-10-26T18:04:39.422Z"
+    },
+    "092e8ceea2bd79fc970f45ee7568c5fc9e52b742bebe81faac4afc9e3615811d": {
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1018994/anthropic-ipo-ai-data-center-energy-climate-risk",
+      "canonical_url": "https://www.theverge.com/ai-artificial-intelligence/1018994/anthropic-ipo-ai-data-center-energy-climate-risk",
+      "source_name": "The Verge",
+      "title": "Anthropic is burning gas to feed the AI boom",
+      "article_path": "content/articles/published/2026-10-27-092e8cee-anthropic-ipo-filing-gas-data-centers.md",
+      "seen_at": "2026-10-26T23:01:26.399Z"
     }
   }
 }
