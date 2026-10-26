@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-26T16:03:40.996Z",
+  "updated_at": "2026-10-26T17:02:06.137Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -2049,6 +2049,14 @@
       "title": "앤트로픽, 나스닥 상장 위한 IPO 신청…AI 산업 수익성 시험대",
       "article_path": "content/articles/published/2026-10-27-b57ca80a-anthropic-ipo-filing-loss-revenue-gap.md",
       "seen_at": "2026-10-26T16:03:40.996Z"
+    },
+    "7b088c8293bc65eead0202308f3c62f8181bf890b823d3fb1b8dd1fe3d9f2890": {
+      "url": "https://www.theverge.com/tech/1018688/instagram-longform-widescreen-video-features-youtube",
+      "canonical_url": "https://www.theverge.com/tech/1018688/instagram-longform-widescreen-video-features-youtube",
+      "source_name": "The Verge",
+      "title": "Instagram chases YouTube with a push for longer, widescreen videos",
+      "article_path": "content/articles/published/2026-10-27-7b088c82-instagram-longform-features-widescreen-reversal.md",
+      "seen_at": "2026-10-26T17:02:06.137Z"
     }
   }
 }
