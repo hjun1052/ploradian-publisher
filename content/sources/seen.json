@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-26T09:01:57.520Z",
+  "updated_at": "2026-10-26T09:17:12.375Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -2017,6 +2017,14 @@
       "title": "무신사 뷰티, 내달 11일 성수 개장…코앞 올리브영과 맞대결",
       "article_path": "content/articles/published/2026-10-26-080e4003-musinsa-beauty-seongsu-opposite-oliveyoung.md",
       "seen_at": "2026-10-26T09:01:57.520Z"
+    },
+    "a1cebd7cc65e704031eeb69b545cde666801e400b47bb35c3721622a642fee4d": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4441119",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4441119",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "SK하닉, 28일 주주환원 발표…16조원 특별배당설에 &quot;확정된 것 없다&quot;(종합)",
+      "article_path": "content/articles/published/2026-10-26-a1cebd7c-sk-hynix-dividend-denial-28th-earnings.md",
+      "seen_at": "2026-10-26T09:17:12.375Z"
     }
   }
 }
