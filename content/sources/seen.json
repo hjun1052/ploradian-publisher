@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-26T17:02:06.137Z",
+  "updated_at": "2026-10-26T18:04:39.422Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -2057,6 +2057,14 @@
       "title": "Instagram chases YouTube with a push for longer, widescreen videos",
       "article_path": "content/articles/published/2026-10-27-7b088c82-instagram-longform-features-widescreen-reversal.md",
       "seen_at": "2026-10-26T17:02:06.137Z"
+    },
+    "232252c611050ab19dd1c3bf80e71805a9d2986867fdfa86627edd0d351cd68b": {
+      "url": "https://www.yna.co.kr/view/AKR20261026171800005",
+      "canonical_url": "https://www.yna.co.kr/view/AKR20261026171800005",
+      "source_name": "연합뉴스 산업",
+      "title": "일본계 투자사 \"JYP 지분 25∼50% 인수추진\"…JYP \"제안 無\"",
+      "article_path": "content/articles/published/2026-10-27-232252c6-jyp-stake-acquisition-claim-stock-jump.md",
+      "seen_at": "2026-10-26T18:04:39.422Z"
     }
   }
 }
