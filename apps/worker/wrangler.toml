@@ -26,7 +26,7 @@ enabled = true
 head_sampling_rate = 1.0
 
 [triggers]
-crons = ["*/30 * * * *"]
+crons = []  # generation OFF to stop API spend; restore ["*/30 * * * *"] to resume
 
 [vars]
 AI_PROVIDER = "openai"
