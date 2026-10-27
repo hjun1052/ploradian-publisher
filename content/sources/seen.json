@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-26T23:01:26.399Z",
+  "updated_at": "2026-10-27T00:01:27.918Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -2073,6 +2073,14 @@
       "title": "Anthropic is burning gas to feed the AI boom",
       "article_path": "content/articles/published/2026-10-27-092e8cee-anthropic-ipo-filing-gas-data-centers.md",
       "seen_at": "2026-10-26T23:01:26.399Z"
+    },
+    "05b6e1a0fb6174b37dcab8b06555a3cf434344d5a4105e6c5f32630181450610": {
+      "url": "https://www.yna.co.kr/view/AKR20261027028600017",
+      "canonical_url": "https://www.yna.co.kr/view/AKR20261027028600017",
+      "source_name": "연합뉴스 산업",
+      "title": "방미통위, 구글·애플 과징금 637억원 가닥…시정조치 범위 이견",
+      "article_path": "content/articles/published/2026-10-27-05b6e1a0-bang-mitong-google-apple-637-billion-fine.md",
+      "seen_at": "2026-10-27T00:01:27.918Z"
     }
   }
 }
