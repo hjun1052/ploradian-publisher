@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-27T15:01:47.999Z",
+  "updated_at": "2026-10-27T16:01:50.335Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -2161,6 +2161,14 @@
       "title": "Palmer Luckey’s Anduril is getting into laptops — and claims they&#8217;ll be American-made",
       "article_path": "content/articles/published/2026-10-28-2c144bb2-anduril-bluechip-laptop-american-made-claim.md",
       "seen_at": "2026-10-27T15:01:47.999Z"
+    },
+    "c8082b3d95a358cc7bebbf8602ff60d97bdbf7eece05fd9b5afdc71c5de163c6": {
+      "url": "https://www.etnews.com/20261027000450",
+      "canonical_url": "https://www.etnews.com/20261027000450",
+      "source_name": "전자신문",
+      "title": "애플 '아이폰 듀오' 초기 공급 600만대 이하 전망…수요 초과도",
+      "article_path": "content/articles/published/2026-10-28-c8082b3d-apple-iphone-duo-initial-supply-forecast.md",
+      "seen_at": "2026-10-27T16:01:50.335Z"
     }
   }
 }
