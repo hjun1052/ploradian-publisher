@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-27T03:01:12.682Z",
+  "updated_at": "2026-10-27T04:02:57.999Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -2089,6 +2089,14 @@
       "title": "KB국민은행 개인정보 유출 추가 확인…119명→2210명 확산",
       "article_path": "content/articles/published/2026-10-27-8f010ab5-kb-bank-leak-119-to-2210.md",
       "seen_at": "2026-10-27T03:01:12.682Z"
+    },
+    "1197cb364c1f193e5a953d451a0e0e917bfef32338869ca5ae775d7c6a7e43cb": {
+      "url": "https://www.yna.co.kr/view/AKR20261027096200704",
+      "canonical_url": "https://www.yna.co.kr/view/AKR20261027096200704",
+      "source_name": "연합뉴스 산업",
+      "title": "[영상] 애플, 329만원짜리 아이폰듀오 화면파손 결함 인정…\"무상교체\"",
+      "article_path": "content/articles/published/2026-10-27-1197cb36-apple-iphone-duo-screen-defect-replacement.md",
+      "seen_at": "2026-10-27T04:02:57.999Z"
     }
   }
 }
