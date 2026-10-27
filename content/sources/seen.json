@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-27T08:01:36.016Z",
+  "updated_at": "2026-10-27T09:02:05.395Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -2121,6 +2121,14 @@
       "title": "[PHP 파장] PHP2셸, 실제 서버 침투 정황 첫 확인... 510만대 노출에 보안 우려",
       "article_path": "content/articles/published/2026-10-27-674b9185-php2shell-honeypot-rce-5-1-million-servers.md",
       "seen_at": "2026-10-27T08:01:36.016Z"
+    },
+    "bd76b9e085f101efb7747c547108235930bc6927ce9cae54f092b429c1573962": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4441422",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4441422",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "KT, 5천124억원 소송 지연공시…불성실공시법인 지정예고",
+      "article_path": "content/articles/published/2026-10-27-bd76b9e0-kt-5124-billion-won-claim-two-days-late.md",
+      "seen_at": "2026-10-27T09:02:05.395Z"
     }
   }
 }
