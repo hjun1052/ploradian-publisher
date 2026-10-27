@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-27T17:01:47.930Z",
+  "updated_at": "2026-10-27T18:02:57.069Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -2177,6 +2177,14 @@
       "title": "Meta’s $25 billion legal loss just put blood in the water",
       "article_path": "content/articles/published/2026-10-28-7902623a-meta-25-billion-tax-on-speech.md",
       "seen_at": "2026-10-27T17:01:47.930Z"
+    },
+    "37611f329bc78fa9645ff374c14d77a88a9398869506060fa9d6d731abd70b46": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4441373",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4441373",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "한화시스템, 3Q 영업익 991억…중동향 레이더 수출 호조(종합)",
+      "article_path": "content/articles/published/2026-10-28-37611f32-hanwha-systems-q3-operating-profit-net-income.md",
+      "seen_at": "2026-10-27T18:02:57.069Z"
     }
   }
 }
