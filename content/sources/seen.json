@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-27T12:31:48.037Z",
+  "updated_at": "2026-10-27T15:01:47.999Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -2153,6 +2153,14 @@
       "title": "통화정책방향(2026.10.22)",
       "article_path": "content/articles/published/2026-10-27-f71fd5f9-bok-rate-hold-2026-households-pay-hidden-bill.md",
       "seen_at": "2026-10-27T12:31:48.037Z"
+    },
+    "2c144bb2c137f29ed21fba453b71c7d0c1d109a3cad2400da6089289a052f764": {
+      "url": "https://www.theverge.com/gadgets/1019274/anduril-qualcomm-bluechip-laptops-american-made-military",
+      "canonical_url": "https://www.theverge.com/gadgets/1019274/anduril-qualcomm-bluechip-laptops-american-made-military",
+      "source_name": "The Verge",
+      "title": "Palmer Luckey’s Anduril is getting into laptops — and claims they&#8217;ll be American-made",
+      "article_path": "content/articles/published/2026-10-28-2c144bb2-anduril-bluechip-laptop-american-made-claim.md",
+      "seen_at": "2026-10-27T15:01:47.999Z"
     }
   }
 }
