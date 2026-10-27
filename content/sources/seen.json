@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-27T16:01:50.335Z",
+  "updated_at": "2026-10-27T17:01:47.930Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -2169,6 +2169,14 @@
       "title": "애플 '아이폰 듀오' 초기 공급 600만대 이하 전망…수요 초과도",
       "article_path": "content/articles/published/2026-10-28-c8082b3d-apple-iphone-duo-initial-supply-forecast.md",
       "seen_at": "2026-10-27T16:01:50.335Z"
+    },
+    "7902623a7409394d76db71893079eac0f40657a5c2e24f4f3f680ab9c14ae591": {
+      "url": "https://www.theverge.com/policy/1019604/new-mexico-meta-cambridge-analytica-kids-safety-settlement",
+      "canonical_url": "https://www.theverge.com/policy/1019604/new-mexico-meta-cambridge-analytica-kids-safety-settlement",
+      "source_name": "The Verge",
+      "title": "Meta’s $25 billion legal loss just put blood in the water",
+      "article_path": "content/articles/published/2026-10-28-7902623a-meta-25-billion-tax-on-speech.md",
+      "seen_at": "2026-10-27T17:01:47.930Z"
     }
   }
 }
