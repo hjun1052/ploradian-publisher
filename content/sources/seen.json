@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-27T18:02:57.069Z",
+  "updated_at": "2026-10-27T23:02:48.070Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -2185,6 +2185,14 @@
       "title": "한화시스템, 3Q 영업익 991억…중동향 레이더 수출 호조(종합)",
       "article_path": "content/articles/published/2026-10-28-37611f32-hanwha-systems-q3-operating-profit-net-income.md",
       "seen_at": "2026-10-27T18:02:57.069Z"
+    },
+    "8b2d32a128d5af0502cf386c6086b472982273f8ca7bbae2a10104f41987381a": {
+      "url": "https://arstechnica.com/ai/2026/10/anthropic-ipo-warns-its-ai-could-blackmail-people-become-sentient-end-humanity/",
+      "canonical_url": "https://arstechnica.com/ai/2026/10/anthropic-ipo-warns-its-ai-could-blackmail-people-become-sentient-end-humanity/",
+      "source_name": "Ars Technica",
+      "title": "Anthropic IPO warns its AI could blackmail people, become sentient, end humanity",
+      "article_path": "content/articles/published/2026-10-28-8b2d32a1-anthropic-ipo-93-page-risk-factors.md",
+      "seen_at": "2026-10-27T23:02:48.070Z"
     }
   }
 }
