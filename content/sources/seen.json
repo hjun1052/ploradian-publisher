@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-27T00:01:27.918Z",
+  "updated_at": "2026-10-27T03:01:12.682Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -2081,6 +2081,14 @@
       "title": "방미통위, 구글·애플 과징금 637억원 가닥…시정조치 범위 이견",
       "article_path": "content/articles/published/2026-10-27-05b6e1a0-bang-mitong-google-apple-637-billion-fine.md",
       "seen_at": "2026-10-27T00:01:27.918Z"
+    },
+    "8f010ab51c67da9d3420a8d93dcc52c91bf354aeede3b5eb08bce5b1df6c2f41": {
+      "url": "https://www.boannews.com/news/articleView.html?idxno=146769",
+      "canonical_url": "https://www.boannews.com/news/articleView.html?idxno=146769",
+      "source_name": "보안뉴스 사건사고",
+      "title": "KB국민은행 개인정보 유출 추가 확인…119명→2210명 확산",
+      "article_path": "content/articles/published/2026-10-27-8f010ab5-kb-bank-leak-119-to-2210.md",
+      "seen_at": "2026-10-27T03:01:12.682Z"
     }
   }
 }
