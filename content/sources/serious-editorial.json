@@ -1,7 +1,15 @@
 {
   "version": 1,
-  "updated_at": "2026-10-13T12:32:23.126Z",
+  "updated_at": "2026-10-27T12:31:48.302Z",
   "recent": [
+    {
+      "date": "2026-10-27",
+      "axis": "생활경제",
+      "institution": "한국은행",
+      "angle_type": "hidden_cost_risk",
+      "title": "기준금리 동결 3.00%, 설명되지 않은 청구서는 가계로 간다",
+      "source_url": "https://www.bok.or.kr/portal/bbs/P0000559/view.do?nttId=11065823&menuNo=200690"
+    },
     {
       "date": "2026-10-13",
       "axis": "정책",
