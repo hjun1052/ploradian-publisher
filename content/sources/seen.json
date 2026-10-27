@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-27T04:02:57.999Z",
+  "updated_at": "2026-10-27T05:04:04.946Z",
   "items": {
     "651e2d5687f7b27f92e6828da9daedc07fd494137372c24a8e06f5ba8e20a2d8": {
       "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
@@ -2097,6 +2097,14 @@
       "title": "[영상] 애플, 329만원짜리 아이폰듀오 화면파손 결함 인정…\"무상교체\"",
       "article_path": "content/articles/published/2026-10-27-1197cb36-apple-iphone-duo-screen-defect-replacement.md",
       "seen_at": "2026-10-27T04:02:57.999Z"
+    },
+    "9cd22710c42aabfd36b0b9893172b5b2bf28fad15101175a76bd7f68a4cbffa4": {
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4441341",
+      "canonical_url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4441341",
+      "source_name": "연합인포맥스 IB/기업",
+      "title": "공정위, 4년 이상 끈 삼성전자 제재…과징금 왜 줄었나",
+      "article_path": "content/articles/published/2026-10-27-9cd22710-samsung-gos-fine-cut-after-four-years.md",
+      "seen_at": "2026-10-27T05:04:04.946Z"
     }
   }
 }
