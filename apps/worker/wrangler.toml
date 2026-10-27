@@ -29,6 +29,8 @@ head_sampling_rate = 1.0
 crons = []  # generation OFF to stop API spend; restore ["*/30 * * * *"] to resume
 
 [vars]
+# Kill switch for the scheduled handler: "false" = cron wakes up and exits without calling any API. Set "true" to resume.
+GENERATION_ENABLED = "false"
 AI_PROVIDER = "openai"
 OPENAI_MODEL = "gpt-5.4"
 OPENAI_ARTICLE_MODEL = "anthropic/claude-sonnet-5.5"

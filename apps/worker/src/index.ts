@@ -4,6 +4,12 @@ import { handleReactionRequest } from "./reactions";
 
 export default {
   async scheduled(_controller, env, ctx): Promise<void> {
+    // Kill switch: with GENERATION_ENABLED="false" the cron wakes up and exits before any API call is made.
+    if ((env as unknown as Record<string, string | undefined>).GENERATION_ENABLED?.trim().toLowerCase() === "false") {
+      console.log(JSON.stringify({ event: "scheduled_run_skipped", reason: "GENERATION_ENABLED=false" }));
+      return;
+    }
+
     ctx.waitUntil(
       runPublishingPipeline(env, { trigger: "scheduled" })
         .then((result) => {
